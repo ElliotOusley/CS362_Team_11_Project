@@ -1,12 +1,19 @@
 # Beaver Builders (Group 11)
 
 ## Team Members
-- **Elliot Ousley**  
-- **Nathen dela Torre**  
-- **Carlos Vasquez**  
-- **Ben Snider**  
-- **Hau’oli O’Brien**
-- **Philensakada Thavrin**
+**Elliot Ousley:** Project Manager: Responsible for overall project coordination, task delegation, and ensuring the team meets deadlines. 
+
+**Nathen dela Torre:** Gameplay Developer: Implements key game mechanics such as movement, inventory systems, and battle scenes using Godot. 
+
+**Carlos Vasquez:** Backend Systems Developer: Focuses on implementing underlying game logic, data handling, and ensuring smooth integration of features like saving/loading game states. 
+
+**Ben Snider:** Audio and Music Designer: Composes background music, sound effects, and ensures audio integration aligns with gameplay and player experience. 
+
+**Hau’oli O’Brien:** QA Tester and Documentation Specialist: Ensures the game is thoroughly tested, tracks bugs, and documents processes for future use. 
+
+**Seth Taylor:** Level Designer: Designs and builds engaging levels and environments, ensuring a seamless blend of challenge, exploration, and visual appeal. 
+
+**Philensakada Thavrin:** UI/UX Designer: Create interfaces and ensures a smooth user experience by focusing on accessibility and visual clarity. 
 
 
 ## Educational Game for Learning Coding
