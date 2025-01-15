@@ -5,7 +5,8 @@
 - **Nathen dela Torre**  
 - **Carlos Vasquez**  
 - **Ben Snider**  
-- **Hau’oli O’Brien**  
+- **Hau’oli O’Brien**
+- **Philensakada Thavrin**
 
 
 ## Educational Game for Learning Coding
