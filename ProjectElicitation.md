@@ -158,7 +158,39 @@ Each team member must come up with and describe at least one use case of your pr
 - **Exceptions: Failure Conditions and Scenarios:**
   - Missing Prerequisites – The player has not achieved a certain goal or obtained a certain item that would open up dialogue trees.
 
-### 7. Philensakada
+### 7. Sakada
+
+**Use Case:** Equip Item from Inventory
+
+- **Actors:**
+  - Player: The program’s user.
+  - System: Game inventory and equipment system.
+
+- **Triggers:**
+  - The player opens the inventory menu during exploration or between battles.
+
+- **Preconditions:**
+  - The player has at least one equippable item in their inventory.
+  - The inventory menu is accessible via the game’s UI.
+
+- **Postconditions (Success Scenario):**
+  - The item is successfully equipped, updating the character’s stats and appearance (if applicable).
+  - The inventory menu reflects the equipped item, and the previously equipped item (if any) is unequipped.
+
+- **List of Steps (Success Scenario):**
+  1. Player presses a designated button to open the inventory menu.
+  2. System displays the inventory UI, showing all items.
+  3. Player selects an equippable item (e.g., sword) from the list.
+  4. Player confirms the selection to equip the item.
+  5. System updates the character’s stats based on the item’s attributes.
+  6. System marks the item as equipped and unequips any conflicting item.
+  7. Player exits the inventory menu and returns to gameplay.
+
+- **Extensions/Variations of the Success Scenario:**
+  - The player uses filters to quickly view specific categories (e.g., only weapons).
+
+- **Exceptions: Failure Conditions and Scenarios:**
+  - Invalid Item Type: Player tries to equip an item incompatible with their character: 
 
 # 2. Non-functional Requirements
 
