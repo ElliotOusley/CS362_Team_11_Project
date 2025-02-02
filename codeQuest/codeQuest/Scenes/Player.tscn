@@ -1,6 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cce3ge1fy6voy"]
 
 [ext_resource type="Script" path="res://Scenes/character_body_2d.gd" id="1_ch48f"]
+[ext_resource type="Texture2D" uid="uid://b2sf6fqrm77qr" path="res://Sprites/Red_Apothecary_Wizard_Front.png" id="1_v1a60"]
 [ext_resource type="Texture2D" uid="uid://cumnhaq8g4xnx" path="res://Sprites/Light_Texture.png" id="3_14718"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2uurk"]
