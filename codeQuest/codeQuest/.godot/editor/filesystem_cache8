@@ -1,21 +1,22 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1738457487
+::res://::1738459917
 icon.svg::CompressedTexture2D::2690326859916116300::1737668103::1738457490::1::::<><>::
-::res://Audio/::1737668103
+::res://Audio/::1738457490
 Peaceful Hilltop Trail - Nature Sounds - Relaxing.mp3::AudioStreamMP3::491485238449022335::1737668103::1738457490::1::::<><>::
-::res://Scenes/::1737668103
-character_body_2d.gd::GDScript::-1::1737668103::0::1::::<>CharacterBody2D<>::
-Main.tscn::PackedScene::9149449993022985384::1737668103::0::1::::<><>::uid://cb4gudtdaj4nk::::res://Sprites/Atlases/Tile_Atlas_1.png<>uid://cce3ge1fy6voy::::res://Scenes/Player.tscn<>uid://hacxpyr4syxr::::res://Audio/Peaceful Hilltop Trail - Nature Sounds - Relaxing.mp3<>uid://bgxju13b4d8tw::::res://Scenes/Witch.tscn
-Player.tscn::PackedScene::4923187606758204128::1737668103::0::1::::<><>::res://Scenes/character_body_2d.gd<>uid://b2sf6fqrm77qr::::res://Sprites/Red_Apothecary_Wizard_Sprite.png<>uid://cumnhaq8g4xnx::::res://Sprites/Light_Texture.png
-Witch.tscn::PackedScene::2855618011623639592::1737668103::0::1::::<><>::uid://bdcjv77a1luuv::::res://Sprites/Red_Apothecary_Blue_Witch_Sprite.png<>uid://cumnhaq8g4xnx::::res://Sprites/Light_Texture.png
-::res://Sprites/::1737668103
+::res://Scenes/::1738458427
+character_body_2d.gd::GDScript::-1::1738458427::0::1::::<>CharacterBody2D<>::
+Main.tscn::PackedScene::9149449993022985384::1738457916::0::1::::<><>::uid://cb4gudtdaj4nk::::res://Sprites/Atlases/Tile_Atlas_1.png<>uid://cce3ge1fy6voy::::res://Scenes/Player.tscn<>uid://hacxpyr4syxr::::res://Audio/Peaceful Hilltop Trail - Nature Sounds - Relaxing.mp3<>uid://bgxju13b4d8tw::::res://Scenes/Witch.tscn
+Player.tscn::PackedScene::4923187606758204128::1738459923::0::1::::<><>::res://Scenes/character_body_2d.gd<>uid://cumnhaq8g4xnx::::res://Sprites/Light_Texture.png
+Witch.tscn::PackedScene::2855618011623639592::1738457916::0::1::::<><>::uid://bdcjv77a1luuv::::res://Sprites/Red_Apothecary_Blue_Witch_Sprite.png<>uid://cumnhaq8g4xnx::::res://Sprites/Light_Texture.png
+::res://Scripts/::1738459917
+::res://Sprites/::1738457490
 Light_Texture.png::CompressedTexture2D::6202192620884289941::1737668103::1738457490::1::::<><>::
 Red_Apothecary_Blue_Witch_Sprite.png::CompressedTexture2D::2601701654938365573::1737668103::1738457490::1::::<><>::
 Test_Tile_1.png::CompressedTexture2D::5747329314043917846::1737668103::1738457490::1::::<><>::
-::res://Sprites/Atlases/::1737668103
+::res://Sprites/Atlases/::1738457490
 Tile_Atlas_1.png::CompressedTexture2D::4903297370784693024::1737668103::1738457490::1::::<><>::
 ::res://Sprites/Characters/::1737668103
-::res://Sprites/Characters/Red_Wizard/::1737668103
+::res://Sprites/Characters/Red_Wizard/::1738457490
 Red_Wizard_Back.png::CompressedTexture2D::775777378096080282::1737668103::1738457490::1::::<><>::
 Red_Wizard_Front.png::CompressedTexture2D::2485599638788480820::1737668103::1738457490::1::::<><>::
 Red_Wizard_Left.png::CompressedTexture2D::7954974915082129121::1737668103::1738457490::1::::<><>::
