@@ -9,6 +9,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_neighbor_top = NodePath("Menu/QuitButton")
+focus_neighbor_bottom = NodePath("Menu/OptionsButton")
 script = ExtResource("1_e1sga")
 
 [node name="Menu" type="VBoxContainer" parent="."]
@@ -30,6 +32,8 @@ text = "Options"
 
 [node name="QuitButton" type="Button" parent="Menu"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../OptionsButton")
+focus_neighbor_bottom = NodePath("../StartButton")
 text = "Quit"
 
 [connection signal="pressed" from="Menu/StartButton" to="." method="_on_start_button_pressed"]
