@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cce3ge1fy6voy"]
+[gd_scene load_steps=6 format=3 uid="uid://cce3ge1fy6voy"]
 
 [ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="1_ch48f"]
 [ext_resource type="Texture2D" uid="uid://bbobp0d3gug0k" path="res://Sprites/Characters/Red_Wizard/Red_Wizard_Front.png" id="2_mneud"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2uurk"]
 size = Vector2(18, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3oo8r"]
+radius = 20.025
 
 [node name="Node2D" type="Node2D"]
 
@@ -29,3 +32,11 @@ shape = SubResource("RectangleShape2D_2uurk")
 color = Color(1, 1, 1, 0.392157)
 texture = ExtResource("3_14718")
 texture_scale = 3.25
+
+[node name="Direction" type="Marker2D" parent="CharacterBody2D"]
+
+[node name="ActionableFinder" type="Area2D" parent="CharacterBody2D/Direction"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Direction/ActionableFinder"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_3oo8r")

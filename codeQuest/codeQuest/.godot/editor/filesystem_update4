@@ -1,3 +1,6 @@
 res://Scenes/Main.tscn
 res://Scenes/Player.tscn
 res://Scenes/Witch.tscn
+res://Scripts/character_body_2d.gd
+res://actionable.gd
+res://Scenes/Actionable.tscn
