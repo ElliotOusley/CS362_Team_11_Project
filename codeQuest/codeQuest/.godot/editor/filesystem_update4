@@ -1,0 +1,8 @@
+res://Scenes/Main.tscn
+res://Scenes/Player.tscn
+res://Scenes/Witch.tscn
+res://Scenes/Actionable.tscn
+res://Scenes/main_menu.gd
+res://Scenes/MainMenu.tscn
+res://Scenes/Options.tscn
+res://Scenes/options.gd
