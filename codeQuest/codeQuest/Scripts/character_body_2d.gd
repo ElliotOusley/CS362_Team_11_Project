@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 50
+@onready var actionable_finder: Area2D = $Direction/ActionableFinder
 
 var back_texture : Texture
 var front_texture : Texture
@@ -15,6 +16,12 @@ func _ready():
 
 func get_input():
 	var input_direction = Vector2.ZERO
+	if Input.is_action_just_pressed("ui_accept"):
+		var actionables = actionable_finder.get_overlapping_areas()
+		if actionables.size() > 0:
+			actionables[0].action()
+			input_direction = Vector2.ZERO
+			return
 	
 	#If statements allow for 4-directional movement
 	#No diagonals allowed
