@@ -2,6 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://bdcjv77a1luuv" path="res://Sprites/Red_Apothecary_Blue_Witch_Sprite.png" id="1_2tl72"]
 [ext_resource type="Texture2D" uid="uid://cumnhaq8g4xnx" path="res://Sprites/Light_Texture.png" id="2_78vig"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="Script" path="res://Scripts/actionable.gd" id="3_opo43"]
+[ext_resource type="Resource" uid="uid://bthhw71i84bl" path="res://Dialogue/test1.dialogue" id="4_mig4n"]
+>>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dlw4j"]
 size = Vector2(18, 31)

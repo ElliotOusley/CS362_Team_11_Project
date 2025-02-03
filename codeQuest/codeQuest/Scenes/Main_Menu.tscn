@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc4c1ov6drjjj"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_733vt"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_733vt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 393.0
+offset_right = 128.0
+offset_bottom = 521.0
+scale = Vector2(1.71408, 1.71408)
+
+[node name="TitleText" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "CodeQuest"
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
