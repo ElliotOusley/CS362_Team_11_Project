@@ -26,18 +26,18 @@ func get_input():
 	#If statements allow for 4-directional movement
 	#No diagonals allowed
 	if Input.is_action_pressed("up"):
-		input_direction.y = -1
+		input_direction.y += -1
 	if Input.is_action_pressed("down"):
-		input_direction.y = 1
+		input_direction.y += 1
 	if Input.is_action_pressed("left"):
-		input_direction.x = -1
+		input_direction.x += -1
 	if Input.is_action_pressed("right"):
-		input_direction.x = 1
+		input_direction.x += 1
 		
 	velocity = input_direction.normalized() * speed
 	change_sprite()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_input()
 	move_and_slide()
 
