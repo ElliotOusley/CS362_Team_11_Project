@@ -12,6 +12,9 @@ All Game Development related files can be found in the CodeQuest Directory. The 
 # Reports
 Weekly meeting reports are located in the [reports folder](https://github.com/ElliotOusley/CS362_Team_11_Project/tree/main/reports), and Team meeting notes can be found in the [meeting notes folder](https://github.com/ElliotOusley/CS362_Team_11_Project/tree/main/Meeting_Notes)
 
+# Trello
+Progress on the project can be seen on our [Trello Board](https://trello.com/b/Lz0f5vrL/pt11-project)
+
 # Project Overview
 Our Project, CodeQuest is a Puzzle RPG that encourages players to learn code while keeping a traditional RPG experience.
 
