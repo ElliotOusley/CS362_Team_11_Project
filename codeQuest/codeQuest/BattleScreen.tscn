@@ -32,6 +32,7 @@ offset_left = 346.0
 offset_top = 510.0
 offset_right = 446.0
 offset_bottom = 560.0
+text = "Submit"
 
 [node name="TextEdit" type="TextEdit" parent="Panel"]
 custom_minimum_size = Vector2(500, 200)
@@ -40,6 +41,7 @@ offset_left = 147.0
 offset_top = 291.0
 offset_right = 647.0
 offset_bottom = 491.0
+placeholder_text = "Enter Corrected Code"
 
 [node name="ChallengeLabel" type="Label" parent="Panel"]
 layout_mode = 0
@@ -57,13 +59,7 @@ offset_right = 678.0
 offset_bottom = 132.0
 text = "Lives Left: 3"
 
-[node name="TimerLabel" type="Label" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -50.0
-offset_top = 81.0
-offset_right = 50.0
-offset_bottom = 104.0
-grow_horizontal = 2
-text = "Time Left: 60"
+[node name="TimerLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
