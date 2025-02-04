@@ -1,7 +1,11 @@
-Sprite2D
+RichTextLabel
+Timer
 Button
+TextEdit
 Label
-VBoxContainer
 CollisionShape2D
+Sprite2D
+CharacterBody2D
+VBoxContainer
 Area2D
 Marker2D
