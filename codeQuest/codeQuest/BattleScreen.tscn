@@ -1,35 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2u31fif4sqex"]
+
+[gd_scene load_steps=3 format=3 uid="uid://c2u31fif4sqex"]
 
 [ext_resource type="Script" path="res://BattleScreen.gd" id="1_cfjju"]
 
-[node name="BattleScreen" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2ol4"]
+bg_color = Color(0.239531, 0.639901, 0.871563, 1)
+
+[node name="BattleScreen" type="CanvasLayer"]
 script = ExtResource("1_cfjju")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Fix the code!"
+[node name="Panel" type="Panel" parent="."]
+offset_right = 800.0
+offset_bottom = 600.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_s2ol4")
 
-[node name="TextEdit" type="TextEdit" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="Timer" type="Timer" parent="."]
-
-[node name="Label2" type="RichTextLabel" parent="."]
-layout_mode = 0
+[node name="Label2" type="RichTextLabel" parent="Panel"]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Timer" type="Timer" parent="Panel"]
+
+[node name="Button" type="Button" parent="Panel"]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="TextEdit" type="TextEdit" parent="Panel"]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Label" type="Label" parent="Panel"]
+offset_right = 98.0
+offset_bottom = 23.0
+text = "Fix the code!"

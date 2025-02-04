@@ -3,20 +3,37 @@ extends Node2D
 var battle_instance  # Store reference to BattleScreen
 
 func start_battle():
-	print("Battle started!")
+	print("Battle started! Trying to instantiate BattleScreen...")
 
 	# Load and add the battle UI
-	var battle_scene = preload("res://BattleScreen.tscn")  # Update path if needed
+	var battle_scene = preload("res://BattleScreen.tscn")  # Ensure the path is correct
 	battle_instance = battle_scene.instantiate()
+
+	if battle_instance == null:
+		print("ERROR: Failed to instantiate BattleScreen!")
+		return
+	
 	add_child(battle_instance)
+	print("BattleScreen added to the scene successfully!")
 
 	# Connect signals properly
-	battle_instance.battle_won.connect(_on_battle_won)
-	battle_instance.battle_lost.connect(_on_battle_lost)
+	if battle_instance.has_signal("battle_won"):
+		battle_instance.battle_won.connect(_on_battle_won)
+	else:
+		print("ERROR: BattleScreen is missing 'battle_won' signal!")
 
-	# Pause everything EXCEPT the UI
+	if battle_instance.has_signal("battle_lost"):
+		battle_instance.battle_lost.connect(_on_battle_lost)
+	else:
+		print("ERROR: BattleScreen is missing 'battle_lost' signal!")
+
+	# Ensure the BattleScreen processes input even if the game is paused
+	battle_instance.process_mode = Node.PROCESS_MODE_ALWAYS  
+
+	# Pause everything EXCEPT the BattleScreen
 	get_tree().paused = true
-	battle_instance.process_mode = Node.PROCESS_MODE_ALWAYS  # Ensure BattleScreen remains interactive
+	print("Game paused, BattleScreen should still work.")
+
 
 func _on_battle_won() -> void:
 	print("Battle won! Removing Witch.")
@@ -29,12 +46,16 @@ func _on_battle_won() -> void:
 	if witch:
 		witch.queue_free()
 
+		print("Witch removed.")
+
+
 	# Remove the battle UI
 	if battle_instance:
 		battle_instance.queue_free()
-		battle_instance = null  # Clear reference
 
-	print("Witch defeated!")
+		battle_instance = null
+		print("BattleScreen removed.")
+
 
 func _on_battle_lost() -> void:
 	print("Battle lost! Witch remains.")
@@ -46,5 +67,5 @@ func _on_battle_lost() -> void:
 	if battle_instance:
 		battle_instance.queue_free()
 		battle_instance = null
+		print("BattleScreen removed, Witch stays.")
 
-	print("Player failed the challenge.")
