@@ -9,25 +9,60 @@ bg_color = Color(0.239531, 0.639901, 0.871563, 1)
 script = ExtResource("1_cfjju")
 
 [node name="Panel" type="Panel" parent="."]
-offset_right = 800.0
-offset_bottom = 600.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_s2ol4")
-
-[node name="Label2" type="RichTextLabel" parent="Panel"]
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="Timer" type="Timer" parent="Panel"]
 
-[node name="Button" type="Button" parent="Panel"]
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="SubmitButton" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 0
+offset_left = 346.0
+offset_top = 510.0
+offset_right = 446.0
+offset_bottom = 560.0
 
 [node name="TextEdit" type="TextEdit" parent="Panel"]
-offset_right = 8.0
-offset_bottom = 8.0
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 0
+offset_left = 147.0
+offset_top = 291.0
+offset_right = 647.0
+offset_bottom = 491.0
 
-[node name="Label" type="Label" parent="Panel"]
-offset_right = 98.0
-offset_bottom = 23.0
+[node name="ChallengeLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 91.0
+offset_right = 641.0
+offset_bottom = 274.0
 text = "Fix the code!"
+
+[node name="FeedbackLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 541.0
+offset_top = 55.0
+offset_right = 678.0
+offset_bottom = 132.0
+text = "Lives Left: 3"
+
+[node name="TimerLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = 81.0
+offset_right = 50.0
+offset_bottom = 104.0
+grow_horizontal = 2
+text = "Time Left: 60"
