@@ -1,4 +1,6 @@
+
 extends CanvasLayer
+
 
 signal battle_won
 signal battle_lost
@@ -10,6 +12,7 @@ print("Hello World)  # missing quote
 
 @export var time_limit: float = 30.0
 var time_left: float
+
 
 # Onready variables to ensure nodes exist before accessing them
 @onready var text_edit = $Panel/TextEdit
@@ -42,21 +45,27 @@ func _on_Timer_timeout() -> void:
 	fail_battle()
 
 func _on_Button_pressed() -> void:
+
 	var player_solution = text_edit.text
 	if _check_solution(player_solution):
 		success_battle()
 	else:
 		feedback_label.text = "❌ Incorrect! Try again quickly."
 
+
 func _check_solution(solution: String) -> bool:
 	return solution.strip_edges() == correct_solution.strip_edges()
 
 func success_battle() -> void:
+
 	print("✅ Player solved the challenge!")
+
 	emit_signal("battle_won")  
 	queue_free()  # Remove the battle UI
 
 func fail_battle() -> void:
+
 	print("❌ Player failed the challenge!")
+
 	emit_signal("battle_lost") 
 	queue_free()  # Remove the battle UI
