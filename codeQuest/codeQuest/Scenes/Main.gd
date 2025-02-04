@@ -39,6 +39,7 @@ func start_battle():
 	get_tree().paused = true
 	print("⏸️ Game paused, BattleScreen should still work.")
 
+
 func _on_battle_won() -> void:
 	print("🎉 Battle won! Removing Witch.")
 
@@ -51,11 +52,15 @@ func _on_battle_won() -> void:
 		witch.queue_free()
 		print("🧙 Witch removed.")
 
+
+
 	# Remove the battle UI
 	if battle_instance:
 		battle_instance.queue_free()
+
 		battle_instance = null
 		print("✅ BattleScreen removed.")
+
 
 func _on_battle_lost() -> void:
 	print("💀 Battle lost! Witch remains.")
