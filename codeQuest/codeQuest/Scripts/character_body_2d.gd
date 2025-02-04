@@ -27,11 +27,11 @@ func get_input():
 	#No diagonals allowed
 	if Input.is_action_pressed("up"):
 		input_direction.y = -1
-	elif Input.is_action_pressed("down"):
+	if Input.is_action_pressed("down"):
 		input_direction.y = 1
-	elif Input.is_action_pressed("left"):
+	if Input.is_action_pressed("left"):
 		input_direction.x = -1
-	elif Input.is_action_pressed("right"):
+	if Input.is_action_pressed("right"):
 		input_direction.x = 1
 		
 	velocity = input_direction.normalized() * speed
