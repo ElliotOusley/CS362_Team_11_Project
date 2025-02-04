@@ -1,4 +1,11 @@
-res://Scenes/Player.tscn
-res://Scripts/code_block.gd
-res://Scenes/CodeBlocks/test_block.gd
+res://Scenes/Witch.tscn
+res://Scenes/Main.tscn
 res://Scenes/TestCodeChallange/TestCodeChallenge.tscn
+res://Scenes/Player.tscn
+res://Scenes/Actionable.tscn
+res://Scenes/CodeBlocks/TestBlock.tscn
+res://Scenes/witch.gd
+res://BattleScreen.tscn
+res://BattleScreen.gd
+res://Scenes/Main.gd
+res://Scripts/character_body_2d.gd

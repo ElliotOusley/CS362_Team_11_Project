@@ -1,36 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgxju13b4d8tw"]
+[gd_scene load_steps=4 format=3 uid="uid://bgxju13b4d8tw"]
 
 [ext_resource type="Texture2D" uid="uid://bdcjv77a1luuv" path="res://Sprites/Red_Apothecary_Blue_Witch_Sprite.png" id="1_2tl72"]
-[ext_resource type="Texture2D" uid="uid://cumnhaq8g4xnx" path="res://Sprites/Light_Texture.png" id="2_78vig"]
-[ext_resource type="Script" path="res://actionable.gd" id="3_opo43"]
-[ext_resource type="Resource" uid="uid://bthhw71i84bl" path="res://Dialogue/test1.dialogue" id="4_mig4n"]
+[ext_resource type="Script" path="res://Scenes/witch.gd" id="1_ys0yg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlw4j"]
-size = Vector2(18, 31)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_2ejon"]
-radius = 37.3363
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxqog"]
+size = Vector2(22, 31)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Witch" type="CharacterBody2D" parent="."]
+script = ExtResource("1_ys0yg")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-texture_filter = 1
+[node name="Sprite2D" type="Sprite2D" parent="Witch"]
 texture = ExtResource("1_2tl72")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Witch"]
 position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_dlw4j")
-
-[node name="PointLight2D" type="PointLight2D" parent="StaticBody2D"]
-color = Color(1, 1, 1, 0.392157)
-texture = ExtResource("2_78vig")
-texture_scale = 3.25
-
-[node name="Actionable" type="Area2D" parent="StaticBody2D"]
-script = ExtResource("3_opo43")
-dialogue_resource = ExtResource("4_mig4n")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Actionable"]
-shape = SubResource("CircleShape2D_2ejon")
+shape = SubResource("RectangleShape2D_lxqog")
