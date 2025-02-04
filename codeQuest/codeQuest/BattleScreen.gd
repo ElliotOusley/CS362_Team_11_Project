@@ -153,9 +153,10 @@ func _ready():
 	_show_current_challenge()
 
 	# 5) Configure Timer
-	timer.wait_time = time_limit
-	timer.timeout.connect(_on_Timer_timeout)
+	timer.wait_time = 1.0
+	timer.timeout.connect(_on_Timer_tick)
 	timer.start()
+	_update_timer_display()
 
 	# 6) Connect the submit button
 	submit_button.pressed.connect(_on_SubmitButton_pressed)
@@ -218,4 +219,19 @@ func success_battle():
 func fail_battle():
 	print("❌ Player failed (out of time or lives)!")
 	emit_signal("battle_lost")
-	queue_free()
+	queue_free()	
+	
+func _on_Timer_tick() -> void:
+	# Decrease time left
+	time_left -= 1
+	_update_timer_display()
+
+	# Check if time is up
+	if time_left <= 0:
+		fail_battle()
+	else:
+		timer.start()  # Restart the timer for the next tick
+
+func _update_timer_display():
+	# Update the TimerLabel to show the time left
+	timer_label.text = "⏳ Time Left: %d sec" % time_left
