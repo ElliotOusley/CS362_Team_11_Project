@@ -1,4 +1,6 @@
+
 extends CanvasLayer
+
 
 signal battle_won
 signal battle_lost
@@ -123,6 +125,7 @@ end"""
 @export var time_limit: float = 60.0  # total time to solve all 3 challenges
 @export var total_lives: int = 3     # total incorrect attempts allowed
 
+
 # We'll pick 3 random challenges from the list above
 var selected_challenges: Array = []
 var current_challenge_index: int = 0
@@ -163,6 +166,7 @@ func _ready():
 	feedback_label.text = "Lives: %d" % current_lives
 	print("✅ BattleScreen ready with 3 random challenges. Time limit: %s seconds." % time_limit)
 
+
 func _pick_random_challenges():
 	# Copy the main array so we don't modify the original
 	var copy_array = all_challenges.duplicate()
@@ -184,6 +188,7 @@ func _show_current_challenge():
 	feedback_label.text = "Lives: %d" % current_lives
 
 func _on_SubmitButton_pressed():
+
 	var player_solution = text_edit.text
 	_check_solution(player_solution)
 
@@ -206,6 +211,7 @@ func _check_solution(solution: String):
 		if current_lives <= 0:
 			fail_battle()
 
+
 func _on_Timer_timeout():
 	# Time is up => fail
 	fail_battle()
@@ -219,3 +225,4 @@ func fail_battle():
 	print("❌ Player failed (out of time or lives)!")
 	emit_signal("battle_lost")
 	queue_free()
+
