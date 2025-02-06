@@ -153,48 +153,21 @@ Identify milestones (external and internal), define tasks along with effort esti
 To build a schedule, start with your major milestones (tend to be noun-like) and fill in the tasks (tend to start with a verb) that will allow you to achieve them. A simple table is sufficient for this size of a project. 
 
 Timeline 
-
-Development team: 
-
-Week 3: Polish existing movement system and create save system 
-
-Week 4: Implement dialogue system 
-
-Week 5: Implement placing blocks in ui 
-
-Week 6: Implement code block functionality 
-
-Week 7: Create battle system 
-
-Week 8: Polish and test code block system 
-
-Week 9: Implement battle system stretch goals 
-
-Week 10: Final Testing 
-
-Design Team: 
-
-Week 3: Create tile map and two NPC sprites 
-
-Week 4: Design UI for dialogue and inventory systems 
-
-Week 5: Design UI for code block puzzles and make prototypes for levels 
-
-Week 6: Create levels and environments and design code block puzzles 
-
-Week 7: Create or find appropriate music and sound effects 
-
-Week 8: Create UI and sprites for battle system 
-
-Week 9: Create sprites for NPC Dialogue 
-
-Week 10: Final Testing 
+| Week     | Development Tasks | Design Tasks |
+| ----------- | ----------- | ---------------- |
+| Week 3  | Polish existing movement system | Create tile map and two NPC sprites  |
+| Week 4  | Implement dialogue system | Design UI for dialogue and inventory systems  |
+| Week 5  | Implement placing blocks in ui | Design UI for code block puzzles and make prototypes for levels  |
+| Week 6  | Implement code block functionality  | Create levels and environments and design code block puzzles  |
+| Week 7  | Create save system  | Create or find appropriate music and sound effects  |
+| Week 8  | Polish and test code block system  | Polish Existing sprites |
+| Week 9  | Implement battle system and other stretch goals |  Add additional animations and animation trees |
+| Week 10 | Final Testing | Final Testing |
 
 Logistics Team: 
 
 Every Week: write documentation, set up meetings, communicate with project managers, keep up to date with team progress, and step in to assist sub-teams when time allows. 
 
- 
 
 ### iii. Team structure 
 
