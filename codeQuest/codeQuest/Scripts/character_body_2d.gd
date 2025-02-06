@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed = 50
 @onready var actionable_finder: Area2D = $Direction/ActionableFinder
 
+
 var back_texture : Texture
 var front_texture : Texture
 var right_texture : Texture
