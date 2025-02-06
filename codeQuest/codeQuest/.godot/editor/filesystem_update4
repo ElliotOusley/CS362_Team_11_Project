@@ -1,3 +1,14 @@
+res://BattleScreen.tscn
+res://BattleScreen.gd
 res://Scenes/Main.tscn
+<<<<<<< HEAD
 res://Scenes/collectable.gd
 res://Scenes/inventory.gd
+=======
+res://Scenes/Main.gd
+res://Scenes/TestCodeChallange/TestCodeChallenge.tscn
+res://Scenes/Player.tscn
+res://Scenes/Actionable.tscn
+res://Scenes/CodeBlocks/TestBlock.tscn
+res://Scenes/Witch.tscn
+>>>>>>> ec0e7a92119bb08d978b243634704ae973c3c5d1

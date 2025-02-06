@@ -1,8 +1,19 @@
+<<<<<<< HEAD
 Node
 ItemList
 Button
+=======
+>>>>>>> ec0e7a92119bb08d978b243634704ae973c3c5d1
 Label
-VBoxContainer
+Panel
+CanvasLayer
+RichTextLabel
+Timer
+Button
+TextEdit
 CollisionShape2D
+Sprite2D
+CharacterBody2D
+VBoxContainer
 Area2D
 Marker2D
