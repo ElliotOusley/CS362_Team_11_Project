@@ -161,7 +161,7 @@ Timeline
 | ----------- | ----------- | ---------------- |
 | Week 3  | Polish existing movement system | Create tile map and two NPC sprites  |
 | Week 4  | Implement dialogue system | Design UI for dialogue and inventory systems  |
-| Week 5  | Implement placing blocks in ui | Design UI for code block puzzles and make prototypes for levels  |
+| Week 5  | Implement placing blocks in UI | Design UI for code block puzzles and make prototypes for levels  |
 | Week 6  | Implement code block functionality  | Create levels and environments and design code block puzzles  |
 | Week 7  | Create save system  | Create or find appropriate music and sound effects  |
 | Week 8  | Polish and test code block system  | Polish Existing sprites |
@@ -175,35 +175,33 @@ Every Week: write documentation, set up meetings, communicate with project manag
 
 ### iii. Team structure 
 
-Make sure to update your team structure, if necessary, and provide more details about team organization and team members’ roles and responsibilities. 
+#### Development Team: 
 
-Development Team: 
+* Carlos Vasqez 
 
-Carlos Vasqez 
+* Nathen dela Torre 
 
-Nathen dela Torre 
+The development team is responsible for essential game mechanics that make the project work. Responsibilities include implementing core gameplay mechanics such as dialogue, inventory systems, and movement 
 
-The development team is responsible for the most essential game mechanics that make the project work. Responsibilities include implementing core gameplay mechanics such as dialogue, inventory systems, movement, and battle scenes. 
+#### Design Team: 
 
-Design Team: 
+* Ben Snider 
 
-Ben Snider 
+* Seth Taylor 
 
-Seth Taylor 
-
-Philensakada Thavrin 
+* Philensakada Thavrin 
 
 The design team is responsible for ensuring that the project is visually appealing and fun to the player. Responsibilities include creating art and music assets, level design, fine-tuning systems, and UI design 
 
-Logistics Team: 
+#### Logistics Team: 
 
-Elliot Ousley 
+* Elliot Ousley 
 
-Hau’oli O’Brien 
+* Hau’oli O’Brien 
 
 The Logistics team is responsible for ensuring that the team meets its goals and communicates effectively within the team, to clients, and to management. Responsibilities include writing documentation, creating schedules, leading meetings with clients and management, and delegating tasks. 
 
-Specific Roles: 
+#### Specific Roles: 
 
 Elliot Ousley: Project Manager: Responsible for overall project coordination, task delegation, and ensuring the team meets deadlines. 
 
