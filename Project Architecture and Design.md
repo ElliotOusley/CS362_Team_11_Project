@@ -6,13 +6,17 @@
 
 ### Component Interfacing
 
-* The user interface connects the game scene to allow the player to use systems like the inventory and settings. 
+* User Interface nodes allow the player to use systems like the inventory and settings.  
+
+* The dialogue system interacts with area2D nodes between the player and non-player characters
+
+* The code puzzle system interacts with area2D nodes between the player and code puzzle giving objects
+
+* The save NPC interacts with the dialogue system and the player to let the player save their progress
 
 ### Data Storage
 
 The system interfaces with the user’s files to save game data. Save data that does not relate to game progression like the settings found in the options menu will be saved using a ConfigFile node.  
-
-### Assumptions
 
 ### Alternatives
 Instead of Godot, the game could be developed in Unity or Unreal Engine 
