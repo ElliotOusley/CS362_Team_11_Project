@@ -1,8 +1,8 @@
 6b83eef13f46d74bce552f92a480ef09
-::res://::1738859054
+::res://::1738859869
 actionable.gd::GDScript::-1::1738598854::0::1::::<>Area2D<>::
 BattleScreen.gd::GDScript::-1::1738854909::0::1::::<>CanvasLayer<>::
-BattleScreen.tscn::PackedScene::6710974482375103327::1738859072::0::1::::<><>::res://BattleScreen.gd
+BattleScreen.tscn::PackedScene::6710974482375103327::1738860017::0::1::::<><>::res://BattleScreen.gd
 icon.svg::CompressedTexture2D::2690326859916116300::1738556550::1738854902::1::::<><>::
 ::res://addons/::1738598854
 ::res://addons/dialogue_manager/::1738598854
@@ -61,7 +61,7 @@ editor_property_control.gd::GDScript::-1::1738598854::0::1::::<>HBoxContainer<>:
 editor_property_control.tscn::PackedScene::1689506734256736329::1738598854::0::1::::<><>::res://addons/dialogue_manager/components/editor_property/editor_property_control.gd<>uid://b16uuqjuof3n5::::res://addons/dialogue_manager/components/editor_property/resource_button.tscn<>uid://dnufpcdrreva3::::res://addons/dialogue_manager/components/files_list.tscn
 resource_button.gd::GDScript::-1::1738598854::0::1::::<>Button<>::
 resource_button.tscn::PackedScene::4276577239595711888::1738598854::0::1::::<><>::res://addons/dialogue_manager/components/editor_property/resource_button.gd
-::res://addons/dialogue_manager/example_balloon/::1738854885
+::res://addons/dialogue_manager/example_balloon/::1738859070
 example_balloon.gd::GDScript::-1::1738859070::0::1::::DialogueManagerExampleBalloon<>CanvasLayer<>::
 example_balloon.tscn::PackedScene::2304415056852043862::1738598854::0::1::::<><>::uid://d1wt4ma6055l8::::res://addons/dialogue_manager/example_balloon/example_balloon.gd<>uid://ckvgyvclnwggo::::res://addons/dialogue_manager/dialogue_label.tscn<>uid://bb52rsfwhkxbn::::res://addons/dialogue_manager/dialogue_responses_menu.gd
 small_example_balloon.tscn::PackedScene::1883859960814163368::1738598854::0::1::::<><>::uid://d1wt4ma6055l8::::res://addons/dialogue_manager/example_balloon/example_balloon.gd<>uid://ckvgyvclnwggo::::res://addons/dialogue_manager/dialogue_label.tscn<>uid://bb52rsfwhkxbn::::res://addons/dialogue_manager/dialogue_responses_menu.gd
@@ -80,27 +80,27 @@ main_view.gd::GDScript::-1::1738598854::0::1::::<>Control<>::
 main_view.tscn::PackedScene::4884668666408697448::1738598854::0::1::::<><>::res://addons/dialogue_manager/views/main_view.gd<>uid://civ6shmka5e8u::::res://addons/dialogue_manager/components/code_edit.tscn<>uid://dnufpcdrreva3::::res://addons/dialogue_manager/components/files_list.tscn<>uid://ctns6ouwwd68i::::res://addons/dialogue_manager/components/title_list.tscn<>uid://co8yl23idiwbi::::res://addons/dialogue_manager/components/update_button.tscn<>uid://gr8nakpbrhby::::res://addons/dialogue_manager/components/search_and_replace.tscn<>uid://cs8pwrxr5vxix::::res://addons/dialogue_manager/components/errors_panel.tscn<>res://addons/dialogue_manager/components/code_edit_syntax_highlighter.gd<>uid://0n7hwviyyly4::::res://addons/dialogue_manager/components/find_in_files.tscn
 ::res://Audio/::1738854902
 Peaceful Hilltop Trail - Nature Sounds - Relaxing.mp3::AudioStreamMP3::491485238449022335::1738556550::1738854902::1::::<><>::
-::res://Dialogue/::1738859055
-test1.dialogue::Resource::109850746612654441::1738858205::1738859072::1::::<><>::res://addons/dialogue_manager/dialogue_resource.gd
-::res://Scenes/::1738859054
-Actionable.tscn::PackedScene::7266389050852085610::1738859072::0::1::::<><>::res://actionable.gd
+::res://Dialogue/::1738859869
+test1.dialogue::Resource::109850746612654441::1738858205::1738860018::1::::<><>::res://addons/dialogue_manager/dialogue_resource.gd
+::res://Scenes/::1738859912
+Actionable.tscn::PackedScene::7266389050852085610::1738860017::0::1::::<><>::res://actionable.gd
 Main.gd::GDScript::-1::1738854885::0::1::::<>Node2D<>::
-Main.tscn::PackedScene::9149449993022985384::1738859072::0::1::::<><>::res://Scenes/Main.gd<>uid://cb4gudtdaj4nk::::res://Sprites/Atlases/Tile_Atlas_1.png<>uid://cce3ge1fy6voy::::res://Scenes/Player.tscn<>uid://hacxpyr4syxr::::res://Audio/Peaceful Hilltop Trail - Nature Sounds - Relaxing.mp3<>uid://bgxju13b4d8tw::::res://Scenes/Witch.tscn<>uid://belhj4u1uk51q::::res://icon.svg<>res://Scenes/test_code_chall_action.gd<>uid://bojnytld3yb7k::::res://Scenes/sign.tscn
+Main.tscn::PackedScene::9149449993022985384::1738860017::0::1::::<><>::res://Scenes/Main.gd<>uid://cb4gudtdaj4nk::::res://Sprites/Atlases/Tile_Atlas_1.png<>uid://cce3ge1fy6voy::::res://Scenes/Player.tscn<>uid://hacxpyr4syxr::::res://Audio/Peaceful Hilltop Trail - Nature Sounds - Relaxing.mp3<>uid://bgxju13b4d8tw::::res://Scenes/Witch.tscn<>uid://belhj4u1uk51q::::res://icon.svg<>res://Scenes/test_code_chall_action.gd<>uid://bojnytld3yb7k::::res://Scenes/sign.tscn
 MainMenu.tscn::PackedScene::9119813904450849238::1738600731::0::1::::<><>::res://Scenes/main_menu.gd
 main_menu.gd::GDScript::-1::1738599378::0::1::::<>Control<>::
 options.gd::GDScript::-1::1738599265::0::1::::<>Control<>::
 Options.tscn::PackedScene::7120070157571720464::1738600731::0::1::::<><>::res://Scenes/options.gd
-Player.tscn::PackedScene::4923187606758204128::1738859072::0::1::::<><>::res://Scripts/character_body_2d.gd<>uid://btohhiwbyllxh::::res://Sprites/Characters/Red_Wizard/Player_SpriteSheet-Sheet.png<>uid://cumnhaq8g4xnx::::res://Sprites/Light_Texture.png
-sign.tscn::PackedScene::3388477089482944494::1738859072::0::1::::<><>::uid://bf5rricym0tue::::res://Sprites/Sign.png<>res://actionable.gd<>uid://bthhw71i84bl::::res://Dialogue/test1.dialogue
+Player.tscn::PackedScene::4923187606758204128::1738860017::0::1::::<><>::res://Scripts/character_body_2d.gd<>uid://btohhiwbyllxh::::res://Sprites/Characters/Red_Wizard/Player_SpriteSheet-Sheet.png<>uid://cumnhaq8g4xnx::::res://Sprites/Light_Texture.png
+sign.tscn::PackedScene::3388477089482944494::1738860017::0::1::::<><>::uid://bf5rricym0tue::::res://Sprites/Sign.png<>res://actionable.gd<>uid://bthhw71i84bl::::res://Dialogue/test1.dialogue
 test_code_chall_action.gd::GDScript::-1::1738854885::0::1::::<>Area2D<>::
 witch.gd::GDScript::-1::1738854885::0::1::::<>CharacterBody2D<>::
-Witch.tscn::PackedScene::2855618011623639592::1738859072::0::1::::<><>::uid://bdcjv77a1luuv::::res://Sprites/Red_Apothecary_Blue_Witch_Sprite.png<>res://Scenes/witch.gd
-::res://Scenes/CodeBlocks/::1738859054
-TestBlock.tscn::PackedScene::9176436169524780764::1738859072::0::1::::<><>::res://Scenes/CodeBlocks/test_block.gd<>uid://belhj4u1uk51q::::res://icon.svg
+Witch.tscn::PackedScene::2855618011623639592::1738860017::0::1::::<><>::uid://bdcjv77a1luuv::::res://Sprites/Red_Apothecary_Blue_Witch_Sprite.png<>res://Scenes/witch.gd
+::res://Scenes/CodeBlocks/::1738859869
+TestBlock.tscn::PackedScene::9176436169524780764::1738860017::0::1::::<><>::res://Scenes/CodeBlocks/test_block.gd<>uid://belhj4u1uk51q::::res://icon.svg
 test_block.gd::GDScript::-1::1738854885::0::1::::<>CodeBlock<>::
-::res://Scenes/TestCodeChallange/::1738859054
+::res://Scenes/TestCodeChallange/::1738859869
 start_block.gd::GDScript::-1::1738854885::0::1::::<>Sprite2D<>::
-TestCodeChallenge.tscn::PackedScene::2032456172515923469::1738859072::0::1::::<><>::uid://belhj4u1uk51q::::res://icon.svg<>res://Scenes/TestCodeChallange/start_block.gd<>res://Scenes/TestCodeChallange/test_spawn_block.gd
+TestCodeChallenge.tscn::PackedScene::2032456172515923469::1738860017::0::1::::<><>::uid://belhj4u1uk51q::::res://icon.svg<>res://Scenes/TestCodeChallange/start_block.gd<>res://Scenes/TestCodeChallange/test_spawn_block.gd
 test_spawn_block.gd::GDScript::-1::1738854885::0::1::::<>SpawnCodeBlock<>::
 ::res://Scripts/::1738858904
 character_body_2d.gd::GDScript::-1::1738858904::0::1::::<>CharacterBody2D<>::
