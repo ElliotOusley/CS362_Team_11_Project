@@ -5,4 +5,5 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Actionable" type="Area2D" parent="."]
+collision_mask = 128
 script = ExtResource("1_outr3")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://d3mcds7r2hhd5"]
+[gd_scene load_steps=14 format=4 uid="uid://d3mcds7r2hhd5"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_45v3f"]
 [ext_resource type="Texture2D" uid="uid://cb4gudtdaj4nk" path="res://Sprites/Atlases/Tile_Atlas_1.png" id="1_v4tev"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bgxju13b4d8tw" path="res://Scenes/Witch.tscn" id="3_ugqw2"]
 [ext_resource type="Texture2D" uid="uid://belhj4u1uk51q" path="res://icon.svg" id="5_gskgv"]
 [ext_resource type="Script" path="res://Scenes/test_code_chall_action.gd" id="6_ar353"]
+[ext_resource type="PackedScene" uid="uid://bojnytld3yb7k" path="res://Scenes/sign.tscn" id="8_n70of"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bmriu"]
 texture = ExtResource("1_v4tev")
@@ -620,3 +621,6 @@ script = ExtResource("6_ar353")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Actionable"]
 scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_1u6ve")
+
+[node name="Sign" parent="." instance=ExtResource("8_n70of")]
+position = Vector2(-216, -143)

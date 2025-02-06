@@ -1,3 +1,6 @@
+CollisionShape2D
+StaticBody2D
+Sprite2D
 AnimationTree
 AnimationPlayer
 Label
@@ -7,9 +10,5 @@ RichTextLabel
 Timer
 Button
 TextEdit
-CollisionShape2D
-Sprite2D
 CharacterBody2D
 VBoxContainer
-Area2D
-Marker2D

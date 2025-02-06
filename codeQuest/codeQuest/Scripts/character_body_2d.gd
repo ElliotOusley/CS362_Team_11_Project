@@ -50,25 +50,12 @@ func get_input():
 		$AnimationTree.set("parameters/Walk/blend_position", velocity)
 
 	velocity = input_direction.normalized() * speed
-	#change_sprite()
 
 func _physics_process(_delta):
 	get_input()
 	move_and_slide()
 	check_for_witch_collisions()  # Check if the Witch is nearby
 
-
-
-# Uses player velocity to change moving sprites
-func change_sprite():
-	if velocity.x < 0:
-		$Sprite2D.texture = left_texture
-	elif velocity.x > 0:
-		$Sprite2D.texture = right_texture
-	elif velocity.y < 0:
-		$Sprite2D.texture = back_texture
-	elif velocity.y > 0:
-		$Sprite2D.texture = front_texture
 
 # Checks if the Player is touching the Witch**
 func check_for_witch_collisions():
