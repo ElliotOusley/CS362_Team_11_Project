@@ -1,4 +1,3 @@
-
 [gd_scene load_steps=3 format=3 uid="uid://c2u31fif4sqex"]
 
 [ext_resource type="Script" path="res://BattleScreen.gd" id="1_cfjju"]

@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed = 50
 @onready var actionable_finder: Area2D = $Direction/ActionableFinder
 
+
 var back_texture : Texture
 var front_texture : Texture
 var right_texture : Texture
@@ -40,14 +41,23 @@ func get_input():
 		input_direction.x += -1
 	if Input.is_action_pressed("right"):
 		input_direction.x += 1
+		
+	if velocity == Vector2.ZERO:
+		$AnimationTree.get("parameters/playback").travel("Idle")
+	else:
+		$AnimationTree.get("parameters/playback").travel("Walk")
+		$AnimationTree.set("parameters/Idle/blend_position", velocity)
+		$AnimationTree.set("parameters/Walk/blend_position", velocity)
 
 	velocity = input_direction.normalized() * speed
-	change_sprite()
+	#change_sprite()
 
 func _physics_process(_delta):
 	get_input()
 	move_and_slide()
 	check_for_witch_collisions()  # Check if the Witch is nearby
+
+
 
 # Uses player velocity to change moving sprites
 func change_sprite():
