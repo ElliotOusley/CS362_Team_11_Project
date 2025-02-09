@@ -364,7 +364,7 @@ See soundtrack exceptions. In addition:
 ### Use case 4: Solving a mini learning challenge to “unlock” more parts of the game, or advance to a new level.
 
 Triggers:
-The player reaches a certain point in the game (i.e a locked door) and will need to complete a challenge to advance to the next level or portion of the game. Depending on overall game, trigger could also be losing a battle, need to solve challenge to revive. 
+The player reaches a certain point in the game (i.e a locked door) and will need to complete a challenge to advance to the next level or portion of the game. 
 
 Preconditions:  
 * The player must have access to the game/coding challenge interface 
@@ -383,7 +383,7 @@ List of Steps (success scenario):
 5. If correct, player advances to next level and receives rewards 
 
 Extensions:  
-* The player completes the challenge but with multiple attempts, which reduces the amount of rewards they can receive  
+* The player completes the challenge but with multiple attempts, which reduces the player's health upon a failed guess  
 
 Exceptions:  
 * Maximum 3 attempts at solving the challenge or else players will have to go back and collect hints then re-attempt the challenge 
@@ -419,34 +419,34 @@ Exceptions: failure conditions and scenarios
 * Missing Prerequisites – The player has not achieved a certain goal or obtained a certain item that would open up dialogue trees. 
 
 
-### Use Case 6: Equip Item from Inventory
+### Use Case 6: Use Item from Inventory
 
 Actors: 
 * Player: The program’s user. 
 * System: Game inventory and equipment system. 
 
 Triggers: 
-* The player opens the inventory menu during exploration or between battles. 
+* The player opens the inventory menu. 
 
 Preconditions: 
-* The player has at least one equippable item in their inventory. 
+* The player has at least one usable item in their inventory. 
 * The inventory menu is accessible via the game’s UI. 
 
 Postconditions (Success Scenario): 
-* The item is successfully equipped, updating the character’s stats and appearance (if applicable). 
-* The inventory menu reflects the equipped item, and the previously equipped item (if any) is unequipped. 
+* The item is successfully used, activating an effect like restoring health (if applicable). 
+* The item is removed from the player's inventory. 
 
 List of Steps (Success Scenario): 
 1. Player presses a designated button to open the inventory menu. 
 2. System displays the inventory UI, showing all items. 
-3. Player selects an equippable item (e.g., sword) from the list. 
-4. Player confirms the selection to equip the item. 
+3. Player selects an usable item (e.g., potion) from the list. 
+4. Player confirms the selection to use the item. 
 5. System updates the character’s stats based on the item’s attributes. 
-6. System marks the item as equipped and unequips any conflicting item. 
+6. System deletes the item. 
 7. Player exits the inventory menu and returns to gameplay. 
 
 Extensions/Variations of the Success Scenario: 
-* The player uses filters to quickly view specific categories (e.g., only weapons). 
+* The player uses filters to quickly view specific categories (e.g., only potions). 
 
 Exceptions: Failure Conditions and Scenarios: 
-* Invalid Item Type: Player tries to equip an item incompatible with their character:  
+* Invalid Item Type: Player tries to use an item that has no special characteristics.
