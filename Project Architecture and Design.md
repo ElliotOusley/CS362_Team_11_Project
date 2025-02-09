@@ -6,13 +6,17 @@
 
 ### Component Interfacing
 
-* The user interface connects the game scene to allow the player to use systems like the inventory and settings. 
+* User Interface nodes allow the player to use systems like the inventory and settings.  
+
+* The dialogue system interacts with area2D nodes between the player and non-player characters
+
+* The code puzzle system interacts with area2D nodes between the player and code puzzle giving objects
+
+* The save NPC interacts with the dialogue system and the player to let the player save their progress
 
 ### Data Storage
 
 The system interfaces with the user’s files to save game data. Save data that does not relate to game progression like the settings found in the options menu will be saved using a ConfigFile node.  
-
-### Assumptions
 
 ### Alternatives
 Instead of Godot, the game could be developed in Unity or Unreal Engine 
@@ -153,80 +157,51 @@ Identify milestones (external and internal), define tasks along with effort esti
 To build a schedule, start with your major milestones (tend to be noun-like) and fill in the tasks (tend to start with a verb) that will allow you to achieve them. A simple table is sufficient for this size of a project. 
 
 Timeline 
-
-Development team: 
-
-Week 3: Polish existing movement system and create save system 
-
-Week 4: Implement dialogue system 
-
-Week 5: Implement placing blocks in ui 
-
-Week 6: Implement code block functionality 
-
-Week 7: Create battle system 
-
-Week 8: Polish and test code block system 
-
-Week 9: Implement battle system stretch goals 
-
-Week 10: Final Testing 
-
-Design Team: 
-
-Week 3: Create tile map and two NPC sprites 
-
-Week 4: Design UI for dialogue and inventory systems 
-
-Week 5: Design UI for code block puzzles and make prototypes for levels 
-
-Week 6: Create levels and environments and design code block puzzles 
-
-Week 7: Create or find appropriate music and sound effects 
-
-Week 8: Create UI and sprites for battle system 
-
-Week 9: Create sprites for NPC Dialogue 
-
-Week 10: Final Testing 
+| Week     | Development Tasks | Design Tasks |
+| ----------- | ----------- | ---------------- |
+| Week 3  | Polish existing movement system | Create tile map and two NPC sprites  |
+| Week 4  | Implement dialogue system | Design UI for dialogue and inventory systems  |
+| Week 5  | Implement placing blocks in UI | Design UI for code block puzzles and make prototypes for levels  |
+| Week 6  | Implement code block functionality  | Create levels and environments and design code block puzzles  |
+| Week 7  | Create save system  | Create or find appropriate music and sound effects  |
+| Week 8  | Polish and test code block system  | Polish Existing sprites |
+| Week 9  | Implement battle system and other stretch goals |  Add additional animations and animation trees |
+| Week 10 | Final Testing | Final Testing |
 
 Logistics Team: 
 
 Every Week: write documentation, set up meetings, communicate with project managers, keep up to date with team progress, and step in to assist sub-teams when time allows. 
 
- 
 
 ### iii. Team structure 
 
-Make sure to update your team structure, if necessary, and provide more details about team organization and team members’ roles and responsibilities. 
+#### Development Team: 
 
-Development Team: 
+* Carlos Vasqez 
 
-Carlos Vasqez 
+* Nathen dela Torre 
 
-Nathen dela Torre 
+The development team is responsible for essential game mechanics that make the project work. Responsibilities include implementing core gameplay mechanics such as dialogue, inventory systems, and movement 
 
-The development team is responsible for the most essential game mechanics that make the project work. Responsibilities include implementing core gameplay mechanics such as dialogue, inventory systems, movement, and battle scenes. 
+#### Design Team: 
 
-Design Team: 
+* Ben Snider 
 
-Ben Snider 
+* Seth Taylor 
 
-Seth Taylor 
-
-Philensakada Thavrin 
+* Philensakada Thavrin 
 
 The design team is responsible for ensuring that the project is visually appealing and fun to the player. Responsibilities include creating art and music assets, level design, fine-tuning systems, and UI design 
 
-Logistics Team: 
+#### Logistics Team: 
 
-Elliot Ousley 
+* Elliot Ousley 
 
-Hau’oli O’Brien 
+* Hau’oli O’Brien 
 
 The Logistics team is responsible for ensuring that the team meets its goals and communicates effectively within the team, to clients, and to management. Responsibilities include writing documentation, creating schedules, leading meetings with clients and management, and delegating tasks. 
 
-Specific Roles: 
+#### Specific Roles: 
 
 Elliot Ousley: Project Manager: Responsible for overall project coordination, task delegation, and ensuring the team meets deadlines. 
 
