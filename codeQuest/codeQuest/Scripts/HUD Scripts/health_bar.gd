@@ -27,6 +27,7 @@ func update_health(value):
 			update_empty(value)
 		modes.PARTIAL:
 			update_partial(value)
+	update_health_text(value)
 
 func update_simple(value):
 	for i in get_child_count():
@@ -61,3 +62,7 @@ func _on_remove_health_pressed() -> void:
 	if value > 0:
 		value -= 1
 		update_health(value)
+		
+func update_health_text(value):
+	var label = $"../../Current Health"
+	label.text = "Current Health: %d" %[value]

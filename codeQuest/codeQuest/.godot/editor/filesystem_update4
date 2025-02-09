@@ -1,16 +1,11 @@
-res://Scenes/PlayerHUD.tscn
-res://health_bar.gd
+res://Scenes/FollowLight.tscn
 res://Scenes/Main.tscn
 res://Scenes/TestCodeChallange/TestCodeChallenge.tscn
 res://Scenes/Player.tscn
 res://Scenes/Actionable.tscn
 res://Scenes/CodeBlocks/TestBlock.tscn
 res://Scenes/Witch.tscn
-res://BattleScreen.tscn
-res://Scenes/sign.tscn
-res://Scenes/health_controls.gd
 res://Scenes/BattleScreen.tscn
-res://Scripts/Main.gd
-res://Scenes/FollowLight.tscn
-res://Scenes/follow_light.gd
-res://Scripts/Player Scripts/character_body_2d.gd
+res://Scenes/sign.tscn
+res://Scenes/PlayerHUD.tscn
+res://Scripts/HUD Scripts/health_bar.gd

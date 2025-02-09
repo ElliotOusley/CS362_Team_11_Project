@@ -1,3 +1,5 @@
+CanvasLayer
+Label
 AnimatedSprite2D
 PointLight2D
 Button
@@ -9,6 +11,4 @@ StaticBody2D
 Sprite2D
 AnimationTree
 AnimationPlayer
-Label
 Panel
-CanvasLayer
