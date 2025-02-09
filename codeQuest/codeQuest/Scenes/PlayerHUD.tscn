@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxm1ymsq1w2dh"]
+
+[ext_resource type="Texture2D" uid="uid://cqfquhe1f30u6" path="res://Sprites/UI/Health_Container.png" id="1_qkwgm"]
+[ext_resource type="Script" path="res://health_bar.gd" id="2_gkutw"]
+[ext_resource type="Texture2D" uid="uid://dx8s7gowod01k" path="res://Sprites/UI/Full_Health_Heart.png" id="3_fu6cd"]
+[ext_resource type="Script" path="res://Scenes/health_controls.gd" id="4_ceqcw"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Health" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 16.0
+scale = Vector2(5, 5)
+texture = ExtResource("1_qkwgm")
+stretch_mode = 4
+
+[node name="HealthBar" type="HBoxContainer" parent="Health"]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 16.0
+theme_override_constants/separation = 0
+script = ExtResource("2_gkutw")
+mode = 2
+max_health = 6
+
+[node name="1" type="TextureRect" parent="Health/HealthBar"]
+layout_mode = 2
+texture = ExtResource("3_fu6cd")
+stretch_mode = 4
+
+[node name="2" type="TextureRect" parent="Health/HealthBar"]
+layout_mode = 2
+texture = ExtResource("3_fu6cd")
+stretch_mode = 4
+
+[node name="3" type="TextureRect" parent="Health/HealthBar"]
+layout_mode = 2
+texture = ExtResource("3_fu6cd")
+stretch_mode = 4
+
+[node name="HealthControls" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 100.0
+offset_right = 48.0
+offset_bottom = 140.0
+scale = Vector2(4, 4)
+script = ExtResource("4_ceqcw")
+
+[node name="AddHealth" type="Button" parent="HealthControls"]
+layout_mode = 2
+text = "Health + 1"
+
+[node name="RemoveHealth" type="Button" parent="HealthControls"]
+layout_mode = 2
+text = "Health - 1"
+
+[connection signal="pressed" from="HealthControls/AddHealth" to="Health/HealthBar" method="_on_add_health_pressed"]
+[connection signal="pressed" from="HealthControls/RemoveHealth" to="Health/HealthBar" method="_on_remove_health_pressed"]

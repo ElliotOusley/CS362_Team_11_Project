@@ -1,3 +1,7 @@
+Button
+VBoxContainer
+TextureRect
+HBoxContainer
 CollisionShape2D
 StaticBody2D
 Sprite2D
@@ -8,7 +12,3 @@ Panel
 CanvasLayer
 RichTextLabel
 Timer
-Button
-TextEdit
-CharacterBody2D
-VBoxContainer
