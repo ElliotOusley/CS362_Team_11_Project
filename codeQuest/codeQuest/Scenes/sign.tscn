@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bojnytld3yb7k"]
 
-[ext_resource type="Texture2D" uid="uid://bf5rricym0tue" path="res://Sprites/Sign.png" id="1_5iu2q"]
-[ext_resource type="Script" path="res://actionable.gd" id="2_coxry"]
+[ext_resource type="Texture2D" uid="uid://bf5rricym0tue" path="res://Sprites/Characters/Sign.png" id="1_5iu2q"]
+[ext_resource type="Script" path="res://Scripts/NPC Scripts/actionable.gd" id="2_coxry"]
 [ext_resource type="Resource" uid="uid://bthhw71i84bl" path="res://Dialogue/test1.dialogue" id="3_07er1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mi3e6"]

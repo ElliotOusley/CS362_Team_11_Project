@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://cce3ge1fy6voy"]
 
-[ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="1_ch48f"]
+[ext_resource type="Script" path="res://Scripts/Player Scripts/character_body_2d.gd" id="1_ch48f"]
 [ext_resource type="Texture2D" uid="uid://btohhiwbyllxh" path="res://Sprites/Characters/Red_Wizard/Player_SpriteSheet-Sheet.png" id="2_c2mao"]
 [ext_resource type="Texture2D" uid="uid://cumnhaq8g4xnx" path="res://Sprites/Light_Texture.png" id="3_14718"]
 

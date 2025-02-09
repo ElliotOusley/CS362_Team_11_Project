@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2u31fif4sqex"]
 
-[ext_resource type="Script" path="res://BattleScreen.gd" id="1_cfjju"]
+[ext_resource type="Script" path="res://Scripts/BattleScreen.gd" id="1_02n6f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2ol4"]
 bg_color = Color(0.239531, 0.639901, 0.871563, 1)
 
 [node name="BattleScreen" type="CanvasLayer"]
-script = ExtResource("1_cfjju")
+script = ExtResource("1_02n6f")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 8

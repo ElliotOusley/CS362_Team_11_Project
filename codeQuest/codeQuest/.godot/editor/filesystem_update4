@@ -9,3 +9,5 @@ res://Scenes/Witch.tscn
 res://BattleScreen.tscn
 res://Scenes/sign.tscn
 res://Scenes/health_controls.gd
+res://Scenes/BattleScreen.tscn
+res://Scripts/Main.gd

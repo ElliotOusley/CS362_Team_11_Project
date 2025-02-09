@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=4 uid="uid://d3mcds7r2hhd5"]
 
-[ext_resource type="Script" path="res://Scenes/Main.gd" id="1_45v3f"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_45v3f"]
 [ext_resource type="Texture2D" uid="uid://cb4gudtdaj4nk" path="res://Sprites/Atlases/Tile_Atlas_1.png" id="1_v4tev"]
 [ext_resource type="PackedScene" uid="uid://cce3ge1fy6voy" path="res://Scenes/Player.tscn" id="2_x22wi"]
 [ext_resource type="AudioStream" uid="uid://hacxpyr4syxr" path="res://Audio/Peaceful Hilltop Trail - Nature Sounds - Relaxing.mp3" id="3_gfose"]
