@@ -1,4 +1,9 @@
-# 1. Software architecture 
+# 1. Project Problem and Solution 
+
+Many learners struggle to stay motivated when acquiring new skills, especially in programming. Often, learning can feel like a chore, and access to educational resources can be hindered by paywalls. CodeQuest aims to make learning engaging by integrating coding challenges into an RPG-style game, where players earn incentives for solving coding problems. Players can redo challenges up to three times before engaging in battles, reinforcing knowledge retention. Our solution leverages a well-structured architecture with a game loop, UI integration, and a challenge validation system, ensuring an engaging and educational experience. Testing will include user engagement analysis, success rates of coding challenges, and gameplay balancing metrics to validate the effectiveness of our approach. 
+
+
+# 2. Software architecture 
 
 ### Major Components
 * User Interface – An overlay on top of the game scene that allows players to interact with game systems like inventory, options, the main menu, and dialogue 
@@ -67,7 +72,7 @@ Cons:
 
 * New Addition: Support for C# is a newer addition to the Godot engine, and therefore does not have as much support. 
 
-# 2. Software design 
+# 3. Software design 
 
 ### Component Parts 
 
@@ -95,7 +100,7 @@ Godot abstracts components as nodes and scenes, where scenes are a collection of
 
 * The NPC scene handles all non-player characters. 
 
-# 3. Coding guideline 
+# 4. Coding guideline 
 
 For our work in GDScript, we will use the GDScript style guide, provided in the [Godot Documentation]( https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html )
 
@@ -103,7 +108,7 @@ We chose these guidelines because they are the most used in Godot development, a
 
 Additionally, Godot’s script editor automatically uses parts of this style guide. For example, adding in a function via node automatically provides the double white space noted in the style guide. As another example, the Godot editor displays a transparent vertical line at the 80 and 100 character mark. 
 
-# 4. Process description 
+# 5. Process description 
 
 ### i. Risk assessment 
 
@@ -236,7 +241,7 @@ The in-game options menu will also provide some documentation to assist players 
 
 Additionally, we plan to include NPCs around the play area that provide hints to the player.
 
-# 5. Use Cases
+# 6. Use Cases
 
 ### Use Case 1: Player receives a Code Quiz
 
