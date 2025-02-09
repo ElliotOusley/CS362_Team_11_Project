@@ -122,7 +122,7 @@ GDScript or the Godot engine. Because of this, learning and project development 
 at the same time, which could lead to mistakes. This has a high likelihood of occurring, 
 and a high impact to progress if it occurs. This issue has already occured a few times as the team gets used to Godot.
 This issue can be minimized by the amount of educational resources available for learning Godot,
-like their incredibly comprehensive documentation and YouTube guides made by experienced users of Godot. 
+like their incredibly comprehensive documentation and YouTube guides made by experienced users of Godot.
 
 **Playtesting and Bug fixing:**
 To ensure that players have a positive experience with this project,
@@ -221,19 +221,22 @@ Philensakada Thavrin: UI/UX Designer: Create interfaces and ensures a smooth use
 
 ### iv. Test plan & bugs 
 
-Describe what aspects of your system you plan to test and why they are sufficient, as well as how specifically you plan to test those aspects in a disciplined way. Describe a strategy for each of unit testing, system (integration) testing, and usability testing, along with any specific test suites identified to capture the requirements. 
+We plan to use unit testing to test components that use complicated scripts, like the player movements system. We will test this by using Godot's built-in testing features to create scripts that test these components. By doing so, we hope to catch bugs early in the development process.
 
-We require that you use GitHub IssuesLinks to an external site. to track bugs that occur during use and testing. 
+With integration testing, we plan to test how systems like the inventory and player interact with one another. We will test this by creating a separate scene to simulate gameplay scenarios in which these systems would interact.
 
-It is essential that we conduct frequent usability testing, given that we are developing an educational game. Since our game features puzzle and RPG elements, there are many points that could lead to player confusion.  
+It is essential that we conduct frequent usability testing, given that we are developing an educational game. Since our game features puzzle and RPG elements, there are many points that could lead to player confusion. This testing will be done through playtesting, in which we ask people to play our game and record their feedback.
+
+
 
 ### v. Documentation plan 
-
 
 Our team plans to create a player’s guide through Github’s Wiki. As new features and parts of the story are added, we will add walkthroughs and solutions, so that players who are confused about any part of the game can refer back to the Wiki 
 The in-game options menu will also provide some documentation to assist players who may be stuck. 
 
-# Use Cases
+Additionally, we plan to include NPCs around the play area that provide hints to the player.
+
+# 5. Use Cases
 
 ### Use Case 1: Player receives a Code Quiz
 
@@ -450,3 +453,15 @@ Extensions/Variations of the Success Scenario:
 
 Exceptions: Failure Conditions and Scenarios: 
 * Invalid Item Type: Player tries to use an item that has no special characteristics.
+
+## Non-functional Requirements 
+
+1. The game should be responsive, taking no less than 2 seconds to switch between scenes 
+2. The game should be able to save the user’s progress, so that they do not lose progress when quitting 
+3. The game should allow users to customize their experience with a settings menu 
+
+## External Requirements 
+
+1. The game must be resilient and avoid all crashes. 
+2. The game must be easy to install, using Godot’s export system to create a Windows build 
+3. The project must be resilient against scope creep to ensure that all goals are reachable. 
