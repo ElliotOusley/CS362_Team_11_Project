@@ -11,3 +11,6 @@ res://Scenes/sign.tscn
 res://Scenes/health_controls.gd
 res://Scenes/BattleScreen.tscn
 res://Scripts/Main.gd
+res://Scenes/FollowLight.tscn
+res://Scenes/follow_light.gd
+res://Scripts/Player Scripts/character_body_2d.gd

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name PlayerCharacter
 
 @export var speed = 50
 @onready var actionable_finder: Area2D = $Direction/ActionableFinder

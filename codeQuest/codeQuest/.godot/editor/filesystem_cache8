@@ -79,23 +79,23 @@ main_view.tscn::PackedScene::4884668666408697448::1738598854::0::1::::<><>::res:
 Peaceful Hilltop Trail - Nature Sounds - Relaxing.mp3::AudioStreamMP3::491485238449022335::1738556550::1738854902::1::::<><>::
 ::res://Dialogue/::1738860018
 test1.dialogue::Resource::109850746612654441::1738858205::1738860018::1::::<><>::res://addons/dialogue_manager/dialogue_resource.gd
-::res://Scenes/::1739126926
-Actionable.tscn::PackedScene::7266389050852085610::1739126841::0::1::::<><>::res://Scripts/NPC Scripts/actionable.gd
-BattleScreen.tscn::PackedScene::6710974482375103327::1739126842::0::1::::<><>::res://Scripts/BattleScreen.gd
-Main.tscn::PackedScene::9149449993022985384::1739126841::0::1::::<><>::res://Scripts/Main.gd<>uid://cb4gudtdaj4nk::::res://Sprites/Atlases/Tile_Atlas_1.png<>uid://cce3ge1fy6voy::::res://Scenes/Player.tscn<>uid://hacxpyr4syxr::::res://Audio/Peaceful Hilltop Trail - Nature Sounds - Relaxing.mp3<>uid://bgxju13b4d8tw::::res://Scenes/Witch.tscn<>uid://belhj4u1uk51q::::res://icon.svg<>res://Scenes/test_code_chall_action.gd<>uid://bojnytld3yb7k::::res://Scenes/sign.tscn
+::res://Scenes/::1739127152
+Actionable.tscn::PackedScene::7266389050852085610::1739127100::0::1::::<><>::res://Scripts/NPC Scripts/actionable.gd
+BattleScreen.tscn::PackedScene::6710974482375103327::1739127100::0::1::::<><>::res://Scripts/BattleScreen.gd
+Main.tscn::PackedScene::9149449993022985384::1739127152::0::1::::<><>::res://Scripts/Main.gd<>uid://cb4gudtdaj4nk::::res://Sprites/Atlases/Tile_Atlas_1.png<>uid://cce3ge1fy6voy::::res://Scenes/Player.tscn<>uid://hacxpyr4syxr::::res://Audio/Peaceful Hilltop Trail - Nature Sounds - Relaxing.mp3<>uid://bgxju13b4d8tw::::res://Scenes/Witch.tscn<>uid://belhj4u1uk51q::::res://icon.svg<>res://Scenes/test_code_chall_action.gd<>uid://bojnytld3yb7k::::res://Scenes/sign.tscn
 MainMenu.tscn::PackedScene::9119813904450849238::1739126772::0::1::::<><>::res://Scripts/HUD Scripts/main_menu.gd
 Options.tscn::PackedScene::7120070157571720464::1739126774::0::1::::<><>::res://Scripts/HUD Scripts/options.gd
-Player.tscn::PackedScene::4923187606758204128::1739126841::0::1::::<><>::res://Scripts/Player Scripts/character_body_2d.gd<>uid://btohhiwbyllxh::::res://Sprites/Characters/Red_Wizard/Player_SpriteSheet-Sheet.png<>uid://cumnhaq8g4xnx::::res://Sprites/Light_Texture.png
-PlayerHUD.tscn::PackedScene::4027158780131497513::1739126842::0::1::::<><>::uid://cqfquhe1f30u6::::res://Sprites/UI/Health_Container.png<>res://Scripts/HUD Scripts/health_bar.gd<>uid://dx8s7gowod01k::::res://Sprites/UI/Full_Health_Heart.png<>res://Scripts/HUD Scripts/health_controls.gd
-sign.tscn::PackedScene::3388477089482944494::1739126926::0::1::::<><>::uid://bf5rricym0tue::::res://Sprites/Characters/Sign.png<>res://Scripts/NPC Scripts/actionable.gd<>uid://bthhw71i84bl::::res://Dialogue/test1.dialogue
+Player.tscn::PackedScene::4923187606758204128::1739127100::0::1::::<><>::res://Scripts/Player Scripts/character_body_2d.gd<>uid://btohhiwbyllxh::::res://Sprites/Characters/Red_Wizard/Player_SpriteSheet-Sheet.png<>uid://cumnhaq8g4xnx::::res://Sprites/Light_Texture.png
+PlayerHUD.tscn::PackedScene::4027158780131497513::1739127100::0::1::::<><>::uid://cqfquhe1f30u6::::res://Sprites/UI/Health_Container.png<>res://Scripts/HUD Scripts/health_bar.gd<>uid://dx8s7gowod01k::::res://Sprites/UI/Full_Health_Heart.png<>res://Scripts/HUD Scripts/health_controls.gd
+sign.tscn::PackedScene::3388477089482944494::1739127100::0::1::::<><>::uid://bf5rricym0tue::::res://Sprites/Characters/Sign.png<>res://Scripts/NPC Scripts/actionable.gd<>uid://bthhw71i84bl::::res://Dialogue/test1.dialogue
 test_code_chall_action.gd::GDScript::-1::1738854885::0::1::::<>Area2D<>::
-Witch.tscn::PackedScene::2855618011623639592::1739126924::0::1::::<><>::uid://bdcjv77a1luuv::::res://Sprites/Characters/Witch_Front.png<>res://Scripts/NPC Scripts/witch.gd
-::res://Scenes/CodeBlocks/::1739126842
-TestBlock.tscn::PackedScene::9176436169524780764::1739126842::0::1::::<><>::res://Scenes/CodeBlocks/test_block.gd<>uid://belhj4u1uk51q::::res://icon.svg
+Witch.tscn::PackedScene::2855618011623639592::1739127100::0::1::::<><>::uid://bdcjv77a1luuv::::res://Sprites/Characters/Witch_Front.png<>res://Scripts/NPC Scripts/witch.gd
+::res://Scenes/CodeBlocks/::1739127100
+TestBlock.tscn::PackedScene::9176436169524780764::1739127100::0::1::::<><>::res://Scenes/CodeBlocks/test_block.gd<>uid://belhj4u1uk51q::::res://icon.svg
 test_block.gd::GDScript::-1::1738854885::0::1::::<>CodeBlock<>::
-::res://Scenes/TestCodeChallange/::1739126841
+::res://Scenes/TestCodeChallange/::1739127100
 start_block.gd::GDScript::-1::1738854885::0::1::::<>Sprite2D<>::
-TestCodeChallenge.tscn::PackedScene::2032456172515923469::1739126841::0::1::::<><>::uid://belhj4u1uk51q::::res://icon.svg<>res://Scenes/TestCodeChallange/start_block.gd<>res://Scenes/TestCodeChallange/test_spawn_block.gd
+TestCodeChallenge.tscn::PackedScene::2032456172515923469::1739127100::0::1::::<><>::uid://belhj4u1uk51q::::res://icon.svg<>res://Scenes/TestCodeChallange/start_block.gd<>res://Scenes/TestCodeChallange/test_spawn_block.gd
 test_spawn_block.gd::GDScript::-1::1738854885::0::1::::<>SpawnCodeBlock<>::
 ::res://Scripts/::1739126836
 BattleScreen.gd::GDScript::-1::1738854909::0::1::::<>CanvasLayer<>::
@@ -112,8 +112,11 @@ actionable.gd::GDScript::-1::1738598854::0::1::::<>Area2D<>::
 witch.gd::GDScript::-1::1738854885::0::1::::<>CharacterBody2D<>::
 ::res://Scripts/Player Scripts/::1739126726
 character_body_2d.gd::GDScript::-1::1738858904::0::1::::<>CharacterBody2D<>::
-::res://Sprites/::1739126926
+::res://Sprites/::1739129375
+Light_Origin_Sheet.png::CompressedTexture2D::2852265881696154441::1739129363::1739129377::1::::<><>::
 Light_Texture.png::CompressedTexture2D::6202192620884289941::1738556550::1738854902::1::::<><>::
+Light_Texture_2-Sheet.png::CompressedTexture2D::2922987411021932954::1739128300::1739128591::1::::<><>::
+Light_Texture_2.png::CompressedTexture2D::949805248803719527::1739129218::1739129254::1::::<><>::
 Test_Tile_1.png::CompressedTexture2D::5747329314043917846::1738556550::1738854902::1::::<><>::
 Tile_Atlas_1.png::CompressedTexture2D::1234232379531486506::1738599777::1738854902::1::::<><>::
 ::res://Sprites/Atlases/::1738854902

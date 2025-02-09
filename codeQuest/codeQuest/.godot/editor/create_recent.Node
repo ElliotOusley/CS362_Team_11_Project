@@ -1,3 +1,5 @@
+AnimatedSprite2D
+PointLight2D
 Button
 VBoxContainer
 TextureRect
@@ -10,5 +12,3 @@ AnimationPlayer
 Label
 Panel
 CanvasLayer
-RichTextLabel
-Timer
