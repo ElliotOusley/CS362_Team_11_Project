@@ -229,46 +229,46 @@ states/Walk/position = Vector2(501, 132)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="."]
 motion_mode = 1
 script = ExtResource("1_ch48f")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
 texture_filter = 1
 texture = ExtResource("2_c2mao")
 hframes = 12
 frame = 1
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_2uurk")
 
-[node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
 color = Color(1, 1, 1, 0.392157)
 texture = ExtResource("3_14718")
 texture_scale = 3.25
 
-[node name="Direction" type="Marker2D" parent="CharacterBody2D"]
+[node name="Direction" type="Marker2D" parent="Player"]
 
-[node name="ActionableFinder" type="Area2D" parent="CharacterBody2D/Direction"]
+[node name="ActionableFinder" type="Area2D" parent="Player/Direction"]
 collision_layer = 0
 collision_mask = 128
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Direction/ActionableFinder"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Direction/ActionableFinder"]
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_3oo8r")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 root_node = NodePath("../Sprite2D")
 libraries = {
 "": SubResource("AnimationLibrary_27u4u")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="CharacterBody2D"]
+[node name="AnimationTree" type="AnimationTree" parent="Player"]
 root_node = NodePath("../Sprite2D")
 tree_root = SubResource("AnimationNodeStateMachine_fsrqk")
 anim_player = NodePath("../AnimationPlayer")
