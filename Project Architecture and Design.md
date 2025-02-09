@@ -220,16 +220,15 @@ Philensakada Thavrin: UI/UX Designer: Create interfaces and ensures a smooth use
  
 
 ### iv. Test plan & bugs 
+We plan to use unit testing to test components that use complicated scripts, like the player movements system. We will test this by using Godot's built-in testing features to create scripts that test these components. By doing so, we hope to catch bugs early in the development process.
 
-Describe what aspects of your system you plan to test and why they are sufficient, as well as how specifically you plan to test those aspects in a disciplined way. Describe a strategy for each of unit testing, system (integration) testing, and usability testing, along with any specific test suites identified to capture the requirements. 
+With integration testing, we plan to test how systems like the inventory and player interact with one another. We will test this by creating a separate scene to simulate gameplay scenarios in which these systems would interact.
 
-We require that you use GitHub IssuesLinks to an external site. to track bugs that occur during use and testing. 
-
-It is essential that we conduct frequent usability testing, given that we are developing an educational game. Since our game features puzzle and RPG elements, there are many points that could lead to player confusion.  
-
+It is essential that we conduct frequent usability testing, given that we are developing an educational game. Since our game features puzzle and RPG elements, there are many points that could lead to player confusion. This testing will be done through playtesting, in which we ask people to play our game and record their feedback.
 ### v. Documentation plan 
 
 
 Our team plans to create a player’s guide through Github’s Wiki. As new features and parts of the story are added, we will add walkthroughs and solutions, so that players who are confused about any part of the game can refer back to the Wiki 
-
 The in-game options menu will also provide some documentation to assist players who may be stuck. 
+
+Additionally, we plan to include NPCs around the play area that provide hints to the player.
