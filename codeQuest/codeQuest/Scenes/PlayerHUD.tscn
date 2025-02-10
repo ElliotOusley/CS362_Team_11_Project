@@ -1,24 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxm1ymsq1w2dh"]
+[gd_scene load_steps=6 format=3 uid="uid://bxm1ymsq1w2dh"]
 
 [ext_resource type="Texture2D" uid="uid://cqfquhe1f30u6" path="res://Sprites/UI/Health_Container.png" id="1_qkwgm"]
 [ext_resource type="Script" path="res://Scripts/HUD Scripts/health_bar.gd" id="2_gkutw"]
 [ext_resource type="Texture2D" uid="uid://dx8s7gowod01k" path="res://Sprites/UI/Full_Health_Heart.png" id="3_fu6cd"]
 [ext_resource type="Script" path="res://Scripts/HUD Scripts/health_controls.gd" id="4_ceqcw"]
+[ext_resource type="Texture2D" uid="uid://103mapkb0k27" path="res://Sprites/UI/UI_Ending.png" id="4_unv3x"]
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="Health" type="TextureRect" parent="."]
 texture_filter = 1
-layout_mode = 0
-offset_right = 48.0
-offset_bottom = 16.0
-scale = Vector2(6.69398, 6.69398)
+offset_left = 71.0
+offset_top = 20.0
+offset_right = 119.0
+offset_bottom = 36.0
+scale = Vector2(4.21398, 4.21398)
 texture = ExtResource("1_qkwgm")
 stretch_mode = 4
 
@@ -46,8 +42,23 @@ layout_mode = 2
 texture = ExtResource("3_fu6cd")
 stretch_mode = 4
 
-[node name="HealthControls" type="VBoxContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="Health"]
 layout_mode = 0
+offset_left = 48.4017
+offset_right = 64.4017
+offset_bottom = 16.0
+texture = ExtResource("4_unv3x")
+
+[node name="TextureRect2" type="TextureRect" parent="Health"]
+layout_mode = 0
+offset_left = -16.1339
+offset_right = -0.133896
+offset_bottom = 16.0
+texture = ExtResource("4_unv3x")
+flip_h = true
+
+[node name="HealthControls" type="VBoxContainer" parent="."]
+visible = false
 offset_left = 344.0
 offset_top = 66.0
 offset_right = 431.0
@@ -64,13 +75,21 @@ layout_mode = 2
 text = "Health - 1"
 
 [node name="Current Health" type="Label" parent="."]
-layout_mode = 0
+visible = false
 offset_left = 333.0
 offset_top = 5.0
 offset_right = 467.0
 offset_bottom = 28.0
 scale = Vector2(1.96, 1.96)
 text = "Current Health: 6"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="pressed" from="HealthControls/AddHealth" to="Health/HealthBar" method="_on_add_health_pressed"]
 [connection signal="pressed" from="HealthControls/RemoveHealth" to="Health/HealthBar" method="_on_remove_health_pressed"]
