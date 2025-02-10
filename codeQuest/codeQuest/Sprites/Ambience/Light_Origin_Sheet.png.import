@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci8cww0vriuf1"
-path="res://.godot/imported/House_001.png-785840c970b2d3d970e9e5db326fd84b.ctex"
+uid="uid://bgvwnxd8flyr6"
+path="res://.godot/imported/Light_Origin_Sheet.png-d6f93f291f9bff879d68b783ebddae28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/House_001.png"
-dest_files=["res://.godot/imported/House_001.png-785840c970b2d3d970e9e5db326fd84b.ctex"]
+source_file="res://Sprites/Ambience/Light_Origin_Sheet.png"
+dest_files=["res://.godot/imported/Light_Origin_Sheet.png-d6f93f291f9bff879d68b783ebddae28.ctex"]
 
 [params]
 

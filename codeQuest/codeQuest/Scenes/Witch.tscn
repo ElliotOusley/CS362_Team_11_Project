@@ -94,22 +94,22 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxqog"]
 size = Vector2(22, 31)
 
-[node name="Node2D" type="Node2D"]
-
-[node name="Witch" type="CharacterBody2D" parent="."]
+[node name="Witch" type="CharacterBody2D"]
 script = ExtResource("1_ys0yg")
 
-[node name="Sprite2D" type="Sprite2D" parent="Witch"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_n11a2")
 hframes = 12
 
-[node name="witchAnimation" type="AnimationPlayer" parent="Witch/Sprite2D"]
+[node name="witchAnimation" type="AnimationPlayer" parent="Sprite2D"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_t7evl")
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Witch"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_lxqog")
+
+[node name="Node2D" type="Node2D" parent="."]

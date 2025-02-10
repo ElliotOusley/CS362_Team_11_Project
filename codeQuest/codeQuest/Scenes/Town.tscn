@@ -3,9 +3,9 @@
 [ext_resource type="TileSet" uid="uid://dllp5qk32pj6q" path="res://Sprites/Tilesets/Floor.tres" id="1_mqk1o"]
 [ext_resource type="TileSet" uid="uid://c7igtlrvkgd57" path="res://Sprites/Tilesets/Obstacles.tres" id="2_edptu"]
 [ext_resource type="PackedScene" uid="uid://cce3ge1fy6voy" path="res://Scenes/Player.tscn" id="3_67b2m"]
-[ext_resource type="PackedScene" uid="uid://bh2oywqg8gp1n" path="res://Scenes/FollowLight.tscn" id="4_hsmlj"]
-[ext_resource type="Texture2D" uid="uid://ci8cww0vriuf1" path="res://Sprites/House_001.png" id="5_poyab"]
-[ext_resource type="Texture2D" uid="uid://bnx53vvsrb1i" path="res://Sprites/House_002.png" id="6_tx6iy"]
+[ext_resource type="PackedScene" uid="uid://bh2oywqg8gp1n" path="res://Scenes/Objects/FollowLight.tscn" id="4_hsmlj"]
+[ext_resource type="Texture2D" uid="uid://ci8cww0vriuf1" path="res://Sprites/Objects/House_001.png" id="5_poyab"]
+[ext_resource type="Texture2D" uid="uid://bnx53vvsrb1i" path="res://Sprites/Objects/House_002.png" id="6_tx6iy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdtn8"]
 size = Vector2(43, 26)

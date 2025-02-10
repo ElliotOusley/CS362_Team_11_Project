@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Witch
 
 @export var roam_radius: float = 100.0
 @export var move_speed: float = 20.0
