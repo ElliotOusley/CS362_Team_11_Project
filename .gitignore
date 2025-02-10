@@ -1,0 +1,35 @@
+# Ignore the .godot folder (stores temporary editor settings & cache)
+.godot/
+
+# Ignore Godot's temporary imports & caches
+.import/
+
+# Ignore compiled Mono/C# binaries (if using C# in Godot)
+.mono/
+mono_crash.*
+
+# Ignore temporary files created by the editor
+*.translation
+*.converted.scn
+*.converted.tscn
+*.converted.res
+*.imported.res
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore user-specific Godot settings (not needed in Git)
+editor_settings-*.tres
+
+# Ignore logs and debug files
+*.log
+logs/
+*.dump
+
+# Ignore build artifacts
+bin/
+export/
+
+# Ignore Godot's lock file (only needed during runtime)
+.project_lock
