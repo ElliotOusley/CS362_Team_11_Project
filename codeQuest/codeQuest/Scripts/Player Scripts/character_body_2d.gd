@@ -15,6 +15,7 @@ var timer : Timer
 var witch_nearby = false  # Flag to track if the Witch is near
 
 func _ready():
+	print("Footstep Audio:", footstep_audio)
 	back_texture = preload("res://Sprites/Characters/Red_Wizard/Red_Wizard_Back.png")
 	front_texture = preload("res://Sprites/Characters/Red_Wizard/Red_Wizard_Front.png")
 	left_texture = preload("res://Sprites/Characters/Red_Wizard/Red_Wizard_Left.png")
