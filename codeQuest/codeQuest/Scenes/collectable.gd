@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 class Collectable:
 	var name : String

@@ -1,6 +1,6 @@
 import collectable.gd
 
-class_name Inventory
+class_name Inv
 
 extends Node
 
