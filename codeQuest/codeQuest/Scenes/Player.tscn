@@ -231,11 +231,11 @@ states/Walk/position = Vector2(501, 132)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="CanvasLayer" parent="." instance=ExtResource("1_qhjsc")]
-
 [node name="Player" type="CharacterBody2D" parent="."]
 motion_mode = 1
 script = ExtResource("1_ch48f")
+
+[node name="CanvasLayer" parent="Player" instance=ExtResource("1_qhjsc")]
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 texture_filter = 1

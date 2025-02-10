@@ -4,6 +4,9 @@ class_name PlayerCharacter
 @export var speed = 50
 @onready var actionable_finder: Area2D = $Direction/ActionableFinder
 @onready var footstep_audio: AudioStreamPlayer2D = $footstep_audio
+@onready var UI: CanvasLayer = $CanvasLayer
+@onready var inventory_HUD = $CanvasLayer/InventoryUI
+
 
 
 var back_texture : Texture
@@ -16,10 +19,7 @@ var witch_nearby = false  # Flag to track if the Witch is near
 
 func _ready():
 	print("Footstep Audio:", footstep_audio)
-	back_texture = preload("res://Sprites/Characters/Red_Wizard/Red_Wizard_Back.png")
-	front_texture = preload("res://Sprites/Characters/Red_Wizard/Red_Wizard_Front.png")
-	left_texture = preload("res://Sprites/Characters/Red_Wizard/Red_Wizard_Left.png")
-	right_texture = preload("res://Sprites/Characters/Red_Wizard/Red_Wizard_Right.png")
+	
 	
 	# Create and configure the timer
 	timer = Timer.new()
@@ -27,7 +27,9 @@ func _ready():
 	timer.wait_time = 0.2  # Set the interval to 0.2 seconds
 	timer.one_shot = false
 	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
-
+	
+	if inventory_HUD:
+		inventory_HUD.visible = false # Hiding the inventory UI
 func get_input():
 	var input_direction = Vector2.ZERO
 	var moving = false
@@ -43,7 +45,8 @@ func get_input():
 			actionables[0].action()
 			input_direction = Vector2.ZERO
 			return
-
+	if Input.is_action_just_pressed("Inventory"):
+		inventory_HUD.visible = !inventory_HUD.visible #Making it toggleable
 	# Basic 4-directional movement
 	if Input.is_action_pressed("up"):
 		input_direction.y += -1
