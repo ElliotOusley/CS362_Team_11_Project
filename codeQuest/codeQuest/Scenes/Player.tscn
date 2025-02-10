@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://cce3ge1fy6voy"]
+[gd_scene load_steps=28 format=3 uid="uid://cce3ge1fy6voy"]
 
 [ext_resource type="Script" path="res://Scripts/Player Scripts/character_body_2d.gd" id="1_ch48f"]
 [ext_resource type="Texture2D" uid="uid://btohhiwbyllxh" path="res://Sprites/Characters/Red_Wizard/Player_SpriteSheet-Sheet.png" id="2_c2mao"]
 [ext_resource type="Texture2D" uid="uid://cumnhaq8g4xnx" path="res://Sprites/Light_Texture.png" id="3_14718"]
+[ext_resource type="AudioStream" uid="uid://cnlsxtnmu60ty" path="res://Audio/step.wav" id="4_tit6w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2uurk"]
 size = Vector2(18, 10)
@@ -274,3 +275,7 @@ tree_root = SubResource("AnimationNodeStateMachine_fsrqk")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(0.604986, 0.283186)
 parameters/Walk/blend_position = Vector2(1.11055, 0.00884962)
+
+[node name="footstep_audio" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("4_tit6w")
+autoplay = true
