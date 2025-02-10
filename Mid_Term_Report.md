@@ -145,15 +145,8 @@ This issue has a medium likelihood of occurring, but will not affect project com
 affect the final product if fun mechanics are not identified. This issue can be minimized by running frequent
 playtesting to get feedback on what others find fun. 
 
-**Audiences:**
-Our game combines multiple genres as a way to teach programming in a fun way. However, 
-this runs the risk of alienating audiences. As an example, combining a puzzle game with a role playing game may 
-not appeal to players who are a fan of either genre, but instead a smaller subset of player who enjoy both. As such,
-it is important to consider ways to get players who only enjoy one genre to try the game. This issue has high risk
-of occuring, as we are combining multiple genres for this game. However, it has a low impact.
-It could lead to less player engagement. This risk can be detected through playtesting with 
-people who are fans of one of the two genres we combine. This risk can be minimized by ensuring that both genres 
-are properly represented with extra care taken to develop game mechanics. 
+**Integration Issues:**
+Since the project involves multiple components working together, integration issues have a high likelihood and a medium impact if not managed properly. These issues could happen when members independently developed codes fail to function correctly as a whole. Based on past development, integration problems often surface late in the project if components are not tested together early. To mitigate this, we will continuously testing our codes as they are developed. Regular integration tests will be conducted to detect mismatches in APIs, data formats, or dependencies. If integration failures occur, debugging will be prioritized, and adjustments will be made to ensure compatibility across all modules.
 
 ### ii. Project schedule 
 
