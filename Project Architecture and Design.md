@@ -29,6 +29,7 @@ Pros:
 * Industry Standard: Unity is used by many major game companies and has a large following behind it, meaning that resources are easier to find 
 
 Cons: 
+* Steeper Learning cureve and licensing fess for larger projects
 
 #### Unreal Engine 
 
