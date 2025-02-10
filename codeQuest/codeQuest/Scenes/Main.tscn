@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://d3mcds7r2hhd5"]
+[gd_scene load_steps=10 format=4 uid="uid://d3mcds7r2hhd5"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_45v3f"]
 [ext_resource type="PackedScene" uid="uid://cce3ge1fy6voy" path="res://Scenes/Player.tscn" id="2_x22wi"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bgxju13b4d8tw" path="res://Scenes/Witch.tscn" id="3_ugqw2"]
 [ext_resource type="PackedScene" path="res://Scenes/PuzzleArea.tscn" id="7_syapx"]
 [ext_resource type="PackedScene" uid="uid://bojnytld3yb7k" path="res://Scenes/sign.tscn" id="8_n70of"]
+[ext_resource type="PackedScene" uid="uid://cy7ca56ah2u8l" path="res://Scenes/Puzzle_Stone.tscn" id="8_tjota"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_45v3f")
@@ -45,5 +46,8 @@ autoplay = true
 [node name="Sign" parent="." instance=ExtResource("8_n70of")]
 position = Vector2(-34, -235)
 
-[node name="PuzzleArea" parent="." instance=ExtResource("7_syapx")]
-position = Vector2(-163, -176)
+[node name="PuzzleStone" parent="." instance=ExtResource("8_tjota")]
+position = Vector2(-179, -190)
+
+[node name="PuzzleArea" parent="PuzzleStone" instance=ExtResource("7_syapx")]
+position = Vector2(0, 4)
