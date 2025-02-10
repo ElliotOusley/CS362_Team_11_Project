@@ -1,5 +1,5 @@
 6b83eef13f46d74bce552f92a480ef09
-::res://::1739131351
+::res://::1739131354
 icon.svg::CompressedTexture2D::2690326859916116300::1739131140::1739131179::1::::<><>::
 ::res://addons/::1739131140
 ::res://addons/dialogue_manager/::1739131140
@@ -79,29 +79,36 @@ main_view.tscn::PackedScene::4884668666408697448::1739131140::0::1::::<><>::res:
 Peaceful Hilltop Trail - Nature Sounds - Relaxing.mp3::AudioStreamMP3::491485238449022335::1739131140::1739131179::1::::<><>::
 ::res://Dialogue/::1739131179
 test1.dialogue::Resource::109850746612654441::1739131140::1739131179::1::::<><>::res://addons/dialogue_manager/dialogue_resource.gd
-::res://Scenes/::1739131249
-Actionable.tscn::PackedScene::7266389050852085610::1739131140::0::1::::<><>::res://Scripts/NPC Scripts/actionable.gd
-BattleScreen.tscn::PackedScene::6710974482375103327::1739131140::0::1::::<><>::res://Scripts/BattleScreen.gd
-Main.tscn::PackedScene::9149449993022985384::1739131140::0::1::::<><>::res://Scripts/Main.gd<>uid://cb4gudtdaj4nk::::res://Sprites/Atlases/Tile_Atlas_1.png<>uid://cce3ge1fy6voy::::res://Scenes/Player.tscn<>uid://hacxpyr4syxr::::res://Audio/Peaceful Hilltop Trail - Nature Sounds - Relaxing.mp3<>uid://bgxju13b4d8tw::::res://Scenes/Witch.tscn<>uid://belhj4u1uk51q::::res://icon.svg<>res://Scenes/test_code_chall_action.gd<>uid://bojnytld3yb7k::::res://Scenes/sign.tscn
-MainMenu.tscn::PackedScene::9119813904450849238::1739131140::0::1::::<><>::res://Scripts/HUD Scripts/main_menu.gd
+::res://Scenes/::1739144992
+Actionable.tscn::PackedScene::7266389050852085610::1739131770::0::1::::<><>::res://Scripts/NPC Scripts/actionable.gd
+BattleScreen.tscn::PackedScene::6710974482375103327::1739144992::0::1::::<><>::res://Scripts/BattleScreen.gd
+Main.tscn::PackedScene::9149449993022985384::1739144992::0::1::::<><>::res://Scripts/Main.gd<>uid://cb4gudtdaj4nk::::res://Sprites/Atlases/Tile_Atlas_1.png<>uid://cce3ge1fy6voy::::res://Scenes/Player.tscn<>uid://hacxpyr4syxr::::res://Audio/Peaceful Hilltop Trail - Nature Sounds - Relaxing.mp3<>uid://bgxju13b4d8tw::::res://Scenes/Witch.tscn<>uid://mjtoimmjex8h::::res://Scenes/PuzzleArea.tscn<>uid://bojnytld3yb7k::::res://Scenes/sign.tscn
+MainMenu.tscn::PackedScene::9119813904450849238::1739131770::0::1::::<><>::res://Scripts/HUD Scripts/main_menu.gd
 Options.tscn::PackedScene::7120070157571720464::1739131140::0::1::::<><>::res://Scripts/HUD Scripts/options.gd
-Player.tscn::PackedScene::4923187606758204128::1739131140::0::1::::<><>::res://Scripts/Player Scripts/character_body_2d.gd<>uid://btohhiwbyllxh::::res://Sprites/Characters/Red_Wizard/Player_SpriteSheet-Sheet.png<>uid://cumnhaq8g4xnx::::res://Sprites/Light_Texture.png
-PlayerHUD.tscn::PackedScene::4027158780131497513::1739131140::0::1::::<><>::uid://cqfquhe1f30u6::::res://Sprites/UI/Health_Container.png<>res://Scripts/HUD Scripts/health_bar.gd<>uid://dx8s7gowod01k::::res://Sprites/UI/Full_Health_Heart.png<>res://Scripts/HUD Scripts/health_controls.gd
-sign.tscn::PackedScene::3388477089482944494::1739131140::0::1::::<><>::uid://bf5rricym0tue::::res://Sprites/Characters/Sign.png<>res://Scripts/NPC Scripts/actionable.gd<>uid://bthhw71i84bl::::res://Dialogue/test1.dialogue
-Witch.tscn::PackedScene::2855618011623639592::1739131140::0::1::::<><>::uid://bdcjv77a1luuv::::res://Sprites/Characters/Witch_Front.png<>res://Scripts/NPC Scripts/witch.gd
+Player.tscn::PackedScene::4923187606758204128::1739144992::0::1::::<><>::res://Scripts/Player Scripts/character_body_2d.gd<>uid://btohhiwbyllxh::::res://Sprites/Characters/Red_Wizard/Player_SpriteSheet-Sheet.png<>uid://cumnhaq8g4xnx::::res://Sprites/Light_Texture.png
+PlayerHUD.tscn::PackedScene::4027158780131497513::1739131770::0::1::::<><>::uid://cqfquhe1f30u6::::res://Sprites/UI/Health_Container.png<>res://Scripts/HUD Scripts/health_bar.gd<>uid://dx8s7gowod01k::::res://Sprites/UI/Full_Health_Heart.png<>res://Scripts/HUD Scripts/health_controls.gd
+CodeBlock.tscn::PackedScene::3251809353353412544::1739144992::0::1::::<><>::res://Scripts/CodeBlock.gd
+PuzzleUI.tscn::PackedScene::1138320866717964200::1739144992::0::1::::<><>::res://Scripts/PuzzleUI.gd
+PuzzleArea.tscn::PackedScene::862024586702049141::1739144992::0::1::::<><>::res://Scripts/PuzzleArea.gd
+sign.tscn::PackedScene::3388477089482944494::1739131770::0::1::::<><>::uid://bf5rricym0tue::::res://Sprites/Characters/Sign.png<>res://Scripts/NPC Scripts/actionable.gd<>uid://bthhw71i84bl::::res://Dialogue/test1.dialogue
+Witch.tscn::PackedScene::2855618011623639592::1739144992::0::1::::<><>::res://Scripts/NPC Scripts/witch.gd<>uid://shcqk84f56hi::::res://Sprites/Characters/WitchSpriteSheet.png
 ::res://Scenes/CodeBlocks/::1739131261
 ::res://Scenes/TestCodeChallange/::1739131273
-::res://Scripts/::1739131297
+::res://Scripts/::1739140520
 BattleScreen.gd::GDScript::-1::1739131140::0::1::::<>CanvasLayer<>::
-Main.gd::GDScript::-1::1739131140::0::1::::<>Node2D<>::
+Main.gd::GDScript::-1::1739138527::0::1::::<>Node2D<>::
+PuzzleArea.gd::GDScript::-1::1739140520::0::1::::<>Area2D<>::
+CodeBlock.gd::GDScript::-1::1739133300::0::1::::<>Button<>::
+PuzzleUI.gd::GDScript::-1::1739138705::0::1::::<>Control<>::
+AnswerArea.gd::GDScript::-1::1739133350::0::1::::<>HBoxContainer<>::
 ::res://Scripts/HUD Scripts/::1739131140
 health_bar.gd::GDScript::-1::1739131140::0::1::::<>HBoxContainer<>::
 health_controls.gd::GDScript::-1::1739131140::0::1::::<>VBoxContainer<>::
 main_menu.gd::GDScript::-1::1739131140::0::1::::<>Control<>::
 options.gd::GDScript::-1::1739131140::0::1::::<>Control<>::
-::res://Scripts/NPC Scripts/::1739131140
+::res://Scripts/NPC Scripts/::1739135827
 actionable.gd::GDScript::-1::1739131140::0::1::::<>Area2D<>::
-witch.gd::GDScript::-1::1739131140::0::1::::<>CharacterBody2D<>::
+witch.gd::GDScript::-1::1739135827::0::1::::<>CharacterBody2D<>::
 ::res://Scripts/Player Scripts/::1739131140
 character_body_2d.gd::GDScript::-1::1739131140::0::1::::<>CharacterBody2D<>::
 ::res://Sprites/::1739131179
@@ -110,9 +117,11 @@ Test_Tile_1.png::CompressedTexture2D::5747329314043917846::1739131140::173913117
 Tile_Atlas_1.png::CompressedTexture2D::1234232379531486506::1739131140::1739131179::1::::<><>::
 ::res://Sprites/Atlases/::1739131179
 Tile_Atlas_1.png::CompressedTexture2D::4903297370784693024::1739131140::1739131179::1::::<><>::
-::res://Sprites/Characters/::1739131179
+::res://Sprites/Characters/::1739145557
 Sign.png::CompressedTexture2D::2800359206262370816::1739131140::1739131179::1::::<><>::
-Witch_Front.png::CompressedTexture2D::2601701654938365573::1739131140::1739131179::1::::<><>::
+WitchSpriteSheet2.png::CompressedTexture2D::9109647429151111602::1739145557::1739145585::1::::<><>::
+WitchSpriteSheet.png::CompressedTexture2D::1278000413988583954::1739144727::1739144773::1::::<><>::
+Witch_Front.png::CompressedTexture2D::2601701654938365573::1739141035::1739144773::1::::<><>::
 ::res://Sprites/Characters/Red_Wizard/::1739131179
 Player_SpriteSheet-Sheet.png::CompressedTexture2D::3749347975129704377::1739131140::1739131179::1::::<><>::
 Red_Wizard_Back.png::CompressedTexture2D::775777378096080282::1739131140::1739131179::1::::<><>::

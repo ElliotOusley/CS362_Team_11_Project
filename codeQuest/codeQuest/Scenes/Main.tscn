@@ -593,6 +593,7 @@ color = Color(0.394031, 0.43868, 0.0705408, 1)
 blend_mode = 1
 
 [node name="Witch" parent="." instance=ExtResource("3_ugqw2")]
+texture_filter = 1
 position = Vector2(-101, -72)
 
 [node name="Player" parent="." instance=ExtResource("2_x22wi")]

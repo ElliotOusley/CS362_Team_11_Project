@@ -1,7 +1,92 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgxju13b4d8tw"]
+[gd_scene load_steps=10 format=3 uid="uid://bgxju13b4d8tw"]
 
-[ext_resource type="Texture2D" uid="uid://bdcjv77a1luuv" path="res://Sprites/Characters/Witch_Front.png" id="1_2tl72"]
 [ext_resource type="Script" path="res://Scripts/NPC Scripts/witch.gd" id="1_ys0yg"]
+[ext_resource type="Texture2D" uid="uid://d211td6tpyiys" path="res://Sprites/Characters/WitchSpriteSheet2.png" id="2_ebxdg"]
+
+[sub_resource type="Animation" id="Animation_2kp24"]
+resource_name = "walkdown"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_pa5au"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_216ib"]
+resource_name = "walkleft"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_fjsnt"]
+resource_name = "walkup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_vu6dr"]
+resource_name = "walkright"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rokj0"]
+_data = {
+"RESET": SubResource("Animation_pa5au"),
+"walkdown": SubResource("Animation_2kp24"),
+"walkleft": SubResource("Animation_216ib"),
+"walkright": SubResource("Animation_vu6dr"),
+"walkup": SubResource("Animation_fjsnt")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxqog"]
 size = Vector2(22, 31)
@@ -13,7 +98,13 @@ script = ExtResource("1_ys0yg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Witch"]
 texture_filter = 1
-texture = ExtResource("1_2tl72")
+texture = ExtResource("2_ebxdg")
+hframes = 12
+
+[node name="witchAnimation" type="AnimationPlayer" parent="Witch/Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_rokj0")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Witch"]
 position = Vector2(0, 0.5)

@@ -28,12 +28,25 @@ func _on_body_entered(body):
 		
 		# Instance a new PuzzleUI
 		var puzzle_instance = PuzzleUIScene.instantiate()
-		puzzle_instance.name = "PuzzleUI"  # Give it a consistent name to find later
+		puzzle_instance.name = "PuzzleUI"
+		puzzle_instance.process_mode = Node.PROCESS_MODE_ALWAYS
 		puzzle_instance.available_blocks = puzzle_available_blocks
 		puzzle_instance.instructions_text = puzzle_instructions
 		puzzle_instance.expected_solution = puzzle_expected_solution
-		get_tree().root.add_child(puzzle_instance)
-		puzzle_instance.raise()  # Bring UI to the front
-		
+		puzzle_instance.z_index = 100  # Ensure it renders on top
+		get_tree().current_scene.add_child(puzzle_instance)
+
+		# Pause the game
+		get_tree().paused = true
+		print("⏸️ Game paused while solving the puzzle.")
+
+		# Connect signal to unpause when the puzzle is closed
+		puzzle_instance.tree_exiting.connect(_on_puzzle_closed)
+
 		# Disable further triggering
 		set_deferred("monitoring", false)
+
+# Unpause the game when PuzzleUI is closed
+func _on_puzzle_closed():
+	get_tree().paused = false
+	print("▶️ Game unpaused after puzzle closed.")

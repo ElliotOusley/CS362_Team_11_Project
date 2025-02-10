@@ -14,3 +14,4 @@ res://Scenes/PuzzleUI.tscn
 res://Scripts/PuzzleUI.gd
 res://Scripts/AnswerArea.gd
 res://Scripts/Main.gd
+res://Scripts/NPC Scripts/witch.gd
