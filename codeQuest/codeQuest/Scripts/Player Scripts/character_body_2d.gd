@@ -45,7 +45,7 @@ func get_input():
 			actionables[0].action()
 			input_direction = Vector2.ZERO
 			return
-	if Input.is_action_just_pressed("Inventory"):
+	if Input.is_action_just_pressed("e"):
 		inventory_HUD.visible = !inventory_HUD.visible #Making it toggleable
 	# Basic 4-directional movement
 	if Input.is_action_pressed("up"):
