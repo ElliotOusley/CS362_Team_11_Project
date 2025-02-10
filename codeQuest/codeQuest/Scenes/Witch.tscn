@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bgxju13b4d8tw"]
 
-[ext_resource type="Texture2D" uid="uid://bdcjv77a1luuv" path="res://Sprites/Red_Apothecary_Blue_Witch_Sprite.png" id="1_2tl72"]
-[ext_resource type="Script" path="res://Scenes/witch.gd" id="1_ys0yg"]
+[ext_resource type="Texture2D" uid="uid://bdcjv77a1luuv" path="res://Sprites/Characters/Witch_Front.png" id="1_2tl72"]
+[ext_resource type="Script" path="res://Scripts/NPC Scripts/witch.gd" id="1_ys0yg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxqog"]
 size = Vector2(22, 31)
@@ -12,6 +12,7 @@ size = Vector2(22, 31)
 script = ExtResource("1_ys0yg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Witch"]
+texture_filter = 1
 texture = ExtResource("1_2tl72")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Witch"]

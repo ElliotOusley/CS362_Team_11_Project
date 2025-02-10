@@ -11,7 +11,7 @@ func start_battle():
 	print("🧙 Battle started! Trying to instantiate BattleScreen...")
 
 	# Load and add the battle UI
-	var battle_scene = preload("res://BattleScreen.tscn")  # Ensure the path is correct
+	var battle_scene = preload("res://Scenes/BattleScreen.tscn")  # Ensure the path is correct
 	battle_instance = battle_scene.instantiate()
 
 	if battle_instance == null:

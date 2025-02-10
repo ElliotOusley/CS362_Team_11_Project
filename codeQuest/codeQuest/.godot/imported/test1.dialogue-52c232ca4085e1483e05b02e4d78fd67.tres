@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_3e8go"]
 
 [resource]
@@ -11,6 +12,12 @@ script = ExtResource("1_3e8go")
 [resource]
 script = ExtResource("1_ks0u8")
 >>>>>>> ec0e7a92119bb08d978b243634704ae973c3c5d1
+=======
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_60c2e"]
+
+[resource]
+script = ExtResource("1_60c2e")
+>>>>>>> 299d0097fc6ee7a77f8b11a38342dfdd6a65a7a3
 using_states = PackedStringArray()
 titles = {
 "start": "1"

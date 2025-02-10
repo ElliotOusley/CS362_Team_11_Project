@@ -1,13 +1,16 @@
 extends CharacterBody2D
+class_name PlayerCharacter
 
 @export var speed = 50
 @onready var actionable_finder: Area2D = $Direction/ActionableFinder
+@onready var footstep_audio: AudioStreamPlayer2D = $footstep_audio
 
 
 var back_texture : Texture
 var front_texture : Texture
 var right_texture : Texture
 var left_texture : Texture
+var timer : Timer
 
 var witch_nearby = false  # Flag to track if the Witch is near
 
@@ -16,9 +19,17 @@ func _ready():
 	front_texture = preload("res://Sprites/Characters/Red_Wizard/Red_Wizard_Front.png")
 	left_texture = preload("res://Sprites/Characters/Red_Wizard/Red_Wizard_Left.png")
 	right_texture = preload("res://Sprites/Characters/Red_Wizard/Red_Wizard_Right.png")
+	
+	# Create and configure the timer
+	timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = 0.2  # Set the interval to 0.2 seconds
+	timer.one_shot = false
+	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
 
 func get_input():
 	var input_direction = Vector2.ZERO
+	var moving = false
 
 	# Check for interaction input (e.g., "Enter" key or gamepad button)
 	if Input.is_action_just_pressed("ui_accept"):
@@ -35,31 +46,38 @@ func get_input():
 	# Basic 4-directional movement
 	if Input.is_action_pressed("up"):
 		input_direction.y += -1
+		moving = true
 	if Input.is_action_pressed("down"):
 		input_direction.y += 1
+		moving = true
 	if Input.is_action_pressed("left"):
 		input_direction.x += -1
+		moving = true
 	if Input.is_action_pressed("right"):
 		input_direction.x += 1
+		moving = true
+
+	if moving and timer.is_stopped():
+		timer.start()
+	
+	if not moving and timer.time_left > 0:
+		timer.stop()
+		footstep_audio.stop()
+
+
+	if velocity == Vector2.ZERO:
+		$AnimationTree.get("parameters/playback").travel("Idle")
+	else:
+		$AnimationTree.get("parameters/playback").travel("Walk")
+		$AnimationTree.set("parameters/Idle/blend_position", velocity)
+		$AnimationTree.set("parameters/Walk/blend_position", velocity)
 
 	velocity = input_direction.normalized() * speed
-	change_sprite()
 
 func _physics_process(_delta):
 	get_input()
 	move_and_slide()
 	check_for_witch_collisions()  # Check if the Witch is nearby
-
-# Uses player velocity to change moving sprites
-func change_sprite():
-	if velocity.x < 0:
-		$Sprite2D.texture = left_texture
-	elif velocity.x > 0:
-		$Sprite2D.texture = right_texture
-	elif velocity.y < 0:
-		$Sprite2D.texture = back_texture
-	elif velocity.y > 0:
-		$Sprite2D.texture = front_texture
 
 # Checks if the Player is touching the Witch**
 func check_for_witch_collisions():
@@ -76,3 +94,10 @@ func _start_battle_with_witch():
 	var main = get_tree().get_current_scene()  # Get the main scene
 	if main and main.has_method("start_battle"):
 		main.start_battle()  # Call start_battle() from Main.gd
+
+# Timer timeout callback to play the footstep sound
+func _on_timer_timeout():
+	# Play the footstep sound if it's not already playing
+	if !footstep_audio.playing:
+		footstep_audio.pitch_scale = randf_range(0.8, 1.2)
+		footstep_audio.play()

@@ -241,4 +241,3 @@ func _on_Timer_tick() -> void:
 func _update_timer_display():
 	# Update the TimerLabel to show the time left
 	timer_label.text = "⏳ Time Left: %d sec" % time_left
-
