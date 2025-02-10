@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+[gd_scene load_steps=12 format=4 uid="uid://d3mcds7r2hhd5"]
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 [gd_scene load_steps=12 format=4 uid="uid://d3mcds7r2hhd5"]
 =======
@@ -7,12 +10,16 @@
 =======
 [gd_scene load_steps=15 format=4 uid="uid://d3mcds7r2hhd5"]
 >>>>>>> 299d0097fc6ee7a77f8b11a38342dfdd6a65a7a3
+>>>>>>> 4d311134812e23ac709c6cbbaf59580248d7952c
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_45v3f"]
 [ext_resource type="Texture2D" uid="uid://cb4gudtdaj4nk" path="res://Sprites/Atlases/Tile_Atlas_1.png" id="1_v4tev"]
 [ext_resource type="PackedScene" uid="uid://cce3ge1fy6voy" path="res://Scenes/Player.tscn" id="2_x22wi"]
 [ext_resource type="AudioStream" uid="uid://hacxpyr4syxr" path="res://Audio/Peaceful Hilltop Trail - Nature Sounds - Relaxing.mp3" id="3_gfose"]
 [ext_resource type="PackedScene" uid="uid://bgxju13b4d8tw" path="res://Scenes/Witch.tscn" id="3_ugqw2"]
+<<<<<<< HEAD
+[ext_resource type="PackedScene" uid="uid://mjtoimmjex8h" path="res://Scenes/PuzzleArea.tscn" id="7_syapx"]
+=======
 <<<<<<< HEAD
 [ext_resource type="Script" path="res://Scenes/player.gd" id="4_m6ahe"]
 [ext_resource type="Script" path="res://Scenes/inventory.gd" id="5_jk742"]
@@ -23,6 +30,7 @@
 <<<<<<< HEAD
 >>>>>>> ec0e7a92119bb08d978b243634704ae973c3c5d1
 =======
+>>>>>>> 4d311134812e23ac709c6cbbaf59580248d7952c
 [ext_resource type="PackedScene" uid="uid://bojnytld3yb7k" path="res://Scenes/sign.tscn" id="8_n70of"]
 [ext_resource type="PackedScene" uid="uid://bh2oywqg8gp1n" path="res://Scenes/FollowLight.tscn" id="9_lfoqn"]
 >>>>>>> 299d0097fc6ee7a77f8b11a38342dfdd6a65a7a3
@@ -503,9 +511,6 @@ terrain_set_0/terrain_1/name = "Tree"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_kwya8")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1u6ve"]
-radius = 37.3363
-
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_45v3f")
 
@@ -556,6 +561,13 @@ tile_set = SubResource("TileSet_1b68d")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 <<<<<<< HEAD
+[node name="Sign" parent="." instance=ExtResource("8_n70of")]
+position = Vector2(-34, -235)
+
+[node name="PuzzleArea" parent="." instance=ExtResource("7_syapx")]
+position = Vector2(-163, -176)
+=======
+<<<<<<< HEAD
 [node name="inventory" type="Node" parent="."]
 script = ExtResource("5_jk742")
 
@@ -584,3 +596,4 @@ position = Vector2(-34, -235)
 position = Vector2(-209, -89)
 target = NodePath("../Player")
 >>>>>>> 299d0097fc6ee7a77f8b11a38342dfdd6a65a7a3
+>>>>>>> 4d311134812e23ac709c6cbbaf59580248d7952c
