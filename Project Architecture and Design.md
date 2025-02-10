@@ -2,7 +2,8 @@
 
 ### Major Components
 * User Interface – An overlay on top of the game scene that allows players to interact with game systems like inventory, options, the main menu, and dialogue 
-* Game Scene – Where gameplay takes place. Includes scenes like main, the player, NPCs, and tilemaps. 
+* Game Scene – Where gameplay takes place. Includes scenes like main, the player, NPCs, and tilemaps.
+* Data Storage Layer - Layer which will handle save states and settings.
 
 ### Component Interfacing
 
@@ -28,6 +29,7 @@ Pros:
 * Industry Standard: Unity is used by many major game companies and has a large following behind it, meaning that resources are easier to find 
 
 Cons: 
+* Steeper Learning cureve and licensing fess for larger projects
 
 #### Unreal Engine 
 
