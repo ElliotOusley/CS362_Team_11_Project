@@ -1,8 +1,11 @@
 res://Scenes/Main.tscn
+res://BattleScreen.gd
 res://Scenes/TestCodeChallange/TestCodeChallenge.tscn
 res://Scenes/Player.tscn
 res://Scenes/Actionable.tscn
 res://Scenes/CodeBlocks/TestBlock.tscn
 res://Scenes/Witch.tscn
 res://BattleScreen.tscn
+res://Scripts/character_body_2d.gd
 res://Scenes/sign.tscn
+res://addons/dialogue_manager/example_balloon/example_balloon.gd

@@ -14,8 +14,6 @@ Weekly meeting reports are located in the [reports folder](https://github.com/El
 
 # Trello
 Progress on the project can be seen on our [Trello Board](https://trello.com/b/Lz0f5vrL/pt11-project)
-# Wiki
-In-Game features are documented through the [Wiki](https://github.com/ElliotOusley/CS362_Team_11_Project/wiki)
 
 # Project Overview
 Our Project, CodeQuest is a Puzzle RPG that encourages players to learn code while keeping a traditional RPG experience.

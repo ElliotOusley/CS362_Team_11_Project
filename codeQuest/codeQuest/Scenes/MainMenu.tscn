@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d26yac8uglqew"]
 
-[ext_resource type="Script" path="res://Scripts/HUD Scripts/main_menu.gd" id="1_e1sga"]
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_e1sga"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
