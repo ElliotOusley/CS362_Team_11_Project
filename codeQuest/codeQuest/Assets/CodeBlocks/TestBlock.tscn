@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d30ete34ggks7"]
 
-[ext_resource type="Script" path="res://Scenes/CodeBlocks/test_block.gd" id="1_25fst"]
+[ext_resource type="Script" path="res://Assets/CodeBlocks/test_block.gd" id="1_25fst"]
 [ext_resource type="Texture2D" uid="uid://belhj4u1uk51q" path="res://icon.svg" id="1_dc51n"]
 
 [node name="TestBlock" type="Node2D"]

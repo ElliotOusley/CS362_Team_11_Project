@@ -64,6 +64,7 @@ func check_for_witch_collisions():
 
 	for body in bodies:
 		if body.name == "Witch":  # If the Witch is found
+			print("hello")
 			witch_nearby = true
 			break  # No need to check further
 
@@ -72,3 +73,6 @@ func _start_battle_with_witch():
 	var main = get_tree().get_current_scene()  # Get the main scene
 	if main and main.has_method("start_battle"):
 		main.start_battle()  # Call start_battle() from Main.gd
+
+func player():
+	pass

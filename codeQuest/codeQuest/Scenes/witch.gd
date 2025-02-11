@@ -10,6 +10,9 @@ var _origin_position: Vector2
 var _target_position: Vector2
 var _time_passed: float = 0.0
 
+var player
+var is_player_colliding = false
+
 func _ready() -> void:
 	# Record the Witch’s initial position as the center of her roaming circle.
 	_origin_position = global_position
@@ -20,6 +23,10 @@ func _ready() -> void:
 	# Or we can just rely on checking overlap from the Player side.
 	# For example:
 	# $CollisionShape2D.connect("body_entered", self, "_on_body_entered")
+
+func _process(_delta: float) -> void:
+	if is_player_colliding and Input.is_action_pressed("interact"):
+		get_tree().change_scene_to_file("res://Scenes/ChallangeOne/ChallangeOne.tscn")
 
 func _physics_process(delta: float) -> void:
 	# Count up time and pick a new target from time to time.
@@ -52,3 +59,21 @@ func _pick_new_target() -> void:
 # func _start_battle():
 #     # We'll show how to do the "battle" next.
 #     pass
+
+
+
+
+func _on_interaction_area_body_entered(body: Node2D) -> void:
+	if body.has_method("player"):
+		player = body
+		move_speed = 0.0
+		is_player_colliding = true
+		$InteractLabel.visible = true
+		
+
+
+func _on_interaction_area_body_exited(body: Node2D) -> void:
+	if body.has_method("player"):
+		move_speed = 20.0
+		is_player_colliding = false
+		$InteractLabel.visible = false

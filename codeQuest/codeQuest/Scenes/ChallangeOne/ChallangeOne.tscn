@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://hwrq76wpxiwo"]
+
+[ext_resource type="Texture2D" uid="uid://dwgklfprcirvi" path="res://Sprites/CodeBlocks/UseMagicBlock.png" id="1_rbgqx"]
+[ext_resource type="Texture2D" uid="uid://cclccca854su5" path="res://Sprites/CodeBlocks/StartBlock.png" id="1_yuk3c"]
+[ext_resource type="Script" path="res://Scenes/ChallangeOne/use_magic_spawn_block.gd" id="2_474gf"]
+[ext_resource type="Script" path="res://Scenes/ChallangeOne/start_block.gd" id="2_elllf"]
+
+[node name="ChallangeOne" type="Node2D"]
+
+[node name="UseMagicSpawnBlock" type="Sprite2D" parent="."]
+position = Vector2(117, 64)
+scale = Vector2(0.198926, 0.218798)
+texture = ExtResource("1_rbgqx")
+script = ExtResource("2_474gf")
+
+[node name="StartBlock" type="Sprite2D" parent="."]
+position = Vector2(444, 44)
+scale = Vector2(0.222222, 0.255981)
+texture = ExtResource("1_yuk3c")
+script = ExtResource("2_elllf")
