@@ -15,10 +15,13 @@ class InvList {
     InvList();
     ~InvList();
 
-    void add(InvItem item, int AddQuantity);
-    void remove(InvItem item, int AddQuantity);
+    // add to existing quantity of item, or create new item 
+    void add(InvItem *item, int AddQuantity); 
+    // Subtract from existing quantity of item
+    void remove(InvItem *item, int SubQuantity);
 
     private:
-    InvItem *search(string SearchItem);
+    InvItem *search(string SearchItem); // Find item in list
+    void insert(InvItem InsItem); // Add new item to list
 
 };
