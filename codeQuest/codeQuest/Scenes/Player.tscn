@@ -1,8 +1,8 @@
 [gd_scene load_steps=31 format=3 uid="uid://cce3ge1fy6voy"]
 
-[ext_resource type="Script" path="res://Scenes/player.gd" id="1_mj130"]
+[ext_resource type="Script" path="res://Scripts/Player Scripts/character_body_2d.gd" id="1_ch48f"]
 [ext_resource type="PackedScene" uid="uid://bxm1ymsq1w2dh" path="res://Scenes/PlayerHUD.tscn" id="1_qhjsc"]
-[ext_resource type="Resource" uid="uid://80nk5u4oma4" path="res://inventory/player_inv.tres" id="2_ay8lc"]
+[ext_resource type="Resource" uid="uid://dw0wig58bfa44" path="res://inventory/player_inv.tres" id="2_361sv"]
 [ext_resource type="Texture2D" uid="uid://btohhiwbyllxh" path="res://Sprites/Characters/Red_Wizard/Player_SpriteSheet-Sheet.png" id="2_c2mao"]
 [ext_resource type="Texture2D" uid="uid://cumnhaq8g4xnx" path="res://Sprites/Ambience/Light_Texture.png" id="3_14718"]
 [ext_resource type="AudioStream" uid="uid://cnlsxtnmu60ty" path="res://Audio/step.wav" id="4_tit6w"]
@@ -233,8 +233,8 @@ states/Walk/position = Vector2(501, 132)
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
-script = ExtResource("1_mj130")
-inv = ExtResource("2_ay8lc")
+script = ExtResource("1_ch48f")
+inv = ExtResource("2_361sv")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("1_qhjsc")]
 
@@ -287,7 +287,7 @@ autoplay = true
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="inv_UI" parent="." instance=ExtResource("7_p2wl6")]
-offset_left = 21.0
-offset_top = -32.0
-offset_right = 61.0
-offset_bottom = 8.0
+offset_left = -132.0
+offset_top = -159.0
+offset_right = -50.0
+offset_bottom = -96.0

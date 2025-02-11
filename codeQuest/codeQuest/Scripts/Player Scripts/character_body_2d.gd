@@ -4,6 +4,7 @@ class_name PlayerCharacter
 @export var speed = 50
 @onready var actionable_finder: Area2D = $Direction/ActionableFinder
 @onready var footstep_audio: AudioStreamPlayer2D = $footstep_audio
+@export var inv: Inv
 @onready var UI: CanvasLayer = $CanvasLayer
 @onready var inventory_HUD = $CanvasLayer/InventoryUI
 
@@ -45,7 +46,7 @@ func get_input():
 			actionables[0].action()
 			input_direction = Vector2.ZERO
 			return
-	if Input.is_action_just_pressed("e"):
+	if Input.is_action_just_pressed("Inventory"):
 		inventory_HUD.visible = !inventory_HUD.visible #Making it toggleable
 	# Basic 4-directional movement
 	if Input.is_action_pressed("up"):
@@ -105,3 +106,6 @@ func _on_timer_timeout():
 	if !footstep_audio.playing:
 		footstep_audio.pitch_scale = randf_range(0.8, 1.2)
 		footstep_audio.play()
+		
+func collect(item):
+	inv.insert(item)
