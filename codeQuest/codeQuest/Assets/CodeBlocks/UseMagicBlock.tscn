@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2gk0gyqk7tfq"]
+
+[ext_resource type="Script" path="res://Assets/CodeBlocks/use_magic_block.gd" id="1_v4u4b"]
+[ext_resource type="Texture2D" uid="uid://dwgklfprcirvi" path="res://Sprites/CodeBlocks/UseMagicBlock.png" id="2_wbsgs"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_v4u4b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(91, 42)
+scale = Vector2(0.325926, 0.380383)
+texture = ExtResource("2_wbsgs")
