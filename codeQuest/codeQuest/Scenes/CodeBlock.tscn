@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-[gd_scene load_steps=2 format=3 uid="uid://q0v4nielini6"]
-=======
-[gd_scene load_steps=2 format=3 uid="uid://dhlexjfjbd7n8"]
->>>>>>> dae8920bb886a3770f12ce86313570c5e07c2a48
+[gd_scene load_steps=2 format=3 uid="uid://bmlg3bwakxm3a"]
 
 [ext_resource type="Script" path="res://Scripts/CodeBlock.gd" id="1_0s042"]
 
 [node name="CodeBlock" type="Button"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_right = 8.0
+offset_bottom = 8.0
 script = ExtResource("1_0s042")
