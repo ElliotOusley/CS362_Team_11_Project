@@ -2,7 +2,10 @@
 
 ### Major Components
 * User Interface – An overlay on top of the game scene that allows players to interact with game systems like inventory, options, the main menu, and dialogue 
-* Game Scene – Where gameplay takes place. Includes scenes like main, the player, NPCs, and tilemaps. 
+* Game Scene – Where gameplay takes place. Includes scenes like main, the player, NPCs, and tilemaps.
+
+### Event-Driven Architecture
+Godot uses event-driven Architecture. In the context of Godot, events are the signals emitted by nodes, like a button being pressed, in the case of menus, or like the player entering a dialogue actionable Area2D Node. These nodes also function as event handlers, as signals from one node are sent to others through scripts. This architecture is useful because nodes can be asynchronous, and do not necessarily need to know about one another, just that a signal was sent from one to another. For example, a node with a script that detects when the player picks up an item may not need to know what was picked up, just that an item was picked up.
 
 ### Component Interfacing
 
