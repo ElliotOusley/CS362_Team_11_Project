@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://cxpb30h2ukqx6"]
+
+[ext_resource type="Texture2D" uid="uid://cbh47vqiuha88" path="res://Sprites/Objects/Cauldron-Sheet.png" id="1_xijv4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hna1d"]
+atlas = ExtResource("1_xijv4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ntuu"]
+atlas = ExtResource("1_xijv4")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7jn4"]
+atlas = ExtResource("1_xijv4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dudy"]
+atlas = ExtResource("1_xijv4")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl2q8"]
+atlas = ExtResource("1_xijv4")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cvj2"]
+atlas = ExtResource("1_xijv4")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7qyus"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hna1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ntuu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7jn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dudy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fl2q8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cvj2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2my4y"]
+radius = 6.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_7qyus")
+frame_progress = 0.624965
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_2my4y")

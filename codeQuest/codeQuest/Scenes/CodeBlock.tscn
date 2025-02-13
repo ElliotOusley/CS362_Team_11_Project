@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=2 format=3 uid="uid://q0v4nielini6"]
+=======
+[gd_scene load_steps=2 format=3 uid="uid://dhlexjfjbd7n8"]
+>>>>>>> dae8920bb886a3770f12ce86313570c5e07c2a48
 
 [ext_resource type="Script" path="res://Scripts/CodeBlock.gd" id="1_0s042"]
 

@@ -1,9 +1,7 @@
 class_name CodeBlock
 extends Node2D
 
-var TYPE: String = "BLOCK"
-
-var dragging: bool = false
+var dragging = false
 var drag_offset = Vector2()
 var original_position = Vector2.ZERO
 var start_sprite: Sprite2D
