@@ -1,5 +1,5 @@
 6b83eef13f46d74bce552f92a480ef09
-::res://::1739306343
+::res://::1739306829
 actionable.gd::GDScript::-1::1739306343::0::1::::<>Area2D<>::
 BattleScreen.gd::GDScript::-1::1739306343::0::1::::<>CanvasLayer<>::
 BattleScreen.tscn::PackedScene::-1::1739306343::0::1::::<><>::
@@ -22,7 +22,7 @@ plugin.gd::GDScript::-1::1738619078::0::1::::<>EditorPlugin<>::
 settings.gd::GDScript::-1::1738619078::0::1::::DMSettings<>Node<>::
 test_scene.gd::GDScript::-1::1738619078::0::1::::BaseDialogueTestScene<>Node2D<>::
 test_scene.tscn::PackedScene::1416400481679934567::1738619078::0::1::::<><>::res://addons/dialogue_manager/test_scene.gd
-::res://addons/dialogue_manager/assets/::1739222795
+::res://addons/dialogue_manager/assets/::1739306386
 icon.svg::CompressedTexture2D::9148339284877624195::1738619078::1739306386::1::::<><>::
 responses_menu.svg::CompressedTexture2D::8371359403825774630::1738619078::1739306386::1::::<><>::
 update.svg::CompressedTexture2D::9126631778427806641::1738619078::1739222795::1::::<><>::
@@ -95,20 +95,21 @@ inv_ui.tscn::PackedScene::2418953365269291251::1739306178::0::1::::<><>::res://i
 inv_ui_slot.gd::GDScript::-1::1739304853::0::1::::<>Panel<>::
 inv_ui_slot.tscn::PackedScene::4384005737519862683::1739306178::0::1::::<><>::res://inventory/inv_ui_slot.gd<>uid://b4n6yaciydcvw::::res://Sprites/UI/Ui_Slot.png
 player_inv.tres::Resource/Inv::8756376478144747599::1739305050::0::1::::<><>::res://inventory/inv_slot.gd<>res://inventory/inv.gd
-::res://Scenes/::1739306374
-Actionable.tscn::PackedScene::7266389050852085610::1739146028::0::1::::<><>::res://Scripts/NPC Scripts/actionable.gd
+::res://Scenes/::1739306791
+Actionable.tscn::PackedScene::7266389050852085610::1739306343::0::1::::<><>::res://actionable.gd
+CodeBlock.tscn::PackedScene::1175958482290108627::1739306791::0::1::::<><>::res://Scripts/CodeBlock.gd
 Main.gd::GDScript::-1::1739306343::0::1::::<>Node2D<>::
-Main.tscn::PackedScene::8986325456897993513::1739306178::0::1::::<><>::res://Scripts/Main.gd<>uid://cce3ge1fy6voy::::res://Scenes/Player.tscn<>uid://dllp5qk32pj6q::::res://Sprites/Tilesets/Floor.tres<>uid://c7igtlrvkgd57::::res://Sprites/Tilesets/Obstacles.tres<>uid://hacxpyr4syxr::::res://Audio/Peaceful Hilltop Trail - Nature Sounds - Relaxing.mp3<>uid://bgxju13b4d8tw::::res://Scenes/Witch.tscn<>res://Scenes/PuzzleArea.tscn<>uid://bojnytld3yb7k::::res://Scenes/Objects/sign.tscn<>uid://cy7ca56ah2u8l::::res://Scenes/Objects/Puzzle_Stone.tscn<>uid://bh2oywqg8gp1n::::res://Scenes/Objects/FollowLight.tscn
-MainMenu.tscn::PackedScene::9119813904450849238::1739306178::0::1::::<><>::res://Scripts/HUD Scripts/main_menu.gd
+Main.tscn::PackedScene::9149449993022985384::1739306758::0::1::::<><>::res://Scenes/Main.gd<>uid://cb4gudtdaj4nk::::res://Sprites/Atlases/Tile_Atlas_1.png<>uid://cce3ge1fy6voy::::res://Scenes/Player.tscn<>uid://hacxpyr4syxr::::res://Audio/Peaceful Hilltop Trail - Nature Sounds - Relaxing.mp3<>uid://bgxju13b4d8tw::::res://Scenes/Witch.tscn<>res://Scenes/sign.tscn
+MainMenu.tscn::PackedScene::9119813904450849238::1739306343::0::1::::<><>::res://Scenes/main_menu.gd
 main_menu.gd::GDScript::-1::1739306343::0::1::::<>Control<>::
 options.gd::GDScript::-1::1739306343::0::1::::<>Control<>::
-Options.tscn::PackedScene::7120070157571720464::1739146028::0::1::::<><>::res://Scripts/HUD Scripts/options.gd
-Player.tscn::PackedScene::4923187606758204128::1739306343::0::1::::<><>::res://Scripts/Player Scripts/character_body_2d.gd<>uid://bxm1ymsq1w2dh::::res://Scenes/PlayerHUD.tscn<>uid://dw0wig58bfa44::::res://inventory/player_inv.tres<>uid://btohhiwbyllxh::::res://Sprites/Characters/Red_Wizard/Player_SpriteSheet-Sheet.png<>uid://cumnhaq8g4xnx::::res://Sprites/Ambience/Light_Texture.png<>uid://cnlsxtnmu60ty::::res://Audio/step.wav<>uid://bap02qv1lexf4::::res://inventory/inv_ui.tscn
+Options.tscn::PackedScene::7120070157571720464::1739306343::0::1::::<><>::res://Scenes/options.gd
+Player.tscn::PackedScene::4923187606758204128::1739306343::0::1::::<><>::
 potion.tscn::PackedScene::-1::1739306343::0::1::::<><>::
 sign.tscn::PackedScene::-1::1739306343::0::1::::<><>::
 test_code_chall_action.gd::GDScript::-1::1738804665::0::1::::<>Area2D<>::
 witch.gd::GDScript::-1::1739306343::0::1::::<>CharacterBody2D<>::
-Witch.tscn::PackedScene::2855618011623639592::1739306343::0::1::::<><>::res://Scripts/NPC Scripts/witch.gd<>uid://c3tew5oauqca0::::res://Sprites/Characters/WitchSpriteSheet.png
+Witch.tscn::PackedScene::2855618011623639592::1739306343::0::1::::<><>::uid://bdcjv77a1luuv::::res://Sprites/Red_Apothecary_Blue_Witch_Sprite.png<>res://Scenes/witch.gd
 ::res://Scenes/ChallangeOne/::1739306343
 ChallangeOne.tscn::PackedScene::537800707291729858::1739306343::0::1::::<><>::uid://dwgklfprcirvi::::res://Sprites/CodeBlocks/UseMagicBlock.png<>uid://cclccca854su5::::res://Sprites/CodeBlocks/StartBlock.png<>res://Scenes/ChallangeOne/use_magic_spawn_block.gd<>res://Scenes/ChallangeOne/start_block.gd
 start_block.gd::GDScript::-1::1739306343::0::1::::<>Sprite2D<>::
@@ -116,12 +117,12 @@ use_magic_spawn_block.gd::GDScript::-1::1739306343::0::1::::<>SpawnCodeBlock<>::
 ::res://Scenes/TestCodeChallange/::1739306343
 start_block.gd::GDScript::-1::1738804665::0::1::::<>Sprite2D<>::
 TestCodeChallenge.tscn::PackedScene::2032456172515923469::1738804665::0::1::::<><>::uid://belhj4u1uk51q::::res://icon.svg<>res://Scenes/TestCodeChallange/start_block.gd<>res://Scenes/TestCodeChallange/test_spawn_block.gd
-test_spawn_block.gd::GDScript::-1::1738804665::0::1::::<>SpawnCodeBlock<>::
+test_spawn_block.gd::GDScript::-1::1739306343::0::1::::<>SpawnCodeBlock<>::
 ::res://Scripts/::1739306343
 character_body_2d.gd::GDScript::-1::1739306343::0::1::::<>CharacterBody2D<>::
 code_block.gd::GDScript::-1::1739306343::0::1::::CodeBlock<>Node2D<>::
 spawn_code_block.gd::GDScript::-1::1738804665::0::1::::SpawnCodeBlock<>Sprite2D<>::
-::res://Sprites/::1739306343
+::res://Sprites/::1739306386
 Light_Texture.png::CompressedTexture2D::6202192620884289941::1739306343::1739306386::1::::<><>::
 Red_Apothecary_Blue_Witch_Sprite.png::CompressedTexture2D::2601701654938365573::1739306343::1739306386::1::::<><>::
 Sign.png::CompressedTexture2D::2800359206262370816::1739306343::1739306386::1::::<><>::
@@ -136,7 +137,7 @@ Red_Wizard_Back.png::CompressedTexture2D::775777378096080282::1737668103::173922
 Red_Wizard_Front.png::CompressedTexture2D::2485599638788480820::1737668103::1739222795::1::::<><>::
 Red_Wizard_Left.png::CompressedTexture2D::7954974915082129121::1737668103::1739222795::1::::<><>::
 Red_Wizard_Right.png::CompressedTexture2D::7898764840187994027::1737668103::1739222795::1::::<><>::
-::res://Sprites/CodeBlocks/::1739306343
+::res://Sprites/CodeBlocks/::1739306386
 StartBlock.png::CompressedTexture2D::4936052322117587830::1739306343::1739306386::1::::<><>::
 UseMagicBlock.png::CompressedTexture2D::8716429977865219414::1739306343::1739306386::1::::<><>::
 ::res://Sprites/Objects/::1739306342

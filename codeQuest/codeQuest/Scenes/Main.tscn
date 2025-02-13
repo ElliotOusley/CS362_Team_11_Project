@@ -5,7 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cce3ge1fy6voy" path="res://Scenes/Player.tscn" id="2_x22wi"]
 [ext_resource type="AudioStream" uid="uid://hacxpyr4syxr" path="res://Audio/Peaceful Hilltop Trail - Nature Sounds - Relaxing.mp3" id="3_gfose"]
 [ext_resource type="PackedScene" uid="uid://bgxju13b4d8tw" path="res://Scenes/Witch.tscn" id="3_ugqw2"]
-[ext_resource type="PackedScene" uid="uid://bojnytld3yb7k" path="res://Scenes/sign.tscn" id="8_n70of"]
+[ext_resource type="PackedScene" path="res://Scenes/sign.tscn" id="8_n70of"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bmriu"]
 texture = ExtResource("1_v4tev")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://q0v4nielini6"]
+
+[ext_resource type="Script" path="res://Scripts/CodeBlock.gd" id="1_0s042"]
+
+[node name="CodeBlock" type="Button"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+script = ExtResource("1_0s042")
