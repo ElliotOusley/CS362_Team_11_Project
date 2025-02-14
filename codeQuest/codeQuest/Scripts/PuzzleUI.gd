@@ -31,12 +31,23 @@ func _ready():
 	submit_button.pressed.connect(_on_SubmitButton_pressed)
 	run_button.pressed.connect(_on_RunButton_pressed)
 
-	# Load MazeBoard
+	print("PuzzleUI Ready. Loading MazeBoard...")
+
+	# Load the MazeBoard scene
 	var MazeBoardScene = preload("res://Scenes/MazeBoard.tscn")
 	var maze_board_instance = MazeBoardScene.instantiate()
-	# Set the correct maze_index
+
+	# Assign the correct maze index (from PuzzleArea)
 	maze_board_instance.maze_index = maze_index
+
+	# Ensure MazeBoardHolder is empty before adding a new maze
+	for child in maze_board_holder.get_children():
+		child.queue_free()
+
+	# Add MazeBoard inside the MazeBoardHolder
 	maze_board_holder.add_child(maze_board_instance)
+
+	print("✅ MazeBoard added to PuzzleUI at maze index:", maze_index)
 
 func _on_SubmitButton_pressed():
 	var solution = []

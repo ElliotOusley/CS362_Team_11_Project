@@ -5,7 +5,7 @@ class_name MazeBoard
 @export var maze_index: int = 0
 
 @onready var tilemap: TileMap = $TileMap
-@onready var player: Sprite2D = $Player
+@onready var player: CharacterBody2D = $Player
 @onready var goal: Sprite2D = $Goal
 
 func _ready():
@@ -43,15 +43,26 @@ func _load_maze(index: int) -> void:
 # ---------------------------------------------------------------------
 func _load_maze_0() -> void:
 	tilemap.clear()
-	# tile 0 = floor, tile 1 = wall (assuming your TileSet is set up that way)
+
+	# Ensure the TileSet is valid before using map_to_local()
+	if tilemap.tile_set == null:
+		print("❌ ERROR: TileMap does not have a valid TileSet assigned!")
+		return
+
 	for x in range(5):
 		for y in range(5):
-			tilemap.set_cell(0, Vector2i(x, y), 0)  # place floor
+			tilemap.set_cell(0, Vector2i(x, y), 0)  # Set floor tiles
 
-	tilemap.set_cell(0, Vector2i(2, 2), 1)  # place a single wall in the center
+	tilemap.set_cell(0, Vector2i(2, 2), 1)  # Place a single wall in the center
 
-	player.position = tilemap.map_to_world(Vector2i(0, 0)) + tilemap.tile_set.tile_size / 2
-	goal.position = tilemap.map_to_world(Vector2i(4, 4)) + tilemap.tile_set.tile_size / 2
+	# Ensure that tilemap.map_to_local() is called after tiles exist
+	await get_tree().process_frame  # Wait for one frame
+
+	# Set player position safely
+	player.position = tilemap.map_to_local(Vector2i(0, 0)) + Vector2(tilemap.tile_set.tile_size) / 2
+	goal.position = tilemap.map_to_local(Vector2i(4, 4)) + Vector2(tilemap.tile_set.tile_size) / 2
+
+
 
 # ---------------------------------------------------------------------
 # Maze 1

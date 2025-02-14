@@ -29,10 +29,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_5t4s3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel"]
 layout_mode = 0
-offset_left = 109.0
-offset_top = 67.0
-offset_right = 840.0
-offset_bottom = 471.0
+offset_left = 39.0
+offset_top = 41.0
+offset_right = 473.0
+offset_bottom = 501.0
 
 [node name="InstructionsLabel" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
 layout_mode = 2
@@ -53,12 +53,19 @@ size_flags_vertical = 6
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="SubmitButton" type="Button" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="RunButton" type="Button" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="MazeBoardHolder" type="Node2D" parent="CanvasLayer"]
+modulate = Color(0.323403, 0.112099, 0.346994, 1)
+self_modulate = Color(0.223292, 0.0107939, 0.282327, 1)
+top_level = true
+position = Vector2(612, 79)

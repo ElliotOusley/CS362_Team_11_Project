@@ -1,11 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cp1p0ai1teiff"]
+[gd_scene load_steps=3 format=3 uid="uid://cp1p0ai1teiff"]
 
 [ext_resource type="Script" path="res://Scripts/MazeBoard.gd" id="1_ksb7i"]
+
+[sub_resource type="TileSet" id="TileSet_16drv"]
 
 [node name="MazeBoard" type="Node2D"]
 script = ExtResource("1_ksb7i")
 
 [node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_16drv")
 format = 2
 
 [node name="Player" type="CharacterBody2D" parent="."]
