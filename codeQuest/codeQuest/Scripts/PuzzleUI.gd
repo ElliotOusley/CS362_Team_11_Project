@@ -16,10 +16,11 @@ extends Control
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	
+	print("🟢 PuzzleUI Ready: Checking MazeBoard setup...")
+
 	instructions_label.text = instructions_text
 
-	# Populate palette with blocks
+	# Ensure the palette has blocks
 	for block_data in available_blocks:
 		var block_instance = preload("res://Scenes/CodeBlock.tscn").instantiate()
 		block_instance.block_type = block_data["block_type"]
@@ -27,16 +28,68 @@ func _ready():
 		block_instance.text = block_data["display_text"]
 		palette.add_child(block_instance)
 
-	# Connect submit and run
 	submit_button.pressed.connect(_on_SubmitButton_pressed)
 	run_button.pressed.connect(_on_RunButton_pressed)
 
-	# Load MazeBoard
+	# 🛠 Ensure MazeBoard is correctly instantiated
 	var MazeBoardScene = preload("res://Scenes/MazeBoard.tscn")
 	var maze_board_instance = MazeBoardScene.instantiate()
-	# Set the correct maze_index
 	maze_board_instance.maze_index = maze_index
-	maze_board_holder.add_child(maze_board_instance)
+	maze_board_holder.call_deferred("add_child", maze_board_instance)
+
+	print("✅ MazeBoard instantiated successfully! Waiting for setup...")
+
+# 🛠 Wait for MazeBoard to fully initialize before accessing its nodes
+	await get_tree().process_frame  # Wait for one frame
+
+	var maze_board = maze_board_holder.get_child(0)  # Get MazeBoard instance
+
+
+	if maze_board:
+		print("✅ Found MazeBoard inside MazeBoardHolder!")
+
+		var tilemap = maze_board.get_node_or_null("TileMapLayer1")
+		var player = maze_board.get_node_or_null("Player")
+
+		# 🔍 Debug: Check all children directly
+		print("🔍 Listing all children of MazeBoard again to confirm:")
+		for child in maze_board.get_children():
+			print("  - ", child.name)
+
+		# 🛠 Use an alternative method to fetch TileMapLayer1
+		if tilemap == null:
+			print("⚠️ Trying alternative method to find TileMapLayer1...")
+			for child in maze_board.get_children():
+				if "TileMapLayer" in child.name:
+					print("✅ Alternative method found:", child.name)
+					tilemap = child
+					break  # Stop searching once we find it
+
+		# Final check
+		if tilemap == null:
+			print("❌ FINAL ERROR: TileMapLayer1 is STILL missing in PuzzleUI!")
+		else:
+			print("✅ FINAL CHECK: PuzzleUI successfully found TileMapLayer1!")
+
+
+
+	var tilemap = maze_board.get_node_or_null("TileMapLayer1")
+	var player = maze_board.get_node_or_null("Player")
+	var goal = maze_board.get_node_or_null("Goal")
+
+	if tilemap == null:
+		print("❌ ERROR: TileMapLayer1 is missing from MazeBoard!")
+		return
+	if player == null:
+		print("❌ ERROR: Player node is missing from MazeBoard!")
+		return
+	if goal == null:
+		print("❌ ERROR: Goal node is missing from MazeBoard!")
+		return
+
+	print("✅ PuzzleUI successfully found MazeBoard, TileMapLayer1, Player, and Goal!")
+
+
 
 func _on_SubmitButton_pressed():
 	var solution = []
@@ -72,7 +125,13 @@ func _on_RunButton_pressed():
 	if maze_board == null:
 		message_label.text = "No maze loaded."
 		return
-
+	
+	var tilemap = maze_board.get_node_or_null("TileMapLayer1") as TileMapLayer
+	if tilemap == null:
+		print("❌ ERROR: TileMapLayer1 not in _on_RunButton_pressed function")
+	else:
+		print("TileMapLayer1 is in _on_RunButton_pressed function")
+		
 	_execute_commands_on_maze(commands, maze_board)
 
 func _execute_commands_on_maze(commands: Array, maze_board: Node2D) -> void:
@@ -84,17 +143,29 @@ func _execute_commands_on_maze(commands: Array, maze_board: Node2D) -> void:
 	# For 'for_3_times', we look at the next command and repeat it 3 times. 
 	# This is simplistic but demonstrates the concept.
 
-	var tilemap = maze_board.get_node("TileMap") as TileMap
-	var player = maze_board.get_node("Player") as Sprite2D
-	var goal = maze_board.get_node("Goal") as Sprite2D
+	var tilemap = maze_board.get_node_or_null("TileMapLayer1") as TileMapLayer
+	var player = maze_board.get_node_or_null("Player") as CharacterBody2D
+	var goal = maze_board.get_node_or_null("Goal") as Sprite2D
 	
-	if tilemap == null or player == null or goal == null:
-		message_label.text = "Maze not set up properly."
+	if tilemap == null:
+		message_label.text = "Maze not set up properly. (No TileMapLayer1)"
+		print("❌ ERROR: TileMapLayer1 is missing in _execute_commands_on_maze function!")
 		return
+	if player == null:
+		message_label.text = "Maze not set up properly. (No Player)"
+		print("❌ ERROR: Player node is missing _execute_commands_on_maze function!")
+		return
+	if goal == null:
+		message_label.text = "Maze not set up properly. (No Goal)"
+		print("❌ ERROR: Goal node is missing _execute_commands_on_maze function")
+		return
+
+	print("✅ MazeBoard is correctly set up. Running the simulation...")
 
 	# Convert player's current position to tile coords
 	var tile_size = tilemap.tile_set.tile_size
-	var player_tile = tilemap.world_to_map(player.position)
+	var player_tile = tilemap.local_to_map(player.position)
+
 
 	# We'll parse the commands in a simple pass
 	var i = 0
@@ -135,10 +206,10 @@ func _execute_commands_on_maze(commands: Array, maze_board: Node2D) -> void:
 				i += 1
 
 	# After executing all commands, update the player's position
-	player.position = tilemap.map_to_world(player_tile) + tile_size/2
+	player.position = tilemap.map_to_local(player_tile) + Vector2(tile_size) / 2
 
 	# Check if player is on the goal tile
-	var goal_tile = tilemap.world_to_map(goal.position)
+	var goal_tile = tilemap.local_to_map(goal.position)
 	if player_tile == goal_tile:
 		message_label.text = "You reached the goal!"
 	else:
@@ -161,7 +232,7 @@ func _move_player(current_tile: Vector2i, cmd: String, tilemap: TileMap) -> Vect
 
 	# Check if next_tile is passable or a wall
 	if _is_wall(tilemap, next_tile):
-		# can't move there, stay in current_tile
+		# if can't move there, stay in current_tile
 		return current_tile
 	else:
 		return next_tile

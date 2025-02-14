@@ -1,13 +1,207 @@
-[gd_scene load_steps=2 format=3 uid="uid://cp1p0ai1teiff"]
+[gd_scene load_steps=10 format=3 uid="uid://cp1p0ai1teiff"]
 
 [ext_resource type="Script" path="res://Scripts/MazeBoard.gd" id="1_ksb7i"]
+[ext_resource type="Texture2D" uid="uid://cb4gudtdaj4nk" path="res://Sprites/Atlases/Tile_Atlas_1.png" id="2_hkbe1"]
+[ext_resource type="Texture2D" uid="uid://cbh47vqiuha88" path="res://Sprites/Objects/Cauldron-Sheet.png" id="2_ih1po"]
+[ext_resource type="Texture2D" uid="uid://bbobp0d3gug0k" path="res://Sprites/Characters/Red_Wizard/Red_Wizard_Front.png" id="2_lv6ms"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kup34"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aad8k"]
+texture = ExtResource("2_hkbe1")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3qumj"]
+sources/0 = SubResource("TileSetAtlasSource_aad8k")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kgcd7"]
+texture = ExtResource("2_hkbe1")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_njjl4"]
+sources/0 = SubResource("TileSetAtlasSource_kgcd7")
 
 [node name="MazeBoard" type="Node2D"]
 script = ExtResource("1_ksb7i")
 
-[node name="TileMap" type="TileMap" parent="."]
-format = 2
-
 [node name="Player" type="CharacterBody2D" parent="."]
+z_index = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_kup34")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+z_index = 2
+position = Vector2(3, 1)
+texture = ExtResource("2_lv6ms")
 
 [node name="Goal" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(2, 1)
+texture = ExtResource("2_ih1po")
+hframes = 6
+frame = 1
+
+[node name="TileMapLayer1" type="TileMapLayer" parent="."]
+z_index = 1
+tile_set = SubResource("TileSet_3qumj")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+z_index = 2
+tile_set = SubResource("TileSet_njjl4")
