@@ -11,8 +11,63 @@
 
 * Save System - ensures that player progress and game configurations are stored and retrieved efficiently using user files and configuration settings. 
 
-### Event-Driven Architecture
-Godot uses event-driven Architecture. In the context of Godot, events are the signals emitted by nodes, like a button being pressed, in the case of menus, or like the player entering a dialogue actionable Area2D Node. These nodes also function as event handlers, as signals from one node are sent to others through scripts. This architecture is useful because nodes can be asynchronous, and do not necessarily need to know about one another, just that a signal was sent from one to another. For example, a node with a script that detects when the player picks up an item may not need to know what was picked up, just that an item was picked up.
+## Event-Driven Architecture in Godot
+
+Godot utilizes an event-driven architecture where interactions between game components occur through signals and event handlers. This approach enhances modularity and decouples components, enabling more scalable and maintainable development.
+
+### Core Elements of Our Event-Driven System
+
+### 1. Event Producers (Emitters)
+
+These are nodes that generate events in response to player actions or game state changes.
+
+* UI Components (Buttons, Menus): Emit signals when interacted with.
+  
+* Player Interactions: Emit signals when interacting with in-game objects.
+  
+* Dialogue Triggers: Emit signals when a player enters an Area2D node.
+  
+* Item Pickups: Emit signals when a player collects an item.
+  
+* Code Puzzle Interactions: Emit signals when a player interacts with a coding puzzle object.
+  
+* Game State Changes: Emit signals when the game state changes, such as level completion or player progression.
+
+### 2. Event Consumers (Listeners)
+
+These are nodes that listen for emitted signals and perform corresponding actions:
+
+* UI Handlers: Update UI elements when triggered.
+  
+* Dialogue System: Starts conversations when the player interacts with an NPC.
+  
+* Inventory System: Updates inventory when an item is collected.
+  
+* Game Progression Manager: Saves progress and updates the game state.
+  
+* Code Puzzle System: Processes code inputs and checks for correctness.
+  
+* Save NPC: Listens for player interaction to trigger the save functionality.
+
+### 3. Event Channels (Signal Transmission)
+
+* Godot uses signals to pass information between nodes asynchronously:
+  
+* Node-Based Signaling: Signals emitted from a node are connected to specific functions in other nodes via scripts.
+  
+* Global Event Bus (Singletons): Some global signals handle cross-scene communication for game state changes, like transitioning between levels or updating UI elements.
+  
+* Queued Signals: Some signals are queued to ensure processing in a specific order.
+
+### Advantages of Our Event-Driven Approach
+
+* Loose Coupling: Components don’t need direct references to each other, improving modularity.
+  
+* Asynchronous Processing: Enhances performance and responsiveness by allowing independent event handling.
+  
+* Scalability: Makes it easy to add new features without modifying existing systems.
+  
+* Flexibility: Supports both simple interactions (button clicks) and complex systems (code puzzles and dialogues).
 
 ### Component Interfacing
 
