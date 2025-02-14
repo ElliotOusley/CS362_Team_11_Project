@@ -11,28 +11,30 @@ extends Button
 	"move_right": preload("res://Sprites/CodeBlockSprites/moveRight.png")
 }
 
-
 func _ready():
-	# Set the text
+	# Set the text and ensure the block appears on top
 	text = display_text
-	
-	# If there is an icon for this block_type, assign it
+	z_index = 10
+	mouse_filter = Control.MOUSE_FILTER_STOP
 	if ICONS.has(block_type):
 		icon = ICONS[block_type] as Texture2D
-	
-	# (Optional) adjust the button size to fit the icon nicely:
-	#   - You can set 'expand_icon' or change 'stretch_mode' in the Inspector.
-	#   - Or manually do 'rect_min_size = icon.get_size()' if you want.
 
 # DRAG-AND-DROP SUPPORT (Godot 4 style)
 func _get_drag_data(_position):
 	var drag_data = {"block_type": block_type, "display_text": display_text}
-	# Show an icon preview or text preview
+	
+	# Create a preview that will always appear above other UI
 	var preview = Button.new()
+	preview.z_index = 100
 	preview.text = display_text
+	preview.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	preview.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	if ICONS.has(block_type):
 		preview.icon = ICONS[block_type]
+		preview.expand_icon = true
+		preview.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	set_drag_preview(preview)
+	print("Dragging block:", block_type)
 	return drag_data
 
 # RIGHT-CLICK TO REMOVE BLOCK (if inside AnswerArea)

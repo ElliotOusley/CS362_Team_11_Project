@@ -70,6 +70,17 @@ func _ready():
 			print("❌ FINAL ERROR: TileMapLayer1 is STILL missing in PuzzleUI!")
 		else:
 			print("✅ FINAL CHECK: PuzzleUI successfully found TileMapLayer1!")
+	
+		var answer_area = $CanvasLayer/Panel/VBoxContainer/AnswerArea
+		print("🔍 Checking AnswerArea...")
+
+		if answer_area:
+			print("✅ AnswerArea FOUND!")
+			print("🛠 AnswerArea Size:", answer_area.size)
+			print("🛠 AnswerArea Global Position:", answer_area.global_position)
+			print("🛠 AnswerArea Visible:", answer_area.visible)
+		else:
+			print("❌ ERROR: AnswerArea NOT FOUND in UI!")
 
 
 
