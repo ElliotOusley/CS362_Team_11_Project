@@ -1,8 +1,15 @@
 # 1. Software architecture 
 
 ### Major Components
-* User Interface – An overlay on top of the game scene that allows players to interact with game systems like inventory, options, the main menu, and dialogue 
-* Game Scene – Where gameplay takes place. Includes scenes like main, the player, NPCs, and tilemaps.
+* User Interface - provides players with interactive elements such as menus, inventory, settings, and dialogue, ensuring an accessible and user-friendly experience.  
+
+* Game Scene - acts as the primary environment where gameplay takes place, allowing players to navigate, interact with objects, and engage in various challenges.  
+
+* Dialogue System - facilitates communication between players and non-player characters (NPCs) using Area2D nodes to trigger conversations.  
+
+* Code Puzzle System - enables coding challenges, validates player input, and provides real-time feedback.  
+
+* Save System - ensures that player progress and game configurations are stored and retrieved efficiently using user files and configuration settings. 
 
 ### Event-Driven Architecture
 Godot uses event-driven Architecture. In the context of Godot, events are the signals emitted by nodes, like a button being pressed, in the case of menus, or like the player entering a dialogue actionable Area2D Node. These nodes also function as event handlers, as signals from one node are sent to others through scripts. This architecture is useful because nodes can be asynchronous, and do not necessarily need to know about one another, just that a signal was sent from one to another. For example, a node with a script that detects when the player picks up an item may not need to know what was picked up, just that an item was picked up.
@@ -143,6 +150,12 @@ This issue has a medium likelihood of occurring, but will not affect project com
 affect the final product if fun mechanics are not identified. This issue can be minimized by running frequent
 playtesting to get feedback on what others find fun. 
 
+**Integration Issues:**
+Since the project involves multiple components working together, integration issues have a high likelihood and a medium impact if not managed properly.
+These issues could happen when members independently developed codes fail to function correctly as a whole. Based on past development, integration problems often surface late in the project if components are not tested together early.
+To mitigate this, we will continuously testing our codes as they are developed. Regular integration tests will be conducted to detect mismatches in APIs, data formats, or dependencies. If integration failures occur, debugging will be prioritized,
+and adjustments will be made to ensure compatibility across all modules.
+
 **Audiences:**
 Our game combines multiple genres as a way to teach programming in a fun way. However, 
 this runs the risk of alienating audiences. As an example, combining a puzzle game with a role playing game may 
@@ -224,15 +237,15 @@ Philensakada Thavrin: UI/UX Designer: Create interfaces and ensures a smooth use
 
 ### iv. Test plan & bugs 
 
-Describe what aspects of your system you plan to test and why they are sufficient, as well as how specifically you plan to test those aspects in a disciplined way. Describe a strategy for each of unit testing, system (integration) testing, and usability testing, along with any specific test suites identified to capture the requirements. 
+We plan to use unit testing to test components that use complicated scripts, like the player movements system. We will test this by using Godot's built-in testing features to create scripts that test these components. By doing so, we hope to catch bugs early in the development process.
 
-We require that you use GitHub IssuesLinks to an external site. to track bugs that occur during use and testing. 
+With integration testing, we plan to test how systems like the inventory and player interact with one another. We will test this by creating a separate scene to simulate gameplay scenarios in which these systems would interact.
 
-It is essential that we conduct frequent usability testing, given that we are developing an educational game. Since our game features puzzle and RPG elements, there are many points that could lead to player confusion.  
+It is essential that we conduct frequent usability testing, given that we are developing an educational game. Since our game features puzzle and RPG elements, there are many points that could lead to player confusion. This testing will be done through playtesting, in which we ask people to play our game and record their feedback.
 
 ### v. Documentation plan 
 
-
 Our team plans to create a player’s guide through Github’s Wiki. As new features and parts of the story are added, we will add walkthroughs and solutions, so that players who are confused about any part of the game can refer back to the Wiki 
-
 The in-game options menu will also provide some documentation to assist players who may be stuck. 
+
+Additionally, we plan to include NPCs around the play area that provide hints to the player.
