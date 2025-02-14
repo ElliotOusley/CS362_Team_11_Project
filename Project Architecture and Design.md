@@ -11,7 +11,8 @@
 
 * Save System - ensures that player progress and game configurations are stored and retrieved efficiently using user files and configuration settings. 
 
-## Event-Driven Architecture in Godot
+
+## Event-Driven Architecture
 
 Godot utilizes an event-driven architecture where interactions between game components occur through signals and event handlers. This approach enhances modularity and decouples components, enabling more scalable and maintainable development.
 
@@ -69,6 +70,7 @@ These are nodes that listen for emitted signals and perform corresponding action
   
 * Flexibility: Supports both simple interactions (button clicks) and complex systems (code puzzles and dialogues).
 
+
 ### Component Interfacing
 
 * User Interface nodes allow the player to use systems like the inventory and settings.  
@@ -79,9 +81,11 @@ These are nodes that listen for emitted signals and perform corresponding action
 
 * The save NPC interacts with the dialogue system and the player to let the player save their progress
 
+
 ### Data Storage
 
 The system interfaces with the user’s files to save game data. Save data that does not relate to game progression like the settings found in the options menu will be saved using a ConfigFile node.  
+
 
 ### Alternatives
 Instead of Godot, the game could be developed in Unity or Unreal Engine 
@@ -134,6 +138,7 @@ Cons:
 
 # 2. Software design 
 
+
 ### Component Parts 
 
 Godot abstracts components as nodes and scenes, where scenes are a collection of nodes. Currently, our game uses the following scenes: 
@@ -148,6 +153,7 @@ Godot abstracts components as nodes and scenes, where scenes are a collection of
 
 * NPC  
 
+
 ### Component Responsibilities
 
 * The Main scene is where the player interacts with the world. All other scenes interact with it. 
@@ -160,6 +166,7 @@ Godot abstracts components as nodes and scenes, where scenes are a collection of
 
 * The NPC scene handles all non-player characters. 
 
+
 # 3. Coding guideline 
 
 For our work in GDScript, we will use the GDScript style guide, provided in the [Godot Documentation]( https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html )
@@ -167,6 +174,7 @@ For our work in GDScript, we will use the GDScript style guide, provided in the 
 We chose these guidelines because they are the most used in Godot development, and make scripts very easy to read, especially on smaller monitors or screen sizes.  
 
 Additionally, Godot’s script editor automatically uses parts of this style guide. For example, adding in a function via node automatically provides the double white space noted in the style guide. As another example, the Godot editor displays a transparent vertical line at the 80 and 100 character mark. 
+
 
 # 4. Process description 
 
@@ -221,6 +229,7 @@ It could lead to less player engagement. This risk can be detected through playt
 people who are fans of one of the two genres we combine. This risk can be minimized by ensuring that both genres 
 are properly represented with extra care taken to develop game mechanics. 
 
+
 ### ii. Project schedule 
 
 Identify milestones (external and internal), define tasks along with effort estimates (at granularity no coarser than 1-person-week units), and identify dependences among them. (What has to be complete before you can begin implementing component X? What has to be complete before you can start testing component X? What has to be complete before you can run an entire (small) use case?) This should reflect your actual plan of work, possibly including items your team has already completed. 
@@ -254,6 +263,7 @@ Every Week: write documentation, set up meetings, communicate with project manag
 
 The development team is responsible for essential game mechanics that make the project work. Responsibilities include implementing core gameplay mechanics such as dialogue, inventory systems, and movement 
 
+
 #### Design Team: 
 
 * Ben Snider 
@@ -264,6 +274,7 @@ The development team is responsible for essential game mechanics that make the p
 
 The design team is responsible for ensuring that the project is visually appealing and fun to the player. Responsibilities include creating art and music assets, level design, fine-tuning systems, and UI design 
 
+
 #### Logistics Team: 
 
 * Elliot Ousley 
@@ -271,6 +282,7 @@ The design team is responsible for ensuring that the project is visually appeali
 * Hau’oli O’Brien 
 
 The Logistics team is responsible for ensuring that the team meets its goals and communicates effectively within the team, to clients, and to management. Responsibilities include writing documentation, creating schedules, leading meetings with clients and management, and delegating tasks. 
+
 
 #### Specific Roles: 
 
@@ -289,7 +301,6 @@ Seth Taylor: Level Designer: Designs and builds engaging levels and environments
 Philensakada Thavrin: UI/UX Designer: Create interfaces and ensures a smooth user experience by focusing on accessibility and visual clarity. 
 
  
-
 ### iv. Test plan & bugs 
 
 We plan to use unit testing to test components that use complicated scripts, like the player movements system. We will test this by using Godot's built-in testing features to create scripts that test these components. By doing so, we hope to catch bugs early in the development process.
