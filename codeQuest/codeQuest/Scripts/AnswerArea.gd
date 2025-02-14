@@ -1,14 +1,14 @@
-# Scripts/AnswerArea.gd
 extends HBoxContainer
 
-# Preload the CodeBlock scene (Make sure the file exists!)
 @onready var CodeBlockScene = preload("res://Scenes/CodeBlock.tscn")
 
-# Allow dropping blocks
+func _ready():
+	# This ensures we receive drop events
+	mouse_filter = Control.MOUSE_FILTER_PASS
+
 func can_drop_data(_position, data):
 	return data is Dictionary and data.has("block_type") and data.has("display_text")
 
-# Handle dropping a block
 func drop_data(_position, data):
 	if data.has("block_type") and data.has("display_text"):
 		var new_block = CodeBlockScene.instantiate()

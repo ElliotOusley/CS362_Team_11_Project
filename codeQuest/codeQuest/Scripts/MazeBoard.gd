@@ -4,12 +4,52 @@ class_name MazeBoard
 
 @export var maze_index: int = 0
 
-@onready var tilemap: TileMap = $TileMap
-@onready var player: CharacterBody2D = $Player
-@onready var goal: Sprite2D = $Goal
+@onready var tilemap: TileMapLayer = get_node_or_null("TileMapLayer1")  # ✅ Ensure this exists
+@onready var walls: TileMapLayer = get_node_or_null("TileMapLayer2")  # ✅ Ensure this exists
+@onready var player: CharacterBody2D = get_node_or_null("Player")  # ✅ Ensure this exists
+@onready var goal: Sprite2D = get_node_or_null("Goal")  # ✅ Goal exists, but let's be sure
 
 func _ready():
-	# Load the maze layout for maze_index
+	# Debugging
+	print("🔍 Checking MazeBoard child nodes:")
+	for child in get_children():
+		print("  - ", child.name)
+
+	if get_node_or_null("TileMapLayer1") == null:
+		print("❌ ERROR: TileMapLayer1 is missing at runtime!")
+		
+	if tilemap == null:
+		print("❌ ERROR: TileMapLayer1 (tilemap) is missing from MazeBoard!")
+		return
+	if walls == null:
+		print("❌ ERROR: TileMapLayer2 (walls) is missing from MazeBoard!")
+		return
+	if player == null:
+		print("❌ ERROR: Player node is missing from MazeBoard!")
+		return
+	if goal == null:
+		print("❌ ERROR: Goal node is missing from MazeBoard!")  # Shouldn't happen
+		return
+
+	print("✅ MazeBoard setup is correct. Loading maze...")
+	
+	print("🔍 Debugging Sprite Colors in MazeBoard")
+
+	if has_node("TileMapLayer1"):
+		var tilemap = get_node("TileMapLayer1")
+		print("🟢 TileMapLayer1 Modulate:", tilemap.modulate)
+
+	if has_node("TileMapLayer2"):
+		var walls = get_node("TileMapLayer2")
+		print("🟢 TileMapLayer2 Modulate:", walls.modulate)
+
+	if has_node("Player"):
+		var player = get_node("Player")
+		print("🟢 Player Modulate:", player.modulate)
+
+	if has_node("Goal"):
+		var goal = get_node("Goal")
+		print("🟢 Goal Modulate:", goal.modulate)
 	_load_maze(maze_index)
 
 func _load_maze(index: int) -> void:
@@ -36,32 +76,34 @@ func _load_maze(index: int) -> void:
 			_load_maze_9()
 		_:
 			print("Maze index out of range, defaulting to Maze 0")
-			_load_maze_0()
+			_load_maze_1()
 
 # ---------------------------------------------------------------------
 # Maze 0: A simple 5x5 grid with one wall in the middle
 # ---------------------------------------------------------------------
 func _load_maze_0() -> void:
 	tilemap.clear()
+	walls.clear()
 
-	# Ensure the TileSet is valid before using map_to_local()
-	if tilemap.tile_set == null:
-		print("❌ ERROR: TileMap does not have a valid TileSet assigned!")
+	# Ensure TileMapLayers exist before modifying them
+	if tilemap == null or walls == null:
+		print("❌ ERROR: TileMapLayers are missing, cannot set up the maze.")
 		return
 
 	for x in range(5):
 		for y in range(5):
-			tilemap.set_cell(0, Vector2i(x, y), 0)  # Set floor tiles
+			tilemap.set_cell(Vector2i(x, y), 0, Vector2i(5, 0))  # Floor tiles
 
-	tilemap.set_cell(0, Vector2i(2, 2), 1)  # Place a single wall in the center
+	walls.set_cell(Vector2i(2, 2), 1, Vector2i(7, 3))  # A wall at (2,2)
 
-	# Ensure that tilemap.map_to_local() is called after tiles exist
-	await get_tree().process_frame  # Wait for one frame
+	# Ensure everything is loaded before setting the player position
+	await get_tree().process_frame  
 
-	# Set player position safely
-	player.position = tilemap.map_to_local(Vector2i(0, 0)) + Vector2(tilemap.tile_set.tile_size) / 2
-	goal.position = tilemap.map_to_local(Vector2i(4, 4)) + Vector2(tilemap.tile_set.tile_size) / 2
-
+	if player:
+		player.position = tilemap.map_to_local(Vector2i(0, 0)) + Vector2(tilemap.tile_set.tile_size) / 2
+		print("✅ Player positioned at:", player.position)
+	else:
+		print("❌ ERROR: Player not found in MazeBoard!")
 
 
 # ---------------------------------------------------------------------
@@ -69,161 +111,158 @@ func _load_maze_0() -> void:
 # ---------------------------------------------------------------------
 func _load_maze_1() -> void:
 	tilemap.clear()
+	walls.clear()
 	for x in range(5):
 		for y in range(5):
-			tilemap.set_cell(0, Vector2i(x, y), 0)  # floor
-	# Make a vertical wall line
+			tilemap.set_cell(Vector2i(x, y), 0, Vector2i(5, 0))  # Floor
 	for y in range(5):
-		tilemap.set_cell(0, Vector2i(2, y), 1)
-
-	player.position = tilemap.map_to_world(Vector2i(0, 4)) + tilemap.tile_set.tile_size / 2
-	goal.position = tilemap.map_to_world(Vector2i(4, 0)) + tilemap.tile_set.tile_size / 2
+		walls.set_cell(Vector2i(2, y), 1, Vector2i(7, 3))  # Vertical wall at x=2
+	await get_tree().process_frame
+	player.position = tilemap.map_to_local(Vector2i(0, 4)) + Vector2(tilemap.tile_set.tile_size) / 2
+	goal.position = tilemap.map_to_local(Vector2i(4, 0)) + Vector2(tilemap.tile_set.tile_size) / 2
 
 # ---------------------------------------------------------------------
 # Maze 2
 # ---------------------------------------------------------------------
 func _load_maze_2() -> void:
 	tilemap.clear()
+	walls.clear()
 	for x in range(6):
 		for y in range(6):
-			tilemap.set_cell(0, Vector2i(x, y), 0)  # floor
-	# Walls around perimeter
+			tilemap.set_cell(Vector2i(x, y), 0, Vector2i(0, 0))  # Floor
 	for x in range(6):
-		tilemap.set_cell(0, Vector2i(x, 0), 1)
-		tilemap.set_cell(0, Vector2i(x, 5), 1)
+		walls.set_cell(Vector2i(x, 0), 1, Vector2i(0, 0))
+		walls.set_cell(Vector2i(x, 5), 1, Vector2i(0, 0))
 	for y in range(6):
-		tilemap.set_cell(0, Vector2i(0, y), 1)
-		tilemap.set_cell(0, Vector2i(5, y), 1)
+		walls.set_cell(Vector2i(0, y), 1, Vector2i(0, 0))
+		walls.set_cell(Vector2i(5, y), 1, Vector2i(0, 0))
+	walls.set_cell(Vector2i(3, 3), 1, Vector2i(0, 0))  # Internal wall
+	await get_tree().process_frame
+	player.position = tilemap.map_to_local(Vector2i(1, 1)) + Vector2(tilemap.tile_set.tile_size) / 2
+	goal.position = tilemap.map_to_local(Vector2i(4, 4)) + Vector2(tilemap.tile_set.tile_size) / 2
 
-	# An internal wall
-	tilemap.set_cell(0, Vector2i(3, 3), 1)
-
-	player.position = tilemap.map_to_world(Vector2i(1, 1)) + tilemap.tile_set.tile_size / 2
-	goal.position = tilemap.map_to_world(Vector2i(4, 4)) + tilemap.tile_set.tile_size / 2
-
+# ---------------------------------------------------------------------
+# Maze 3
 # ---------------------------------------------------------------------
 func _load_maze_3() -> void:
 	tilemap.clear()
-	# 6x6 again
+	walls.clear()
 	for x in range(6):
 		for y in range(6):
-			tilemap.set_cell(0, Vector2i(x, y), 0)
+			tilemap.set_cell(Vector2i(x, y), 0, Vector2i(0, 0))
+	walls.set_cell(Vector2i(2, 1), 1, Vector2i(0, 0))
+	walls.set_cell(Vector2i(3, 2), 1, Vector2i(0, 0))
+	walls.set_cell(Vector2i(2, 3), 1, Vector2i(0, 0))
+	walls.set_cell(Vector2i(1, 4), 1, Vector2i(0, 0))
+	await get_tree().process_frame
+	player.position = tilemap.map_to_local(Vector2i(0, 2)) + Vector2(tilemap.tile_set.tile_size) / 2
+	goal.position = tilemap.map_to_local(Vector2i(5, 2)) + Vector2(tilemap.tile_set.tile_size) / 2
 
-	# Some random walls
-	tilemap.set_cell(0, Vector2i(2, 1), 1)
-	tilemap.set_cell(0, Vector2i(3, 2), 1)
-	tilemap.set_cell(0, Vector2i(2, 3), 1)
-	tilemap.set_cell(0, Vector2i(1, 4), 1)
-
-	player.position = tilemap.map_to_world(Vector2i(0, 2)) + tilemap.tile_set.tile_size / 2
-	goal.position = tilemap.map_to_world(Vector2i(5, 2)) + tilemap.tile_set.tile_size / 2
-
+# ---------------------------------------------------------------------
+# Maze 4
 # ---------------------------------------------------------------------
 func _load_maze_4() -> void:
 	tilemap.clear()
-	# 7x7
+	walls.clear()
 	for x in range(7):
 		for y in range(7):
-			tilemap.set_cell(0, Vector2i(x, y), 0)
-
-	# Make a diagonal wall
+			tilemap.set_cell(Vector2i(x, y), 0, Vector2i(0, 0))
 	for i in range(5):
-		tilemap.set_cell(0, Vector2i(i+1, i), 1)
+		walls.set_cell(Vector2i(i + 1, i), 1, Vector2i(0, 0))
+	await get_tree().process_frame
+	player.position = tilemap.map_to_local(Vector2i(0, 6)) + Vector2(tilemap.tile_set.tile_size) / 2
+	goal.position = tilemap.map_to_local(Vector2i(6, 0)) + Vector2(tilemap.tile_set.tile_size) / 2
 
-	player.position = tilemap.map_to_world(Vector2i(0, 6)) + tilemap.tile_set.tile_size / 2
-	goal.position = tilemap.map_to_world(Vector2i(6, 0)) + tilemap.tile_set.tile_size / 2
-
+# ---------------------------------------------------------------------
+# Maze 5
 # ---------------------------------------------------------------------
 func _load_maze_5() -> void:
 	tilemap.clear()
-	# 7x7
+	walls.clear()
 	for x in range(7):
 		for y in range(7):
-			tilemap.set_cell(0, Vector2i(x, y), 0)
+			tilemap.set_cell(Vector2i(x, y), 0, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(1, 1), 1, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(1, 2), 1, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(1, 3), 1, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(2, 3), 1, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(3, 3), 1, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(3, 2), 1, Vector2i(0, 0))
+	await get_tree().process_frame
+	player.position = tilemap.map_to_local(Vector2i(0, 0)) + Vector2(tilemap.tile_set.tile_size) / 2
+	goal.position = tilemap.map_to_local(Vector2i(6, 6)) + Vector2(tilemap.tile_set.tile_size) / 2
 
-	# Spiral-like walls
-	tilemap.set_cell(0, Vector2i(1,1), 1)
-	tilemap.set_cell(0, Vector2i(1,2), 1)
-	tilemap.set_cell(0, Vector2i(1,3), 1)
-	tilemap.set_cell(0, Vector2i(2,3), 1)
-	tilemap.set_cell(0, Vector2i(3,3), 1)
-	tilemap.set_cell(0, Vector2i(3,2), 1)
-
-	player.position = tilemap.map_to_world(Vector2i(0, 0)) + tilemap.tile_set.tile_size / 2
-	goal.position = tilemap.map_to_world(Vector2i(6, 6)) + tilemap.tile_set.tile_size / 2
-
+# ---------------------------------------------------------------------
+# Maze 6
 # ---------------------------------------------------------------------
 func _load_maze_6() -> void:
 	tilemap.clear()
-	# 8x8
+	walls.clear()
 	for x in range(8):
 		for y in range(8):
-			tilemap.set_cell(0, Vector2i(x, y), 0)
-	# random walls
-	tilemap.set_cell(0, Vector2i(2, 2), 1)
-	tilemap.set_cell(0, Vector2i(2, 3), 1)
-	tilemap.set_cell(0, Vector2i(5, 5), 1)
-	tilemap.set_cell(0, Vector2i(6, 5), 1)
+			tilemap.set_cell(Vector2i(x, y), 0, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(2, 2), 1, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(2, 3), 1, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(5, 5), 1, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(6, 5), 1, Vector2i(0, 0))
+	await get_tree().process_frame
+	player.position = tilemap.map_to_local(Vector2i(1, 7)) + Vector2(tilemap.tile_set.tile_size) / 2
+	goal.position = tilemap.map_to_local(Vector2i(7, 0)) + Vector2(tilemap.tile_set.tile_size) / 2
 
-	player.position = tilemap.map_to_world(Vector2i(1, 7)) + tilemap.tile_set.tile_size / 2
-	goal.position = tilemap.map_to_world(Vector2i(7, 0)) + tilemap.tile_set.tile_size / 2
-
+# ---------------------------------------------------------------------
+# Maze 7
 # ---------------------------------------------------------------------
 func _load_maze_7() -> void:
 	tilemap.clear()
+	walls.clear()
 	for x in range(8):
 		for y in range(8):
-			tilemap.set_cell(0, Vector2i(x, y), 0)
+			tilemap.set_cell(Vector2i(x, y), 0, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(1, 1), 1, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(2, 1), 1, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(3, 2), 1, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(4, 4), 1, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(4, 3), 1, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(1, 6), 1, Vector2i(0, 0))
+	await get_tree().process_frame
+	player.position = tilemap.map_to_local(Vector2i(0, 0)) + Vector2(tilemap.tile_set.tile_size) / 2
+	goal.position = tilemap.map_to_local(Vector2i(7, 7)) + Vector2(tilemap.tile_set.tile_size) / 2
 
-	# More intricate pattern
-	# Just a random pattern
-	tilemap.set_cell(0, Vector2i(1,1), 1)
-	tilemap.set_cell(0, Vector2i(2,1), 1)
-	tilemap.set_cell(0, Vector2i(3,2), 1)
-	tilemap.set_cell(0, Vector2i(4,4), 1)
-	tilemap.set_cell(0, Vector2i(4,3), 1)
-	tilemap.set_cell(0, Vector2i(1,6), 1)
-
-	player.position = tilemap.map_to_world(Vector2i(0, 0)) + tilemap.tile_set.tile_size / 2
-	goal.position = tilemap.map_to_world(Vector2i(7, 7)) + tilemap.tile_set.tile_size / 2
-
+# ---------------------------------------------------------------------
+# Maze 8
 # ---------------------------------------------------------------------
 func _load_maze_8() -> void:
 	tilemap.clear()
+	walls.clear()
 	for x in range(8):
 		for y in range(8):
-			tilemap.set_cell(0, Vector2i(x, y), 0)
-
-	# Another pattern with a corridor
+			tilemap.set_cell(Vector2i(x, y), 0, Vector2i(0, 0))
 	for x in range(8):
-		tilemap.set_cell(0, Vector2i(x, 3), 1)
-	# leave a gap
-	tilemap.set_cell(0, Vector2i(4, 3), 0)
+		tilemap.set_cell(Vector2i(x, 3), 1, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(4, 3), 0, Vector2i(0, 0))
+	await get_tree().process_frame
+	player.position = tilemap.map_to_local(Vector2i(0, 4)) + Vector2(tilemap.tile_set.tile_size) / 2
+	goal.position = tilemap.map_to_local(Vector2i(7, 2)) + Vector2(tilemap.tile_set.tile_size) / 2
 
-	player.position = tilemap.map_to_world(Vector2i(0, 4)) + tilemap.tile_set.tile_size / 2
-	goal.position = tilemap.map_to_world(Vector2i(7, 2)) + tilemap.tile_set.tile_size / 2
-
+# ---------------------------------------------------------------------
+# Maze 9
 # ---------------------------------------------------------------------
 func _load_maze_9() -> void:
 	tilemap.clear()
+	walls.clear()
 	for x in range(9):
 		for y in range(9):
-			tilemap.set_cell(0, Vector2i(x, y), 0)
-
-	# Harder pattern
-	# Let's put a perimeter
+			tilemap.set_cell(Vector2i(x, y), 0, Vector2i(0, 0))
 	for i in range(9):
-		tilemap.set_cell(0, Vector2i(i, 0), 1)
-		tilemap.set_cell(0, Vector2i(i, 8), 1)
-		tilemap.set_cell(0, Vector2i(0, i), 1)
-		tilemap.set_cell(0, Vector2i(8, i), 1)
-
-	# Some internal walls
-	tilemap.set_cell(0, Vector2i(4, 4), 1)
-	tilemap.set_cell(0, Vector2i(3, 4), 1)
-	tilemap.set_cell(0, Vector2i(5, 4), 1)
-	tilemap.set_cell(0, Vector2i(4, 3), 1)
-	tilemap.set_cell(0, Vector2i(4, 5), 1)
-
-	player.position = tilemap.map_to_world(Vector2i(1, 1)) + tilemap.tile_set.tile_size / 2
-	goal.position = tilemap.map_to_world(Vector2i(7, 7)) + tilemap.tile_set.tile_size / 2
+		tilemap.set_cell(Vector2i(i, 0), 1, Vector2i(0, 0))
+		tilemap.set_cell(Vector2i(i, 8), 1, Vector2i(0, 0))
+		tilemap.set_cell(Vector2i(0, i), 1, Vector2i(0, 0))
+		tilemap.set_cell(Vector2i(8, i), 1, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(4, 4), 1, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(3, 4), 1, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(5, 4), 1, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(4, 3), 1, Vector2i(0, 0))
+	tilemap.set_cell(Vector2i(4, 5), 1, Vector2i(0, 0))
+	await get_tree().process_frame
+	player.position = tilemap.map_to_local(Vector2i(1, 1)) + Vector2(tilemap.tile_set.tile_size) / 2
+	goal.position = tilemap.map_to_local(Vector2i(7, 7)) + Vector2(tilemap.tile_set.tile_size) / 2

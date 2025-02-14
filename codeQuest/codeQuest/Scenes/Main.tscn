@@ -46,10 +46,10 @@ autoplay = true
 position = Vector2(-34, -235)
 
 [node name="PuzzleStone" parent="." instance=ExtResource("8_tjota")]
-position = Vector2(-179, -190)
+position = Vector2(-175, -161)
 
 [node name="PuzzleArea" parent="PuzzleStone" instance=ExtResource("7_syapx")]
-position = Vector2(0, 4)
+position = Vector2(0, 2)
 
 [node name="FollowLight" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_6f51x")]
 position = Vector2(-60, -72)
