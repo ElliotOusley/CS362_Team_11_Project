@@ -47,10 +47,18 @@ layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("2_d0nma")
 
-[node name="SubmitButton" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
 [node name="MessageLabel" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="SubmitButton" type="Button" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RunButton" type="Button" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MazeBoardHolder" type="Node2D" parent="CanvasLayer"]
