@@ -34,6 +34,7 @@ These are nodes that generate events in response to player actions or game state
   
 * Game State Changes: Emit signals when the game state changes, such as level completion or player progression.
 
+
 ### 2. Event Consumers (Listeners)
 
 These are nodes that listen for emitted signals and perform corresponding actions:
@@ -49,6 +50,7 @@ These are nodes that listen for emitted signals and perform corresponding action
 * Code Puzzle System: Processes code inputs and checks for correctness.
   
 * Save NPC: Listens for player interaction to trigger the save functionality.
+  
 
 ### 3. Event Channels (Signal Transmission)
 
@@ -59,6 +61,7 @@ These are nodes that listen for emitted signals and perform corresponding action
 * Global Event Bus (Singletons): Some global signals handle cross-scene communication for game state changes, like transitioning between levels or updating UI elements.
   
 * Queued Signals: Some signals are queued to ensure processing in a specific order.
+
 
 ### Advantages of Our Event-Driven Approach
 
@@ -84,7 +87,7 @@ These are nodes that listen for emitted signals and perform corresponding action
 
 ### Data Storage
 
-The system interfaces with the user’s files to save game data. Save data that does not relate to game progression like the settings found in the options menu will be saved using a ConfigFile node.  
+The system interfaces with the user’s files to store and manage game data efficiently. Save data related to player progress is written to a structured save file, ensuring continuity between play sessions. Non-progression data, such as game settings, is managed separately using a ConfigFile node, allowing users to adjust preferences without affecting core gameplay.
 
 
 ### Alternatives
@@ -94,29 +97,48 @@ Instead of Godot, the game could be developed in Unity or Unreal Engine
 
 Pros: 
 
-* Industry Standard: Unity is used by many major game companies and has a large following behind it, meaning that resources are easier to find 
+* Industry Standard: Unity is used by many major game companies and has a large following behind it, meaning that resources are easier to find
+
+* Cross-Platform Support: Offers extensive support for multiple platforms, including PC, mobile, and consoles.
+
+* Asset Store: Provides a vast library of assets and plugins that can accelerate development.
 
 Cons: 
+
+* Performance Overhead: Unity can be resource-intensive, especially for smaller-scale projects.
+
+* Complex Licensing: Some features are locked behind paid licenses.
+
 
 #### Unreal Engine 
 
 Pros: 
 
-* Graphics: Unreal has features that allow for more advanced graphics 
+* High-Quality Graphics: Unreal Engine includes advanced rendering capabilities suitable for AAA-quality visuals.
+  
+* Visual Coding: Unreal allows for games to be developed using a visual code format, which may be easier
 
-* Visual Coding: Unreal allows for games to be developed using a visual code format, which may be easier 
+* Strong Built-in Tools: Includes physics engines, animation tools, and AI systems.
 
 Cons: 
 
-* Specification: While Unreal can be used to develop 2D games, it is far more specialized for 3D 
+* Heavy on Resources: Requires powerful hardware for development and testing.
 
-	Instead of GDScript, the game could be developed using C++ or C+ 
+* Steeper Learning Curve: More complex than Unity, making it harder for beginners.
+
+* Best for 3D: While capable of 2D, it is optimized for 3D game development.
+
+
+Instead of GDScript, the game could be developed using C++ or C+ 
+
 
 #### C++ 
 
 Pros: 
 
-* Familiarity: Most of the team has used C++ to develop projects in previous classes 
+* Familiarity: Most of the team has used C++ to develop projects in previous classes
+  
+* Performance: Provides high execution speed and efficiency.
 
 Cons: 
 
@@ -124,34 +146,41 @@ Cons:
 
 * Lack of Documentation: Many parts of the Godot Documentation do not have anything listed for C++ 
 
+* Complexity: More difficult to debug and maintain compared to GDScript or C#.
+
+  
 #### C# 
 
 Pros: 
 
 * Supported: While it doesn’t have as much support as GDScript, C# is fairly well supported within the documentation and in-editor. 
 
-* Speed: C# is a faster language than GDScript 
+* Good Performance: Faster than GDScript while being easier to use than C++.
+  
+* Strong Typing: Reduces the likelihood of runtime errors.
 
 Cons: 
 
-* New Addition: Support for C# is a newer addition to the Godot engine, and therefore does not have as much support. 
+* Newer Addition: C# support in Godot is still evolving, with fewer resources available compared to GDScript.
+
+* Larger Executable Size: Can result in slightly larger game builds compared to GDScript.
+
 
 # 2. Software design 
-
 
 ### Component Parts 
 
 Godot abstracts components as nodes and scenes, where scenes are a collection of nodes. Currently, our game uses the following scenes: 
 
-* Main 
+* Main Scene - The primary game environment where players interact with the world.
 
-* Player 
+* Player Scene - Controls the player character and its related functions. 
 
-* Main Menu 
+* Main Menu Scene - Provides navigation to start the game, load saves, or access settings.
 
-* Options 
+* Options Scene - Allows players to adjust game settings, including controls and audio. 
 
-* NPC  
+* NPC Scene - Manages non-player characters and their behaviors.  
 
 
 ### Component Responsibilities
