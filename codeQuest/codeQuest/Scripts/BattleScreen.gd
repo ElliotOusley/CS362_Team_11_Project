@@ -94,4 +94,8 @@ func _update_timer_display():
 
 func _success_battle():
 	print("✅ Player solved all 3 challenges!")
-	emit
+	battle_won.emit() # Changed from "emit" Please change if this was not the intended purpos
+	
+func _fail_battle(): # Didn't see a function declaration for fail battle in here, added one, please fix if unintended
+	print("Player lost the battle")
+	battle_lost.emit()
