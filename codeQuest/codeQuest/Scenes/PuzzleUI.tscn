@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://qhn8i8vfa0to"]
 
 [ext_resource type="Script" path="res://Scripts/PuzzleUI.gd" id="1_4gvni"]
-[ext_resource type="Script" path="res://Scripts/AnswerArea.gd" id="2_d0nma"]
 [ext_resource type="Script" path="res://Scripts/Palette.gd" id="2_f4wtn"]
 [ext_resource type="PackedScene" uid="uid://be3ch2jthka4i" path="res://Scenes/Item.tscn" id="2_xwni5"]
+[ext_resource type="Script" path="res://Scripts/drop_zone_control_node.gd" id="4_elb62"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5t4s3"]
 bg_color = Color(0.264621, 0.598931, 1, 1)
@@ -60,10 +60,13 @@ layout_mode = 2
 [node name="Item3" parent="CanvasLayer/Panel/VBoxContainer/DragAndDropHolder/Palette" instance=ExtResource("2_xwni5")]
 layout_mode = 2
 
-[node name="AnswerArea" type="HBoxContainer" parent="CanvasLayer/Panel/VBoxContainer/DragAndDropHolder"]
+[node name="Item4" parent="CanvasLayer/Panel/VBoxContainer/DragAndDropHolder/Palette" instance=ExtResource("2_xwni5")]
+layout_mode = 2
+
+[node name="AnswerArea" type="Panel" parent="CanvasLayer/Panel/VBoxContainer/DragAndDropHolder"]
 layout_mode = 2
 size_flags_horizontal = 3
-script = ExtResource("2_d0nma")
+script = ExtResource("4_elb62")
 
 [node name="MessageLabel" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
 layout_mode = 2
