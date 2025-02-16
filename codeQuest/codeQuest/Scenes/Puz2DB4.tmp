@@ -44,11 +44,9 @@ size_flags_vertical = 6
 
 [node name="DragAndDropHolder" type="HBoxContainer" parent="CanvasLayer/Panel/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="Palette" type="VBoxContainer" parent="CanvasLayer/Panel/VBoxContainer/DragAndDropHolder"]
 layout_mode = 2
-size_flags_horizontal = 3
 script = ExtResource("2_f4wtn")
 
 [node name="Item1" parent="CanvasLayer/Panel/VBoxContainer/DragAndDropHolder/Palette" instance=ExtResource("2_xwni5")]
@@ -62,7 +60,6 @@ layout_mode = 2
 
 [node name="AnswerArea" type="HBoxContainer" parent="CanvasLayer/Panel/VBoxContainer/DragAndDropHolder"]
 layout_mode = 2
-size_flags_horizontal = 3
 script = ExtResource("2_d0nma")
 
 [node name="MessageLabel" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
@@ -84,6 +81,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Run"
 
-[node name="MazeBoardHolder" type="Node2D" parent="CanvasLayer/Panel/VBoxContainer"]
+[node name="MazeBoardHolder" type="Node2D" parent="CanvasLayer"]
 top_level = true
 position = Vector2(612, 79)

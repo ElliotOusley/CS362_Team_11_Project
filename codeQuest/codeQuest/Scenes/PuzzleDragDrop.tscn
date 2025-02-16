@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxeksskq6rpyw"]
+
+[ext_resource type="PackedScene" uid="uid://be3ch2jthka4i" path="res://Scenes/Item.tscn" id="1_3ydrw"]
+[ext_resource type="Script" path="res://Scripts/drop_zone_control_node.gd" id="2_4uavn"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LeftContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeftContainer"]
+layout_mode = 2
+
+[node name="Item1" parent="LeftContainer/VBoxContainer" instance=ExtResource("1_3ydrw")]
+layout_mode = 2
+
+[node name="Item2" parent="LeftContainer/VBoxContainer" instance=ExtResource("1_3ydrw")]
+layout_mode = 2
+
+[node name="Item3" parent="LeftContainer/VBoxContainer" instance=ExtResource("1_3ydrw")]
+layout_mode = 2
+
+[node name="RightContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="DropZoneControl" type="Panel" parent="RightContainer"]
+layout_mode = 2
+script = ExtResource("2_4uavn")

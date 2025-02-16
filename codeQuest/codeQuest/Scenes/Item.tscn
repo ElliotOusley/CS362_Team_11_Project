@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://be3ch2jthka4i"]
+
+[ext_resource type="Script" path="res://Scripts/item.gd" id="1_lrnbx"]
+
+[node name="Item" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_lrnbx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+
+[node name="ItemHBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ItemHBox"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ItemHBox"]
+layout_mode = 2
