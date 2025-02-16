@@ -17,12 +17,17 @@ extends Control
 @onready var run_button = $CanvasLayer/Panel/VBoxContainer/HBoxContainer/RunButton
 @onready var message_label = $CanvasLayer/Panel/VBoxContainer/MessageLabel
 @onready var maze_board_holder = $CanvasLayer/Panel/VBoxContainer/MazeBoardHolder
+@onready var background = $CanvasLayer/Panel/BackgroundTexture 
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	print("🟢 PuzzleUI Ready")
 	instructions_label.text = instructions_text
-
+	
+	#background.texture = preload("res://Sprites/BackGrounds/PuzzleUIBackGround.png") 
+	#background.expand_mode = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL 
+	#background.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED  
+	
 	# Create palette items from available_blocks.
 	for block_data in available_blocks:
 		var item_instance = preload("res://Scenes/Item.tscn").instantiate()
