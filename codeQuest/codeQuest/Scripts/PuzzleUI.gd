@@ -1,20 +1,14 @@
 extends Control
 
-@export var available_blocks: Array = []
-# Example of what 'available_blocks' might contain:
-# [
-#   { "block_type": "move_up",    "display_text": "Move Up" },
-#   { "block_type": "move_down",  "display_text": "Move Down" },
-#   { "block_type": "move_left",  "display_text": "Move Left" },
-#   { "block_type": "move_right", "display_text": "Move Right" },
-# ]
-# Adjust as desired.
-
+@export var available_blocks: Array = [
+	{ "block_type": "move_up", "display_text": "Move Up" },
+	{ "block_type": "move_down", "display_text": "Move Down" },
+	{ "block_type": "move_left", "display_text": "Move Left" },
+	{ "block_type": "move_right", "display_text": "Move Right" }
+]
 @export var instructions_text: String = "Use the blocks to guide the Player to the Goal!"
-@export var expected_solution: Array = []
-# e.g. [ "move_up", "move_up", "move_right", "move_right" ] for puzzle correctness check
-
-@export var maze_index: int = 0  # which of the 10 mazes to load (0..9)
+@export var expected_solution: Array = []  # e.g., [ "move_up", "move_up", "move_right", "move_right" ]
+@export var maze_index: int = 0  # Which maze to load (0..9)
 
 @onready var instructions_label = $CanvasLayer/Panel/VBoxContainer/InstructionsLabel
 @onready var palette = $CanvasLayer/Panel/VBoxContainer/DragAndDropHolder/Palette
@@ -22,47 +16,38 @@ extends Control
 @onready var submit_button = $CanvasLayer/Panel/VBoxContainer/HBoxContainer/SubmitButton
 @onready var run_button = $CanvasLayer/Panel/VBoxContainer/HBoxContainer/RunButton
 @onready var message_label = $CanvasLayer/Panel/VBoxContainer/MessageLabel
-@onready var drag_and_drop_holder = $CanvasLayer/Panel/VBoxContainer/DragAndDropHolder
 @onready var maze_board_holder = $CanvasLayer/Panel/VBoxContainer/MazeBoardHolder
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	print("🟢 PuzzleUI Ready")
-
-	# Set up the instructions text.
 	instructions_label.text = instructions_text
 
-	# Create the blocks in the Palette from 'available_blocks'
+	# Create palette items from available_blocks.
 	for block_data in available_blocks:
-		var block_instance = preload("res://Scenes/CodeBlock.tscn").instantiate()
-		block_instance.block_type = block_data["block_type"]
-		block_instance.display_text = block_data["display_text"]
-		block_instance.text = block_data["display_text"]
-		palette.add_child(block_instance)
+		var item_instance = preload("res://Scenes/Item.tscn").instantiate()
+		item_instance.block_type = block_data["block_type"]
+		palette.add_child(item_instance)
 
-	# Connect the buttons
+	# Connect buttons.
 	submit_button.pressed.connect(_on_SubmitButton_pressed)
 	run_button.pressed.connect(_on_RunButton_pressed)
 
-	# Load and add the MazeBoard scene to the MazeBoardHolder
+	# Load and add the MazeBoard scene.
 	var MazeBoardScene = preload("res://Scenes/MazeBoard.tscn")
 	var maze_board_instance = MazeBoardScene.instantiate()
-	
-	# Defer adding to avoid physics errors
+	# Defer adding to avoid physics timing issues.
 	call_deferred("_add_maze_board", maze_board_instance)
 
-# ✅ Use call_deferred() to avoid physics errors
 func _add_maze_board(maze_board_instance):
-	maze_board_holder.add_child(maze_board_instance)  # No more physics error
+	maze_board_holder.add_child(maze_board_instance)
 	print("✅ MazeBoard successfully added!")
 
 func _on_SubmitButton_pressed():
-	# Gather all blocks in the AnswerArea, build their block_types
+	# Gather block_types from items dropped into AnswerArea.
 	var solution = []
-	for block in answer_area.get_children():
-		solution.append(block.block_type)
-
-	# Compare to expected_solution
+	for item in answer_area.get_children():
+		solution.append(item.block_type)
 	if solution == expected_solution:
 		message_label.text = "Correct! Puzzle solved."
 		await get_tree().create_timer(2).timeout
@@ -73,16 +58,21 @@ func _on_SubmitButton_pressed():
 		_clear_answer_area()
 
 func _close_puzzle():
-	queue_free()  # Or do some other logic to show next puzzle, etc.
+	queue_free()
 
 func _clear_answer_area():
-	for block in answer_area.get_children():
-		block.queue_free()
+	for item in answer_area.get_children():
+		item.queue_free()
 
 func _on_RunButton_pressed():
 	var commands = []
-	for block in answer_area.get_children():
-		commands.append(block.block_type)
+	
+	# ✅ Use get_meta("block_type") for TextureRects
+	for item in answer_area.get_children():
+		if item.has_meta("block_type"):  # ✅ Check if metadata exists
+			commands.append(item.get_meta("block_type"))
+		else:
+			print("⚠️ WARNING: Dropped item does not contain a block_type!")
 
 	var maze_board = maze_board_holder.get_child(0)
 	if maze_board == null:
@@ -91,25 +81,16 @@ func _on_RunButton_pressed():
 
 	_execute_commands_on_maze(commands, maze_board)
 
+
 func _execute_commands_on_maze(commands: Array, maze_board: Node2D) -> void:
 	var tilemap = maze_board.get_node_or_null("TileMapLayer1") as TileMap
 	var player = maze_board.get_node_or_null("Player") as CharacterBody2D
 	var goal = maze_board.get_node_or_null("Goal") as Sprite2D
-
-	if tilemap == null:
-		message_label.text = "Maze not set up properly (no TileMapLayer1)."
+	if tilemap == null or player == null or goal == null:
+		message_label.text = "Maze not set up properly."
 		return
-	if player == null:
-		message_label.text = "Maze not set up properly (no Player)."
-		return
-	if goal == null:
-		message_label.text = "Maze not set up properly (no Goal)."
-		return
-
 	var tile_size = tilemap.tile_set.tile_size
 	var player_tile = tilemap.local_to_map(player.position)
-
-	# Simple parsing: move_up, move_down, move_left, move_right, etc.
 	var i = 0
 	while i < commands.size():
 		var cmd = commands[i]
@@ -117,9 +98,7 @@ func _execute_commands_on_maze(commands: Array, maze_board: Node2D) -> void:
 			"move_up", "move_down", "move_left", "move_right":
 				player_tile = _move_player(player_tile, cmd, tilemap)
 				i += 1
-
 			"for_3_times", "for_2_times":
-				# e.g. "for_3_times" next command "move_up"
 				if i + 1 < commands.size():
 					var next_cmd = commands[i + 1]
 					var repeats = 3 if cmd == "for_3_times" else 2
@@ -128,29 +107,19 @@ func _execute_commands_on_maze(commands: Array, maze_board: Node2D) -> void:
 					i += 2
 				else:
 					i += 1
-
 			"if_wall_ahead":
-				# Next command is only executed if there's NO wall ahead
 				if i + 1 < commands.size():
 					var conditional_cmd = commands[i + 1]
 					if _is_wall_ahead(player_tile, conditional_cmd, tilemap):
-						# there's a wall, so do not move
 						i += 2
 					else:
-						# go ahead and execute that move
 						player_tile = _move_player(player_tile, conditional_cmd, tilemap)
 						i += 2
 				else:
 					i += 1
-
 			_:
-				# unknown or unhandled command
 				i += 1
-
-	# Update the player's final position after all commands
 	player.position = tilemap.map_to_local(player_tile) + Vector2(tile_size) / 2
-
-	# Check if player is on the same tile as goal
 	var goal_tile = tilemap.local_to_map(goal.position)
 	if player_tile == goal_tile:
 		message_label.text = "You reached the goal!"
@@ -170,10 +139,7 @@ func _move_player(current_tile: Vector2i, cmd: String, tilemap: TileMap) -> Vect
 			next_tile.x += 1
 		_:
 			pass
-
-	# Check if next_tile is a wall
 	if _is_wall(tilemap, next_tile):
-		# can't move into a wall, so stay put
 		return current_tile
 	return next_tile
 
