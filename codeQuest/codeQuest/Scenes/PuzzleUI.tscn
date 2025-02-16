@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://qhn8i8vfa0to"]
+[gd_scene load_steps=7 format=3 uid="uid://qhn8i8vfa0to"]
 
 [ext_resource type="Script" path="res://Scripts/PuzzleUI.gd" id="1_4gvni"]
 [ext_resource type="Script" path="res://Scripts/Palette.gd" id="2_f4wtn"]
-[ext_resource type="Texture2D" uid="uid://dtg662msrnii7" path="res://Sprites/BackGrounds/PuzzleUIBackGround.png" id="4_8rxl2"]
+[ext_resource type="Texture2D" uid="uid://0pjq648ywuay" path="res://Sprites/BackGrounds/PuzzleUIBackGround.png" id="4_8rxl2"]
 [ext_resource type="Script" path="res://Scripts/drop_zone_control_node.gd" id="4_elb62"]
+[ext_resource type="Texture2D" uid="uid://c0shvi85xabvw" path="res://Sprites/BackGrounds/SubmitButton.png" id="4_usxma"]
+[ext_resource type="Texture2D" uid="uid://dqta5o1uylr64" path="res://Sprites/BackGrounds/runButton.png" id="5_fhdl6"]
 
 [node name="PuzzleUI" type="Control"]
 layout_mode = 3
@@ -33,7 +35,6 @@ size_flags_vertical = 3
 
 [node name="Palette" type="VBoxContainer" parent="CanvasLayer/Panel/VBoxContainer/DragAndDropHolder"]
 layout_mode = 2
-size_flags_horizontal = 3
 script = ExtResource("2_f4wtn")
 
 [node name="AnswerArea" type="Panel" parent="CanvasLayer/Panel/VBoxContainer/DragAndDropHolder"]
@@ -55,10 +56,24 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Submit"
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer/SubmitButton"]
+layout_mode = 0
+offset_right = 216.0
+offset_bottom = 58.0
+texture = ExtResource("4_usxma")
+expand_mode = 5
+
 [node name="RunButton" type="Button" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Run"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer/RunButton"]
+layout_mode = 0
+offset_right = 215.0
+offset_bottom = 59.0
+texture = ExtResource("5_fhdl6")
+expand_mode = 5
 
 [node name="MazeBoardHolder" type="Node2D" parent="CanvasLayer/Panel/VBoxContainer"]
 top_level = true
@@ -70,9 +85,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 576.0
-offset_top = 352.0
+offset_top = 337.0
 offset_right = 576.0
-offset_bottom = 352.0
+offset_bottom = 337.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_8rxl2")
