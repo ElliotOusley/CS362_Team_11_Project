@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0pjq648ywuay"
-path="res://.godot/imported/PuzzleUIBackGround.png-5890afc914c1d4ff51f1e7d53906029d.ctex"
+uid="uid://c0shvi85xabvw"
+path="res://.godot/imported/SubmitButton.png-52fc78b9f85f3df69e0381d2b04b51cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/BackGrounds/PuzzleUIBackGround.png"
-dest_files=["res://.godot/imported/PuzzleUIBackGround.png-5890afc914c1d4ff51f1e7d53906029d.ctex"]
+source_file="res://Sprites/BackGrounds/SubmitButton.png"
+dest_files=["res://.godot/imported/SubmitButton.png-52fc78b9f85f3df69e0381d2b04b51cc.ctex"]
 
 [params]
 
