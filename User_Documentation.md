@@ -1,5 +1,6 @@
 # User Documentation
 
+
 ## 1. High-Level Description
 
 **Project Name: CodeQuest**  
@@ -10,7 +11,7 @@ CodeQuest is a 2D puzzle/RPG hybrid created in Godot. It’s designed to help pl
 - **Educational**: Reinforces coding concepts in a hands-on manner.  
 - **Accessible**: Designed for learners at various skill levels, offering multiple hints and attempts.  
 
----
+
 
 ## 2. How to Install the Software
 
@@ -30,7 +31,7 @@ CodeQuest is a 2D puzzle/RPG hybrid created in Godot. It’s designed to help pl
    - **Step 2**: Download the latest stable build for your OS.
    - **Step 3**: Extract the files into a folder of your choice.  
 
----
+
 
 ## 3. How to Run the Software
 
@@ -42,7 +43,7 @@ CodeQuest is a 2D puzzle/RPG hybrid created in Godot. It’s designed to help pl
   - Double-click the `CodeQuest.exe` (Windows) or run the equivalent script on Mac/Linux.  
   - The game should launch in a new window.  
 
----
+
 
 ## 4. How to Use the Software
 
@@ -71,7 +72,7 @@ CodeQuest is a 2D puzzle/RPG hybrid created in Godot. It’s designed to help pl
    - **Battle System**: We decided to remove real-time combat due to time constraints; we may add simpler puzzle-combat mechanics in the future.  
    - **Additional Puzzles**: Some puzzle areas are placeholders with “Coming Soon!” text.
 
----
+
 
 ## 5. How to Report a Bug
 
@@ -90,11 +91,11 @@ We follow the [Mozilla Bug Writing Guidelines](https://developer.mozilla.org/en-
 3. **Expected vs Actual Results**: Distinguish between what should happen and what did.  
 4. **Additional Info**: Screenshots, logs, or crash dumps help us fix the bug faster.
 
----
+
 
 ## 6. Known Bugs
 
 Please refer to our [GitHub Issues](https://github.com/YourTeam/CodeQuest/issues) for a current list of bugs and their status.
 
----
+
 
