@@ -11,10 +11,26 @@ completing puzzles in which they drag text blocks to answer questions and comple
 This game is aimed at users who are new to programming, or those who would like an overview of programming in general.
 
 # Installation Instructions (Work In Progress):
-CodeQuest can be installed by downloading ##### Find something to post executable on, like Itch.io for web or download support #####
+CodeQuest can be installed from our itch.io page. On the page, scroll down to the downloads section and select the windows version. Once downloaded, unzip the file in a folder of your choice.
 
 # Running the software
+To run the software from a windows download, look through the downloaded files for the executable and double click it. This will open up the game. To run the software from the web, navigate to our Itch.io page (Work in progress)
+and click the play button.
 
 # Using The Software
 
 # Bug Reporting
+We use **GitHub Issues** for bug reporting: [Issues Page](https://github.com/ElliotOusley/CS362_Team_11_Project/issues)
+
+**Guidelines to follow:**
+- **Title**: Use a short description of the bug.  
+- **Steps to Reproduce**: List them clearly so we can recreate the issue.  
+- **Expected vs. Actual Results**: State what you expected to happen and what actually happened.  
+- **Environment Details**: Include your operating system, Godot version, or binary version.  
+
+We follow the [Mozilla Bug Writing Guidelines](https://developer.mozilla.org/en-US/docs/Mozilla/QA/Bug_Writing_Guidelines). Key points:
+
+1. **Clear Summary**: A concise, 1-line summary of the issue.  
+2. **Precise Steps**: How to make it happen every time, if possible.  
+3. **Expected vs Actual Results**: Distinguish between what should happen and what did.  
+4. **Additional Info**: Screenshots, logs, or crash dumps help us fix the bug faster.
