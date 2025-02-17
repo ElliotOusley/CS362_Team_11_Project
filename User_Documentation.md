@@ -22,7 +22,7 @@ CodeQuest is a 2D puzzle/RPG hybrid created in Godot. It’s designed to help pl
 2. **Installation Steps (From Source)**  
    - **Step 1**: Clone the repository  
      ```bash
-     git clone https://github.com/YourTeam/CodeQuest.git
+     git clone https://https://github.com/ElliotOusley/CS362_Team_11_Project
      ```
    - **Step 2**: Open Godot Engine and select `Import` to load the project.godot file.  
 
@@ -95,7 +95,7 @@ We follow the [Mozilla Bug Writing Guidelines](https://developer.mozilla.org/en-
 
 ## 6. Known Bugs
 
-Please refer to our [GitHub Issues](https://github.com/YourTeam/CodeQuest/issues) for a current list of bugs and their status.
+Please refer to our [GitHub Issues](https://github.com/ElliotOusley/CS362_Team_11_Project/issues) for a current list of bugs and their status.
 
 
 
