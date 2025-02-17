@@ -11,7 +11,8 @@ completing puzzles in which they drag text blocks to answer questions and comple
 This game is aimed at users who are new to programming, or those who would like an overview of programming in general.
 
 # Installation Instructions (Work In Progress):
-CodeQuest can be installed from our itch.io page. On the page, scroll down to the downloads section and select the windows version. Once downloaded, unzip the file in a folder of your choice.
+CodeQuest can be installed from our [itch.io page](https://elliot-ousley.itch.io/codequest?secret=jcvzabSa7tMD79NWAInWcEflRc)
+(Links to a draft page). On the page, scroll down to the downloads section and select the windows version. Once downloaded, unzip the file in a folder of your choice.
 
 # Running the software
 To run the software from a windows download, look through the downloaded files for the executable and double click it. This will open up the game. To run the software from the web, navigate to our Itch.io page (Work in progress)
