@@ -12,7 +12,7 @@ This documentation is for contributors who wish to understand, build, test, or e
   git clone https://github.com/ElliotOusley/CS362_Team_11_Project
   cd codeQuest/codeQuest
   ```
-
+**You can also clone the repo using GitHub Desktop to clone and edit locally while also having the option to pull and push commits**
 ---
 
 ## 2. Directory Structure
@@ -74,6 +74,16 @@ CodeQuest/
 
 1. Launch the Godot editor.
 2. Click on **Import** and select the `project.godot` file.
+3. Edit/Test from there according to project directory.
+
+ - **VS Code Integration**
+ - **Step 1**: Set up GitHub Desktop by downloading here: [GitHub Desktop download](https://github.com/apps/desktop)
+ - **Step 2**: Clone the CS362_Team_11_Project Repo using the link.
+ - **Step 3**: Navigate to VS Code. If you need the download, find it here: https://code.visualstudio.com/
+ - **Step 4**: Install the Godot Tools extension in VS Code [Here](https://marketplace.visualstudio.com/items?itemName=geequlim.godot-tools)
+ - **Step 5**: Run seamlessly using normal launch methodology. By using the Godot extension, VS Code can run the Godot project as if it were actually being ran in Godot. 
+
+
 
 #### Build/Export the Project:
 
