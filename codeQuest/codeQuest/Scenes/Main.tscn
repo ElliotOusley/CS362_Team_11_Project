@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://d1bbp5i8mcv8d"]
+[gd_scene load_steps=12 format=4 uid="uid://d1bbp5i8mcv8d"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_45v3f"]
 [ext_resource type="PackedScene" uid="uid://cce3ge1fy6voy" path="res://Scenes/Player.tscn" id="2_x22wi"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bojnytld3yb7k" path="res://Scenes/Objects/sign.tscn" id="8_n70of"]
 [ext_resource type="PackedScene" uid="uid://cy7ca56ah2u8l" path="res://Scenes/Objects/Puzzle_Stone.tscn" id="8_tjota"]
 [ext_resource type="PackedScene" uid="uid://bh2oywqg8gp1n" path="res://Scenes/Objects/FollowLight.tscn" id="10_6f51x"]
+[ext_resource type="PackedScene" uid="uid://cc88h6dad7e3b" path="res://Scenes/Objects/potion.tscn" id="11_5lnxj"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_45v3f")
@@ -54,3 +55,12 @@ position = Vector2(0, 2)
 [node name="FollowLight" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_6f51x")]
 position = Vector2(-60, -72)
 target = NodePath("../Witch")
+
+[node name="Potion" parent="." instance=ExtResource("11_5lnxj")]
+position = Vector2(-221, -59)
+
+[node name="Potion2" parent="." instance=ExtResource("11_5lnxj")]
+position = Vector2(-46, -136)
+
+[node name="Potion3" parent="." instance=ExtResource("11_5lnxj")]
+position = Vector2(-280, -111)

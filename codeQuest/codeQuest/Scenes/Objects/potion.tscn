@@ -1,8 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc88h6dad7e3b"]
+[gd_scene load_steps=6 format=3 uid="uid://cc88h6dad7e3b"]
 
 [ext_resource type="Texture2D" uid="uid://bodr4ya7u0uua" path="res://Sprites/Objects/red_potion.png" id="1_1ccqv"]
+[ext_resource type="Script" path="res://inventory/potion.gd" id="1_u3da6"]
+[ext_resource type="Resource" uid="uid://xxm1paa6aott" path="res://inventory/Items/potion.tres" id="2_55pvh"]
 
-[node name="Potion" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_55l1o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dlaqx"]
+radius = 5.0
+
+[node name="Potion" type="StaticBody2D"]
+script = ExtResource("1_u3da6")
+item = ExtResource("2_55pvh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_1ccqv")
+
+[node name="interactible_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactible_area"]
+shape = SubResource("CircleShape2D_55l1o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dlaqx")
+
+[connection signal="body_entered" from="interactible_area" to="." method="_on_interactible_area_body_entered"]
