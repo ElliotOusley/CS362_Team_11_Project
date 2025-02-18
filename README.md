@@ -2,9 +2,13 @@
 This project is for CS362's team 11, also known as Beaver Builders, created and implemented by Seth Taylor, Elliot Ousley, Nathen dela Torre, Philensakada Thavrin, Carlos Vasquez, Ben Snider, and Hau’oli O’Brien.
 This repository contains all materials and documentation related to our project.
 
-# Project Proposal
-Our Project Proposal file is linked below and can also be found in the main branch of our repo as a Markdown file titled, "ProjectProposal.md"
-[Project Proposal File](https://github.com/ElliotOusley/CS362_Team_11_Project/blob/main/ProjectProposal.md)
+# Living Document
+* [Project Proposal](https://github.com/ElliotOusley/CS362_Team_11_Project/blob/main/ProjectProposal.md)
+* [Requirements Elicitation](https://github.com/ElliotOusley/CS362_Team_11_Project/blob/main/ProjectElicitation.md)
+* [Architecture and Design](https://github.com/ElliotOusley/CS362_Team_11_Project/blob/main/Project%20Architecture%20and%20Design.md)
+* [Mid Term Report](https://github.com/ElliotOusley/CS362_Team_11_Project/blob/main/Mid_Term_Report.md)
+* [Developer Documentation](https://github.com/ElliotOusley/CS362_Team_11_Project/blob/main/Developer_Documentation.md)
+* [User Documentation](https://github.com/ElliotOusley/CS362_Team_11_Project/blob/main/User_Documentation.md)
 
 # Game Files
 All Game Development related files can be found in the CodeQuest Directory. The directory can be found [here](https://github.com/ElliotOusley/CS362_Team_11_Project/tree/main/codeQuest/codeQuest)
@@ -15,7 +19,9 @@ Weekly meeting reports are located in the [reports folder](https://github.com/El
 # Trello
 Progress on the project can be seen on our [Trello Board](https://trello.com/b/Lz0f5vrL/pt11-project)
 
-# Project Overview
-Our Project, CodeQuest is a Puzzle RPG that encourages players to learn code while keeping a traditional RPG experience.
+# Wiki
+A guide on gameplay features can be found in our [wiki page](https://github.com/ElliotOusley/CS362_Team_11_Project/wiki)
 
+# Itch.io
+For easy downloads, visit our [itch.io page](https://elliot-ousley.itch.io/codequest?secret=jcvzabSa7tMD79NWAInWcEflRc)
 
