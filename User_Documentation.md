@@ -46,7 +46,14 @@ CodeQuest is a 2D puzzle/RPG hybrid created in Godot. It’s designed to help pl
 
 - **From Downloaded Executable**  
   - Double-click the `CodeQuest.exe` (Windows) or run the equivalent script on Mac/Linux.  
-  - The game should launch in a new window.  
+  - The game should launch in a new window.
+ 
+  - **VS Code Integration**
+  - **Step 1**: Set up GitHub Desktop by downloading here: [GitHub Desktop download](https://github.com/apps/desktop)
+   - **Step 2**: Clone the CS362_Team_11_Project Repo using the link.
+   - **Step 3**: Navigate to VS Code. If you need the download, find it here: https://code.visualstudio.com/
+   - **Step 4**: Install the Godot Tools extension in VS Code [Here](https://marketplace.visualstudio.com/items?itemName=geequlim.godot-tools)
+   - **Step 5**: Run seamlessly using normal launch methodology.
 
 
 
@@ -54,7 +61,9 @@ CodeQuest is a 2D puzzle/RPG hybrid created in Godot. It’s designed to help pl
 
 1. **Starting a New Game**  
    - Upon launch, you’ll see a main menu with options: **Start Game**, **Load Game**, **Options**, **Exit**.  
-   - Choose **Start Game** to begin.  
+   - Choose **Start Game** to begin.
+   - Load game will load a previous game that was paused or abandoned from a previous usage.
+   - When clicking options, users have the ability to control sound effects, brightness, font size.
 
 2. **Movement & Interaction**  
    - Move your character using arrow keys or WASD.  
@@ -67,15 +76,18 @@ CodeQuest is a 2D puzzle/RPG hybrid created in Godot. It’s designed to help pl
 4. **Coding Challenges**  
    - Approach a puzzle challenge or puzzle NPC to begin a challenge.  
    - Use the coding clocks to build a solution to the programming puzzle.  
-   - Submit to check correctness; if wrong, you will lose some in-game health.  
+   - Submit to check correctness; if wrong, you will lose some in-game health.
+   - Players have 3 lives or attempts to answer the question correctly before they have to start the process over again. 
 
 5. **Saving & Loading**  
    - Access the **Pause** menu (`Esc` key) to **Save** or **Load** your progress.  
-   - The game automatically creates a save file in your user directory (platform-dependent).  
+   - The game automatically creates a save file in your user directory (platform-dependent)
+   - Users can return to a saved game by clicking "load game" from main menu options.
 
 6. **Missing Features (Work in Progress)**  
    - **Battle System**: We decided to remove real-time combat due to time constraints; we may add simpler puzzle-combat mechanics in the future.  
    - **Additional Puzzles**: Some puzzle areas are placeholders with “Coming Soon!” text.
+   - **Leadership Board**: In lieu of removing the combat battle system, we may decide to implement a leadership board to show rankings based on coding block challenges completed.
 
 
 
@@ -87,7 +99,8 @@ We use **GitHub Issues** for bug reporting: [Issues Page](https://github.com/Ell
 - **Title**: Use a short description of the bug.  
 - **Steps to Reproduce**: List them clearly so we can recreate the issue.  
 - **Expected vs. Actual Results**: State what you expected to happen and what actually happened.  
-- **Environment Details**: Include your operating system, Godot version, or binary version.  
+- **Environment Details**: Include your operating system, Godot version, or binary version.
+- **Be Specific**: Recall everything that happened leading up to discovering a bug so we can figure out exactly how it was triggered. 
 
 We follow the [Mozilla Bug Writing Guidelines](https://developer.mozilla.org/en-US/docs/Mozilla/QA/Bug_Writing_Guidelines). Key points:
 
