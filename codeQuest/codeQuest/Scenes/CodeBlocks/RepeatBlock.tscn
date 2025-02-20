@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp2dr437512pv"]
+
+[ext_resource type="Script" path="res://Scenes/CodeBlocks/repeat_block.gd" id="1_cga1n"]
+[ext_resource type="Texture2D" uid="uid://ovaveqg6udtw" path="res://Sprites/CodeBlockSprites/RepeatBlock.png" id="2_1q3jq"]
+
+[node name="RepeatBlock" type="Node2D"]
+script = ExtResource("1_cga1n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(102, 53)
+texture = ExtResource("2_1q3jq")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 90.0
+offset_top = 28.0
+offset_right = 123.0
+offset_bottom = 80.0

@@ -1,17 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://37siygkmlnwv"]
+[gd_scene load_steps=9 format=3 uid="uid://37siygkmlnwv"]
 
-[ext_resource type="Texture2D" uid="uid://belhj4u1uk51q" path="res://icon.svg" id="1_3gf3v"]
+[ext_resource type="Texture2D" uid="uid://blfdw8tmgmoio" path="res://Sprites/CodeBlockSprites/StartBlock.png" id="1_32nbr"]
 [ext_resource type="Script" path="res://Scenes/TestCodeChallange/start_block.gd" id="2_a70ar"]
-[ext_resource type="Script" path="res://Scenes/TestCodeChallange/test_spawn_block.gd" id="3_7184t"]
+[ext_resource type="Texture2D" uid="uid://cm58jw4jrmegn" path="res://Sprites/CodeBlockSprites/BridgePieceBlock.png" id="3_rvf61"]
+[ext_resource type="Script" path="res://Scenes/TestCodeChallange/place_bridge_spawn.gd" id="3_tub4o"]
+[ext_resource type="Script" path="res://Scenes/TestCodeChallange/repeat_spawn.gd" id="4_0xwq3"]
+[ext_resource type="PackedScene" uid="uid://by38ogadsypyu" path="res://Scenes/CodeBlocks/BridgePieceBlock.tscn" id="5_a50rb"]
+[ext_resource type="Texture2D" uid="uid://ovaveqg6udtw" path="res://Sprites/CodeBlockSprites/RepeatBlock.png" id="6_t4fjt"]
+[ext_resource type="PackedScene" uid="uid://bp2dr437512pv" path="res://Scenes/CodeBlocks/RepeatBlock.tscn" id="8_5saqk"]
 
 [node name="CodeChallenge" type="Node2D"]
 
-[node name="StartBlock" type="Sprite2D" parent="."]
-position = Vector2(372, 63)
-texture = ExtResource("1_3gf3v")
-script = ExtResource("2_a70ar")
+[node name="PlaceBridgeSpawn" type="Sprite2D" parent="."]
+position = Vector2(128, 220)
+texture = ExtResource("3_rvf61")
+script = ExtResource("3_tub4o")
+draggable = ExtResource("5_a50rb")
 
-[node name="TestSpawnBlock" type="Sprite2D" parent="."]
-position = Vector2(165, 217)
-texture = ExtResource("1_3gf3v")
-script = ExtResource("3_7184t")
+[node name="RepeatSpawn" type="Sprite2D" parent="."]
+position = Vector2(137, 420)
+texture = ExtResource("6_t4fjt")
+script = ExtResource("4_0xwq3")
+draggable = ExtResource("8_5saqk")
+
+[node name="StartBlock" type="Node2D" parent="."]
+position = Vector2(389, 5)
+script = ExtResource("2_a70ar")
+is_draggable = false
+
+[node name="Sprite2D" type="Sprite2D" parent="StartBlock"]
+position = Vector2(100, 50)
+texture = ExtResource("1_32nbr")
