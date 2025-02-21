@@ -97,11 +97,18 @@ func _on_RunButton_pressed():
 	_execute_commands_on_maze(commands, maze_board)
 
 func _execute_commands_on_maze(commands: Array, maze_board: Node2D) -> void:
-	var tilemap = maze_board.get_node_or_null("TileMapLayer1") as TileMap
+	print("🔍 Checking nodes in MazeBoard...")
+
+	var tilemap = maze_board.get_node_or_null("TileMapLayer1") as TileMapLayer
 	var player = maze_board.get_node_or_null("Player") as CharacterBody2D
-	var goal = maze_board.get_node_or_null("Goal") as Sprite2D
+	var goal = maze_board.get_node_or_null("Goal") as CharacterBody2D
+
+	print("📌 tilemap: ", tilemap)
+	print("📌 player: ", player)
+	print("📌 goal: ", goal)
 
 	if tilemap == null or player == null or goal == null:
+		print("❌ ERROR: One or more required nodes are missing in MazeBoard!")
 		message_label.text = "Maze not set up properly."
 		return
 
