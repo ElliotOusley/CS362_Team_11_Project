@@ -6,7 +6,7 @@
 [ext_resource type="TileSet" uid="uid://c7igtlrvkgd57" path="res://Sprites/Tilesets/Obstacles.tres" id="3_c08uh"]
 [ext_resource type="AudioStream" uid="uid://hacxpyr4syxr" path="res://Audio/Peaceful Hilltop Trail - Nature Sounds - Relaxing.mp3" id="3_gfose"]
 [ext_resource type="PackedScene" uid="uid://bgxju13b4d8tw" path="res://Scenes/Witch.tscn" id="3_ugqw2"]
-[ext_resource type="PackedScene" path="res://Scenes/PuzzleArea.tscn" id="7_syapx"]
+[ext_resource type="PackedScene" uid="uid://bjdadi0o34m0k" path="res://Scenes/PuzzleArea.tscn" id="7_syapx"]
 [ext_resource type="PackedScene" uid="uid://bojnytld3yb7k" path="res://Scenes/Objects/sign.tscn" id="8_n70of"]
 [ext_resource type="PackedScene" uid="uid://cy7ca56ah2u8l" path="res://Scenes/Objects/Puzzle_Stone.tscn" id="8_tjota"]
 [ext_resource type="PackedScene" uid="uid://bh2oywqg8gp1n" path="res://Scenes/Objects/FollowLight.tscn" id="10_6f51x"]

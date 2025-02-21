@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cp1p0ai1teiff"]
+[gd_scene load_steps=11 format=3 uid="uid://cp1p0ai1teiff"]
 
 [ext_resource type="Script" path="res://Scripts/MazeBoard.gd" id="1_ksb7i"]
 [ext_resource type="Texture2D" uid="uid://cb4gudtdaj4nk" path="res://Sprites/Atlases/Tile_Atlas_1.png" id="2_hkbe1"]
@@ -177,6 +177,8 @@ texture = ExtResource("2_hkbe1")
 [sub_resource type="TileSet" id="TileSet_njjl4"]
 sources/0 = SubResource("TileSetAtlasSource_kgcd7")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bo6vy"]
+
 [node name="MazeBoard" type="Node2D"]
 script = ExtResource("1_ksb7i")
 
@@ -184,19 +186,14 @@ script = ExtResource("1_ksb7i")
 z_index = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-8, -8)
 shape = SubResource("CircleShape2D_kup34")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 z_index = 2
-position = Vector2(3, 1)
+position = Vector2(-8, -24)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_lv6ms")
-
-[node name="Goal" type="Sprite2D" parent="."]
-z_index = 2
-position = Vector2(2, 1)
-texture = ExtResource("2_ih1po")
-hframes = 6
-frame = 1
 
 [node name="TileMapLayer1" type="TileMapLayer" parent="."]
 z_index = 1
@@ -205,3 +202,17 @@ tile_set = SubResource("TileSet_3qumj")
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 z_index = 2
 tile_set = SubResource("TileSet_njjl4")
+
+[node name="Goal" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+position = Vector2(-8, -8)
+shape = SubResource("CircleShape2D_bo6vy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Goal"]
+z_index = 2
+position = Vector2(-9, -12)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_ih1po")
+hframes = 6
+frame = 1

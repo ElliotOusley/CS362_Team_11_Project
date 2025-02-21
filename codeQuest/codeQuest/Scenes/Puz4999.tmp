@@ -13,6 +13,10 @@ anchors_preset = 0
 offset_right = 1124.0
 offset_bottom = 620.0
 script = ExtResource("1_4gvni")
+available_blocks = null
+instructions_text = null
+expected_solution = null
+maze_index = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
