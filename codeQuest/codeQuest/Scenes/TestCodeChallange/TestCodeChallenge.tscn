@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://37siygkmlnwv"]
+
+[ext_resource type="Texture2D" uid="uid://belhj4u1uk51q" path="res://icon.svg" id="1_3gf3v"]
+[ext_resource type="Script" path="res://Scenes/TestCodeChallange/start_block.gd" id="2_a70ar"]
+[ext_resource type="Script" path="res://Scenes/TestCodeChallange/test_spawn_block.gd" id="3_7184t"]
+
+[node name="CodeChallenge" type="Node2D"]
+
+[node name="StartBlock" type="Sprite2D" parent="."]
+position = Vector2(372, 63)
+texture = ExtResource("1_3gf3v")
+script = ExtResource("2_a70ar")
+
+[node name="TestSpawnBlock" type="Sprite2D" parent="."]
+position = Vector2(165, 217)
+texture = ExtResource("1_3gf3v")
+script = ExtResource("3_7184t")
