@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://qhn8i8vfa0to"]
+[gd_scene load_steps=8 format=3 uid="uid://qhn8i8vfa0to"]
 
 [ext_resource type="Script" path="res://Scripts/PuzzleUI.gd" id="1_4gvni"]
 [ext_resource type="Script" path="res://Scripts/Palette.gd" id="2_f4wtn"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/drop_zone_control_node.gd" id="4_elb62"]
 [ext_resource type="Texture2D" uid="uid://c0shvi85xabvw" path="res://Sprites/BackGrounds/SubmitButton.png" id="4_usxma"]
 [ext_resource type="Texture2D" uid="uid://dqta5o1uylr64" path="res://Sprites/BackGrounds/runButton.png" id="5_fhdl6"]
+[ext_resource type="Texture2D" uid="uid://fo4uasvpqxhp" path="res://Sprites/BackGrounds/exitButton.png" id="7_aex8m"]
 
 [node name="PuzzleUI" type="Control"]
 layout_mode = 3
@@ -94,3 +95,18 @@ grow_vertical = 2
 texture = ExtResource("4_8rxl2")
 expand_mode = 3
 stretch_mode = 3
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/Panel"]
+z_index = 2
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 0
+offset_left = 1041.0
+offset_top = 103.0
+offset_right = 1076.0
+offset_bottom = 138.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/ExitButton"]
+layout_mode = 0
+offset_right = 35.0
+offset_bottom = 35.0
+texture = ExtResource("7_aex8m")
