@@ -4,10 +4,12 @@ class_name MazeBoard
 
 @export var maze_index: int = 0
 
-@onready var tilemap: TileMapLayer = get_node_or_null("TileMapLayer1")  # ✅ Ensure this exists
-@onready var walls: TileMapLayer = get_node_or_null("TileMapLayer2")  # ✅ Ensure this exists
-@onready var player: CharacterBody2D = get_node_or_null("Player")  # ✅ Ensure this exists
-@onready var goal: CharacterBody2D = get_node_or_null("Goal")  # ✅ Goal exists, but let's be sure
+@onready var tilemap: TileMapLayer = get_node_or_null("TileMapLayer1")  # Ensure this exists
+@onready var walls: TileMapLayer = get_node_or_null("TileMapLayer2")  # Ensure this exists
+@onready var player: CharacterBody2D = get_node_or_null("Player")  # Ensure this exists
+@onready var goal: CharacterBody2D = get_node_or_null("Goal")  # Goal exists, but let's be sure
+@onready var animation_player: AnimationPlayer = player.get_node_or_null("AnimationPlayer")
+
 
 func _ready():
 	# Debugging
@@ -30,6 +32,8 @@ func _ready():
 	if goal == null:
 		print("❌ ERROR: Goal node is missing from MazeBoard!")  # Shouldn't happen
 		return
+	if animation_player == null:
+		print("❌ ERROR: AnimationPlayer not found in Player!")
 
 	print("✅ MazeBoard setup is correct. Loading maze...")
 	

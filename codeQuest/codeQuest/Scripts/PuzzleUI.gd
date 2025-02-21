@@ -169,24 +169,37 @@ func _execute_commands_on_maze(commands: Array, maze_board: Node2D) -> void:
 
 func _move_player(current_tile: Vector2i, cmd: String, tilemap_layer: TileMapLayer, walls_layer: TileMapLayer) -> Vector2i:
 	var next_tile = current_tile
+	var player = maze_board_holder.get_child(0).get_node("Player")
+	var animation_player = player.get_node_or_null("AnimationPlayer")  # ✅ Get AnimationPlayer inside Player
 
 	match cmd:
 		"move_up":
 			next_tile.y -= 1
+			if animation_player:
+				animation_player.play("walk_up")  # Play walking up animation
 		"move_down":
 			next_tile.y += 1
+			if animation_player:
+				animation_player.play("walk_down")  # Play walking down animation
 		"move_left":
 			next_tile.x -= 1
+			if animation_player:
+				animation_player.play("walk_left")  # Play walking left animation
 		"move_right":
 			next_tile.x += 1
+			if animation_player:
+				animation_player.play("walk_right")  # Play walking right animation
 		_:
 			pass
 
-	# Check if the next tile is a wall
+	# If a wall is in the way, stop animation and return current position
 	if _is_wall(walls_layer, next_tile):
-		return current_tile  # Stay in place if there's a wall
+		if animation_player:
+			animation_player.stop()
+		return current_tile
 
-	return next_tile  # Move to the next tile if it's open
+	return next_tile  # Move to the new position if no wall is there
+
 
 
 func _is_wall(walls_layer: TileMapLayer, tile_coords: Vector2i) -> bool:
