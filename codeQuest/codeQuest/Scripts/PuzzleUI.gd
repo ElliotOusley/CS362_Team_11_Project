@@ -26,6 +26,7 @@ func _ready():
 	# Add the "Start" block to the AnswerArea so the user sees a starting block.
 	var start_block = preload("res://Scenes/Item.tscn").instantiate()
 	start_block.block_type = "start"
+	start_block.custom_minimum_size = Vector2(30, 30) 
 	answer_area.add_child(start_block)
 
 	# Create the palette blocks
@@ -99,65 +100,68 @@ func _on_RunButton_pressed():
 func _execute_commands_on_maze(commands: Array, maze_board: Node2D) -> void:
 	print("🔍 Checking nodes in MazeBoard...")
 
-	var tilemap = maze_board.get_node_or_null("TileMapLayer1") as TileMapLayer
+	var tilemap_layer = maze_board.get_node_or_null("TileMapLayer1") as TileMapLayer
+	var walls_layer = maze_board.get_node_or_null("TileMapLayer2") as TileMapLayer
 	var player = maze_board.get_node_or_null("Player") as CharacterBody2D
 	var goal = maze_board.get_node_or_null("Goal") as CharacterBody2D
 
-	print("📌 tilemap: ", tilemap)
+	print("📌 tilemap_layer: ", tilemap_layer)
+	print("📌 walls_layer: ", walls_layer)
 	print("📌 player: ", player)
 	print("📌 goal: ", goal)
 
-	if tilemap == null or player == null or goal == null:
+	if tilemap_layer == null or walls_layer == null or player == null or goal == null:
 		print("❌ ERROR: One or more required nodes are missing in MazeBoard!")
 		message_label.text = "Maze not set up properly."
 		return
 
-	var tile_size = tilemap.tile_set.tile_size
-	var player_tile = tilemap.local_to_map(player.position)
-	var i = 0
+	# ✅ Convert player's position to tile coordinates using TileMapLayer
+	var tile_size = Vector2(32, 32)  # Adjust based on your tileset size
+	var player_tile = Vector2i(player.position / tile_size)
 
+	var i = 0
 	while i < commands.size():
 		var cmd = commands[i]
 		match cmd:
 			"move_up", "move_down", "move_left", "move_right":
-				player_tile = _move_player(player_tile, cmd, tilemap)
+				player_tile = _move_player(player_tile, cmd, tilemap_layer, walls_layer)
 				i += 1
 			"for_3_times", "for_2_times":
+				var repeats = 3 if cmd == "for_3_times" else 2
 				if i + 1 < commands.size():
 					var next_cmd = commands[i + 1]
-					var repeats: int
-					if cmd == "for_3_times":
-						repeats = 3
-					else:
-						repeats = 2
 					for rep in range(repeats):
-						player_tile = _move_player(player_tile, next_cmd, tilemap)
+						player_tile = _move_player(player_tile, next_cmd, tilemap_layer, walls_layer)
 					i += 2
 				else:
 					i += 1
 			"if_wall_ahead":
 				if i + 1 < commands.size():
 					var conditional_cmd = commands[i + 1]
-					if _is_wall_ahead(player_tile, conditional_cmd, tilemap):
-						# skip the next command
-						i += 2
+					if _is_wall_ahead(player_tile, conditional_cmd, walls_layer):
+						i += 2  # Skip the next command
 					else:
-						player_tile = _move_player(player_tile, conditional_cmd, tilemap)
+						player_tile = _move_player(player_tile, conditional_cmd, tilemap_layer, walls_layer)
 						i += 2
 				else:
 					i += 1
 			_:
 				i += 1
 
-	player.position = tilemap.map_to_local(player_tile) + Vector2(tile_size) / 2
-	var goal_tile = tilemap.local_to_map(goal.position)
+	# ✅ Convert tile position back to world position
+	player.position = Vector2(player_tile) * tile_size + tile_size / 2
+
+	# ✅ Check if the player reached the goal
+	var goal_tile = Vector2i(goal.position / tile_size)
 	if player_tile == goal_tile:
 		message_label.text = "You reached the goal!"
 	else:
 		message_label.text = "You ended on tile %s" % str(player_tile)
 
-func _move_player(current_tile: Vector2i, cmd: String, tilemap: TileMap) -> Vector2i:
+
+func _move_player(current_tile: Vector2i, cmd: String, tilemap_layer: TileMapLayer, walls_layer: TileMapLayer) -> Vector2i:
 	var next_tile = current_tile
+
 	match cmd:
 		"move_up":
 			next_tile.y -= 1
@@ -170,16 +174,20 @@ func _move_player(current_tile: Vector2i, cmd: String, tilemap: TileMap) -> Vect
 		_:
 			pass
 
-	if _is_wall(tilemap, next_tile):
-		return current_tile
-	return next_tile
+	# Check if the next tile is a wall
+	if _is_wall(walls_layer, next_tile):
+		return current_tile  # Stay in place if there's a wall
 
-func _is_wall(tilemap: TileMap, tile_coords: Vector2i) -> bool:
-	var cell_id = tilemap.get_cell(0, tile_coords)
-	return cell_id == 1
+	return next_tile  # Move to the next tile if it's open
 
-func _is_wall_ahead(current_tile: Vector2i, cmd: String, tilemap: TileMap) -> bool:
+
+func _is_wall(walls_layer: TileMapLayer, tile_coords: Vector2i) -> bool:
+	# ✅ Correct usage: get_cell_atlas_coords() takes only the tile position
+	return walls_layer.get_cell_atlas_coords(tile_coords) != Vector2i(-1, -1)
+
+func _is_wall_ahead(current_tile: Vector2i, cmd: String, walls_layer: TileMapLayer) -> bool:
 	var check_tile = current_tile
+
 	match cmd:
 		"move_up":
 			check_tile.y -= 1
@@ -191,4 +199,5 @@ func _is_wall_ahead(current_tile: Vector2i, cmd: String, tilemap: TileMap) -> bo
 			check_tile.x += 1
 		_:
 			pass
-	return _is_wall(tilemap, check_tile)
+
+	return _is_wall(walls_layer, check_tile)

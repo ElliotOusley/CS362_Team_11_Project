@@ -49,8 +49,9 @@ func _drop_data(at_position, data):
 				closest_child = child
 
 	if closest_child and closest_dist < threshold:
-		var child_size = closest_child.get_rect().size if closest_child.has_method("get_rect") else Vector2(50, 50)
-		component.position = closest_child.position + Vector2(child_size.x + 5, 0)
+		#var child_size = closest_child.get_rect().size if closest_child.has_method("get_rect") else Vector2(40, 40)
+		var child_size = Vector2(37, 37)
+		component.position = closest_child.position + Vector2(child_size.x, 0)
 	else:
 		component.position = at_position - (component.custom_minimum_size * 0.5)
 
