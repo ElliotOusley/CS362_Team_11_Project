@@ -206,7 +206,7 @@ tile_set = SubResource("TileSet_njjl4")
 [node name="Goal" type="CharacterBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
-position = Vector2(-8, -8)
+position = Vector2(-9, -8)
 shape = SubResource("CircleShape2D_bo6vy")
 
 [node name="Sprite2D" type="Sprite2D" parent="Goal"]
