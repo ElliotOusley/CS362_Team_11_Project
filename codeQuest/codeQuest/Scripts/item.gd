@@ -20,7 +20,7 @@ extends MarginContainer
 	#"for_2_times": preload("res://Sprites/CodeBlockSprites/loop2x.png"),
 	#"for_3_times": preload("res://Sprites/CodeBlockSprites/loop3x.png"),
 	# Provide a custom icon for "start" if you wish.
-	"start": preload("res://Sprites/CodeBlockSprites/moveUp.png"),
+	"start": preload("res://Sprites/CodeBlockSprites/start.png"),
 }
 
 func _ready():
