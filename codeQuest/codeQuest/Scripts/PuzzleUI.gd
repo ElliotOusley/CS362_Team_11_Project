@@ -17,6 +17,7 @@ extends Control
 @onready var run_button = $CanvasLayer/Panel/VBoxContainer/HBoxContainer/RunButton
 @onready var message_label = $CanvasLayer/Panel/VBoxContainer/MessageLabel
 @onready var maze_board_holder = $CanvasLayer/Panel/VBoxContainer/MazeBoardHolder
+@onready var exit_button = $CanvasLayer/Panel/ExitButton
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -26,7 +27,6 @@ func _ready():
 	# Add the "Start" block to the AnswerArea so the user sees a starting block.
 	var start_block = preload("res://Scenes/Item.tscn").instantiate()
 	start_block.block_type = "start"
-	start_block.custom_minimum_size = Vector2(30, 30) 
 	answer_area.add_child(start_block)
 
 	# Create the palette blocks
@@ -38,6 +38,8 @@ func _ready():
 	submit_button.pressed.connect(_on_SubmitButton_pressed)
 	run_button.pressed.connect(_on_RunButton_pressed)
 
+	exit_button.pressed.connect(_on_ExitButton_pressed)
+	
 	# Instantiate the MazeBoard
 	var maze_board_instance = preload("res://Scenes/MazeBoard.tscn").instantiate()
 	# Make sure to set the maze index so it loads the correct puzzle!
@@ -48,6 +50,12 @@ func _ready():
 func _add_maze_board(maze_board_instance):
 	maze_board_holder.add_child(maze_board_instance)
 	print("✅ MazeBoard successfully added with index =", maze_index)
+
+func _on_ExitButton_pressed():
+	print("🚪 Exiting PuzzleUI...")
+	queue_free()  
+	get_tree().paused = false  
+
 
 func _on_SubmitButton_pressed():
 	var solution = []
