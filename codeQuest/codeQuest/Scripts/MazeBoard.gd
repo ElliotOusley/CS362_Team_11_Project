@@ -7,7 +7,7 @@ class_name MazeBoard
 @onready var tilemap: TileMapLayer = get_node_or_null("TileMapLayer1")  # ✅ Ensure this exists
 @onready var walls: TileMapLayer = get_node_or_null("TileMapLayer2")  # ✅ Ensure this exists
 @onready var player: CharacterBody2D = get_node_or_null("Player")  # ✅ Ensure this exists
-@onready var goal: Sprite2D = get_node_or_null("Goal")  # ✅ Goal exists, but let's be sure
+@onready var goal: CharacterBody2D = get_node_or_null("Goal")  # ✅ Goal exists, but let's be sure
 
 func _ready():
 	# Debugging
@@ -90,20 +90,30 @@ func _load_maze_0() -> void:
 		print("❌ ERROR: TileMapLayers are missing, cannot set up the maze.")
 		return
 
-	for x in range(5):
-		for y in range(5):
-			tilemap.set_cell(Vector2i(x, y), 0, Vector2i(5, 0))  # Floor tiles
+	for x in range(25):
+		for y in range(25):
+			if (x == 0 || x == 24 || y == 0 || y == 24):
+				walls.set_cell(Vector2i(x, y), 0, Vector2i(7, 3))
+			else:
+				tilemap.set_cell(Vector2i(x, y), 0, Vector2i(5, 0))  # Floor tiles
 
-	walls.set_cell(Vector2i(2, 2), 1, Vector2i(7, 3))  # A wall at (2,2)
+	walls.set_cell(Vector2i(2, 2), 0, Vector2i(7, 3))  # A wall at (2,2)
+	walls.set_cell(Vector2i(22, 22), 0, Vector2i(7, 3))  # A wall at (2,2)
 
 	# Ensure everything is loaded before setting the player position
 	await get_tree().process_frame  
 
 	if player:
-		player.position = tilemap.map_to_local(Vector2i(0, 0)) + Vector2(tilemap.tile_set.tile_size) / 2
+		player.position = tilemap.map_to_local(Vector2i(2, 2)) + Vector2(tilemap.tile_set.tile_size) / 2
 		print("✅ Player positioned at:", player.position)
 	else:
 		print("❌ ERROR: Player not found in MazeBoard!")
+	
+	if goal:
+		goal.position = tilemap.map_to_local(Vector2i(22, 22)) + Vector2(tilemap.tile_set.tile_size) / 2
+		print("✅ Goal positioned at:", player.position)
+	else:
+		print("❌ ERROR: Goal not found in MazeBoard!")
 
 
 # ---------------------------------------------------------------------

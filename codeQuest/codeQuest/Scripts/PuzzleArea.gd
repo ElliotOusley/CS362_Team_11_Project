@@ -108,7 +108,7 @@ var PUZZLES = [
 			{"block_type": "if_wall_ahead", "display_text": "If Wall Ahead, Skip Next"},
 			{"block_type": "for_3_times", "display_text": "Repeat Next (3x)"}
 		],
-		"expected_solution": ["for_3_times","move_right"], 
+		"expected_solution": ["for_3_times","move_right"],
 		"maze_index": 7
 	},
 	{
