@@ -232,6 +232,7 @@ states/Walk/node = SubResource("AnimationNodeBlendSpace2D_whtd2")
 states/Walk/position = Vector2(501, 132)
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_ch48f")
 inv = ExtResource("2_361sv")
