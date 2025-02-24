@@ -30,6 +30,10 @@ autoplay = true
 y_sort_enabled = true
 position = Vector2(-51, -137)
 target_scene = ExtResource("5_i763r")
+marker_name = "Main_Marker"
+
+[node name="Main_Marker" type="Marker2D" parent="Ysort/Gate"]
+position = Vector2(0, 19)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Ysort"]
 y_sort_enabled = true
