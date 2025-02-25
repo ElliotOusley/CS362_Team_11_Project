@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjflipy55exma"]
+
+[ext_resource type="Script" path="res://Scripts/StartItem.gd" id="1_d7xey"]
+[ext_resource type="Texture2D" uid="uid://drjpc3svtrbol" path="res://Sprites/CodeBlockSprites/start.png" id="2_kdh2y"]
+
+[node name="StartItem" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_d7xey")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="ItemHBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ItemHBox"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ItemHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_kdh2y")
