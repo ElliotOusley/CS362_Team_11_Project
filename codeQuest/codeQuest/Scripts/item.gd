@@ -55,3 +55,73 @@ func _gui_input(event):
 				return
 			queue_free()  # Removes the block from AnswerArea
 			
+#
+#extends MarginContainer
+#
+#@onready var texture_rect: TextureRect = $ItemHbox/TextureRect
+#@onready var label_node: Label = $ItemHbox/Label
+#
+#@export var block_type: String = "move_up"
+#@export var modulation := Color(1, 1, 1, 1) :
+	#get:
+		#return modulation
+	#set(value):
+		#modulation = value
+		#%TextureRect.modulate = value  # Apply modulation to existing TextureRect
+		#
+#func set_modulation(value: Color) -> void:
+	#modulation = value
+	#if texture_rect:
+		#texture_rect.modulate = value
+#
+#@onready var ICONS: Dictionary = {
+	#"move_up":    preload("res://Sprites/CodeBlockSprites/moveUp.png"),
+	#"move_down":  preload("res://Sprites/CodeBlockSprites/moveDown.png"),
+	#"move_left":  preload("res://Sprites/CodeBlockSprites/moveLeft.png"),
+	#"move_right": preload("res://Sprites/CodeBlockSprites/moveRight.png"),
+	#"start":      preload("res://Sprites/CodeBlockSprites/start.png")
+#}
+#
+#func _ready():
+	## Validate block_type; if not valid, default to "move_up"
+	#if not ICONS.has(block_type):
+		#print("❌ ERROR: Invalid block_type: %s. Defaulting to move_up." % block_type)
+		#block_type = "move_up"
+	#
+	#if texture_rect:
+		#texture_rect.texture = ICONS[block_type]
+		#texture_rect.modulate = modulation
+	#else:
+		#push_error("❌ TextureRect not found in Item scene!")
+	#
+	#if label_node:
+		#label_node.text = block_type
+	#else:
+		#push_error("❌ Label node not found in Item scene!")
+#
+#func _get_drag_data(_position):
+	#if not texture_rect or not texture_rect.texture:
+		#push_error("❌ Missing texture_rect or texture in Item.")
+		#return null
+	#
+	#var preview = Control.new()
+	#var icon = TextureRect.new()
+	#icon.texture = texture_rect.texture
+	#icon.position = -icon.texture.get_size() / 2
+	#icon.modulate = modulation
+	#preview.add_child(icon)
+	#preview.z_index = 60
+	#set_drag_preview(preview)
+	#return {
+		#"block_type": block_type,
+		#"texture": texture_rect.texture,
+		#"modulation": modulation
+	#}
+#
+#func _gui_input(event):
+	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+		## Allow right-click removal if inside AnswerArea (except for start blocks)
+		#if get_parent() and get_parent().name == "AnswerArea":
+			#if block_type == "start":
+				#return
+			#queue_free()
