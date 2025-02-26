@@ -124,6 +124,7 @@ offset_bottom = 536.0
 size_flags_vertical = 6
 
 [node name="InstructionsLabel" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
 offset_left = 598.0
 offset_top = 57.0
 offset_right = 1032.0

@@ -1,7 +1,7 @@
 extends MarginContainer
 
 @export var block_type: String = "for_loop"
-@export var modulation := Color(1, 1, 1, 1) :
+@export var modulation := Color(1,1,1,1):
 	get:
 		return modulation
 	set(value):
@@ -14,7 +14,7 @@ func set_modulation(value: Color) -> void:
 		icon_rect.modulate = value
 
 @onready var spin_box: SpinBox = $VBoxContainer/HeaderHBox/SpinBox
-@onready var label_node: Label = $VBoxContainer/HeaderHBox/Label
+@onready var label_node: Label = $VBoxContainer/HeaderHBox/Label  # Ensure this exists
 @onready var icon_rect: TextureRect = $VBoxContainer/HeaderHBox/TextureRect
 
 @onready var ICONS: Dictionary = {
@@ -22,11 +22,14 @@ func set_modulation(value: Color) -> void:
 }
 
 func _ready():
-	if label_node:
-		label_node.text = "FOR Loop"
-	else:
+	if not label_node:
 		push_error("❌ Label node not found in ForLoopItem scene!")
-	
+		return
+
+	if not spin_box:
+		push_error("❌ SpinBox node not found in ForLoopItem scene!")
+		return
+
 	if icon_rect:
 		if ICONS.has(block_type):
 			icon_rect.texture = ICONS[block_type]
@@ -35,6 +38,12 @@ func _ready():
 			push_warning("⚠️ Unknown block_type: " + block_type)
 	else:
 		push_error("❌ TextureRect not found in ForLoopItem scene!")
+
+	# Connect spinbox changes to update label
+	spin_box.value_changed.connect(_on_spin_box_value_changed)
+
+	# Update label on start
+	_on_spin_box_value_changed(spin_box.value)
 
 func get_loop_count() -> int:
 	return int(spin_box.value)
@@ -53,13 +62,30 @@ func _get_drag_data(_position):
 	icon.position = -icon.texture.get_size() / 2
 	preview.add_child(icon)
 	preview.z_index = 60
+
+	# Add label showing loop count in the preview
+	var label = Label.new()
+	label.text = "x%d" % int(spin_box.value)
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	label.add_theme_font_size_override("font_size", 14)
+	preview.add_child(label)
+
 	set_drag_preview(preview)
 	return {
 		"block_type": block_type,
-		"texture": icon_rect.texture
+		"texture": icon_rect.texture,
+		"loop_count": get_loop_count()  # Include loop count in drag data
 	}
 
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 		if get_parent() and get_parent().name == "AnswerArea":
 			queue_free()
+
+# **Fix: Properly updates label on SpinBox change**
+func _on_spin_box_value_changed(value: float) -> void:
+	if label_node:
+		label_node.text = "FOR %d times" % int(value)
+	else:
+		push_error("❌ label_node is NULL! Ensure it is assigned correctly in ForLoopItem scene.")
