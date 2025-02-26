@@ -302,7 +302,7 @@ func _move_player(cmd: String, player_tile: Vector2i, walls_layer: TileMapLayer,
 	return next_tile
 
 # Animate the player's movement and play the appropriate animation.
-func _animate_player_movement(player: CharacterBody2D, animation_player: AnimationPlayer, cmd: String, start_pos: Vector2, end_pos: Vector2) -> void:
+func _animate_player_movement(player: CharacterBody2D, animation_player: AnimationPlayer, cmd: String, _start_pos: Vector2, end_pos: Vector2) -> void:
 	# Play the correct animation.
 	match cmd:
 		"move_up": animation_player.play("move_up")
