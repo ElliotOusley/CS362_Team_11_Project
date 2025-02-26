@@ -19,6 +19,8 @@ var timer : Timer
 
 var witch_nearby = false  # Flag to track if the Witch is near
 
+var save_path = "user://savegame.save"
+
 func _ready():
 	print("Footstep Audio:", footstep_audio)
 	
@@ -32,6 +34,22 @@ func _ready():
 	
 	if inventory_HUD:
 		inventory_HUD.visible = false # Hiding the inventory UI
+		
+	if FileAccess.file_exists(save_path):
+		var file = FileAccess.open(save_path, FileAccess.READ)
+		if file:
+			var saved_position = file.get_var()
+			if saved_position is Vector2:
+				position = saved_position  # Set player's position
+				
+			file.close()
+		print("Loaded position:", position)
+		
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_PREDELETE:
+		save_position()
+
+
 func get_input():
 	var input_direction = Vector2.ZERO
 	var moving = false
@@ -111,3 +129,10 @@ func _on_timer_timeout():
 #
 func collect(item):
 	inv.insert(item)
+
+func save_position() -> void:
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	if file:
+		file.store_var(position)  # Save player's position
+		file.close()
+		print("Saved position:", position)
