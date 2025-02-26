@@ -36,9 +36,6 @@ func get_input():
 	var input_direction = Vector2.ZERO
 	var moving = false
 	
-	if Input.is_action_just_pressed("asdf"):
-		get_tree().change_scene_to_file("res://Scenes/TestCodeChallange/TestCodeChallenge.tscn")
-
 	# Check for interaction input (e.g., "Enter" key or gamepad button)
 	if Input.is_action_just_pressed("ui_accept"):
 		if witch_nearby:
