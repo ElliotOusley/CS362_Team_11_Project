@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ovaveqg6udtw"
-path="res://.godot/imported/RepeatBlock.png-a9d6281389514bd1d7e8ffe6323d442b.ctex"
+uid="uid://bqlovvk7qk3r6"
+path="res://.godot/imported/whileLoop.png-ec92be6ee718949ba4d2375ef0d8a1a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/CodeBlockSprites/RepeatBlock.png"
-dest_files=["res://.godot/imported/RepeatBlock.png-a9d6281389514bd1d7e8ffe6323d442b.ctex"]
+source_file="res://Sprites/CodeBlockSprites/whileLoop.png"
+dest_files=["res://.godot/imported/whileLoop.png-ec92be6ee718949ba4d2375ef0d8a1a4.ctex"]
 
 [params]
 

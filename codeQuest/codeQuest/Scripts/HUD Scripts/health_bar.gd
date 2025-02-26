@@ -19,32 +19,32 @@ func _ready() -> void:
 	print(value)
 
 
-func update_health(value):
+func update_health(new_value):
 	match mode:
 		modes.SIMPLE:
-			update_simple(value)
+			update_simple(new_value)
 		modes.EMPTY:
-			update_empty(value)
+			update_empty(new_value)
 		modes.PARTIAL:
-			update_partial(value)
-	update_health_text(value)
+			update_partial(new_value)
+	update_health_text(new_value)
 
-func update_simple(value):
+func update_simple(new_value):
 	for i in get_child_count():
-		get_child(i).visible = value > i
+		get_child(i).visible = new_value > i
 		
-func update_empty(value):
+func update_empty(new_value):
 	for i in get_child_count():
-		if value > i:
+		if new_value > i:
 			get_child(i).texture = heart_full
 		else:
 			get_child(i).texture = heart_empty
 			
-func update_partial(value):
+func update_partial(new_value):
 	for i in get_child_count():
-		if value > i * 2 + 1:
+		if new_value > i * 2 + 1:
 			get_child(i).texture = heart_full
-		elif value > i * 2:
+		elif new_value > i * 2:
 			get_child(i).texture = heart_half
 		else:
 			get_child(i).texture = heart_empty
@@ -63,6 +63,6 @@ func _on_remove_health_pressed() -> void:
 		value -= 1
 		update_health(value)
 		
-func update_health_text(value):
+func update_health_text(new_value):
 	var label = $"../../Current Health"
-	label.text = "Current Health: %d" %[value]
+	label.text = "Current Health: %d" %[new_value]

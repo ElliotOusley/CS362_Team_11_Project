@@ -1,12 +1,12 @@
 extends MarginContainer
 
-@export var block_type: String = ""
+@export var block_type: String = "start"
 @export var modulation := Color(1, 1, 1, 1) :
 	get:
 		return modulation
 	set(value):
 		modulation = value
-		%TextureRect.modulate = value  
+		%TextureRect.modulate = value  # Apply modulation to existing TextureRect
 
 @onready var ICONS := {
 	"move_up": preload("res://Sprites/CodeBlockSprites/moveUp.png"),
@@ -19,8 +19,7 @@ extends MarginContainer
 func _ready():
 	# Ensure block_type is valid
 	if block_type not in ICONS:
-		print("❌ ERROR: Invalid block_type:", block_type, " | Defaulting to 'move_up'")
-		block_type = "move_up"
+		block_type = "start"
 
 	# Set correct icon
 	%TextureRect.texture = ICONS[block_type]
@@ -44,9 +43,6 @@ func _get_drag_data(_position):
 		"modulation": modulation  # Include modulation in drag data
 	}
 
-# --------------------------------------------------
-# Allow Right-Click to Remove from AnswerArea
-# --------------------------------------------------
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 		if get_parent() and get_parent().name == "AnswerArea":

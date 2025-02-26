@@ -82,3 +82,4 @@ marker_name = "Gate_Test_Marker"
 
 [node name="Gate_Test_Marker" type="Marker2D" parent="Ysort/Gate"]
 position = Vector2(0, 32)
+

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blfdw8tmgmoio"
-path="res://.godot/imported/StartBlock.png-48183a690772857269ed76cb831270a3.ctex"
+uid="uid://boendhnfspfvg"
+path="res://.godot/imported/forLoop.png-69c3a0918e353e0528746688729df792.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/CodeBlockSprites/StartBlock.png"
-dest_files=["res://.godot/imported/StartBlock.png-48183a690772857269ed76cb831270a3.ctex"]
+source_file="res://Sprites/CodeBlockSprites/forLoop.png"
+dest_files=["res://.godot/imported/forLoop.png-69c3a0918e353e0528746688729df792.ctex"]
 
 [params]
 
