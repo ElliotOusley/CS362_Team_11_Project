@@ -15,6 +15,7 @@ extends Control
 @onready var exit_button = $CanvasLayer/Panel/ExitButton
 
 func _ready():
+	# Let PuzzleUI process even when the game is paused
 	process_mode = Node.PROCESS_MODE_ALWAYS	
 	instructions_label.text = instructions_text
 
@@ -32,6 +33,7 @@ func _ready():
 			block_inst.block_type = block_type
 		palette.add_child(block_inst)
 
+
 	submit_button.pressed.connect(_on_SubmitButton_pressed)
 	run_button.pressed.connect(_on_RunButton_pressed)
 	exit_button.pressed.connect(_on_ExitButton_pressed)
@@ -41,7 +43,10 @@ func _ready():
 	maze_board_instance.maze_index = maze_index
 	maze_board_holder.add_child(maze_board_instance)
 
+	# For debugging: print a message when ready.
+	print("PuzzleUI ready. Instructions: ", instructions_text)
 
+# Helper to return scene path from block type.
 func _get_scene_for_block_type(block_type: String) -> String:
 	match block_type:
 		"start":
@@ -59,97 +64,60 @@ func _on_ExitButton_pressed():
 	queue_free()
 	get_tree().paused = false
 
-func _on_SubmitButton_pressed():
-	var start_block = null
-	for child in answer_area.get_children():
-		if child.get_meta("block_type","") == "start":
-			start_block = child
-			break
-
-	if start_block == null:
-		message_label.text = "No Start block found!"
-		return
-
-	var commands_list = _build_command_list(start_block)
-	var linear_cmds = _flatten_commands(commands_list)
-
-	if linear_cmds == expected_solution:
-		message_label.text = "Correct solution!"
-		await get_tree().create_timer(2).timeout
-		queue_free()
-	else:
-		message_label.text = "Incorrect solution, try again!"
-		await get_tree().create_timer(1).timeout
-		_clear_answer_area_except_start()
-
-func _clear_answer_area_except_start():
-	for c in answer_area.get_children():
-		if c.get_meta("block_type","") != "start":
-			c.queue_free()
-
-func _build_command_list(block_node: TextureRect) -> Array:
-	var result = []
-	var block_type = block_node.get_meta("block_type","")
-	match block_type:
-		"start":
-			var next_block = _find_block_to_the_right(block_node)
-			if next_block:
-				result += _build_command_list(next_block)
-		"move_up", "move_down", "move_left", "move_right":
-			result.append(block_type)
-			var nb2 = _find_block_to_the_right(block_node)
-			if nb2:
-				result += _build_command_list(nb2)
-		"for_loop":
-			var loop_count = 2
-			var for_script = block_node.get_script()
-			if for_script and for_script.has_method("get_loop_count"):
-				loop_count = block_node.call("get_loop_count")
-			var child_container = block_node.call("get_block_container")
-			var child_cmds = []
-			for item in child_container.get_children():
-				if item is TextureRect:
-					child_cmds += _build_command_list(item)
-			result.append({
-				"type": "for_loop",
-				"count": loop_count,
-				"body": child_cmds
-			})
-			var next_block_f = _find_block_to_the_right(block_node)
-			if next_block_f:
-				result += _build_command_list(next_block_f)
-		"while_loop":
-			var child_container_w = block_node.call("get_block_container")
-			var child_cmds_w = []
-			for item in child_container_w.get_children():
-				if item is TextureRect:
-					child_cmds_w += _build_command_list(item)
-			result.append({
-				"type": "while_loop",
-				"body": child_cmds_w
-			})
-			var next_block_w = _find_block_to_the_right(block_node)
-			if next_block_w:
-				result += _build_command_list(next_block_w)
-		_:
-			pass
-	return result
-
-func _find_block_to_the_right(current_block: TextureRect) -> TextureRect:
-	var best_dist = 999999.0
-	var best_block: TextureRect = null
-	for child in answer_area.get_children():
-		if child == current_block:
+# Simplified _build_command_list(): iterate children of AnswerArea in order.
+func _build_command_tree() -> Array:
+	var commands = []
+	for item in answer_area.get_children():
+		if not item.has_meta("block_type"):
 			continue
-		if child is TextureRect:
-			var dx = child.position.x - current_block.position.x
-			var dy = abs(child.position.y - current_block.position.y)
-			if dx > 20 and dy < 80:
-				var dist = current_block.position.distance_to(child.position)
-				if dist < best_dist:
-					best_dist = dist
-					best_block = child
-	return best_block
+		
+		var block_type = item.get_meta("block_type", "")
+		if block_type == "start":
+			continue  # Skip the start node in the final list (it's just a marker)
+
+		match block_type:
+			"move_up", "move_down", "move_left", "move_right":
+				# These are simple commands
+				commands.append(block_type)
+
+			"for_loop":
+				# This node should have a function to get the child blocks (like get_block_container).
+				# And a function to get the spinBox value (like get_loop_count).
+				var loop_count = 2
+				if item.has_method("get_loop_count"):
+					loop_count = item.call("get_loop_count")
+				var child_blocks = []
+				if item.has_method("get_block_container"):
+					var container = item.call("get_block_container")
+					# Gather each child's block_type
+					for sub_item in container.get_children():
+						if sub_item.has_meta("block_type"):
+							child_blocks.append(sub_item.get_meta("block_type"))
+				# Instead of flattening now, we store it as a dictionary
+				commands.append({
+					"type": "for_loop",
+					"count": loop_count,
+					"body": child_blocks
+				})
+
+			"while_loop":
+				var child_blocks = []
+				if item.has_method("get_block_container"):
+					var container = item.call("get_block_container")
+					for sub_item in container.get_children():
+						if sub_item.has_meta("block_type"):
+							child_blocks.append(sub_item.get_meta("block_type"))
+				commands.append({
+					"type": "while_loop",
+					"body": child_blocks
+				})
+
+			_:
+				# fallback
+				commands.append(block_type)
+	
+	return commands
+
 
 func _flatten_commands(nested_commands: Array) -> Array:
 	var result = []
@@ -165,11 +133,44 @@ func _flatten_commands(nested_commands: Array) -> Array:
 			elif cmd.type == "while_loop":
 				var artificial_limit = 10
 				for i in range(artificial_limit):
-					# For puzzle checking, naive flatten
 					result += _flatten_commands(cmd.body)
 			else:
 				pass
 	return result
+
+func _on_SubmitButton_pressed():
+	var start_block = null
+	# Look for a start block in the AnswerArea by meta:
+	for child in answer_area.get_children():
+		if child.get_meta("block_type", "") == "start":
+			start_block = child
+			break
+
+	if start_block == null:
+		message_label.text = "No Start block found!"
+		return
+
+	# Build command list by iterating through all children
+	var commands_list = _build_command_tree()
+	print("🔍 Debug: About to execute commands:", commands_list)
+	var linear_cmds = _flatten_commands(commands_list)
+	
+	# For debugging, print the linear commands:
+	print("🔍 Debug: Flattened command list:", linear_cmds)
+
+	if linear_cmds == expected_solution:
+		message_label.text = "Correct solution!"
+		await get_tree().create_timer(2).timeout
+		queue_free()
+	else:
+		message_label.text = "Incorrect solution, try again!"
+		await get_tree().create_timer(1).timeout
+		_clear_answer_area_except_start()
+
+func _clear_answer_area_except_start():
+	for c in answer_area.get_children():
+		if c.get_meta("block_type", "") != "start":
+			c.queue_free()
 
 func _on_RunButton_pressed():
 	var start_block = null
@@ -182,62 +183,107 @@ func _on_RunButton_pressed():
 		message_label.text = "No start block found!"
 		return
 
-	var commands_tree = _build_command_list(start_block)
+	var commands_tree = _build_command_tree()
+	print("🔍 Debug: About to execute commands:", commands_tree)
 	var maze_board = maze_board_holder.get_child(0)
 	if not maze_board:
 		message_label.text = "No MazeBoard loaded!"
 		return
 
 	_execute_nested_commands_on_maze(commands_tree, maze_board)
+	
+	
+func _execute_nested_commands_on_maze(commands_array: Array, maze_board: Node2D) -> void:
+	print("\n🔍 DEBUG: Checking required MazeBoard nodes...")
 
-func _execute_nested_commands_on_maze(commands_tree: Array, maze_board: Node):
-	var tilemap_layer = maze_board.get_node_or_null("TileMapLayer1") as TileMap
-	var walls_layer = maze_board.get_node_or_null("TileMapLayer2") as TileMap
+	# Get the required nodes as TileMapLayer
+	var tilemap_layer = maze_board.get_node_or_null("TileMapLayer1") as TileMapLayer
+	var walls_layer = maze_board.get_node_or_null("TileMapLayer2") as TileMapLayer
 	var player = maze_board.get_node_or_null("Player") as CharacterBody2D
+	var goal = maze_board.get_node_or_null("Goal") as Sprite2D  # Goal is a Sprite2D
 
-	if not (tilemap_layer and walls_layer and player):
-		push_error("MazeBoard not set up properly!")
+	# Print out whether each node exists or is missing
+	if tilemap_layer == null:
+		print("❌ ERROR: TileMapLayer1 (TileMapLayer) is MISSING!")
+	else:
+		print("✅ TileMapLayer1 (TileMapLayer) found.")
+
+	if walls_layer == null:
+		print("❌ ERROR: TileMapLayer2 (Walls TileMapLayer) is MISSING!")
+	else:
+		print("✅ TileMapLayer2 (Walls TileMapLayer) found.")
+
+	if player == null:
+		print("❌ ERROR: Player (CharacterBody2D) is MISSING!")
+	else:
+		print("✅ Player (CharacterBody2D) found.")
+
+	if goal == null:
+		print("❌ ERROR: Goal (Sprite2D) is MISSING!")
+	else:
+		print("✅ Goal (Sprite2D) found.")
+
+	# If any required node is missing, stop execution
+	if tilemap_layer == null or walls_layer == null or player == null or goal == null:
+		message_label.text = "Maze not set up properly. Check terminal for details."
 		return
 
+	# Convert player's position into tile coordinates
 	var tile_size = Vector2(32, 32)
 	var player_tile = Vector2i(player.position / tile_size)
+	print("✅ Player starting tile:", player_tile)
 
-	for command in commands_tree:
-		_run_command(command, walls_layer, tilemap_layer, player_tile)
-
-	player.position = Vector2(player_tile) * tile_size + tile_size / 2
-	message_label.text = "Commands executed!"
-
-func _run_command(cmd, walls_layer: TileMap, tilemap_layer: TileMap, player_tile: Vector2i):
-	if cmd is String:
-		_move_player(cmd, player_tile, walls_layer)
-	elif cmd is Dictionary:
-		if cmd.type == "for_loop":
-			for i in range(cmd.count):
-				for subcmd in cmd.body:
-					_run_command(subcmd, walls_layer, tilemap_layer, player_tile)
-		elif cmd.type == "while_loop":
-			var safeguard = 40
-			while safeguard > 0:
-				var can_run_all = true
-				for subcmd in cmd.body:
-					if subcmd is String:
-						var test_tile = player_tile
-						match subcmd:
-							"move_up": test_tile.y -= 1
-							"move_down": test_tile.y += 1
-							"move_left": test_tile.x -= 1
-							"move_right": test_tile.x += 1
-						if _is_wall(walls_layer, test_tile):
-							can_run_all = false
+	# Process each command in the command tree
+	for command in commands_array:
+		if command is String:
+			print("▶️ Executing:", command)
+			player_tile = _move_player(command, player_tile, walls_layer)
+		elif command is Dictionary:
+			match command.type:
+				"for_loop":
+					print("🔄 Executing For Loop x", command.count)
+					var count = command.count
+					for i in range(count):
+						player_tile = _execute_sub_commands(command.body, walls_layer, player_tile)
+				"while_loop":
+					print("🔁 Executing While Loop")
+					var safeguard = 30  # Prevent infinite loops
+					while safeguard > 0:
+						if _would_hit_wall(player_tile, command.body, walls_layer):
+							print("⛔ While Loop stopped: wall detected.")
 							break
-				if not can_run_all:
-					break
-				for subcmd in cmd.body:
-					_run_command(subcmd, walls_layer, tilemap_layer, player_tile)
-				safeguard -= 1
+						player_tile = _execute_sub_commands(command.body, walls_layer, player_tile)
+						safeguard -= 1
+				_:
+					print("⚠️ Unknown dictionary command:", command)
 
-func _move_player(cmd: String, player_tile: Vector2i, walls_layer: TileMap):
+		# Check if goal is reached
+		var goal_tile = Vector2i(goal.position / tile_size)
+		if player_tile == goal_tile:
+			print("🏆 Player reached the goal!")
+			message_label.text = "You reached the goal!"
+			break
+
+	# Finally, update the player's position
+	print("🎯 Final player tile:", player_tile)
+	player.position = (player_tile as Vector2) * tile_size + (tile_size / 2)
+
+
+
+
+func _execute_sub_commands(sub_cmds: Array, walls_layer: TileMapLayer, player_tile: Vector2i) -> Vector2i:
+	# Execute each simple command in the sub-array.
+	for c in sub_cmds:
+		if c is String:
+			player_tile = _move_player(c, player_tile, walls_layer)  
+		else:
+			print("⚠️ Unexpected nested command:", c)
+	return player_tile
+
+
+
+func _move_player(cmd: String, player_tile: Vector2i, walls_layer: TileMapLayer) -> Vector2i:
+	print("... Attempting to move player with command:", cmd)
 	var next_tile = player_tile
 	match cmd:
 		"move_up":    next_tile.y -= 1
@@ -245,20 +291,36 @@ func _move_player(cmd: String, player_tile: Vector2i, walls_layer: TileMap):
 		"move_left":  next_tile.x -= 1
 		"move_right": next_tile.x += 1
 		_:
-			return
-
+			return player_tile  # Unrecognized command; do nothing.
+	
+	# Check if the new tile is a wall.
 	if _is_wall(walls_layer, next_tile):
-		return
+		message_label.text = "Player hit a wall!"
+		print("🚧 Player hit a wall at tile:", next_tile)
+		return player_tile  # Do not move if there's a wall.
 	else:
-		player_tile.x = next_tile.x
-		player_tile.y = next_tile.y
-
-func _is_wall(map: TileMap, pos: Vector2i) -> bool:
-	# Checking on layer 0
-	return map.get_cell_source_id(0, pos) != -1
+		return next_tile
 
 
 
+func _would_hit_wall(start_tile: Vector2i, commands: Array, walls_layer: TileMapLayer) -> bool:
+	# Simulate executing the commands to see if a wall stops movement.
+	var temp_tile = start_tile
+	for cmd in commands:
+		if cmd is String:
+			var new_tile = _move_player(cmd, temp_tile, walls_layer)
+			# If the move did not change the tile, assume a wall blocked the move.
+			if new_tile == temp_tile:
+				return true
+			temp_tile = new_tile
+		else:
+			print("⚠️ Unexpected command type in _would_hit_wall:", cmd)
+	return false
+
+
+func _is_wall(map: TileMapLayer, pos: Vector2i) -> bool:
+	# Check if the given position contains a wall in TileMapLayer.
+	return map.get_cell_atlas_coords(pos) != Vector2i(-1, -1)
 
 
 
@@ -389,7 +451,7 @@ func _is_wall(map: TileMap, pos: Vector2i) -> bool:
 		#message_label.text = "Maze not set up properly."
 		#return
 #
-	## ✅ Convert player's position to tile coordinates using TileMapLayer
+	## Convert player's position to tile coordinates using TileMapLayer
 	#var tile_size = Vector2(32, 32)  # Adjust based on your tileset size
 	#var player_tile = Vector2i(player.position / tile_size)
 #
@@ -422,10 +484,10 @@ func _is_wall(map: TileMap, pos: Vector2i) -> bool:
 			#_:
 				#i += 1
 #
-	## ✅ Convert tile position back to world position
+	## Convert tile position back to world position
 	#player.position = Vector2(player_tile) * tile_size + tile_size / 2
 #
-	## ✅ Check if the player reached the goal
+	## Check if the player reached the goal
 	#var goal_tile = Vector2i(goal.position / tile_size)
 	#if player_tile == goal_tile:
 		#message_label.text = "You reached the goal!"
@@ -436,7 +498,7 @@ func _is_wall(map: TileMap, pos: Vector2i) -> bool:
 #func _move_player(current_tile: Vector2i, cmd: String, tilemap_layer: TileMapLayer, walls_layer: TileMapLayer) -> Vector2i:
 	#var next_tile = current_tile
 	#var player = maze_board_holder.get_child(0).get_node("Player")
-	#var animation_player = player.get_node_or_null("AnimationPlayer")  # ✅ Get AnimationPlayer inside Player
+	#var animation_player = player.get_node_or_null("AnimationPlayer")  # Get AnimationPlayer inside Player
 #
 	#match cmd:
 		#"move_up":
@@ -469,7 +531,7 @@ func _is_wall(map: TileMap, pos: Vector2i) -> bool:
 #
 #
 #func _is_wall(walls_layer: TileMapLayer, tile_coords: Vector2i) -> bool:
-	## ✅ Correct usage: get_cell_atlas_coords() takes only the tile position
+	## Correct usage: get_cell_atlas_coords() takes only the tile position
 	#return walls_layer.get_cell_atlas_coords(tile_coords) != Vector2i(-1, -1)
 #
 #func _is_wall_ahead(current_tile: Vector2i, cmd: String, walls_layer: TileMapLayer) -> bool:
