@@ -1,24 +1,15 @@
-name: Godot Tests
-
-on: [push, pull_request]
+name: "godot gut test"
+on: push
 
 jobs:
-  test:
+  execute-gut:
+    name: Run GUT tests
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Download & Install Godot
-        run: |
-          GODOT_VERSION=4.1.1
-          wget -q https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip
-          unzip Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip
-          mv Godot_v${GODOT_VERSION}-stable_linux.x86_64 /usr/local/bin/godot
-          chmod +x /usr/local/bin/godot
-
-      - name: Run Godot unit tests
-        run: |
-          cd codeQuest/codeQuest  # Navigate to project directory
-          godot -s addons/gut/gut_cmdln.gd -d --path "$PWD" -gtest=res://test/unit/test_example.gd -glog=1 -gexit
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Docker test
+        uses: ceceppa/godot-gut-ci@main
+        with:
+          godot_version: 4.3 # uses godot 3.2.1
+          gut_params: --headless -s addons/gut/gut_cmdln.gd -d --path "$PWD/codeQuest/codeQuest" -gtest=res://test/unit/test_example.gd -glog=1 -gexit
