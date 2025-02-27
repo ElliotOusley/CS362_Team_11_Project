@@ -5,8 +5,6 @@ extends Control
 func _ready() -> void:
 	$Menu/StartButton.grab_focus()
 
-	print("Save file path: ", ProjectSettings.globalize_path("user://savegame.save"))
-
 
 func _on_start_button_pressed() -> void:
 	var save_file = FileAccess.open("user://savegame.save", FileAccess.READ)
