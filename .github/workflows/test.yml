@@ -1,6 +1,6 @@
 name: Godot Tests
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   test:
@@ -10,14 +10,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Godot
+      - name: Install Godot Headless
         run: |
-          wget https://downloads.tuxfamily.org/godotengine/4.1/Godot_v4.1-stable_linux.x86_64.zip
-          unzip Godot_v4.1-stable_linux.x86_64.zip
-          mv Godot_v4.1-stable_linux.x86_64 /usr/local/bin/godot
-          chmod +x /usr/local/bin/godot
+          sudo apt update
+          sudo apt install -y godot4-server  # Use 'godot4-headless' if needed
 
       - name: Run Godot unit tests
         run: |
           cd codeQuest/codeQuest  # Navigate to project directory
-          godot -s addons/gut/gut_cmdln.gd -d --path "$PWD" -gtest=res://test/unit/test_example.gd -glog=1 -gexit
+          godot4-server -s addons/gut/gut_cmdln.gd -d --path "$PWD" -gtest=res://test/unit/test_example.gd -glog=1 -gexit
