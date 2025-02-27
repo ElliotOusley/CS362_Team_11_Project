@@ -8,11 +8,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Change Directory
-        run: cd codeQuest/codeQuest
       - name: Docker test
         uses: ceceppa/godot-gut-ci@main
         with:
           godot_version: 4.3
           gut_params: -gtest=res://test/unit/test_example.gd
-        # gut_params: -gdir=res://tests -gsuffix=.test.gd -gprefix=
+          project_path: codeQuest/codeQuest
