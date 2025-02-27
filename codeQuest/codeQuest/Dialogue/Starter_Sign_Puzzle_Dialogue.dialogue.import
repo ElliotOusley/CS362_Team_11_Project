@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://cgahs5hbiwa7t"
+path="res://.godot/imported/Starter_Sign_Puzzle_Dialogue.dialogue-b4041430d8157529bc8b0698cce50bf0.tres"
+
+[deps]
+
+source_file="res://Dialogue/Starter_Sign_Puzzle_Dialogue.dialogue"
+dest_files=["res://.godot/imported/Starter_Sign_Puzzle_Dialogue.dialogue-b4041430d8157529bc8b0698cce50bf0.tres"]
+
+[params]
+
+defaults=true

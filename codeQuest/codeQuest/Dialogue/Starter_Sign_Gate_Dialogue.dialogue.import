@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://bmy4bgaem5kap"
+path="res://.godot/imported/Starter_Sign_Gate_Dialogue.dialogue-0046dcf043188d5d9935ddb7be6db7bb.tres"
+
+[deps]
+
+source_file="res://Dialogue/Starter_Sign_Gate_Dialogue.dialogue"
+dest_files=["res://.godot/imported/Starter_Sign_Gate_Dialogue.dialogue-0046dcf043188d5d9935ddb7be6db7bb.tres"]
+
+[params]
+
+defaults=true
