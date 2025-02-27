@@ -13,5 +13,6 @@ jobs:
       - name: Docker test
         uses: ceceppa/godot-gut-ci@main
         with:
-          godot_version: 4.3 # uses godot 3.2.1
-          gut_params: --headless -s addons/gut/gut_cmdln.gd -d --path $PWD -gtest=res://test/unit/test_example.gd -glog=1 -gexit
+          godot_version: 4.3
+          gut_params: -gtest=res://test/unit/test_example.gd
+        # gut_params: -gdir=res://tests -gsuffix=.test.gd -gprefix=
