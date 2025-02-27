@@ -85,20 +85,18 @@ offset_bottom = 28.0
 scale = Vector2(1.96, 1.96)
 text = "Current Health: 6"
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
+[node name="InventoryUI" type="VBoxContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="InventoryUI" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(82, 63)
-offset_left = 788.0
-offset_top = 363.0
-offset_right = 870.0
-offset_bottom = 426.0
+offset_left = -440.0
+offset_top = -300.0
+offset_right = -358.0
+offset_bottom = -237.0
+grow_horizontal = 0
+grow_vertical = 0
 scale = Vector2(4.39035, 4.39035)
 theme_override_constants/separation = -1
 

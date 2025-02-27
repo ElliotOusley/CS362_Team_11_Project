@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsoekqlrn4mc0"]
+
+[ext_resource type="Script" path="res://Scenes/load_game.gd" id="1_7kvlp"]
+
+[node name="LoadGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7kvlp")
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Continue" type="Button" parent="Menu"]
+layout_mode = 2
+text = "Continue Game"
+
+[node name="New" type="Button" parent="Menu"]
+layout_mode = 2
+text = "New Game"
+
+[connection signal="pressed" from="Menu/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Menu/New" to="." method="_on_new_pressed"]

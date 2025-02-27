@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://4b5bgia0nfqc"
+path="res://.godot/imported/Starter_Sign_Welcome_Dialogue.dialogue-b00d67b81eaec0adbe48af60471bbec8.tres"
+
+[deps]
+
+source_file="res://Dialogue/Starter_Sign_Welcome_Dialogue.dialogue"
+dest_files=["res://.godot/imported/Starter_Sign_Welcome_Dialogue.dialogue-b00d67b81eaec0adbe48af60471bbec8.tres"]
+
+[params]
+
+defaults=true

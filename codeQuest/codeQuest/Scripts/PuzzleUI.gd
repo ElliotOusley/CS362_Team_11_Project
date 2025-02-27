@@ -380,12 +380,11 @@ func _move_player(cmd: String, player_tile: Vector2i, walls_layer: TileMapLayer,
 	print("      ✅ Movement done. Player tile now:", next_tile)
 	return next_tile
 
-# ----------------------------------------------------------------
-# ANIMATE PLAYER MOVEMENT
-# ----------------------------------------------------------------
+
 func _animate_player_movement(player: CharacterBody2D, animation_player: AnimationPlayer, cmd: String,
 							  start_pos: Vector2, end_pos: Vector2) -> void:
 	print("         🎞️ Animating:", cmd, "from", start_pos, "to", end_pos)
+
 	match cmd:
 		"move_up":    animation_player.play("move_up")
 		"move_down":  animation_player.play("move_down")

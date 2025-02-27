@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://bymrlnq2jtfwa"]
+[gd_scene load_steps=5 format=4 uid="uid://cubolg87wefly"]
 
 [ext_resource type="TileSet" uid="uid://dllp5qk32pj6q" path="res://Sprites/Tilesets/Floor.tres" id="1_h0c7e"]
 [ext_resource type="TileSet" uid="uid://c7igtlrvkgd57" path="res://Sprites/Tilesets/Obstacles.tres" id="2_4t4yc"]

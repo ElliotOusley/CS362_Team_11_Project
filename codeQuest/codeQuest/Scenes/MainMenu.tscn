@@ -18,9 +18,13 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -101.0
-offset_right = 70.0
+offset_top = -136.0
+offset_right = 340.0
 grow_vertical = 0
+
+[node name="MeetingTestButton" type="Button" parent="Menu"]
+layout_mode = 2
+text = "[FOR TODAY'S MEETING] Feature Showcase"
 
 [node name="StartButton" type="Button" parent="Menu"]
 layout_mode = 2
@@ -36,6 +40,7 @@ focus_neighbor_top = NodePath("../OptionsButton")
 focus_neighbor_bottom = NodePath("../StartButton")
 text = "Quit"
 
+[connection signal="pressed" from="Menu/MeetingTestButton" to="." method="_on_meeting_test_button_pressed"]
 [connection signal="pressed" from="Menu/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Menu/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Menu/QuitButton" to="." method="_on_quit_button_pressed"]
