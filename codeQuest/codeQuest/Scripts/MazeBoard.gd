@@ -155,34 +155,103 @@ func _ready():
 func _load_maze(index: int) -> void:
 	match index:
 		0:
-			_load_maze_0()
+			_load_maze_1()
+		1:
+			_load_maze_1()
+		2:
+			_load_maze_2()
 		_:
 			_load_maze_0()
 
-
 func _load_maze_0() -> void:
+	# Simple puzzle (original)
 	tilemap.clear()
 	walls.clear()
 
 	for x in range(25):
 		for y in range(25):
-			if (x == 0 || x == 24 || y == 0 || y == 24):
+			if x == 0 or x == 24 or y == 0 or y == 24:
 				walls.set_cell(Vector2i(x, y), 0, Vector2i(7,3))  # Outer walls
 			else:
 				tilemap.set_cell(Vector2i(x, y), 0, Vector2i(5,0)) # Floor
 
-	walls.set_cell(Vector2i(2,2), 0, Vector2i(7,3))  # Some extra wall
+	# A couple random walls
+	walls.set_cell(Vector2i(2,2), 0, Vector2i(7,3))  
 	walls.set_cell(Vector2i(22,22), 0, Vector2i(7,3))
 
 	await get_tree().process_frame
 
-	# Position player
-	if player:
-		player.position = tilemap.map_to_local(Vector2i(2, 2)) + Vector2(tilemap.tile_set.tile_size)/2
+	# Position player at (2,2)
+	player.position = tilemap.map_to_local(Vector2i(2, 2)) + Vector2(tilemap.tile_set.tile_size)/2
 
-	# Position goal
-	if goal:
-		goal.position = tilemap.map_to_local(Vector2i(22, 22)) + Vector2(tilemap.tile_set.tile_size)/2
+	# Position goal at (22,22)
+	goal.position = tilemap.map_to_local(Vector2i(22, 22)) + Vector2(tilemap.tile_set.tile_size)/2
+
+
+func _load_maze_1() -> void:
+	# Puzzle 1: A bit harder
+	tilemap.clear()
+	walls.clear()
+
+	for x in range(25):
+		for y in range(25):
+			if x == 0 or x == 24 or y == 0 or y == 24:
+				walls.set_cell(Vector2i(x, y), 0, Vector2i(7,3))  # Outer boundary
+			else:
+				tilemap.set_cell(Vector2i(x, y), 0, Vector2i(5,0)) # Floor
+
+	# Add some internal walls to create a small maze
+	# Vertical wall chunk
+	for yy in range(3, 10):
+		walls.set_cell(Vector2i(5, yy), 0, Vector2i(7,3))
+
+	# Horizontal wall chunk
+	for xx in range(8, 15):
+		walls.set_cell(Vector2i(xx, 12), 0, Vector2i(7,3))
+
+	# Another vertical chunk
+	for yy in range(14, 20):
+		walls.set_cell(Vector2i(17, yy), 0, Vector2i(7,3))
+
+	await get_tree().process_frame
+
+	# Start (2,2)
+	player.position = tilemap.map_to_local(Vector2i(2, 2)) + Vector2(tilemap.tile_set.tile_size)/2
+
+	# Goal (22,22)
+	goal.position = tilemap.map_to_local(Vector2i(22, 22)) + Vector2(tilemap.tile_set.tile_size)/2
+
+
+func _load_maze_2() -> void:
+	# Puzzle 2: More challenging arrangement
+	tilemap.clear()
+	walls.clear()
+
+	for x in range(25):
+		for y in range(25):
+			if x == 0 or x == 24 or y == 0 or y == 24:
+				walls.set_cell(Vector2i(x, y), 0, Vector2i(7,3))
+			else:
+				tilemap.set_cell(Vector2i(x, y), 0, Vector2i(5,0)) # Floor
+
+	# A bigger set of walls forming a labyrinth
+	# Let's place a spiral-like pattern
+	for i in range(3, 21):
+		walls.set_cell(Vector2i(i, 3), 0, Vector2i(7,3))
+		walls.set_cell(Vector2i(21, i), 0, Vector2i(7,3))
+		walls.set_cell(Vector2i(i, 21), 0, Vector2i(7,3))
+		walls.set_cell(Vector2i(3, i), 0, Vector2i(7,3))
+
+	# Open a few gaps
+	walls.set_cell(Vector2i(3, 10), -1)  # Remove one wall to create an opening
+	walls.set_cell(Vector2i(21, 15), -1)
+	walls.set_cell(Vector2i(10, 3), -1)
+
+	await get_tree().process_frame
+
+	player.position = tilemap.map_to_local(Vector2i(2, 2)) + Vector2(tilemap.tile_set.tile_size)/2
+	goal.position = tilemap.map_to_local(Vector2i(22, 22)) + Vector2(tilemap.tile_set.tile_size)/2
+
 #
 #
 ## ---------------------------------------------------------------------
