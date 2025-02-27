@@ -15,23 +15,23 @@ CodeQuest is a 2D puzzle/RPG hybrid created in Godot. It’s designed to help pl
 
 ## 2. How to Install the Software
 
-1. **Prerequisites**  
+**Prerequisites**  
    - **Godot 4.x** if running from source.  
    - If you’re using the compiled release version for Windows, you’ll just need to download and extract the `.zip` from our GitHub Releases page.  
 
-2. **Installation Steps (From Source)**  
+**Installation Steps (From Source)**  
    - **Step 1**: Clone the repository  
      ```bash
      git clone https://https://github.com/ElliotOusley/CS362_Team_11_Project
      ```
    - **Step 2**: Open Godot Engine and select `Import` to load the project.godot file.  
 
-3. **Installation Steps (Binary Download)** (Not Yet Released)  
+ **Installation Steps (Binary Download)** (Not Yet Released)  
    - **Step 1**: Navigate to the [Releases](https://github.com/ElliotOusley/CS362_Team_11_Project/releases) section of the repository.  
    - **Step 2**: Download the latest stable build for your OS.
    - **Step 3**: Extract the files into a folder of your choice.
 
-4. **Installation Steps (Itch.io Page)**
+ **Installation Steps (Itch.io Page)**
    - **Step 1**: Navigate to our [itch.io page](https://elliot-ousley.itch.io/codequest?secret=jcvzabSa7tMD79NWAInWcEflRc)
    - **Step 2**: Scroll down to the downloads section and select the Windows version
    - **Step 3**: Extract the file into a folder of your choice
