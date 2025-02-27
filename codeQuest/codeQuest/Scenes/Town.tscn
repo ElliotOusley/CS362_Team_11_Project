@@ -4,9 +4,9 @@
 [ext_resource type="TileSet" uid="uid://c7igtlrvkgd57" path="res://Sprites/Tilesets/Obstacles.tres" id="2_edptu"]
 [ext_resource type="PackedScene" uid="uid://cce3ge1fy6voy" path="res://Scenes/Player.tscn" id="3_67b2m"]
 [ext_resource type="Texture2D" uid="uid://ci8cww0vriuf1" path="res://Sprites/Objects/House_001.png" id="5_poyab"]
+[ext_resource type="PackedScene" uid="uid://d1bbp5i8mcv8d" path="res://Scenes/Main.tscn" id="5_pq5iu"]
 [ext_resource type="PackedScene" uid="uid://cm1dnkyhvgahl" path="res://Scenes/Objects/gate.tscn" id="6_4kywi"]
 [ext_resource type="Texture2D" uid="uid://bnx53vvsrb1i" path="res://Sprites/Objects/House_002.png" id="6_tx6iy"]
-[ext_resource type="PackedScene" uid="uid://d1bbp5i8mcv8d" path="res://Scenes/Main.tscn" id="7_cx3er"]
 [ext_resource type="PackedScene" uid="uid://cc88h6dad7e3b" path="res://Scenes/Objects/potion.tscn" id="8_hw55w"]
 [ext_resource type="PackedScene" uid="uid://bojnytld3yb7k" path="res://Scenes/Objects/sign.tscn" id="8_qnmab"]
 [ext_resource type="Resource" uid="uid://bmy4bgaem5kap" path="res://Dialogue/Starter_Sign_Gate_Dialogue.dialogue" id="9_mjuqx"]
@@ -48,7 +48,7 @@ position = Vector2(161, 274)
 
 [node name="Gate" parent="Ysort/Objects" instance=ExtResource("6_4kywi")]
 position = Vector2(218, -238)
-target_scene = ExtResource("7_cx3er")
+target_scene = ExtResource("5_pq5iu")
 marker_name = "Ysort/Gate/Town_Marker"
 
 [node name="Town_Marker" type="Marker2D" parent="Ysort/Objects/Gate"]

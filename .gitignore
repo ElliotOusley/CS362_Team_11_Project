@@ -1,5 +1,6 @@
 # Ignore all .godot folders in any directory
-# **/.godot/
+**/.godot/editor
+**/.godot/shader_cache/
 
 # Ignore Godot's temporary imports & caches
 .import/
@@ -33,7 +34,6 @@ export/
 
 # Ignore Godot's lock file (only needed during runtime)
 .project_lock# Ignore all .godot folders in any directory
-# **/.godot/
 
 # Ignore Godot's temporary imports & caches
 .import/

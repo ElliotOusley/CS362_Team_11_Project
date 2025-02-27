@@ -1,0 +1,153 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_rpbe3"]
+
+[resource]
+script = ExtResource("1_rpbe3")
+using_states = PackedStringArray()
+titles = {
+"signYes": "7",
+"start": "1"
+}
+character_names = PackedStringArray("Sign")
+first_title = "0"
+lines = {
+"0": {
+"id": "0",
+"next_id": "1",
+"type": "title"
+},
+"1": {
+"character": "Sign",
+"id": "1",
+"next_id": "2",
+"text": "[[Hi|Hello|Howdy]], I'm a sign!",
+"type": "dialogue"
+},
+"10": {
+"character": "Sign",
+"id": "10",
+"next_id": "11",
+"text": "Once you're sure that your solution is functional, press \"submit\".",
+"type": "dialogue"
+},
+"11": {
+"character": "Sign",
+"id": "11",
+"next_id": "12",
+"text": "Should I repeat that?",
+"type": "dialogue"
+},
+"12": {
+"id": "12",
+"next_id": "7",
+"responses": PackedStringArray("12", "13"),
+"text": "Yes",
+"type": "response"
+},
+"13": {
+"id": "13",
+"next_id": "15",
+"text": "No",
+"type": "response"
+},
+"14": {
+"id": "14",
+"next_id": "15",
+"text": "No",
+"type": "response"
+},
+"15": {
+"character": "Sign",
+"id": "15",
+"next_id": "16",
+"text": "Good luck!",
+"type": "dialogue"
+},
+"16": {
+"id": "16",
+"is_snippet": false,
+"next_id": "end",
+"next_id_after": "",
+"type": "goto"
+},
+"17": {
+"id": "17",
+"is_snippet": false,
+"next_id": "end",
+"next_id_after": "",
+"type": "goto"
+},
+"2": {
+"character": "Sign",
+"id": "2",
+"next_id": "3",
+"text": "Up ahead, you'll find a puzzle stone.",
+"type": "dialogue"
+},
+"3": {
+"character": "Sign",
+"id": "3",
+"next_id": "4",
+"text": "You'll be presented with a challenge through code blocks.",
+"type": "dialogue"
+},
+"4": {
+"character": "Sign",
+"id": "4",
+"next_id": "5",
+"text": "Do you want me to explain how it works?",
+"type": "dialogue"
+},
+"5": {
+"id": "5",
+"next_id": "6",
+"responses": PackedStringArray("5", "14"),
+"text": "Yes",
+"type": "response"
+},
+"6": {
+"id": "6",
+"next_id": "7",
+"type": "title"
+},
+"7": {
+"character": "Sign",
+"id": "7",
+"next_id": "8",
+"text": "You'll be presented with some code blocks and a puzzle.",
+"type": "dialogue"
+},
+"8": {
+"character": "Sign",
+"id": "8",
+"next_id": "9",
+"text": "Drag the code blocks to what you think the solution is.",
+"type": "dialogue"
+},
+"9": {
+"character": "Sign",
+"id": "9",
+"next_id": "10",
+"text": "Then, press \"run\" to check your work!",
+"type": "dialogue"
+}
+}
+raw_text = "~ start
+Sign: [[Hi|Hello|Howdy]], I'm a sign!
+Sign: Up ahead, you'll find a puzzle stone.
+Sign: You'll be presented with a challenge through code blocks.
+Sign: Do you want me to explain how it works?
+- Yes
+	~ signYes
+	Sign: You'll be presented with some code blocks and a puzzle.
+	Sign: Drag the code blocks to what you think the solution is.
+	Sign: Then, press \"run\" to check your work!
+	Sign: Once you're sure that your solution is functional, press \"submit\".
+	Sign: Should I repeat that?
+	- Yes => signYes
+	- No
+- No
+Sign: Good luck!
+=> END"
+metadata/dialogue_manager_version = "3.0.1"

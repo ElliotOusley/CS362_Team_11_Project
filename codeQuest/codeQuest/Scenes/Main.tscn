@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bh2oywqg8gp1n" path="res://Scenes/Objects/FollowLight.tscn" id="10_6f51x"]
 [ext_resource type="PackedScene" uid="uid://cc88h6dad7e3b" path="res://Scenes/Objects/potion.tscn" id="11_5lnxj"]
 [ext_resource type="PackedScene" uid="uid://cm1dnkyhvgahl" path="res://Scenes/Objects/gate.tscn" id="12_xda0j"]
-[ext_resource type="PackedScene" uid="uid://cmt82m3xnnxrg" path="res://Scenes/Town.tscn" id="13_vpdfe"]
+[ext_resource type="PackedScene" uid="uid://cmt82m3xnnxrg" path="res://Scenes/Town.tscn" id="13_hedya"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_45v3f")
@@ -76,7 +76,7 @@ position = Vector2(-306, -121)
 
 [node name="Gate" parent="Ysort" instance=ExtResource("12_xda0j")]
 position = Vector2(-365, -530)
-target_scene = ExtResource("13_vpdfe")
+target_scene = ExtResource("13_hedya")
 marker_name = "Ysort/Gate/Main_Marker_1"
 
 [node name="Main_Marker_1" type="Marker2D" parent="Ysort/Gate"]

@@ -12,5 +12,5 @@ jobs:
         uses: ceceppa/godot-gut-ci@main
         with:
           godot_version: 4.3
-          gut_params: -gtest=res://test/unit/test_example.gd
+          gut_params: -gdir=res://Tests/Unit/
           project_path: codeQuest/codeQuest
