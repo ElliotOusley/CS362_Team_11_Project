@@ -7,11 +7,7 @@ func _ready() -> void:
 
 
 func _on_start_button_pressed() -> void:
-	var save_file = FileAccess.open("user://savegame.save", FileAccess.READ)
-	
-	if save_file:
-		save_file.close()
-		
+	if FileAccess.file_exists("user://savegame.ini"):
 		get_tree().change_scene_to_file("res://Scenes/LoadGame.tscn")
 	else:
 		get_tree().change_scene_to_file("res://Scenes/Main.tscn")

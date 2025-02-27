@@ -47,8 +47,8 @@ position = Vector2(161, 274)
 
 [node name="Gate" parent="Ysort/Objects" instance=ExtResource("6_4kywi")]
 position = Vector2(218, -238)
+marker_name = "Ysort/Gate/Main_Marker_1"
 target_scene_path = "res://Scenes/Main.tscn"
-marker_name = "Ysort/Gate/Town_Marker"
 
 [node name="Town_Marker" type="Marker2D" parent="Ysort/Objects/Gate"]
 

@@ -1,5 +1,5 @@
 # Ignore all .godot folders in any directory
-**/.godot/editor
+**/.godot/editor/
 **/.godot/shader_cache/
 
 # Ignore Godot's temporary imports & caches

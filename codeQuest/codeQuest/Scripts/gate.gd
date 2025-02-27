@@ -1,60 +1,56 @@
 extends Area2D
 
+@export var marker_name: String = "Marker2D"  # Specify the name of a marker in the target scene
 @export_file("*.tscn") var target_scene_path: String
-@export var marker_name: String = "Marker2D"  # Name of the marker where the player will teleport
 
+# Variable to hold the player node for later teleportation
 var player: Node2D = null
+
+# Delay teleportation until the scene is fully loaded
 var teleport_after_load = false
 
+var target_scene: PackedScene
+
+var save_path = "user://savegame.ini"
+
 func _ready() -> void:
-	get_tree().scene_changed.connect(_on_scene_changed)
+	target_scene = load(target_scene_path)
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
+		if !target_scene:
+			print("No scene specified for current gate")
+			return
 		if get_overlapping_bodies().size() >= 1:
 			swap_level()
 
 func swap_level():
+	var target_scene_instance = target_scene.instantiate()
+	
+	var marker = target_scene_instance.get_node_or_null(marker_name)
+	
+	if marker:
+		print("Marker position: ", marker.global_position)
+		var current_scene = get_tree().current_scene
+		player = current_scene.get_node_or_null("Ysort/Player")
+		if player:
+			player.position = marker.global_position
+			print("Player teleported to marker.")
+	
 	print("SWAP LEVEL")
-
-	if not target_scene_path:
-		print("No scene path specified!")
-		return
-
-	var scene_to_load = load(target_scene_path) as PackedScene
-	if not scene_to_load:
-		print("Failed to load scene from path: ", target_scene_path)
-		return
-
-	teleport_after_load = true
-	var result = get_tree().change_scene_to_packed(scene_to_load)
+	var result = get_tree().change_scene_to_packed(target_scene)
 	if result != OK:
 		print("Scene change failed!")
-		teleport_after_load = false
 	else:
 		print("Scene change succeeded!")
+		teleport_after_load = true
 
-func _on_scene_changed():
-	print("ON SCENE CHANGED")
-	if teleport_after_load:
-		teleport_after_load = false
-		teleport_player()
+	var config = ConfigFile.new()
+		
+	if FileAccess.file_exists(save_path):
+		config.load(save_path)
 
-func teleport_player():
-	print("Attempting to teleport player")
-	var current_scene = get_tree().current_scene
-	if current_scene == null:
-		print("Scene not fully loaded yet.")
-		return
+	config.set_value("Player", "scene", target_scene_path)
+	config.set_value("Player", "position", player.position)
 
-	player = current_scene.find_child("Player", true)
-	if player == null:
-		print("Player node not found.")
-		return
-
-	var marker = current_scene.find_child(marker_name, true)
-	if marker:
-		player.position = marker.position
-		print("Player teleported to marker.")
-	else:
-		print("Marker2D node not found in the target scene")
+	config.save(save_path)
