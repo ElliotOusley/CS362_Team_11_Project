@@ -65,7 +65,7 @@ shape = SubResource("RectangleShape2D_qnvvi")
 [node name="Gate" parent="Ysort" instance=ExtResource("6_4kywi")]
 position = Vector2(218, -238)
 target_scene = ExtResource("7_cx3er")
-marker_name = "Town_Marker"
+marker_name = "Ysort/Gate/Town_Marker"
 
 [node name="Town_Marker" type="Marker2D" parent="Ysort/Gate"]
 position = Vector2(0, 28)
