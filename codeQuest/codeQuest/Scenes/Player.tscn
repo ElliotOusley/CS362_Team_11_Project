@@ -233,10 +233,6 @@ states/Walk/position = Vector2(501, 132)
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
-
-collision_layer = 65
-collision_mask = 65
-
 motion_mode = 1
 script = ExtResource("1_ch48f")
 inv = ExtResource("2_361sv")
