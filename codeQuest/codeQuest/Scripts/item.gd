@@ -17,6 +17,7 @@ extends MarginContainer
 }
 
 func _ready():
+	mouse_filter = Control.MOUSE_FILTER_PASS
 	# Ensure block_type is valid
 	if block_type not in ICONS:
 		print("❌ ERROR: Invalid block_type:", block_type, " | Defaulting to 'move_up'")

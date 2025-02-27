@@ -14,13 +14,15 @@ extends Control
 @onready var maze_board_holder = $CanvasLayer/Panel/VBoxContainer/MazeBoardHolder
 @onready var exit_button = $CanvasLayer/Panel/ExitButton
 
+# Where the player must start
+const START_TILE: Vector2i = Vector2i(1, 1)
+
 func _ready():
-	# Let PuzzleUI process even when the game is paused
-	process_mode = Node.PROCESS_MODE_ALWAYS	
+	# Allow processing while paused
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	instructions_label.text = instructions_text
 
-	# DO NOT auto-add the Start block into the AnswerArea.
-	# Instead, add all blocks from available_blocks (which should include the Start block).
+	# Load available blocks into the palette
 	for block_data in available_blocks:
 		var block_type = block_data.get("block_type", "move_up")
 		var scene_path = _get_scene_for_block_type(block_type)
@@ -33,19 +35,22 @@ func _ready():
 			block_inst.block_type = block_type
 		palette.add_child(block_inst)
 
+	# Connect UI signals
 	submit_button.pressed.connect(_on_SubmitButton_pressed)
 	run_button.pressed.connect(_on_RunButton_pressed)
 	exit_button.pressed.connect(_on_ExitButton_pressed)
 
+	# Instantiate MazeBoard scene
 	var MazeBoardScene = load("res://Scenes/MazeBoard.tscn")
 	var maze_board_instance = MazeBoardScene.instantiate()
 	maze_board_instance.maze_index = maze_index
 	maze_board_holder.add_child(maze_board_instance)
 
-	# For debugging: print a message when ready.
-	print("PuzzleUI ready. Instructions: ", instructions_text)
+	print("PuzzleUI ready. Instructions:", instructions_text)
 
-# Helper to return scene path from block type.
+# ----------------------------------------------------------------
+# RETURN SCENE PATH FOR BLOCK TYPE
+# ----------------------------------------------------------------
 func _get_scene_for_block_type(block_type: String) -> String:
 	match block_type:
 		"start":
@@ -59,104 +64,179 @@ func _get_scene_for_block_type(block_type: String) -> String:
 		_:
 			return "res://Scenes/Item.tscn"
 
+# ----------------------------------------------------------------
+# EXIT BUTTON
+# ----------------------------------------------------------------
 func _on_ExitButton_pressed():
 	queue_free()
 	get_tree().paused = false
 
-# Build command tree from AnswerArea children.
+
+# ----------------------------------------------------------------
+# RECursively finds the node that has `get_loop_count()`
+# ----------------------------------------------------------------
+func _find_for_loop_instance(root: Node) -> Node:
+	# If this node has get_loop_count(), we found it!
+	if root.has_method("get_loop_count"):
+		print("   -> Found ForLoopItem node that has get_loop_count():", root)
+		return root
+
+	# Otherwise, search each child
+	for child in root.get_children():
+		var result = _find_for_loop_instance(child)
+		if result != null:
+			return result
+
+	return null  # Not found anywhere in this subtree
+
+# ----------------------------------------------------------------
+# BUILD COMMAND TREE
+# ----------------------------------------------------------------
 func _build_command_tree() -> Array:
 	var commands = []
+
+	print("\n🔍 _build_command_tree() → Inspecting children of AnswerArea...")
+
 	for item in answer_area.get_children():
 		if not item.has_meta("block_type"):
 			continue
-		
-		var block_type = item.get_meta("block_type", "")
+
+		var block_type = item.get_meta("block_type","")
+		print("   Found block_type:", block_type)
+
+		# Skip "start" block, it's just a marker
 		if block_type == "start":
-			continue  # Skip the start node; it's just a marker.
+			print("   (Skipping 'start') - not a command.")
+			continue
 
 		match block_type:
-			"move_up", "move_down", "move_left", "move_right":
+			# Simple movement
+			"move_up","move_down","move_left","move_right":
+				print("   => Movement command appended:", block_type)
 				commands.append(block_type)
+
+			# For loop
 			"for_loop":
-				var loop_count = 2
-				if item.has_method("get_loop_count"):
-					loop_count = item.call("get_loop_count")
+				print("🔍 Found for_loop block. Inspecting children:", item.get_children())
+
+				var loop_count = 2  # Default fallback value
+				# Recursively search for the actual ForLoopItem node
+				var for_loop_instance = _find_for_loop_instance(item)
+
+				if for_loop_instance:
+					# If found, call get_loop_count() on the actual ForLoopItem script
+					loop_count = for_loop_instance.get_loop_count()
+					print("✅ Successfully fetched loop count:", loop_count)
+				else:
+					print("❌ ERROR: get_loop_count() not found in item or its children:", item)
+
+				# Gather all child movement blocks inside the loop (if any)
 				var child_blocks = []
 				if item.has_method("get_block_container"):
 					var container = item.call("get_block_container")
+					print("      -> Inspecting for_loop child blocks in 'BlockContainer'...")
+
 					for sub_item in container.get_children():
 						if sub_item.has_meta("block_type"):
-							child_blocks.append(sub_item.get_meta("block_type"))
+							var sub_type = sub_item.get_meta("block_type")
+							child_blocks.append(sub_type)
+							print("         + Found child block_type in for_loop:", sub_type)
+
 				commands.append({
 					"type": "for_loop",
 					"count": loop_count,
 					"body": child_blocks
 				})
+				print("    => for_loop appended with body:", child_blocks)
+
+			# While loop
 			"while_loop":
-				var child_blocks = []
+				var child_list_while = []
 				if item.has_method("get_block_container"):
-					var container = item.call("get_block_container")
-					for sub_item in container.get_children():
-						if sub_item.has_meta("block_type"):
-							child_blocks.append(sub_item.get_meta("block_type"))
+					var c = item.call("get_block_container")
+					print("      Inspecting while_loop body in BlockContainer...")
+
+					for s in c.get_children():
+						if s.has_meta("block_type"):
+							var st = s.get_meta("block_type","")
+							child_list_while.append(st)
+							print("         + Found child block in while_loop:", st)
+
 				commands.append({
 					"type": "while_loop",
-					"body": child_blocks
+					"body": child_list_while
 				})
+				print("   => while_loop appended with body:", child_list_while)
+
+			# Unrecognized blocks
 			_:
+				print("   => Unrecognized block_type:", block_type, "appending anyway.")
 				commands.append(block_type)
-	
+
+	print("🔍 Final command_tree is:", commands)
 	return commands
 
+
+# ----------------------------------------------------------------
+# FLATTEN COMMAND TREE
+# ----------------------------------------------------------------
 func _flatten_commands(nested_commands: Array) -> Array:
+	print("\n🔍 _flatten_commands() → Starting with:", nested_commands)
 	var result = []
+
 	for cmd in nested_commands:
 		if cmd is String:
 			result.append(cmd)
 		elif cmd is Dictionary:
 			if cmd.type == "for_loop":
-				var repeated_body = []
+				print("   🔄 Flattening for_loop x", cmd.count)
 				for i in range(cmd.count):
-					repeated_body += _flatten_commands(cmd.body)
-				result += repeated_body
+					result += _flatten_commands(cmd.body)
 			elif cmd.type == "while_loop":
+				print("   🔁 Flattening while_loop up to artificial limit=10")
 				var artificial_limit = 10
 				for i in range(artificial_limit):
 					result += _flatten_commands(cmd.body)
 			else:
-				pass
+				print("   ⚠️ Unknown dict command in flatten:", cmd)
+		else:
+			print("   ⚠️ Unknown command type in flatten:", cmd)
+
+	print("🔍 _flatten_commands() so far =>", result)
 	return result
 
+# ----------------------------------------------------------------
+# SUBMIT BUTTON
+# ----------------------------------------------------------------
 func _on_SubmitButton_pressed():
 	var start_block = null
-	# Look for the start block in AnswerArea by meta:
 	for child in answer_area.get_children():
-		if child.get_meta("block_type", "") == "start":
+		if child.get_meta("block_type","") == "start":
 			start_block = child
 			break
 
-	if start_block == null:
+	if not start_block:
 		message_label.text = "No Start block found!"
 		return
 
-	# Build command tree.
 	var commands_list = _build_command_tree()
-	print("🔍 Debug: About to execute commands:", commands_list)
-	var linear_cmds = _flatten_commands(commands_list)
-	print("🔍 Debug: Flattened command list:", linear_cmds)
+	print("\n🔍 Debug: About to Submit these commands:", commands_list)
 
-	# Now simply check if the player is at the goal.
+	var flattened = _flatten_commands(commands_list)
+	print("🔍 Flattened commands (Submit):", flattened)
+
+	# Instead of running them, check if player is at the goal
 	var maze_board = maze_board_holder.get_child(0)
 	if not maze_board:
 		message_label.text = "Maze not set up properly."
 		return
-	
+
 	var player = maze_board.get_node_or_null("Player") as CharacterBody2D
 	var goal = maze_board.get_node_or_null("Goal") as Sprite2D
-	var tile_size = Vector2(32, 32)
+	var tile_size = Vector2(32,32)
 	var player_tile = Vector2i(player.position / tile_size)
 	var goal_tile = Vector2i(goal.position / tile_size)
-	
+
 	if player_tile == goal_tile:
 		message_label.text = "Correct solution!"
 		await get_tree().create_timer(2).timeout
@@ -168,119 +248,114 @@ func _on_SubmitButton_pressed():
 
 func _clear_answer_area_except_start():
 	for c in answer_area.get_children():
-		if c.get_meta("block_type", "") != "start":
+		if c.get_meta("block_type","") != "start":
 			c.queue_free()
 
+# ----------------------------------------------------------------
+# RUN BUTTON
+# ----------------------------------------------------------------
 func _on_RunButton_pressed():
-	var start_block = null
-	for child in answer_area.get_children():
-		if child.get_meta("block_type", "") == "start":
-			start_block = child
-			break
-
-	if not start_block:
-		message_label.text = "No start block found!"
-		return
-
-	var commands_tree = _build_command_tree()
-	print("🔍 Debug: About to execute commands:", commands_tree)
 	var maze_board = maze_board_holder.get_child(0)
 	if not maze_board:
 		message_label.text = "No MazeBoard loaded!"
 		return
 
-	# Run the commands with animation.
+	var player = maze_board.get_node_or_null("Player") as CharacterBody2D
+	var tile_size = Vector2(32, 32)
+	var player_tile = Vector2i(player.position / tile_size)
+
+	if player_tile != START_TILE:
+		message_label.text = "Resetting... Please wait until you are back at the start."
+		return
+
+	var commands_tree = _build_command_tree()
+	print("\n🔍 Debug: About to RUN these commands:", commands_tree)
 	await _execute_nested_commands_on_maze(commands_tree, maze_board)
 
+	# Check if we ended at the goal
+	var goal = maze_board.get_node_or_null("Goal") as Sprite2D
+	var goal_tile = Vector2i(goal.position / tile_size)
+	if player_tile != goal_tile:
+		message_label.text = "You did not reach the goal. Resetting..."
+		await get_tree().create_timer(1).timeout
+		await _reset_player(player, tile_size)
 
-# --- Animated Movement and Execution Functions ---
-
+# ----------------------------------------------------------------
+# EXECUTE NESTED COMMANDS
+# ----------------------------------------------------------------
 func _execute_nested_commands_on_maze(commands_array: Array, maze_board: Node2D) -> void:
-	print("\n🔍 DEBUG: Checking required MazeBoard nodes...")
+	print("\n🔍 _execute_nested_commands_on_maze:", commands_array)
 
-	# Get required nodes (using TileMapLayer for floor and walls).
 	var tilemap_layer = maze_board.get_node_or_null("TileMapLayer1") as TileMapLayer
 	var walls_layer = maze_board.get_node_or_null("TileMapLayer2") as TileMapLayer
 	var player = maze_board.get_node_or_null("Player") as CharacterBody2D
-	var goal = maze_board.get_node_or_null("Goal") as Sprite2D  # Goal is a Sprite2D
-	var animation_player = player.get_node_or_null("AnimationPlayer")  # AnimationPlayer under Player
-
-	# Debug prints:
-	if tilemap_layer == null:
-		print("❌ ERROR: TileMapLayer1 is MISSING!")
-	else:
-		print("✅ TileMapLayer1 found.")
-	if walls_layer == null:
-		print("❌ ERROR: TileMapLayer2 is MISSING!")
-	else:
-		print("✅ TileMapLayer2 found.")
-	if player == null:
-		print("❌ ERROR: Player is MISSING!")
-	else:
-		print("✅ Player found.")
-	if goal == null:
-		print("❌ ERROR: Goal is MISSING!")
-	else:
-		print("✅ Goal found.")
-	if animation_player == null:
-		print("❌ ERROR: AnimationPlayer is MISSING!")
-	else:
-		print("✅ AnimationPlayer found.")
+	var goal = maze_board.get_node_or_null("Goal") as Sprite2D
+	var animation_player = player.get_node_or_null("AnimationPlayer")
 
 	if tilemap_layer == null or walls_layer == null or player == null or goal == null or animation_player == null:
-		message_label.text = "Maze not set up properly. Check terminal for details."
+		message_label.text = "Maze not set up properly."
 		return
 
-	var tile_size = Vector2(32, 32)
+	var tile_size = Vector2(32,32)
 	var player_tile = Vector2i(player.position / tile_size)
 	print("✅ Player starting tile:", player_tile)
 
-	# Process each command sequentially.
+	# Go through each command in commands_array
 	for command in commands_array:
 		if command is String:
-			print("▶️ Executing:", command)
+			print("▶️ Single command:", command)
 			player_tile = await _move_player(command, player_tile, walls_layer, player, animation_player, tile_size)
 		elif command is Dictionary:
 			match command.type:
 				"for_loop":
-					print("🔄 Executing For Loop x", command.count)
+					print("🔄 For Loop (x", command.count, ") with body:", command.body)
 					var count = command.count
 					for i in range(count):
 						player_tile = await _execute_sub_commands(command.body, walls_layer, player_tile, player, animation_player, tile_size)
 				"while_loop":
-					print("🔁 Executing While Loop")
-					var safeguard = 30  # Prevent infinite loops
+					print("🔁 While Loop: run body until next move would hit a wall.")
+					var safeguard = 30
 					while safeguard > 0:
 						if _would_hit_wall(player_tile, command.body, walls_layer):
-							print("⛔ While Loop stopped: wall detected.")
+							print("⛔ Next step would hit a wall, stopping while_loop.")
 							break
 						player_tile = await _execute_sub_commands(command.body, walls_layer, player_tile, player, animation_player, tile_size)
 						safeguard -= 1
 				_:
 					print("⚠️ Unknown dictionary command:", command)
-		
-		# Check goal after each command.
+		else:
+			print("⚠️ Unknown command type in nested commands:", command)
+
+		# After each command or loop, check if player at goal
 		var goal_tile = Vector2i(goal.position / tile_size)
 		if player_tile == goal_tile:
-			print("🏆 Player reached the goal!")
+			print("🏆 Player reached the goal mid-run!")
 			message_label.text = "You reached the goal!"
 			break
 
-	print("🎯 Final player tile:", player_tile)
-	player.position = (player_tile as Vector2) * tile_size + (tile_size / 2)
+	print("🎯 Final player tile after run:", player_tile)
+	player.position = Vector2(player_tile.x, player_tile.y) * tile_size + (tile_size / 2)
 
-
-func _execute_sub_commands(sub_cmds: Array, walls_layer: TileMapLayer, player_tile: Vector2i, player: CharacterBody2D, animation_player: AnimationPlayer, tile_size: Vector2) -> Vector2i:
+# ----------------------------------------------------------------
+# EXECUTE SUB COMMANDS
+# ----------------------------------------------------------------
+func _execute_sub_commands(sub_cmds: Array, walls_layer: TileMapLayer, player_tile: Vector2i,
+						   player: CharacterBody2D, animation_player: AnimationPlayer, tile_size: Vector2) -> Vector2i:
+	print("   -> _execute_sub_commands with sub_cmds:", sub_cmds)
+	var new_tile = player_tile
 	for c in sub_cmds:
 		if c is String:
-			player_tile = await _move_player(c, player_tile, walls_layer, player, animation_player, tile_size)
+			new_tile = await _move_player(c, new_tile, walls_layer, player, animation_player, tile_size)
 		else:
-			print("⚠️ Unexpected nested command:", c)
-	return player_tile
+			print("   ⚠️ Unexpected nested command in sub_cmds:", c)
+	return new_tile
 
-# Asynchronous _move_player plays the animation and moves smoothly.
-func _move_player(cmd: String, player_tile: Vector2i, walls_layer: TileMapLayer, player: CharacterBody2D, animation_player: AnimationPlayer, tile_size: Vector2) -> Vector2i:
-	print("... Attempting to move player with command:", cmd)
+# ----------------------------------------------------------------
+# MOVE PLAYER
+# ----------------------------------------------------------------
+func _move_player(cmd: String, player_tile: Vector2i, walls_layer: TileMapLayer,
+				  player: CharacterBody2D, animation_player: AnimationPlayer, tile_size: Vector2) -> Vector2i:
+	print("      ... Attempting move:", cmd, "from tile:", player_tile)
 	var next_tile = player_tile
 	match cmd:
 		"move_up":    next_tile.y -= 1
@@ -288,44 +363,57 @@ func _move_player(cmd: String, player_tile: Vector2i, walls_layer: TileMapLayer,
 		"move_left":  next_tile.x -= 1
 		"move_right": next_tile.x += 1
 		_:
-			return player_tile  # Unrecognized command.
-	
-	# Check for wall collision.
+			print("      ⚠️ Unrecognized move command:", cmd)
+			return player_tile
+
+	# Check for wall
 	if _is_wall(walls_layer, next_tile):
+		print("      🚧 Hit a wall at tile:", next_tile, "! Reset player.")
 		message_label.text = "Player hit a wall!"
-		print("🚧 Player hit a wall at tile:", next_tile)
 		await _reset_player(player, tile_size)
-		return player_tile  # Do not update tile.
-	
-	# Animate movement.
-	await _animate_player_movement(player, animation_player, cmd, player.position, (next_tile as Vector2) * tile_size + (tile_size / 2))
+		# Return tile(1,1) after reset
+		return Vector2i(1,1)
+
+	# Animate movement
+	await _animate_player_movement(player, animation_player, cmd, player.position,
+		Vector2(next_tile.x, next_tile.y) * tile_size + (tile_size / 2))
+	print("      ✅ Movement done. Player tile now:", next_tile)
 	return next_tile
 
-# Animate the player's movement and play the appropriate animation.
-func _animate_player_movement(player: CharacterBody2D, animation_player: AnimationPlayer, cmd: String, start_pos: Vector2, end_pos: Vector2) -> void:
-	# Play the correct animation.
+# ----------------------------------------------------------------
+# ANIMATE PLAYER MOVEMENT
+# ----------------------------------------------------------------
+func _animate_player_movement(player: CharacterBody2D, animation_player: AnimationPlayer, cmd: String,
+							  start_pos: Vector2, end_pos: Vector2) -> void:
+	print("         🎞️ Animating:", cmd, "from", start_pos, "to", end_pos)
 	match cmd:
-		"move_up": animation_player.play("move_up")
-		"move_down": animation_player.play("move_down")
-		"move_left": animation_player.play("move_left")
+		"move_up":    animation_player.play("move_up")
+		"move_down":  animation_player.play("move_down")
+		"move_left":  animation_player.play("move_left")
 		"move_right": animation_player.play("move_right")
-	
-	# Use a tween for smooth movement.
+
 	var tween = player.create_tween()
 	tween.tween_property(player, "position", end_pos, 0.3)
 	await tween.finished
 	animation_player.stop()
 
-# Reset the player back to the starting tile (assumed at (2,2)).
+# ----------------------------------------------------------------
+# RESET PLAYER
+# ----------------------------------------------------------------
 func _reset_player(player: CharacterBody2D, tile_size: Vector2) -> void:
+	var start_pos = Vector2(START_TILE.x, START_TILE.y) * tile_size + (tile_size / 2)
+	print("         🔄 Reset player to start:", start_pos)
 	message_label.text = "Resetting to start..."
-	var start_tile = Vector2i(2, 2)  # Adjust if necessary.
-	var start_pos = (start_tile as Vector2) * tile_size + (tile_size / 2)
+
 	var tween = player.create_tween()
 	tween.tween_property(player, "position", start_pos, 0.5)
 	await tween.finished
-	print("🔄 Player reset to start position:", start_pos)
 
+	print("         ✅ Reset done. Player at:", player.position)
+
+# ----------------------------------------------------------------
+# SIMULATE MOVE TO CHECK WALLS
+# ----------------------------------------------------------------
 func _simulate_move(cmd: String, player_tile: Vector2i, walls_layer: TileMapLayer) -> Vector2i:
 	var next_tile = player_tile
 	match cmd:
@@ -334,27 +422,32 @@ func _simulate_move(cmd: String, player_tile: Vector2i, walls_layer: TileMapLaye
 		"move_left":  next_tile.x -= 1
 		"move_right": next_tile.x += 1
 		_:
-			return player_tile  # Unrecognized command
-	# If moving to next_tile hits a wall, return the current tile.
+			return player_tile
+
 	if _is_wall(walls_layer, next_tile):
 		return player_tile
 	return next_tile
 
-
+# ----------------------------------------------------------------
+# WOULD HIT WALL? (While loop check)
+# ----------------------------------------------------------------
 func _would_hit_wall(start_tile: Vector2i, commands: Array, walls_layer: TileMapLayer) -> bool:
 	var temp_tile = start_tile
+	print("   -> _would_hit_wall() from tile:", temp_tile, "with commands:", commands)
 	for cmd in commands:
 		if cmd is String:
 			var new_tile = _simulate_move(cmd, temp_tile, walls_layer)
-			# If the move does not change the tile, assume a wall blocked the move.
 			if new_tile == temp_tile:
+				print("      🚧 Next step blocked by wall at tile:", new_tile)
 				return true
 			temp_tile = new_tile
 		else:
-			print("⚠️ Unexpected command type in _would_hit_wall:", cmd)
+			print("      ⚠️ Unexpected subcommand in while_loop:", cmd)
 	return false
 
-
-func _is_wall(map: TileMapLayer, pos: Vector2i) -> bool:
-	# Check if the given tile contains a wall.
-	return map.get_cell_atlas_coords(pos) != Vector2i(-1, -1)
+# ----------------------------------------------------------------
+# IS WALL?
+# ----------------------------------------------------------------
+func _is_wall(tilemap: TileMapLayer, pos: Vector2i) -> bool:
+	# If tilemap.get_cell_atlas_coords(pos) != -1, there's a tile => it's a wall
+	return tilemap.get_cell_atlas_coords(pos) != Vector2i(-1, -1)

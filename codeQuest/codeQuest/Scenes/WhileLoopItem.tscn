@@ -24,5 +24,8 @@ unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("2_u6hsc")
 
-[node name="BlockContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="BlockContainer" type="HBoxContainer" parent="VBoxContainer/HeaderHBox/TextureRect"]
 layout_mode = 2
+offset_left = 56.0
+offset_right = 56.0
+offset_bottom = 64.0
