@@ -75,9 +75,9 @@ position = Vector2(-72, -146)
 position = Vector2(-306, -121)
 
 [node name="Gate" parent="Ysort" instance=ExtResource("12_xda0j")]
-position = Vector2(30, -188)
+position = Vector2(-365, -530)
 target_scene = ExtResource("13_vpdfe")
 marker_name = "Ysort/Gate/Main_Marker_1"
 
 [node name="Main_Marker_1" type="Marker2D" parent="Ysort/Gate"]
-position = Vector2(0, 28)
+position = Vector2(183, 483)

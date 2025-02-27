@@ -1,0 +1,17 @@
+~ start
+Sign: [[Hi|Hello|Howdy]], I'm a sign!
+Sign: Up ahead, you'll find a puzzle stone.
+Sign: You'll be presented with a challenge through code blocks.
+Sign: Do you want me to explain how it works?
+- Yes
+	~ signYes
+	Sign: You'll be presented with some code blocks and a puzzle.
+	Sign: Drag the code blocks to what you think the solution is.
+	Sign: Then, press "run" to check your work!
+	Sign: Once you're sure that your solution is functional, press "submit".
+	Sign: Should I repeat that?
+	- Yes => signYes
+	- No
+- No
+Sign: Good luck!
+=> END
