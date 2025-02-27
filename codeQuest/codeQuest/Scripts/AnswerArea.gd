@@ -26,29 +26,30 @@ func can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	# We accept any drop that has a "block_type" key.
 	return data is Dictionary and data.has("block_type")
 
-func drop_data(_at_position: Vector2, data: Variant):
-	if not can_drop_data(_at_position, data):
-		return
-
-	var block_type = data["block_type"]
-	var scene_to_instantiate
-
-	match block_type:
-		"start":
-			scene_to_instantiate = StartItemScene
-		"for_loop":
-			scene_to_instantiate = ForLoopItemScene
-		"while_loop":
-			scene_to_instantiate = WhileLoopItemScene
-		"move_up", "move_down", "move_left", "move_right":
-			scene_to_instantiate = SingleMoveScene
-		_:
-			# fallback if unknown
-			scene_to_instantiate = SingleMoveScene
-
-	var new_item = scene_to_instantiate.instantiate()
-	new_item.block_type = block_type
-	add_child(new_item)
+#func drop_data(_at_position: Vector2, data: Variant):
+	#if not can_drop_data(_at_position, data):
+		#return
+#
+	#var block_type = data["block_type"]
+	#var scene_to_instantiate
+#
+	#match block_type:
+		#"start":
+			#scene_to_instantiate = StartItemScene
+		#"for_loop":
+			#scene_to_instantiate = ForLoopItemScene
+		#"while_loop":
+		
+			#scene_to_instantiate = WhileLoopItemScene
+		#"move_up", "move_down", "move_left", "move_right":
+			#scene_to_instantiate = SingleMoveScene
+		#_:
+			## fallback if unknown
+			#scene_to_instantiate = SingleMoveScene
+#
+	#var new_item = scene_to_instantiate.instantiate()
+	#new_item.block_type = block_type
+	#add_child(new_item)
 
 func _on_mouse_entered():
 	# (Optional) Change style or modulate to indicate drop-zone active.

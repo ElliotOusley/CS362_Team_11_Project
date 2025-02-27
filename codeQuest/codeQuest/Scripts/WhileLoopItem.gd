@@ -35,8 +35,8 @@ func _ready():
 	else:
 		push_error("❌ TextureRect not found in WhileLoopItem scene!")
 
-func get_block_container() -> VBoxContainer:
-	return $VBoxContainer/BlockContainer
+func get_block_container() -> HBoxContainer:
+	return $VBoxContainer/HeaderHBox/TextureRect/BlockContainer
 
 func _get_drag_data(_position):
 	if not icon_rect or not icon_rect.texture:
