@@ -32,7 +32,7 @@ CodeQuest is a 2D puzzle/RPG hybrid created in Godot. It’s designed to help pl
    - **Step 3**: Extract the files into a folder of your choice.
 
  **Installation Steps (Itch.io Page)**
-   - **Step 1**: Navigate to our [itch.io page](https://elliot-ousley.itch.io/codequest?secret=jcvzabSa7tMD79NWAInWcEflRc)
+   - **Step 1**: Navigate to our [itch.io page](https://elliot-ousley.itch.io/codequest)
    - **Step 2**: Scroll down to the downloads section and select the Windows version
    - **Step 3**: Extract the file into a folder of your choice
 
