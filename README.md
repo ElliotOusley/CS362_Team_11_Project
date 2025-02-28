@@ -30,7 +30,7 @@ A guide on gameplay features can be found in our [wiki page](https://github.com/
 
 # Itch.io (Web Version)
 
-To play CodeQuest in your browser, visit our [itch.io page](https://elliot-ousley.itch.io/codequest?secret=jcvzabSa7tMD79NWAInWcEflRc)
+To play CodeQuest in your browser, visit our [itch.io page](https://elliot-ousley.itch.io/codequest)
 
 # Testing
 
