@@ -28,9 +28,9 @@ Progress on the project can be seen on our [Trello Board](https://trello.com/b/L
 
 A guide on gameplay features can be found in our [wiki page](https://github.com/ElliotOusley/CS362_Team_11_Project/wiki)
 
-# Itch.io
+# Itch.io (Web Version)
 
-For easy downloads, visit our [itch.io page](https://elliot-ousley.itch.io/codequest?secret=jcvzabSa7tMD79NWAInWcEflRc)
+To play CodeQuest in your browser, visit our [itch.io page](https://elliot-ousley.itch.io/codequest?secret=jcvzabSa7tMD79NWAInWcEflRc)
 
 # Testing
 
