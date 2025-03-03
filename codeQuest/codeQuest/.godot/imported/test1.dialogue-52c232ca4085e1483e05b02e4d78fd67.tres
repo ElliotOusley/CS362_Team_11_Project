@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_q12wx"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_5rqfi"]
 
 [resource]
-script = ExtResource("1_q12wx")
+script = ExtResource("1_5rqfi")
 using_states = PackedStringArray()
 titles = {
 "start": "1"
 }
-character_names = PackedStringArray("Test")
+character_names = PackedStringArray("Sign")
 first_title = "0"
 lines = {
 "0": {
@@ -17,10 +17,10 @@ lines = {
 "type": "title"
 },
 "1": {
-"character": "Test",
+"character": "Sign",
 "id": "1",
 "next_id": "2",
-"text": "[[Hi|Hello|Howdy]], this is some dialogue.",
+"text": "Town up ahead",
 "type": "dialogue"
 },
 "2": {
@@ -39,6 +39,6 @@ lines = {
 }
 }
 raw_text = "~ start
-Test: [[Hi|Hello|Howdy]], this is some dialogue.
+Sign: Town up ahead
 => END"
 metadata/dialogue_manager_version = "3.0.1"
