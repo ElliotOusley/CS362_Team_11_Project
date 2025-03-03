@@ -111,6 +111,6 @@ func _on_timer_timeout():
 		footstep_audio.pitch_scale = randf_range(0.8, 1.2)
 		footstep_audio.play()
 		
-#
+# Add item to player inventory.
 func collect(item):
 	inv.insert(item)
