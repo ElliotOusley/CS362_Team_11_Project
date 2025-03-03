@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_fh6ge"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_sodcy"]
 
 [resource]
-script = ExtResource("1_fh6ge")
+script = ExtResource("1_sodcy")
 using_states = PackedStringArray()
 titles = {
 "start": "1"
@@ -20,7 +20,7 @@ lines = {
 "character": "Sign",
 "id": "1",
 "next_id": "2",
-"text": "Welcome to the CodeQuest Demo.",
+"text": "Welcome to the CodeQuest Beta.",
 "type": "dialogue"
 },
 "2": {
@@ -67,7 +67,7 @@ lines = {
 }
 }
 raw_text = "~ start
-Sign: Welcome to the CodeQuest Demo.
+Sign: Welcome to the CodeQuest Beta.
 Sign: Signs can be found around the map.
 Sign: Press the \"Space bar\" to interact with them.
 Sign: This demo features inventory, dialogue, code puzzles, and teleport gates.

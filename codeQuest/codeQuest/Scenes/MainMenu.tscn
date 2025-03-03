@@ -35,14 +35,6 @@ theme_override_styles/pressed = ExtResource("2_2rbf8")
 theme_override_styles/normal = ExtResource("2_2rbf8")
 text = "Start"
 
-[node name="MeetingTestButton" type="Button" parent="Menu"]
-texture_filter = 1
-layout_mode = 2
-theme_override_styles/pressed = ExtResource("2_2rbf8")
-theme_override_styles/normal = ExtResource("2_2rbf8")
-text = "Tutorial Area
-"
-
 [node name="OptionsButton" type="Button" parent="Menu"]
 texture_filter = 1
 layout_mode = 2
@@ -81,6 +73,5 @@ scale = Vector2(14.6867, 14.6867)
 texture = ExtResource("4_u1kqx")
 
 [connection signal="pressed" from="Menu/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="Menu/MeetingTestButton" to="." method="_on_meeting_test_button_pressed"]
 [connection signal="pressed" from="Menu/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Menu/QuitButton" to="." method="_on_quit_button_pressed"]
