@@ -72,6 +72,7 @@ texture = ExtResource("3_6n2fs")
 modulate = Color(0.462291, 0.462291, 0.462291, 1)
 z_index = -5
 texture_filter = 1
+layout_mode = 0
 offset_left = -118.0
 offset_top = -8.0
 offset_right = -6.0
