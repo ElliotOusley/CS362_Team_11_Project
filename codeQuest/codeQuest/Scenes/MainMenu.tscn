@@ -65,11 +65,11 @@ modulate = Color(0.462291, 0.462291, 0.462291, 1)
 z_index = -5
 texture_filter = 1
 layout_mode = 0
-offset_left = -118.0
-offset_top = -8.0
-offset_right = -6.0
-offset_bottom = 55.0
-scale = Vector2(14.6867, 14.6867)
+offset_left = -266.0
+offset_top = -173.0
+offset_right = -154.0
+offset_bottom = -110.0
+scale = Vector2(22.0497, 22.0497)
 texture = ExtResource("4_u1kqx")
 
 [connection signal="pressed" from="Menu/StartButton" to="." method="_on_start_button_pressed"]

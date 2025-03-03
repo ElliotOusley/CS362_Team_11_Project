@@ -131,6 +131,7 @@ dialogue_resource = ExtResource("9_mjuqx")
 
 [node name="Puzzlestone_1" parent="Ysort/Npcs" instance=ExtResource("10_hcjgo")]
 position = Vector2(246, -184)
+frame_progress = 0.056997
 
 [node name="PuzzleArea" parent="Ysort/Npcs/Puzzlestone_1" instance=ExtResource("11_4hjt7")]
 position = Vector2(-27, 18)

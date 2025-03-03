@@ -40,11 +40,11 @@ modulate = Color(0.462745, 0.462745, 0.462745, 1)
 z_index = -5
 texture_filter = 1
 layout_mode = 0
-offset_left = -118.0
-offset_top = -8.0
-offset_right = -6.0
-offset_bottom = 55.0
-scale = Vector2(14.6867, 14.6867)
+offset_left = -166.0
+offset_top = -187.0
+offset_right = -54.0
+offset_bottom = -124.0
+scale = Vector2(21.6366, 21.6366)
 texture = ExtResource("3_ljf84")
 
 [connection signal="pressed" from="Menu/Continue" to="." method="_on_continue_pressed"]
