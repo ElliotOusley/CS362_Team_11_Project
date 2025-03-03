@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://conwvgfpqlha5"
+path="res://.godot/imported/Starter_Sign_Inventory_Dialogue.dialogue-4fe0d92c32472c350ba997d14277b15d.tres"
+
+[deps]
+
+source_file="res://Dialogue/Starter_Sign_Inventory_Dialogue.dialogue"
+dest_files=["res://.godot/imported/Starter_Sign_Inventory_Dialogue.dialogue-4fe0d92c32472c350ba997d14277b15d.tres"]
+
+[params]
+
+defaults=true

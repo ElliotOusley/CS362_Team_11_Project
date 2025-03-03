@@ -19,7 +19,7 @@ func update_slots ():
 	
 # Uses open and close functions to make inventory UI appear and dissapear
 # on button press.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Inventory"):
 		if is_open:
 			close()

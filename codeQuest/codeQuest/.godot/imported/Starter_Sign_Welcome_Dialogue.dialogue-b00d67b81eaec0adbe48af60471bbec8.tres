@@ -1,0 +1,76 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_sodcy"]
+
+[resource]
+script = ExtResource("1_sodcy")
+using_states = PackedStringArray()
+titles = {
+"start": "1"
+}
+character_names = PackedStringArray("Sign")
+first_title = "0"
+lines = {
+"0": {
+"id": "0",
+"next_id": "1",
+"type": "title"
+},
+"1": {
+"character": "Sign",
+"id": "1",
+"next_id": "2",
+"text": "Welcome to the CodeQuest Beta.",
+"type": "dialogue"
+},
+"2": {
+"character": "Sign",
+"id": "2",
+"next_id": "3",
+"text": "Signs can be found around the map.",
+"type": "dialogue"
+},
+"3": {
+"character": "Sign",
+"id": "3",
+"next_id": "4",
+"text": "Press the \"Space bar\" to interact with them.",
+"type": "dialogue"
+},
+"4": {
+"character": "Sign",
+"id": "4",
+"next_id": "5",
+"text": "This demo features inventory, dialogue, code puzzles, and teleport gates.",
+"type": "dialogue"
+},
+"5": {
+"character": "Sign",
+"id": "5",
+"next_id": "6",
+"text": "Move to the top of this zone to continue.",
+"type": "dialogue"
+},
+"6": {
+"id": "6",
+"is_snippet": false,
+"next_id": "end",
+"next_id_after": "",
+"type": "goto"
+},
+"7": {
+"id": "7",
+"is_snippet": false,
+"next_id": "end",
+"next_id_after": "",
+"type": "goto"
+}
+}
+raw_text = "~ start
+Sign: Welcome to the CodeQuest Beta.
+Sign: Signs can be found around the map.
+Sign: Press the \"Space bar\" to interact with them.
+Sign: This demo features inventory, dialogue, code puzzles, and teleport gates.
+Sign: Move to the top of this zone to continue.
+=> END"
+metadata/dialogue_manager_version = "3.0.1"

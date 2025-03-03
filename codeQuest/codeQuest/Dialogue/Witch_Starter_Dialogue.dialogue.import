@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://gv36gs564xel"
+path="res://.godot/imported/Witch_Starter_Dialogue.dialogue-1276472ff1caa28f37771a6db9125908.tres"
+
+[deps]
+
+source_file="res://Dialogue/Witch_Starter_Dialogue.dialogue"
+dest_files=["res://.godot/imported/Witch_Starter_Dialogue.dialogue-1276472ff1caa28f37771a6db9125908.tres"]
+
+[params]
+
+defaults=true

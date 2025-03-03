@@ -1,6 +1,9 @@
 extends Panel
 
-@onready var ItemScene = preload("res://Scenes/Item.tscn")
+@onready var SingleMoveScene = preload("res://Scenes/Item.tscn")
+@onready var StartItemScene    = preload("res://Scenes/StartItem.tscn")
+@onready var ForLoopItemScene  = preload("res://Scenes/ForLoopItem.tscn")
+@onready var WhileLoopItemScene = preload("res://Scenes/WhileLoopItem.tscn")
 
 func _ready():
 	# Enable drop functionality.
@@ -23,16 +26,30 @@ func can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	# We accept any drop that has a "block_type" key.
 	return data is Dictionary and data.has("block_type")
 
-func drop_data(_at_position: Vector2, data: Variant):
-	if can_drop_data(_at_position, data):
-		print("Dropping item:", data)
-		var new_item = ItemScene.instantiate()
-		new_item.block_type = data["block_type"]
-		add_child(new_item)
-		queue_redraw()
-		get_parent().queue_redraw()
-	else:
-		print("❌ Invalid drop data:", data)
+#func drop_data(_at_position: Vector2, data: Variant):
+	#if not can_drop_data(_at_position, data):
+		#return
+#
+	#var block_type = data["block_type"]
+	#var scene_to_instantiate
+#
+	#match block_type:
+		#"start":
+			#scene_to_instantiate = StartItemScene
+		#"for_loop":
+			#scene_to_instantiate = ForLoopItemScene
+		#"while_loop":
+		
+			#scene_to_instantiate = WhileLoopItemScene
+		#"move_up", "move_down", "move_left", "move_right":
+			#scene_to_instantiate = SingleMoveScene
+		#_:
+			## fallback if unknown
+			#scene_to_instantiate = SingleMoveScene
+#
+	#var new_item = scene_to_instantiate.instantiate()
+	#new_item.block_type = block_type
+	#add_child(new_item)
 
 func _on_mouse_entered():
 	# (Optional) Change style or modulate to indicate drop-zone active.

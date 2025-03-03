@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bgxju13b4d8tw"]
+[gd_scene load_steps=14 format=3 uid="uid://bgxju13b4d8tw"]
 
 [ext_resource type="Script" path="res://Scripts/NPC Scripts/witch.gd" id="1_ys0yg"]
 [ext_resource type="Texture2D" uid="uid://c3tew5oauqca0" path="res://Sprites/Characters/WitchSpriteSheet.png" id="2_n11a2"]
+[ext_resource type="Script" path="res://Scripts/NPC Scripts/actionable.gd" id="3_m6hf2"]
+[ext_resource type="Resource" uid="uid://bthhw71i84bl" path="res://Dialogue/test1.dialogue" id="4_q0kpm"]
 
 [sub_resource type="Animation" id="Animation_wjapn"]
 length = 0.001
@@ -94,6 +96,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxqog"]
 size = Vector2(22, 31)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gt6hw"]
+radius = 34.0
+
 [node name="Witch" type="CharacterBody2D"]
 script = ExtResource("1_ys0yg")
 
@@ -113,3 +118,12 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_lxqog")
 
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="Actionable" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("3_m6hf2")
+dialogue_resource = ExtResource("4_q0kpm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable"]
+shape = SubResource("CircleShape2D_gt6hw")

@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://d26yac8uglqew"]
+[gd_scene load_steps=5 format=3 uid="uid://d26yac8uglqew"]
 
 [ext_resource type="Script" path="res://Scripts/HUD Scripts/main_menu.gd" id="1_e1sga"]
+[ext_resource type="StyleBox" uid="uid://bkql7jtoynfg5" path="res://Resources/Menu_Button_Stylebox.tres" id="2_2rbf8"]
+[ext_resource type="Texture2D" uid="uid://borcxwpb4awyh" path="res://Sprites/UI/CodeQuest_Logo.png" id="3_6n2fs"]
+[ext_resource type="Texture2D" uid="uid://crrfi02ebcdyt" path="res://Sprites/UI/Background_Main_Menu.png" id="4_u1kqx"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -18,23 +21,56 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -101.0
-offset_right = 70.0
+offset_left = 30.0
+offset_top = -301.0
+offset_right = 370.0
+offset_bottom = -165.0
 grow_vertical = 0
+scale = Vector2(2.76127, 2.76127)
 
 [node name="StartButton" type="Button" parent="Menu"]
+texture_filter = 1
 layout_mode = 2
+theme_override_styles/pressed = ExtResource("2_2rbf8")
+theme_override_styles/normal = ExtResource("2_2rbf8")
 text = "Start"
 
 [node name="OptionsButton" type="Button" parent="Menu"]
+texture_filter = 1
 layout_mode = 2
+theme_override_styles/pressed = ExtResource("2_2rbf8")
+theme_override_styles/normal = ExtResource("2_2rbf8")
 text = "Options"
 
 [node name="QuitButton" type="Button" parent="Menu"]
+texture_filter = 1
 layout_mode = 2
 focus_neighbor_top = NodePath("../OptionsButton")
 focus_neighbor_bottom = NodePath("../StartButton")
+theme_override_styles/pressed = ExtResource("2_2rbf8")
+theme_override_styles/normal = ExtResource("2_2rbf8")
 text = "Quit"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 54.0
+offset_top = 36.0
+offset_right = 495.0
+offset_bottom = 477.0
+texture = ExtResource("3_6n2fs")
+
+[node name="Main_Menu_Background" type="TextureRect" parent="."]
+modulate = Color(0.462291, 0.462291, 0.462291, 1)
+z_index = -5
+texture_filter = 1
+layout_mode = 0
+offset_left = -266.0
+offset_top = -173.0
+offset_right = -154.0
+offset_bottom = -110.0
+scale = Vector2(22.0497, 22.0497)
+texture = ExtResource("4_u1kqx")
 
 [connection signal="pressed" from="Menu/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Menu/OptionsButton" to="." method="_on_options_button_pressed"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://7e32f5h2mava"]
+
+[ext_resource type="Script" path="res://Scripts/ForLoopItem.gd" id="1_vw704"]
+[ext_resource type="Texture2D" uid="uid://boendhnfspfvg" path="res://Sprites/CodeBlockSprites/forLoop.png" id="2_ujxdp"]
+
+[node name="ForLoopItem" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_vw704")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HeaderHBox" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HeaderHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_ujxdp")
+
+[node name="LoopCountLabel" type="Label" parent="VBoxContainer/HeaderHBox/TextureRect"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 32.0
+offset_right = 52.0
+offset_bottom = 55.0
+horizontal_alignment = 1
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/HeaderHBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BlockContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
