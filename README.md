@@ -14,6 +14,10 @@ This repository contains all materials and documentation related to our project.
 - [Developer Documentation](https://github.com/ElliotOusley/CS362_Team_11_Project/blob/main/Developer_Documentation.md)
 - [User Documentation](https://github.com/ElliotOusley/CS362_Team_11_Project/blob/main/User_Documentation.md)
 
+# Itch.io (Web Version)
+
+To play CodeQuest in your browser, visit our [itch.io page](https://elliot-ousley.itch.io/codequest)
+
 # Game Files
 
 All Game Development related files can be found in the CodeQuest Directory. The directory can be found [here](https://github.com/ElliotOusley/CS362_Team_11_Project/tree/main/codeQuest/codeQuest)
@@ -30,9 +34,7 @@ Progress on the project can be seen on our [Trello Board](https://trello.com/b/L
 
 A guide on gameplay features can be found in our [wiki page](https://github.com/ElliotOusley/CS362_Team_11_Project/wiki)
 
-# Itch.io (Web Version)
 
-To play CodeQuest in your browser, visit our [itch.io page](https://elliot-ousley.itch.io/codequest)
 
 # Testing
 
