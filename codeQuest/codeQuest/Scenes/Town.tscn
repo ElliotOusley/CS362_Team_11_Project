@@ -130,11 +130,25 @@ position = Vector2(179, -196)
 dialogue_resource = ExtResource("9_mjuqx")
 
 [node name="Puzzlestone_1" parent="Ysort/Npcs" instance=ExtResource("10_hcjgo")]
-position = Vector2(246, -184)
+position = Vector2(250, -209)
 frame_progress = 0.056997
 
 [node name="PuzzleArea" parent="Ysort/Npcs/Puzzlestone_1" instance=ExtResource("11_4hjt7")]
-position = Vector2(-27, 18)
+position = Vector2(2, 2)
+
+[node name="Puzzlestone_2" parent="Ysort/Npcs" instance=ExtResource("10_hcjgo")]
+position = Vector2(184, -118)
+frame_progress = 0.056997
+
+[node name="PuzzleArea" parent="Ysort/Npcs/Puzzlestone_2" instance=ExtResource("11_4hjt7")]
+position = Vector2(2, 2)
+
+[node name="Puzzlestone_3" parent="Ysort/Npcs" instance=ExtResource("10_hcjgo")]
+position = Vector2(258, -39)
+frame_progress = 0.056997
+
+[node name="PuzzleArea" parent="Ysort/Npcs/Puzzlestone_3" instance=ExtResource("11_4hjt7")]
+position = Vector2(2, 2)
 
 [node name="Puzzlestone_Sign" parent="Ysort/Npcs" instance=ExtResource("8_qnmab")]
 y_sort_enabled = true
@@ -142,6 +156,9 @@ position = Vector2(245, -90)
 
 [node name="Actionable" parent="Ysort/Npcs/Puzzlestone_Sign" index="2"]
 dialogue_resource = ExtResource("12_qdkwd")
+
+[node name="CollisionShape2D" parent="Ysort/Npcs/Puzzlestone_Sign/Actionable" index="0"]
+position = Vector2(-63, 96)
 
 [node name="Welcome Sign" parent="Ysort/Npcs" instance=ExtResource("8_qnmab")]
 y_sort_enabled = true
