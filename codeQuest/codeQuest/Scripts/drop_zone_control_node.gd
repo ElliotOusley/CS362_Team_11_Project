@@ -196,6 +196,7 @@ extends Panel
 const FOR_LOOP_SCENE  = preload("res://Scenes/ForLoopItem.tscn")
 const WHILE_LOOP_SCENE = preload("res://Scenes/WhileLoopItem.tscn")
 const MOVEMENT_SCENE  = preload("res://Scenes/Item.tscn")
+const START_SCENE = preload("res://Scenes/StartItem.tscn")
 
 @onready var ICONS: Dictionary = {
 	"move_up":    preload("res://Sprites/CodeBlockSprites/moveUp.png"),
@@ -210,6 +211,14 @@ const MOVEMENT_SCENE  = preload("res://Scenes/Item.tscn")
 
 func _ready():
 	print("✅ DropZoneControl READY. I'm a Panel for dropping items.")
+	
+	var start_location = Vector2(42, 36)
+	var start_data = {"block_type": "start", "texture": ICONS["start"]}
+	
+	if (_can_drop_data(start_location, start_data)):
+		_drop_data(start_location, start_data);
+	else:
+		print("❌ ERROR: Can't add start block")
 	# If you need to connect signals manually, do so here, or in the editor.
 
 
@@ -226,6 +235,7 @@ func _can_drop_data(position: Vector2, data: Variant) -> bool:
 
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
+	print('              ', at_position, data)	
 	print("\n📥 DropZoneControl → _drop_data() called with data:", data)
 	if not _can_drop_data(at_position, data):
 		print("❌ ERROR: Invalid data dropped!")

@@ -27,10 +27,10 @@ texture = ExtResource("3_ljf84")
 
 [node name="Menu" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 703.0
-offset_right = 172.0
-offset_bottom = 753.0
+offset_left = 298.0
+offset_top = 357.0
+offset_right = 638.0
+offset_bottom = 418.0
 scale = Vector2(2.49572, 2.49572)
 
 [node name="Continue" type="Button" parent="Menu"]

@@ -188,7 +188,7 @@ var PUZZLES = [
 	{
 		"instructions": "Puzzle 0 - Basic Movement",
 		"blocks": [
-			{"block_type": "start", "display_text": "Start"},
+			# {"block_type": "start", "display_text": "Start"},
 			{"block_type": "move_up",    "display_text": "Move Up"},
 			{"block_type": "move_down",  "display_text": "Move Down"},
 			{"block_type": "move_left",  "display_text": "Move Left"},
