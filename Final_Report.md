@@ -5,6 +5,7 @@ Seth Taylor, Elliot Ousley, Nathen dela Torre, Carlos Vasquez, Ben Snider, and H
 
 # 1. Project Problem and Solution 
 
+## Abstract:
 It's a common issue for new programmers to struggle with staying motivated learning programming. Often, learning can feel like a chore, and access to educational resources can be hindered by paywalls.
 CodeQuest aims to make learning engaging by integrating coding concepets into an RPG-style game, where players earn incentives for solving problems that teach a programming mindset. 
 Our solution leverages a well-structured architecture with a game loop, UI integration, and a challenge validation system, ensuring an engaging and educational experience.
