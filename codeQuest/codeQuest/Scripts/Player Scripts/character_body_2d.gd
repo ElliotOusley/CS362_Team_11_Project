@@ -131,7 +131,6 @@ func save_position() -> void:
 		config.load(save_path)
 
 	# Save the player's position
-	var position = self.position
 	config.set_value("Player", "position", position)
 
 	config.save(save_path)

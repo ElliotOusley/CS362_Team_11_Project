@@ -45,7 +45,7 @@ func _ready():
 	var MazeBoardScene = load("res://Scenes/MazeBoard.tscn")
 	var maze_board_instance = MazeBoardScene.instantiate()
 	maze_board_instance.maze_index = maze_index
-	maze_board_holder.add_child(maze_board_instance)
+	maze_board_holder.call_deferred("add_child", maze_board_instance)
 
 	print("PuzzleUI ready. Instructions:", instructions_text)
 

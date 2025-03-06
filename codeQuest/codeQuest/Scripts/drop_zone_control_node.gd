@@ -227,7 +227,7 @@ func _ready():
 # if you rely on the engine's built-in mechanism. 
 # Otherwise, connect them as signals.
 # -------------------------------------------------------------------
-func _can_drop_data(position: Vector2, data: Variant) -> bool:
+func _can_drop_data(_position: Vector2, data: Variant) -> bool:
 	if data is Dictionary and data.has("block_type") and data.has("texture"):
 		return true
 	print("Rejected drop data in can_drop_data, not a valid dictionary:", data)

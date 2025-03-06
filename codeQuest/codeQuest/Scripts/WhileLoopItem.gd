@@ -13,7 +13,7 @@ func set_modulation(value: Color) -> void:
 	if icon_rect:
 		icon_rect.modulate = value
 
-@onready var label_node: Label = $VBoxContainer/HeaderHBox/Label
+#@onready var label_node: Label = $VBoxContainer/HeaderHBox/Label
 @onready var icon_rect: TextureRect = $VBoxContainer/HeaderHBox/TextureRect
 
 @onready var ICONS: Dictionary = {
@@ -21,10 +21,10 @@ func set_modulation(value: Color) -> void:
 }
 
 func _ready():
-	if label_node:
-		label_node.text = "WHILE No Wall"
-	else:
-		push_error("❌ Label node not found in WhileLoopItem scene!")
+	#if label_node:
+		#label_node.text = "WHILE No Wall"
+	#else:
+		#push_error("❌ Label node not found in WhileLoopItem scene!")
 	
 	if icon_rect:
 		if ICONS.has(block_type):
