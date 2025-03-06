@@ -588,6 +588,13 @@ Exceptions: Failure Conditions and Scenarios:
 
 ### Elliot:
 
+#### 1. Communication:
+
+#### 2. Coordination:
+Through this project, I learned the importance of coordination and keeping track of everything that must be done. There was a week where I forgot to sign up for a meeting, in which we had to schedule a last-minute meeting at a time when almost no team members were available. I took this mistake to heart, creating to-do lists and writing everything down, even if I believed I would remember it later.
+
+#### 3. 
+
 ### Hau'oli:
 
 ### Seth:
