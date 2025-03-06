@@ -10,14 +10,22 @@ CodeQuest aims to make learning engaging by integrating coding concepets into an
 Our solution leverages a well-structured architecture with a game loop, UI integration, and a challenge validation system, ensuring an engaging and educational experience.
 Testing will include user engagement analysis, success rates of coding challenges, and gameplay balancing metrics to validate the effectiveness of our approach. 
 
-### Add sections from proposal here ###
+## Goal:  
 
-###
+For someone with no knowledge on the subject, learning programming can seem like an incredibly daunting task. This project seeks to gamify the process of learning to make it accessible to people who may feel intimidated by other options. 
 
-### 
+## Current practice: 
 
+Current beginner friendly code learning tools like Codecademy throw their users directly into programming, which can seem overwhelming to their users. W3Schools provides large blocks of text and quizzes, which can turn away new users. Most solutions to this problem charge monthly subscription fees, which can range from fairly reasonable, in the case of Codecademy Pro at around 40 dollars a month, to completely unaffordable, in the case of HackerRank’s 200-450 dollar a month fee. These high prices can turn people away from learning new skills. 
 
-###
+## Novelty:  
+
+With this project, we seek to gamify the process of learning code in a way that puts fun as the priority. By turning programming into a game mechanic, rather than the complete focus of the game, it makes the process of learning basic code concepts much more approachable. With this approach of incorporating education into the gameplay experience, players can learn in a much easier way. 
+
+## Effects: 
+
+This project will make programming more accessible to people who feel intimidated by wordy, expensive, or complicated code learning platforms. By engaging with this project, these people will gain some confidence, which can allow them to seek out further skills. Programming is a skill that everyone should have, and we should therefore make it as accessible as possible. 
+
 # 2. Software architecture 
 
 ### Major Components
