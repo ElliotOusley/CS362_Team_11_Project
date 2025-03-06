@@ -1,12 +1,23 @@
+## Team 11 - Codequest
+Seth Taylor, Elliot Ousley, Nathen dela Torre, Carlos Vasquez, Ben Snider, and Hau’oli O’Brien
+
 # Final Living Document
 
 # 1. Project Problem and Solution 
 
-Many learners struggle to stay motivated when acquiring new skills, especially in programming. Often, learning can feel like a chore, and access to educational resources can be hindered by paywalls.
-CodeQuest aims to make learning engaging by integrating coding challenges into an RPG-style game, where players earn incentives for solving coding problems. Players can redo challenges up to three times before engaging in battles,
-reinforcing knowledge retention. Our solution leverages a well-structured architecture with a game loop, UI integration, and a challenge validation system, ensuring an engaging and educational experience.
+It's a common issue for new programmers to struggle with staying motivated learning programming. Often, learning can feel like a chore, and access to educational resources can be hindered by paywalls.
+CodeQuest aims to make learning engaging by integrating coding concepets into an RPG-style game, where players earn incentives for solving problems that teach a programming mindset. 
+Our solution leverages a well-structured architecture with a game loop, UI integration, and a challenge validation system, ensuring an engaging and educational experience.
 Testing will include user engagement analysis, success rates of coding challenges, and gameplay balancing metrics to validate the effectiveness of our approach. 
 
+### Add sections from proposal here ###
+
+###
+
+### 
+
+
+###
 # 2. Software architecture 
 
 ### Major Components
