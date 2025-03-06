@@ -16,6 +16,18 @@ focus_neighbor_top = NodePath("Menu/QuitButton")
 focus_neighbor_bottom = NodePath("Menu/OptionsButton")
 script = ExtResource("1_e1sga")
 
+[node name="Main_Menu_Background" type="TextureRect" parent="."]
+modulate = Color(0.462291, 0.462291, 0.462291, 1)
+z_index = -5
+texture_filter = 1
+layout_mode = 0
+offset_left = -266.0
+offset_top = -173.0
+offset_right = -154.0
+offset_bottom = -110.0
+scale = Vector2(22.0497, 22.0497)
+texture = ExtResource("4_u1kqx")
+
 [node name="Menu" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 2
@@ -59,18 +71,6 @@ offset_top = 36.0
 offset_right = 495.0
 offset_bottom = 477.0
 texture = ExtResource("3_6n2fs")
-
-[node name="Main_Menu_Background" type="TextureRect" parent="."]
-modulate = Color(0.462291, 0.462291, 0.462291, 1)
-z_index = -5
-texture_filter = 1
-layout_mode = 0
-offset_left = -266.0
-offset_top = -173.0
-offset_right = -154.0
-offset_bottom = -110.0
-scale = Vector2(22.0497, 22.0497)
-texture = ExtResource("4_u1kqx")
 
 [connection signal="pressed" from="Menu/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Menu/OptionsButton" to="." method="_on_options_button_pressed"]

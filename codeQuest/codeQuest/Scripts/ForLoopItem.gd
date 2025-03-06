@@ -10,7 +10,7 @@ extends MarginContainer
 			icon_rect.modulate = value
 
 @onready var spin_box: SpinBox = $VBoxContainer/HeaderHBox/TextureRect/SpinBox
-@onready var label_node: Label = $VBoxContainer/HeaderHBox/Label
+#@onready var label_node: Label = $VBoxContainer/HeaderHBox/Label
 @onready var icon_rect: TextureRect = $VBoxContainer/HeaderHBox/TextureRect
 @onready var loop_count_label: Label = $VBoxContainer/HeaderHBox/TextureRect/LoopCountLabel
 @onready var block_container: HBoxContainer = $VBoxContainer/HeaderHBox/TextureRect/BlockContainer
@@ -21,9 +21,9 @@ extends MarginContainer
 
 func _ready():
 	# Ensure that all required nodes exist
-	if not label_node:
-		push_error("❌ Label node not found in ForLoopItem scene!")
-		return
+	#if not label_node:
+		#push_error("❌ Label node not found in ForLoopItem scene!")
+		#return
 
 	if not spin_box:
 		push_error("❌ SpinBox node not found in ForLoopItem scene!")
@@ -131,10 +131,10 @@ func _gui_input(event):
 
 # **Updates both the label node and the loop count label**
 func _on_spin_box_value_changed(value: float) -> void:
-	if label_node:
-		label_node.text = "FOR %d times" % int(value)
-	else:
-		push_error("❌ label_node is NULL! Ensure it is assigned correctly in ForLoopItem scene.")
+	#if label_node:
+		#label_node.text = "FOR %d times" % int(value)
+	#else:
+		#push_error("❌ label_node is NULL! Ensure it is assigned correctly in ForLoopItem scene.")
 
 	if loop_count_label:
 		loop_count_label.text = "x%d" % int(value)

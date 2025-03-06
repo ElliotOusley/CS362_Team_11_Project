@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8parru8xavbk"]
+[gd_scene load_steps=3 format=3 uid="uid://c8parru8xavbk"]
 
 [ext_resource type="Script" path="res://Scripts/HUD Scripts/options.gd" id="1_c8ml5"]
+[ext_resource type="Texture2D" uid="uid://crrfi02ebcdyt" path="res://Sprites/UI/Background_Main_Menu.png" id="2_6soin"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -32,5 +33,16 @@ text = "WIP - Do Later"
 [node name="Button" type="Button" parent="Options"]
 layout_mode = 2
 text = "Back to Main Menu"
+
+[node name="Main_Menu_Background" type="TextureRect" parent="."]
+modulate = Color(0.462291, 0.462291, 0.462291, 1)
+z_index = -5
+texture_filter = 1
+offset_left = -491.0
+offset_top = -241.0
+offset_right = -379.0
+offset_bottom = -178.0
+scale = Vector2(22.0497, 22.0497)
+texture = ExtResource("2_6soin")
 
 [connection signal="pressed" from="Options/Button" to="." method="_on_button_pressed"]

@@ -24,6 +24,10 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 window/size/viewport_width=1440
 window/size/viewport_height=900
 
+[dotnet]
+
+project/assembly_name="codeQuest"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/gut/plugin.cfg")

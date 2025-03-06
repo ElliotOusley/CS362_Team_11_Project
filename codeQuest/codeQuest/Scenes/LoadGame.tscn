@@ -13,12 +13,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7kvlp")
 
+[node name="Main_Menu_Background" type="TextureRect" parent="."]
+modulate = Color(0.462745, 0.462745, 0.462745, 1)
+z_index = -5
+texture_filter = 1
+layout_mode = 0
+offset_left = -166.0
+offset_top = -187.0
+offset_right = -54.0
+offset_bottom = -124.0
+scale = Vector2(21.6366, 21.6366)
+texture = ExtResource("3_ljf84")
+
 [node name="Menu" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 703.0
-offset_right = 172.0
-offset_bottom = 753.0
+offset_left = 298.0
+offset_top = 357.0
+offset_right = 638.0
+offset_bottom = 418.0
 scale = Vector2(2.49572, 2.49572)
 
 [node name="Continue" type="Button" parent="Menu"]
@@ -34,18 +46,6 @@ layout_mode = 2
 theme_override_styles/pressed = ExtResource("2_acst6")
 theme_override_styles/normal = ExtResource("2_acst6")
 text = "New Game"
-
-[node name="Main_Menu_Background" type="TextureRect" parent="."]
-modulate = Color(0.462745, 0.462745, 0.462745, 1)
-z_index = -5
-texture_filter = 1
-layout_mode = 0
-offset_left = -166.0
-offset_top = -187.0
-offset_right = -54.0
-offset_bottom = -124.0
-scale = Vector2(21.6366, 21.6366)
-texture = ExtResource("3_ljf84")
 
 [connection signal="pressed" from="Menu/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Menu/New" to="." method="_on_new_pressed"]

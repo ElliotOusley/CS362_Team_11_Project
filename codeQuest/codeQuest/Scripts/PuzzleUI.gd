@@ -45,7 +45,7 @@ func _ready():
 	var MazeBoardScene = load("res://Scenes/MazeBoard.tscn")
 	var maze_board_instance = MazeBoardScene.instantiate()
 	maze_board_instance.maze_index = maze_index
-	maze_board_holder.add_child(maze_board_instance)
+	maze_board_holder.call_deferred("add_child", maze_board_instance)
 
 	print("PuzzleUI ready. Instructions:", instructions_text)
 
@@ -242,6 +242,10 @@ func _on_RunButton_pressed():
 	var player = maze_board.get_node_or_null("Player") as CharacterBody2D
 	var player_tile = Vector2i(player.position / tile_size)
 	if player_tile != GOAL_TILE:
+		var healthBar = get_node("/root/Node2D/Ysort/Player/CanvasLayer/Health/HealthBar")
+		
+		healthBar.decrease_health(1)
+
 		message_label.text = "You did not reach the goal. Resetting..."
 		await get_tree().create_timer(1).timeout
 		await _reset_player(player, tile_size)
