@@ -20,7 +20,6 @@ texture = ExtResource("1_qkwgm")
 stretch_mode = 4
 
 [node name="HealthControls" type="VBoxContainer" parent="Health"]
-visible = false
 layout_mode = 0
 offset_left = 64.7843
 offset_top = 3.79688
