@@ -15,11 +15,14 @@ var value : int
 
 func _ready() -> void:
 	value = max_health
-	print(max_health)
-	print(value)
 
 
 func update_health(new_value):
+	if new_value <= 0:
+		print("dead")
+	
+	value = new_value
+	
 	match mode:
 		modes.SIMPLE:
 			update_simple(new_value)
@@ -49,19 +52,21 @@ func update_partial(new_value):
 		else:
 			get_child(i).texture = heart_empty
 
+func increase_health(amount):
+	update_health(value + amount)
+
+func decrease_health(amount):
+	update_health(value - amount)
 
 func _on_add_health_pressed() -> void:
 	print("Adding health, current value is ", value)
 	if value < max_health:
-		value += 1
-		update_health(value)
+		update_health(value + 1)
 
 
 func _on_remove_health_pressed() -> void:
 	print(value)
-	if value > 0:
-		value -= 1
-		update_health(value)
+	update_health(value - 1)
 		
 func update_health_text(new_value):
 	var label = $"../../Current Health"

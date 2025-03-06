@@ -235,7 +235,6 @@ func _can_drop_data(_position: Vector2, data: Variant) -> bool:
 
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
-	print('              ', at_position, data)	
 	print("\n📥 DropZoneControl → _drop_data() called with data:", data)
 	if not _can_drop_data(at_position, data):
 		print("❌ ERROR: Invalid data dropped!")
