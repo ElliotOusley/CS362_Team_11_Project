@@ -1,13 +1,13 @@
 extends CharacterBody2D
 class_name PlayerCharacter
 
-@export var speed = 50
 @onready var actionable_finder: Area2D = $Direction/ActionableFinder
 @onready var footstep_audio: AudioStreamPlayer2D = $footstep_audio
-@export var inv: Inv
 @onready var UI: CanvasLayer = $CanvasLayer
 @onready var inventory_HUD = $CanvasLayer/InventoryUI
 
+@export var inv: Inv
+@export var speed = 50
 
 
 
@@ -20,6 +20,10 @@ var timer : Timer
 var witch_nearby = false  # Flag to track if the Witch is near
 
 var save_path = "user://savegame.ini"
+
+const INV_ITEMS = {
+	"potion": preload("res://inventory/Items/potion.tres")
+}
 
 func _ready():
 	# Create and configure the timer
@@ -40,9 +44,21 @@ func _ready():
 
 		position = pos
 
+		var item_names = config.get_value("Player", "item_names", [])
+		var item_amounts = config.get_value("Player", "item_amounts", [])
+
+		for i in range(item_names.size()):
+			var item_name = item_names[i]
+			var item_amount = item_amounts[i]
+
+			if INV_ITEMS.has(item_name):
+				var item = INV_ITEMS[item_name].duplicate()
+				inv.insert(item, item_amount)
+
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_PREDELETE:
 		save_position()
+		save_items()
 
 
 func get_input():
@@ -133,4 +149,24 @@ func save_position() -> void:
 	# Save the player's position
 	config.set_value("Player", "position", position)
 
+	config.save(save_path)
+
+func save_items() -> void:
+	var slots = inv.get_slots()
+	
+	var item_names = []
+	var item_amounts = []
+	for slot in slots:
+		if slot.item:
+			item_names.append(slot.item.name)
+			item_amounts.append(slot.amount)
+		
+
+	var config = ConfigFile.new()
+	if FileAccess.file_exists(save_path):
+		config.load(save_path)
+
+	config.set_value("Player", "item_names", item_names)
+	config.set_value("Player", "item_amounts", item_amounts)
+	
 	config.save(save_path)
