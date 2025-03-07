@@ -68,4 +68,22 @@ func _get_drag_data(position):
 
 # --------------------------------------------------
 # ✅ Allow Right-Click to Remove from AnswerArea
-# -------------
+# --------------------------------------------------
+func _gui_input(event):
+	# Detect right-click event and remove the block from the AnswerArea
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+		if get_parent() and get_parent().name == "AnswerArea":
+			print("🟠 Right-click detected! Removing block from AnswerArea.")
+			queue_free()  # Removes the block from AnswerArea
+
+# --------------------------------------------------
+# ✅ Save and Load Code Functionality
+# --------------------------------------------------
+func save_code():
+	saved_code = text  # Save the current text of the block
+	print("💾 Code saved:", saved_code)
+
+func load_code():
+	if saved_code != "":
+		text = saved_code  # Restore saved text
+		print("🔄 Code loaded:", saved_code)
