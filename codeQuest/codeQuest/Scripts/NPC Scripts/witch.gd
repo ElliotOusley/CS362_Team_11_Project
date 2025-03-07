@@ -5,6 +5,7 @@ class_name Witch
 @export var move_speed: float = 20.0
 @export var change_target_time: float = 2.0
 @export var stop_time: float = 1.0  # Time to stop after each move
+@export var health: int = 100  # Ensure health is defined
 
 var _origin_position: Vector2
 var _target_position: Vector2
@@ -68,3 +69,9 @@ func _play_movement_animation(direction: Vector2) -> void:
 		animation_player.play("walkleft")
 	elif direction == Vector2.RIGHT:
 		animation_player.play("walkright")
+
+# Add take_damage() to modify health
+func take_damage(amount: int) -> void:
+	health -= amount
+	if health <= 0:
+		queue_free()  # Remove the witch if health reaches 0
