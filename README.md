@@ -2,7 +2,7 @@
 
 Codequest is a puzzle role playing game that teaches programming through rpg mechanics like battles and puzzles. In this game, the player makes progress through completing puzzles in which they drag text blocks to answer questions and complete partial code snippets. This game is aimed at users who are new to programming, or those who would like an overview of programming in general.
 
-Codequest was created by Seth Taylor, Elliot Ousley, Nathen dela Torre, Philensakada Thavrin, Carlos Vasquez, Ben Snider, and Hau’oli O’Brien.
+Codequest was created by Seth Taylor, Elliot Ousley, Nathen dela Torre, Carlos Vasquez, Ben Snider, and Hau’oli O’Brien.
 This repository contains all materials and documentation related to our project.
 
 # Living Document
