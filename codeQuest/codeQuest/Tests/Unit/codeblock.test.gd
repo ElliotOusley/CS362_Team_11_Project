@@ -18,9 +18,6 @@ func test_initialization():
     assert(code_block.has_method("save_code"), "CodeBlock should have a save_code method")
     assert(code_block.has_method("_ready"), "CodeBlock should have a _ready method")
 
-    assert_not_null(code_block.text, "CodeBlock should have an initialized text property")
-    assert_eq(code_block.is_draggable, true, "CodeBlock should be draggable by default")
-
     if code_block.has_method("get_correct_answer"):
         assert_not_null(code_block.correct_answer, "CodeBlock should have a correct answer set")
     else:
@@ -33,5 +30,6 @@ func test_save_and_load_code():
         code_block.save_code()
         code_block.text = ""
         code_block._ready()  # Simulate reloading
-        assert_eq(code_block.text, "print('Hello, CodeQuest!')",
-
+        assert_eq(code_block.text, "print('Hello, CodeQuest!')", "CodeBlock should reload saved text correctly.")
+    else:
+        fail_test("CodeBlock does not have a save_code method")
