@@ -17,12 +17,19 @@ func after_each():
 func test_attack_reduces_witch_health():
 	witch.health = 100
 	player.attack_damage = 20
-	player.attack(witch)
-	assert_eq(witch.health, 80, "Witch health should decrease by player's attack damage")
+	
+	if witch.has_method("take_damage"):  # Ensure method exists
+		player.attack(witch)
+		assert_eq(witch.health, 80, "Witch health should decrease by player's attack damage")
+	else:
+		fail_test("Witch does not have a take_damage method")
 
 func test_attack_does_not_go_negative():
 	witch.health = 10
 	player.attack_damage = 20
-	player.attack(witch)
-	assert_gte(witch.health, 0, "Witch health should not go below zero")
-
+	
+	if witch.has_method("take_damage"):  # Ensure method exists
+		player.attack(witch)
+		assert_gte(witch.health, 0, "Witch health should not go below zero")
+	else:
+		fail_test("Witch does not have a take_damage method")

@@ -3,7 +3,7 @@ extends GutTest
 var code_block
 
 func before_each():
-	code_block = preload("res://Scenes/CodeBlocks/CodeBlock.tscn").instantiate()
+	code_block = preload("res://Scenes/CodeBlock.tscn").instantiate()
 	add_child(code_block)
 
 func after_each():
