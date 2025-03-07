@@ -2,6 +2,7 @@ extends Button
 
 @export var block_type: String = ""  # Type of block (e.g., move_up, move_down)
 @export var display_text: String = ""  # Display text for the button
+var saved_code: String = ""  # Variable to store saved code
 
 # A dictionary to preload block icons based on the block type
 @onready var block_icons := {
@@ -67,11 +68,4 @@ func _get_drag_data(position):
 
 # --------------------------------------------------
 # ✅ Allow Right-Click to Remove from AnswerArea
-# --------------------------------------------------
-func _gui_input(event):
-	# Detect right-click event and remove the block from the AnswerArea
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-		if get_parent() and get_parent().name == "AnswerArea":
-			print("🟠 Right-click detected! Removing block from AnswerArea.")
-			queue_free()  # Removes the block from AnswerArea
-
+# -------------
