@@ -601,6 +601,9 @@ Through this project, I learned the importance of coordination and keeping track
 We started this game with only game mechanics in mind. This created some issues once we had game mechanics implemented, because we had no planned story or level designs to create. If we were to do this project again, I would create a story early in the development process so that we would be able to take it into account for dialogue and level design.
 
 ### Hau'oli:
+Throughout this project, I learned a lot about not only how to work on large-scale projects like this but also how to collaborate effectively within a team. Coordinating tasks, ensuring deadlines are met, and maintaining clear communication were crucial challenges, and I saw firsthand how important it is to keep everyone aligned. This became especially evident through CodeQuest, where we had to consistently discuss our progress, problem-solve together, and make sure everyone was on track. Strong communication was key to approaching obstacles and finding solutions efficiently.
+
+On the technical side, I gained hands-on experience with Godot, which deepened my understanding of game development, particularly in the RPG genre. Before this project, I had little exposure to RPGs—I hadn't played them or taken much interest in them—but working on CodeQuest sparked my curiosity. As we built the game, I developed a better grasp of what makes an RPG engaging, from game mechanics and progression systems to player interaction and storytelling. Now that the project is wrapping up, I feel much more confident about where to start when developing an RPG and the essential elements needed to make it successful. This experience has not only expanded my technical skills but also reshaped my perspective on game design and collaboration.  
 
 ### Seth:
 
