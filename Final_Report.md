@@ -238,21 +238,11 @@ we have created weekly goals for game progress, that we will follow without atte
 until essential features are done. We can detect this issue by checking in with all members
 to ensure that we all take on work that is achievable. 
 
-**Inexperience:**
-While all members of the team have experience with programming, they do not have experience with 
-GDScript or the Godot engine. Because of this, learning and project development must be done
-at the same time, which could lead to mistakes. This has a high likelihood of occurring, 
-and a high impact to progress if it occurs. This issue has already occured a few times as the team gets used to Godot.
-This issue can be minimized by the amount of educational resources available for learning Godot,
-like their incredibly comprehensive documentation and YouTube guides made by experienced users of Godot.
+**Assets:**
+Visuals are a large part of games, so a lot of image files are used in game development. In having so many images, there is a risk that some may be inconsistent, missing, or broken. This issue has a medium likelihood of occurring, and a high impact on the project, as missing assets are very noticeable, and must be fixed as soon as possible. This risk can be minimized by having a clear file structure with consistent file names.
 
-**Playtesting and Bug fixing:**
-To ensure that players have a positive experience with this project,
-it is essential that members test to ensure that the game is interesting, not too difficult,
-and free of bugs. These issues  have a medium likelihood of occuring, and a medium impact on the project. 
-Even with testing and bugfixing, some issues may occur. This risk can be minimized by encouraging people
-outside of the development team to playtest the game, in order to receive unique and genuine feedback. 
-Additionally, we will be using GitHub Issues to document bugs. 
+**Platform compatibility:**
+We plan to release our game as an executable and a web application. This can cause issues, as games made in Godot can act differently on different platforms. This can lead to unforseen bugs that may not be caught in testing. This issue has a high likelihood of occurring, and has a high impact on the project. This can be minimized by building and testing often.
 
 **Finding the fun:**
 While having good art assets and complicated systems can help with a user’s experience,
@@ -262,15 +252,8 @@ This issue has a medium likelihood of occurring, but will not affect project com
 affect the final product if fun mechanics are not identified. This issue can be minimized by running frequent
 playtesting to get feedback on what others find fun. 
 
-**Audiences:**
-Our game combines multiple genres as a way to teach programming in a fun way. However, 
-this runs the risk of alienating audiences. As an example, combining a puzzle game with a role playing game may 
-not appeal to players who are a fan of either genre, but instead a smaller subset of player who enjoy both. As such,
-it is important to consider ways to get players who only enjoy one genre to try the game. This issue has high risk
-of occuring, as we are combining multiple genres for this game. However, it has a low impact.
-It could lead to less player engagement. This risk can be detected through playtesting with 
-people who are fans of one of the two genres we combine. This risk can be minimized by ensuring that both genres 
-are properly represented with extra care taken to develop game mechanics. 
+**Optimization:**
+As the project is developed and systems interact, the performance of the game may be impacted, which could make it unusable to people with less powerful computers. This issue has a fairly high likelihood of occurring, as we are new to game development, and has a medium impact. This risk can be minimized through frequent checks on performance, keeping art assets small, and optimizing code when possible.
 
 **Integration Issues:**
 Since the project involves multiple components working together, integration issues have a high likelihood and a medium impact if not managed properly.
