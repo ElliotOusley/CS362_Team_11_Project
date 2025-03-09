@@ -15,10 +15,16 @@ var _stop_timer: float = 0.0
 var _direction: Vector2 = Vector2.ZERO  # Stores the current movement direction
 
 @onready var animation_player: AnimationPlayer = $Sprite2D/witchAnimation
+@onready var footstep_audio: AudioStreamPlayer2D = $witch_footstep
+@onready var footstep_timer: Timer = $FootstepTimer  # Timer node for controlling footstep sounds
 
 func _ready() -> void:
 	_origin_position = global_position
 	_pick_new_target()
+
+	footstep_timer.wait_time = 0.2  # Time interval between footsteps
+	footstep_timer.one_shot = false
+	footstep_timer.connect("timeout", Callable(self, "_play_footstep_sound"))
 
 func _physics_process(delta: float) -> void:
 	if _is_stopped:
@@ -29,6 +35,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity = Vector2.ZERO
 			animation_player.stop()  # Stop animation when idle
+			_stop_footstep_sound()  # Ensure footsteps stop when idle
 			return
 	
 	_time_passed += delta
@@ -44,6 +51,8 @@ func _physics_process(delta: float) -> void:
 	elif _direction == Vector2.LEFT or _direction == Vector2.RIGHT:
 		velocity = Vector2(_direction.x * move_speed, 0)  # Y is always 0
 
+	_start_footstep_sound()
+
 	# Play the correct movement animation
 	_play_movement_animation(_direction)
 
@@ -53,6 +62,7 @@ func _physics_process(delta: float) -> void:
 	if global_position.distance_to(_target_position) < 10:
 		_pick_new_target()
 		_is_stopped = true
+		_stop_footstep_sound()  # Stop footsteps when stopping
 
 func _pick_new_target() -> void:
 	var directions = [Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT]
@@ -75,3 +85,22 @@ func take_damage(amount: int) -> void:
 	health -= amount
 	if health <= 0:
 		queue_free()  # Remove the witch if health reaches 0
+
+# Start the footstep sound timer when moving
+func _start_footstep_sound() -> void:
+	if !footstep_timer.is_stopped():
+		return
+	footstep_timer.start()
+
+# Stop the footstep sound timer when idle
+func _stop_footstep_sound() -> void:
+	if footstep_timer.is_stopped():
+		return
+	footstep_timer.stop()
+
+# Play the footstep sound when the timer times out
+func _play_footstep_sound() -> void:
+	if !footstep_audio.playing:
+		footstep_audio.pitch_scale = randf_range(0.8, 1.2)
+		footstep_audio.play()
+
