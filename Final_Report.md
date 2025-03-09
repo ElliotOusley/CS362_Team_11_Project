@@ -609,11 +609,13 @@ Exceptions: Failure Conditions and Scenarios:
 ### Elliot:
 
 #### 1. Communication:
+Throughout our project, we had some difficulties with communication. Eventually, we settled on a text group for communication and a Microsoft Team for files, announcements, meeting notes, and updates. Not having an effective method of communication made the first part of the project difficult, since we had to find each other in class to talk about important updates.
 
 #### 2. Coordination:
 Through this project, I learned the importance of coordination and keeping track of everything that must be done. There was a week where I forgot to sign up for a meeting, in which we had to schedule a last-minute meeting at a time when almost no team members were available. I took this mistake to heart, creating to-do lists and writing everything down, even if I believed I would remember it later.
 
 #### 3. 
+
 
 ### Hau'oli:
 
