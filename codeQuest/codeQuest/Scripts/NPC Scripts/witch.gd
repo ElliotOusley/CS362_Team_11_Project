@@ -103,4 +103,3 @@ func _play_footstep_sound() -> void:
 	if !footstep_audio.playing:
 		footstep_audio.pitch_scale = randf_range(0.8, 1.2)
 		footstep_audio.play()
-

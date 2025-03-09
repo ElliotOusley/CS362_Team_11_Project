@@ -1,0 +1,158 @@
+[gd_scene load_steps=24 format=3 uid="uid://cw73kfwffeght"]
+
+[ext_resource type="Texture2D" uid="uid://btt28l7w14oyt" path="res://Sprites/Characters/Puzzle_Stone-Sheet.png" id="1_jrkcx"]
+[ext_resource type="PackedScene" uid="uid://chek4go0j0uc4" path="res://Scenes/PuzzleArea.tscn" id="2_8njc2"]
+[ext_resource type="Script" path="res://Scripts/MazeBoard.gd" id="2_o36pg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frvcy"]
+atlas = ExtResource("1_jrkcx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6nq2"]
+atlas = ExtResource("1_jrkcx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtkcw"]
+atlas = ExtResource("1_jrkcx")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v82x1"]
+atlas = ExtResource("1_jrkcx")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2tqi"]
+atlas = ExtResource("1_jrkcx")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqilv"]
+atlas = ExtResource("1_jrkcx")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_df68y"]
+atlas = ExtResource("1_jrkcx")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqskd"]
+atlas = ExtResource("1_jrkcx")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mt22w"]
+atlas = ExtResource("1_jrkcx")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjcuw"]
+atlas = ExtResource("1_jrkcx")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2foyp"]
+atlas = ExtResource("1_jrkcx")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nynxk"]
+atlas = ExtResource("1_jrkcx")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igedm"]
+atlas = ExtResource("1_jrkcx")
+region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77qas"]
+atlas = ExtResource("1_jrkcx")
+region = Rect2(208, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dn38t"]
+atlas = ExtResource("1_jrkcx")
+region = Rect2(224, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gklyy"]
+atlas = ExtResource("1_jrkcx")
+region = Rect2(240, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh8pj"]
+atlas = ExtResource("1_jrkcx")
+region = Rect2(256, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ssbr"]
+atlas = ExtResource("1_jrkcx")
+region = Rect2(272, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w7o71"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frvcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6nq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtkcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v82x1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2tqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqilv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_df68y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqskd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt22w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjcuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2foyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nynxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igedm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77qas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dn38t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gklyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rh8pj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ssbr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6xla"]
+size = Vector2(10, 15)
+
+[node name="PuzzleStone" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_w7o71")
+frame_progress = 0.764025
+speed_scale = 2.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_s6xla")
+
+[node name="PuzzleArea" parent="StaticBody2D" instance=ExtResource("2_8njc2")]
+script = ExtResource("2_o36pg")
+maze_index = 0
