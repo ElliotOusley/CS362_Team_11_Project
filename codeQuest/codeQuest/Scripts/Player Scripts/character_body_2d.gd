@@ -70,7 +70,7 @@ func get_input():
 		if witch_nearby:
 			_start_battle_with_witch()
 			return  # Stop movement while battle starts
-
+		
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0:
 			actionables[0].action()
