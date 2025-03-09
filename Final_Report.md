@@ -597,8 +597,8 @@ Throughout our project, we had some difficulties with communication. Eventually,
 #### 2. Coordination:
 Through this project, I learned the importance of coordination and keeping track of everything that must be done. There was a week where I forgot to sign up for a meeting, in which we had to schedule a last-minute meeting at a time when almost no team members were available. I took this mistake to heart, creating to-do lists and writing everything down, even if I believed I would remember it later.
 
-#### 3. 
-
+#### 3. Story
+We started this game with only game mechanics in mind. This created some issues once we had game mechanics implemented, because we had no planned story or level designs to create. If we were to do this project again, I would create a story early in the development process so that we would be able to take it into account for dialogue and level design.
 
 ### Hau'oli:
 
