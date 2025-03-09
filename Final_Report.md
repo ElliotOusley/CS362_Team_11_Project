@@ -277,7 +277,7 @@ Timeline
 | Week 7  | Create save system  | Create or find appropriate music and sound effects  |
 | Week 8  | Polish and test code block system  | Polish Existing sprites |
 | Week 9  | Implement battle system and other stretch goals |  Add additional animations and animation trees |
-| Week 10 | Final Testing | Final Testing |
+| Week 10 | Write tests for major components and fix bugs | Write tests for major component and fix bugs |
 
 Logistics Team: 
 
@@ -332,7 +332,7 @@ Philensakada Thavrin: UI/UX Designer: Create interfaces and ensures a smooth use
 
 ### iv. Test plan & bugs 
 
-We plan to use unit testing to test components that use complicated scripts, like the player movements system. We will test this by using Godot's built-in testing features to create scripts that test these components. By doing so, we hope to catch bugs early in the development process.
+We plan to use unit testing to test components like travel gates, NPCs, the player, and code block puzzles. We will test this by using Godot's built-in testing features to create scripts that test these components. By doing so, we hope to catch bugs early in the development process.
 
 With integration testing, we plan to test how systems like the inventory and player interact with one another. We will test this by creating a separate scene to simulate gameplay scenarios in which these systems would interact.
 
