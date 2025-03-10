@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rt4vk1k7a603"
-path="res://.godot/imported/Tile_Atlas_1.png-f5db12adf1aad0fc53344d16b724e77f.ctex"
+uid="uid://cdyg0asoce5cv"
+path="res://.godot/imported/Apple.png-c8e51741c51274774dffe313719613a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tile_Atlas_1.png"
-dest_files=["res://.godot/imported/Tile_Atlas_1.png-f5db12adf1aad0fc53344d16b724e77f.ctex"]
+source_file="res://Sprites/Objects/Apple.png"
+dest_files=["res://.godot/imported/Apple.png-c8e51741c51274774dffe313719613a2.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da6xki7aqwunb"
-path="res://.godot/imported/Tile_Atlas_1.png-57394648d79931e568f92627f25b5c96.ctex"
+uid="uid://bejtrle5akc1o"
+path="res://.godot/imported/Picnic Basket.png-2ad52ea39b79f06f522a8492f2caa913.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Atlases/Tile_Atlas_1.png"
-dest_files=["res://.godot/imported/Tile_Atlas_1.png-57394648d79931e568f92627f25b5c96.ctex"]
+source_file="res://Sprites/Objects/Picnic Basket.png"
+dest_files=["res://.godot/imported/Picnic Basket.png-2ad52ea39b79f06f522a8492f2caa913.ctex"]
 
 [params]
 

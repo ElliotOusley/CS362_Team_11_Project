@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://cp1p0ai1teiff"]
 
 [ext_resource type="Script" path="res://Scripts/MazeBoard.gd" id="1_ksb7i"]
-[ext_resource type="Texture2D" uid="uid://cb4gudtdaj4nk" path="res://Sprites/Atlases/Tile_Atlas_1.png" id="2_hkbe1"]
+[ext_resource type="Texture2D" uid="uid://da6xki7aqwunb" path="res://Sprites/Atlases/Tile_Atlas_1.png" id="2_hkbe1"]
 [ext_resource type="Texture2D" uid="uid://btohhiwbyllxh" path="res://Sprites/Characters/Red_Wizard/Player_SpriteSheet-Sheet.png" id="2_qfaa3"]
 [ext_resource type="Texture2D" uid="uid://cbh47vqiuha88" path="res://Sprites/Objects/Cauldron-Sheet.png" id="4_t4k2s"]
 
