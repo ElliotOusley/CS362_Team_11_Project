@@ -588,6 +588,13 @@ Exceptions: Failure Conditions and Scenarios:
 # 7. Reflections:
 
 ### Carlos:
+Working on CodeQuest has been a real learning experience for me, both in teamwork and the technical side of game development. At the beginning, our team struggled with communicating and sharing updates. We had trouble finding a good way to communicate, and that made it hard to know what everyone was working on. Eventually, we set up a text group and used Microsoft Teams to share files and meeting notes, and that helped us get on track.
+
+I also had a hard time getting used to Godot. Learning how to work with nodes, scenes, and GDScript was challenging at first. I spent a lot of time reading documentation and trying out small projects just to understand how everything worked together. Even though it was frustrating at times, I learned a lot and grew more confident as I got the hang of it.
+
+Working on this project taught me a lot about working in a larger team on a bigger project. I learned how important it is to coordinate our efforts, stay organized, and support each other when problems come up. Managing a project like this showed me that clear communication and planning are key to making sure everyone is on the same page.
+
+Overall, these challenges taught me to be patient, to keep learning, and to value teamwork. I'm happy with how our team improved over time, and I'm proud of what we achieved with CodeQuest.
 
 ### Elliot:
 
