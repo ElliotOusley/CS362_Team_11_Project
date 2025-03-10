@@ -263,10 +263,6 @@ and adjustments will be made to ensure compatibility across all modules.
 
 ### ii. Project schedule 
 
-Identify milestones (external and internal), define tasks along with effort estimates (at granularity no coarser than 1-person-week units), and identify dependences among them. (What has to be complete before you can begin implementing component X? What has to be complete before you can start testing component X? What has to be complete before you can run an entire (small) use case?) This should reflect your actual plan of work, possibly including items your team has already completed. 
-
-To build a schedule, start with your major milestones (tend to be noun-like) and fill in the tasks (tend to start with a verb) that will allow you to achieve them. A simple table is sufficient for this size of a project. 
-
 Timeline 
 | Week     | Development Tasks | Design Tasks |
 | ----------- | ----------- | ---------------- |
