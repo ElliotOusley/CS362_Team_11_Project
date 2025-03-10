@@ -592,6 +592,8 @@ Working on CodeQuest has been a real learning experience for me, both in teamwor
 
 I also had a hard time getting used to Godot. Learning how to work with nodes, scenes, and GDScript was challenging at first. I spent a lot of time reading documentation and trying out small projects just to understand how everything worked together. Even though it was frustrating at times, I learned a lot and grew more confident as I got the hang of it.
 
+Another challenge we faced was with merging branches in Git. At first, we ran into a lot of trouble because we accidentally pushed all of the cache files into the repository. This made merging branches a real headache. Eventually, I took the time to clean out the cache files and set up a proper .gitignore file to keep them out of the repository. This change made our work much smoother and helped us avoid similar issues in the future.
+
 Working on this project taught me a lot about working in a larger team on a bigger project. I learned how important it is to coordinate our efforts, stay organized, and support each other when problems come up. Managing a project like this showed me that clear communication and planning are key to making sure everyone is on the same page.
 
 Overall, these challenges taught me to be patient, to keep learning, and to value teamwork. I'm happy with how our team improved over time, and I'm proud of what we achieved with CodeQuest.
