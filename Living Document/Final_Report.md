@@ -617,5 +617,10 @@ On the technical side, I gained hands-on experience with Godot, which deepened m
 ### Seth:
 
 ### Nathen:
+This project was a significant learning experience for a Software Engineer's end-to-end process. We started by setting up a way to communicate through Microsoft Teams and text messages, creating a code repository to allow us to have version controls, learning Godot, and implementing tests to test our code to ensure its reliability automatically. 
+Communication during this project had a rough start, but we were able to find a good way to communicate with each other and share our progress. 
+The GitHub code repository allowed me to see how a team of Software Engineers works together. Initially, I was still getting the hang of it and had many merge conflicts. But after a bit of communication, there was a lot more coordination of the pushes to the repo. 
+Godot and game development in general were new to me, so there was definitely a high learning curve at the beginning. But after watching tutorials and looking at the Godot documentation, I was able to get a better understanding of the game engine. 
+Before this class, I had done minimal unit testing implementation. However, through the lectures and homework, I was able to understand how to implement a CI/CD pipeline with Github's action to be able to automatically conduct a unit test. 
 
 ### Ben:
