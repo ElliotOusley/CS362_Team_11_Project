@@ -6,7 +6,7 @@ Codequest was created by Seth Taylor, Elliot Ousley, Nathen dela Torre, Carlos V
 This repository contains all materials and documentation related to our project.
 
 # Living Document
-Our final report, along with other documentation files, can be found [here.](https://github.com/ElliotOusley/CS362_Team_11_Project/tree/main/Living%20Document)
+Our [final report](https://github.com/ElliotOusley/CS362_Team_11_Project/blob/main/Living%20Document/Final_Report.md), along with other documentation files, can be found [here.](https://github.com/ElliotOusley/CS362_Team_11_Project/tree/main/Living%20Document)
 
 # Itch.io (Downloads)
 
