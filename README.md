@@ -12,6 +12,10 @@ Our [final report](https://github.com/ElliotOusley/CS362_Team_11_Project/blob/ma
 
 To play CodeQuest in your browser or download the Windows version, visit our [itch.io page](https://elliot-ousley.itch.io/codequest)
 
+# Releases
+
+To find game releases, go to the GitHub [releases](https://github.com/ElliotOusley/CS362_Team_11_Project/releases/tag/Builds) page
+
 # Game Files
 
 All Game Development related files can be found in the Source Directory. The directory can be found [here](https://github.com/ElliotOusley/CS362_Team_11_Project/tree/main/Source/codeQuest)
