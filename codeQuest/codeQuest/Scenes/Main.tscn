@@ -64,12 +64,16 @@ position = Vector2(-127, -82)
 [node name="Actionable" parent="Ysort/Witch" index="3"]
 dialogue_resource = ExtResource("5_iv32s")
 
+[node name="witch_footstep" parent="Ysort/Witch" index="4"]
+volume_db = -10.0
+
 [node name="Player" parent="Ysort" instance=ExtResource("2_x22wi")]
 position = Vector2(-183, -108)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Ysort/Player"]
 position = Vector2(56, 26)
 stream = ExtResource("3_gfose")
+volume_db = -15.0
 autoplay = true
 
 [node name="Sign" parent="Ysort" instance=ExtResource("8_n70of")]
@@ -102,7 +106,7 @@ position = Vector2(-515, -644)
 
 [node name="Gate" parent="Ysort" instance=ExtResource("12_xda0j")]
 y_sort_enabled = true
-position = Vector2(-365, -530)
+position = Vector2(-365, -534)
 marker_name = "Ysort/Objects/Gate/Town_Marker"
 target_scene_path = "res://Scenes/Town.tscn"
 
@@ -165,13 +169,13 @@ position = Vector2(-321, -633)
 position = Vector2(-120, -838)
 
 [node name="Glow_Mushroom10" parent="Ysort/Objects" instance=ExtResource("17_m2ae1")]
-position = Vector2(32, -801)
+position = Vector2(33, -805)
 
 [node name="Glow_Mushroom11" parent="Ysort/Objects" instance=ExtResource("17_m2ae1")]
-position = Vector2(21, -857)
+position = Vector2(21, -854)
 
 [node name="Glow_Mushroom12" parent="Ysort/Objects" instance=ExtResource("17_m2ae1")]
-position = Vector2(-66, -768)
+position = Vector2(-66, -774)
 
 [node name="Glow_Mushroom13" parent="Ysort/Objects" instance=ExtResource("17_m2ae1")]
 position = Vector2(-62, -835)

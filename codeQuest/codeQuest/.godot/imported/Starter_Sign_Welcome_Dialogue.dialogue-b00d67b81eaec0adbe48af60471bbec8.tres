@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_cskc6"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_resource.gd" id="1_t21t0"]
 
 [resource]
-script = ExtResource("1_cskc6")
+script = ExtResource("1_t21t0")
 using_states = PackedStringArray()
 titles = {
 "start": "1"
@@ -20,7 +20,7 @@ lines = {
 "character": "Sign",
 "id": "1",
 "next_id": "2",
-"text": "Welcome to the CodeQuest Beta.",
+"text": "Welcome to CodeQuest.",
 "type": "dialogue"
 },
 "2": {
@@ -41,7 +41,7 @@ lines = {
 "character": "Sign",
 "id": "4",
 "next_id": "5",
-"text": "This demo features inventory, dialogue, code puzzles, and teleport gates.",
+"text": "This build features inventory, dialogue, code puzzles, and teleport gates.",
 "type": "dialogue"
 },
 "5": {
@@ -67,10 +67,10 @@ lines = {
 }
 }
 raw_text = "~ start
-Sign: Welcome to the CodeQuest Beta.
+Sign: Welcome to CodeQuest.
 Sign: Signs can be found around the map.
 Sign: Press the \"Space bar\" to interact with them.
-Sign: This demo features inventory, dialogue, code puzzles, and teleport gates.
+Sign: This build features inventory, dialogue, code puzzles, and teleport gates.
 Sign: Move to the top of this zone to continue.
 => END"
 metadata/dialogue_manager_version = "3.0.1"

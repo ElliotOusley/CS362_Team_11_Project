@@ -131,6 +131,8 @@ shape = SubResource("CircleShape2D_gt6hw")
 
 [node name="witch_footstep" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_b75ty")
+volume_db = -15.489
+max_distance = 200.0
 
 [node name="FootstepTimer" type="Timer" parent="."]
 wait_time = 2.0
