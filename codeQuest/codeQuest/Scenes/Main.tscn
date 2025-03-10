@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://d1bbp5i8mcv8d"]
+[gd_scene load_steps=20 format=4 uid="uid://d1bbp5i8mcv8d"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_45v3f"]
 [ext_resource type="PackedScene" uid="uid://cce3ge1fy6voy" path="res://Scenes/Player.tscn" id="2_x22wi"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://ci8cww0vriuf1" path="res://Sprites/Objects/House_001.png" id="14_8g3hn"]
 [ext_resource type="Texture2D" uid="uid://cdyg0asoce5cv" path="res://Sprites/Objects/Apple.png" id="15_h60fe"]
 [ext_resource type="Texture2D" uid="uid://bejtrle5akc1o" path="res://Sprites/Objects/Picnic Basket.png" id="16_e7gp8"]
+[ext_resource type="PackedScene" uid="uid://b5bbewonnkong" path="res://Scenes/Objects/glow_mushroom.tscn" id="17_m2ae1"]
 [ext_resource type="Resource" uid="uid://7vgsbila31qx" path="res://Dialogue/End_Dialogue.dialogue" id="17_sq7fv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ebjh7"]
@@ -156,6 +157,45 @@ y_sort_enabled = true
 texture_filter = 1
 position = Vector2(-44, -946)
 texture = ExtResource("15_h60fe")
+
+[node name="Glow_Mushroom8" parent="Ysort/Objects" instance=ExtResource("17_m2ae1")]
+position = Vector2(-321, -633)
+
+[node name="Glow_Mushroom9" parent="Ysort/Objects" instance=ExtResource("17_m2ae1")]
+position = Vector2(-120, -838)
+
+[node name="Glow_Mushroom10" parent="Ysort/Objects" instance=ExtResource("17_m2ae1")]
+position = Vector2(32, -801)
+
+[node name="Glow_Mushroom11" parent="Ysort/Objects" instance=ExtResource("17_m2ae1")]
+position = Vector2(21, -857)
+
+[node name="Glow_Mushroom12" parent="Ysort/Objects" instance=ExtResource("17_m2ae1")]
+position = Vector2(-66, -768)
+
+[node name="Glow_Mushroom13" parent="Ysort/Objects" instance=ExtResource("17_m2ae1")]
+position = Vector2(-62, -835)
+
+[node name="Glow_Mushroom" parent="Ysort/Objects" instance=ExtResource("17_m2ae1")]
+position = Vector2(-250, -428)
+
+[node name="Glow_Mushroom2" parent="Ysort/Objects" instance=ExtResource("17_m2ae1")]
+position = Vector2(-444, -470)
+
+[node name="Glow_Mushroom3" parent="Ysort/Objects" instance=ExtResource("17_m2ae1")]
+position = Vector2(-71, -540)
+
+[node name="Glow_Mushroom4" parent="Ysort/Objects" instance=ExtResource("17_m2ae1")]
+position = Vector2(5, -651)
+
+[node name="Glow_Mushroom5" parent="Ysort/Objects" instance=ExtResource("17_m2ae1")]
+position = Vector2(-120, -233)
+
+[node name="Glow_Mushroom6" parent="Ysort/Objects" instance=ExtResource("17_m2ae1")]
+position = Vector2(-247, -34)
+
+[node name="Glow_Mushroom7" parent="Ysort/Objects" instance=ExtResource("17_m2ae1")]
+position = Vector2(90, -235)
 
 [node name="Witch2" parent="Ysort" instance=ExtResource("3_ugqw2")]
 position = Vector2(13, -944)
